@@ -1,0 +1,21 @@
+#app {
+    margin: 0 auto;
+}
+
+
+.rv-value {
+    display: inline-block;
+    content: 'R';
+    color: #fff;
+    background-color: orange;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+
+    &::after {
+        content: 'R';
+        display: inline-block;
+    }
+}

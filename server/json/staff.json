@@ -1,0 +1,727 @@
+[{
+    "code": "R367",
+    "name": "林夢祖",
+    "name_en": "Joanne Lin",
+    "gender": 2,
+    "department": "總務行政處"
+}, {
+    "code": "R366",
+    "name": "周爾宣",
+    "name_en": "Sean Chou",
+    "gender": 1,
+    "department": "風險管理處"
+}, {
+    "code": "R365",
+    "name": "石曜彰",
+    "name_en": "John Shih",
+    "gender": 1,
+    "department": "風險管理處"
+}, {
+    "code": "R364",
+    "name": "黃士榮",
+    "name_en": "Sron Huang",
+    "gender": 1,
+    "department": "系統管理組"
+}, {
+    "code": "R363",
+    "name": "黃嘉界",
+    "name_en": "Simon Huang",
+    "gender": 1,
+    "department": "資料庫管理組"
+}, {
+    "code": "R359",
+    "name": "林孟鴻",
+    "name_en": "Leo Lin",
+    "gender": 1,
+    "department": "系統管理組"
+}, {
+    "code": "R358",
+    "name": "楊深有",
+    "name_en": "Kevin Yang",
+    "gender": 1,
+    "department": "值班技術四組"
+}, {
+    "code": "R357",
+    "name": "林楷聖",
+    "name_en": "Brian Lin",
+    "gender": 1,
+    "department": "值班技術四組"
+}, {
+    "code": "R356",
+    "name": "吳建逸",
+    "name_en": "Alvis Wu",
+    "gender": 1,
+    "department": "值班技術三組"
+}, {
+    "code": "R353",
+    "name": "蔡玥箮",
+    "name_en": "Ariel Tsai",
+    "gender": 2,
+    "department": "開發組"
+}, {
+    "code": "R349",
+    "name": "楊東諺",
+    "name_en": "Alan Yang",
+    "gender": 1,
+    "department": "聊天管理組"
+}, {
+    "code": "R350",
+    "name": "曾靖倫",
+    "name_en": "Vincent Tseng",
+    "gender": 1,
+    "department": "系統管理組"
+}, {
+    "code": "R348",
+    "name": "駱文傑",
+    "name_en": "Jack Lo",
+    "gender": 1,
+    "department": "值班技術二組"
+}, {
+    "code": "R347",
+    "name": "鄭羽庭",
+    "name_en": "Aida Cheng",
+    "gender": 2,
+    "department": "風險管理處"
+}, {
+    "code": "R342",
+    "name": "徐鵬凱",
+    "name_en": "Kai Hsu",
+    "gender": 1,
+    "department": "值班技術三組"
+}, {
+    "code": "R343",
+    "name": "莊格維",
+    "name_en": "Snow Jhung",
+    "gender": 1,
+    "department": "開發組"
+}, {
+    "code": "R341",
+    "name": "曾若慈",
+    "name_en": "Helen Tseng",
+    "gender": 2,
+    "department": "值班技術四組"
+}, {
+    "code": "R339",
+    "name": "盧瑞琳",
+    "name_en": "Rachel Lu",
+    "gender": 2,
+    "department": "值班客服三組"
+}, {
+    "code": "R335",
+    "name": "王彥穎",
+    "name_en": "Yetta Wang",
+    "gender": 2,
+    "department": "產品服務處"
+}, {
+    "code": "R332",
+    "name": "魏詠霖",
+    "name_en": "Hank Wei",
+    "gender": 1,
+    "department": "聊天管理組"
+}, {
+    "code": "R331",
+    "name": "陳炫佳",
+    "name_en": "Steve Chen",
+    "gender": 1,
+    "department": "風險管理處"
+}, {
+    "code": "R330",
+    "name": "張振嘉",
+    "name_en": "Jerry Chang",
+    "gender": 1,
+    "department": "值班技術二組"
+}, {
+    "code": "R329",
+    "name": "俞安",
+    "name_en": "Andy Yu",
+    "gender": 1,
+    "department": "值班技術二組"
+}, {
+    "code": "R327",
+    "name": "林育弘",
+    "name_en": "Ivan Lin",
+    "gender": 1,
+    "department": "值班技術二組"
+}, {
+    "code": "R322",
+    "name": "楊昀岳",
+    "name_en": "Stan Yang",
+    "gender": 1,
+    "department": "值班客服一組"
+}, {
+    "code": "R323",
+    "name": "高意修",
+    "name_en": "Tommy Kao",
+    "gender": 1,
+    "department": "產品服務處"
+}, {
+    "code": "R319",
+    "name": "張峻翔",
+    "name_en": "Mike Chang",
+    "gender": 1,
+    "department": "產品服務處"
+}, {
+    "code": "R311",
+    "name": "范峰瑞",
+    "name_en": "Eric Fan",
+    "gender": 1,
+    "department": "總務行政處"
+}, {
+    "code": "R312",
+    "name": "楊馥華",
+    "name_en": "Vivian Yang",
+    "gender": 2,
+    "department": "值班客服一組"
+}, {
+    "code": "R313",
+    "name": "葉雅齡",
+    "name_en": "Lora Yeh",
+    "gender": 2,
+    "department": "值班客服二組"
+}, {
+    "code": "R310",
+    "name": "黃敏哲",
+    "name_en": "Egan Huang",
+    "gender": 1,
+    "department": "聊天管理組"
+}, {
+    "code": "R309",
+    "name": "萬慶生",
+    "name_en": "Michael Wan",
+    "gender": 1,
+    "department": "資料庫管理組"
+}, {
+    "code": "R307",
+    "name": "謝智宇",
+    "name_en": "White Hsieh",
+    "gender": 1,
+    "department": "值班技術四組"
+}, {
+    "code": "R306",
+    "name": "歐陽霆",
+    "name_en": "Teresa Ouyang",
+    "gender": 2,
+    "department": "產品服務處"
+}, {
+    "code": "R305",
+    "name": "張若凡",
+    "name_en": "Abby Chang",
+    "gender": 2,
+    "department": "聊天管理組"
+}, {
+    "code": "R300",
+    "name": "葉相余",
+    "name_en": "Hsiang Yeh",
+    "gender": 1,
+    "department": "值班技術二組"
+}, {
+    "code": "R297",
+    "name": "施佩儀",
+    "name_en": "Bella Shih",
+    "gender": 2,
+    "department": "值班客服二組"
+}, {
+    "code": "R293",
+    "name": "許恩振",
+    "name_en": "Sam Hsu",
+    "gender": 1,
+    "department": "值班技術三組"
+}, {
+    "code": "R294",
+    "name": "張懷文",
+    "name_en": "Eliza Chang",
+    "gender": 2,
+    "department": "產品服務處"
+}, {
+    "code": "R289",
+    "name": "廖尚緯",
+    "name_en": "Sean Liao",
+    "gender": 1,
+    "department": "值班技術二組"
+}, {
+    "code": "R285",
+    "name": "謝蕓楨",
+    "name_en": "Jenny Hsieh",
+    "gender": 2,
+    "department": "值班客服二組"
+}, {
+    "code": "R281",
+    "name": "古淑華",
+    "name_en": "Mandy Gu",
+    "gender": 2,
+    "department": "聊天管理組"
+}, {
+    "code": "R279",
+    "name": "趙御尊",
+    "name_en": "Chester Chao",
+    "gender": 1,
+    "department": "產品服務處"
+}, {
+    "code": "R276",
+    "name": "楊嘉進",
+    "name_en": "Jeffrey Yang",
+    "gender": 1,
+    "department": "值班客服二組"
+}, {
+    "code": "R277",
+    "name": "蔡浩緯",
+    "name_en": "Jason Tsai",
+    "gender": 1,
+    "department": "產品服務處"
+}, {
+    "code": "R272",
+    "name": "林毅翔",
+    "name_en": "Gene Lin",
+    "gender": 1,
+    "department": "產品服務處"
+}, {
+    "code": "R269",
+    "name": "吳婉寧",
+    "name_en": "Linda Wu",
+    "gender": 2,
+    "department": "值班客服一組"
+}, {
+    "code": "R267",
+    "name": "楊立綱",
+    "name_en": "Kenneth Yang",
+    "gender": 1,
+    "department": "資料庫管理組"
+}, {
+    "code": "R264",
+    "name": "陳玉青",
+    "name_en": "Amber Chen",
+    "gender": 2,
+    "department": "值班客服三組"
+}, {
+    "code": "R255",
+    "name": "黃忠政",
+    "name_en": "Sky Huang",
+    "gender": 1,
+    "department": "聊天管理組"
+}, {
+    "code": "R251",
+    "name": "廖川賢",
+    "name_en": "James Liao",
+    "gender": 1,
+    "department": "值班技術三組"
+}, {
+    "code": "R246",
+    "name": "黃瑋顥",
+    "name_en": "Howard Huang",
+    "gender": 1,
+    "department": "聊天管理組"
+}, {
+    "code": "R235",
+    "name": "曾彥志",
+    "name_en": "Jimmy Tseng",
+    "gender": 1,
+    "department": "值班技術一組"
+}, {
+    "code": "R230",
+    "name": "劉祥軒",
+    "name_en": "Upton Liu",
+    "gender": 1,
+    "department": "值班客服一組"
+}, {
+    "code": "R231",
+    "name": "李修鳳",
+    "name_en": "Sharon Lee",
+    "gender": 2,
+    "department": "值班技術三組"
+}, {
+    "code": "R209",
+    "name": "郭誠馥",
+    "name_en": "Steven Kuo",
+    "gender": 1,
+    "department": "值班客服二組"
+}, {
+    "code": "R205",
+    "name": "方科登",
+    "name_en": "Jack Fun",
+    "gender": 1,
+    "department": "聊天管理組"
+}, {
+    "code": "R196",
+    "name": "柯力元",
+    "name_en": "Angus Ko",
+    "gender": 1,
+    "department": "值班客服三組"
+}, {
+    "code": "R198",
+    "name": "李晏青",
+    "name_en": "Arron Lee",
+    "gender": 1,
+    "department": "值班技術一組"
+}, {
+    "code": "R192",
+    "name": "黃冠",
+    "name_en": "Sabrina Huang",
+    "gender": 2,
+    "department": "值班客服三組"
+}, {
+    "code": "R187",
+    "name": "王彥翔",
+    "name_en": "David Wang",
+    "gender": 1,
+    "department": "值班技術四組"
+}, {
+    "code": "R185",
+    "name": "許玉暉",
+    "name_en": "Henry Hsu",
+    "gender": 1,
+    "department": "值班技術一組"
+}, {
+    "code": "R176",
+    "name": "余采疄",
+    "name_en": "Cailin Yu",
+    "gender": 2,
+    "department": "值班客服三組"
+}, {
+    "code": "R178",
+    "name": "陳孟伶",
+    "name_en": "Lynn Chen",
+    "gender": 2,
+    "department": "值班客服一組"
+}, {
+    "code": "R179",
+    "name": "李家維",
+    "name_en": "Vic Lee",
+    "gender": 1,
+    "department": "值班技術四組"
+}, {
+    "code": "R164",
+    "name": "謝文中",
+    "name_en": "Donem Hsieh",
+    "gender": 1,
+    "department": "值班技術一組"
+}, {
+    "code": "R157",
+    "name": "李承哲",
+    "name_en": "Fred Lee",
+    "gender": 1,
+    "department": "值班技術三組"
+}, {
+    "code": "R147",
+    "name": "蔡偉豪",
+    "name_en": "Andy Tsai",
+    "gender": 1,
+    "department": "值班技術三組"
+}, {
+    "code": "R133",
+    "name": "李政庭",
+    "name_en": "Tim Lee",
+    "gender": 1,
+    "department": "值班客服三組"
+}, {
+    "code": "R128",
+    "name": "丁于希",
+    "name_en": "Yusi Ting",
+    "gender": 2,
+    "department": "運維中心"
+}, {
+    "code": "R123",
+    "name": "賴佳昌",
+    "name_en": "Exia Lai",
+    "gender": 1,
+    "department": "值班技術一組"
+}, {
+    "code": "R120",
+    "name": "郭庭維",
+    "name_en": "Duke Kuo",
+    "gender": 1,
+    "department": "值班技術三組"
+}, {
+    "code": "R116",
+    "name": "李孝龍",
+    "name_en": "Bruce Lee",
+    "gender": 1,
+    "department": "值班客服三組"
+}, {
+    "code": "R113",
+    "name": "張士駿",
+    "name_en": "Grey Chang",
+    "gender": 1,
+    "department": "值班技術一組"
+}, {
+    "code": "R111",
+    "name": "袁書豪",
+    "name_en": "White Yuan",
+    "gender": 1,
+    "department": "值班客服一組"
+}, {
+    "code": "R109",
+    "name": "李洪彰",
+    "name_en": "Moore Lee",
+    "gender": 1,
+    "department": "值班客服一組"
+}, {
+    "code": "R104",
+    "name": "黃志衡",
+    "name_en": "George Huang",
+    "gender": 1,
+    "department": "值班客服二組"
+}, {
+    "code": "R100",
+    "name": "葉庭瑋",
+    "name_en": "Willie Yeh",
+    "gender": 1,
+    "department": "值班客服二組"
+}, {
+    "code": "R094",
+    "name": "王智威",
+    "name_en": "Peter Wang",
+    "gender": 1,
+    "department": "值班技術一組"
+}, {
+    "code": "R082",
+    "name": "林宛諭",
+    "name_en": "Alison Lin",
+    "gender": 2,
+    "department": "值班客服三組"
+}, {
+    "code": "R075",
+    "name": "洪廷霖",
+    "name_en": "Lin Hong",
+    "gender": 1,
+    "department": "值班客服一組"
+}, {
+    "code": "R069",
+    "name": "許嘉維",
+    "name_en": "Vic Hsu",
+    "gender": 1,
+    "department": "值班技術二組"
+}, {
+    "code": "R067",
+    "name": "王嘉偉",
+    "name_en": "Falcon Wang",
+    "gender": 1,
+    "department": "資料庫管理組"
+}, {
+    "code": "R064",
+    "name": "程晉鴻",
+    "name_en": "Castle Cheng",
+    "gender": 1,
+    "department": "開發組"
+}, {
+    "code": "R059",
+    "name": "陳昱丞",
+    "name_en": "Yuchen Chen",
+    "gender": 1,
+    "department": "值班技術一組"
+}, {
+    "code": "R053",
+    "name": "徐銘鴻",
+    "name_en": "Leo Hsu",
+    "gender": 1,
+    "department": "資料庫管理組"
+}, {
+    "code": "R055",
+    "name": "譚奇勝",
+    "name_en": "Jacob Tan",
+    "gender": 1,
+    "department": "值班客服二組"
+}, {
+    "code": "R056",
+    "name": "高薇雯",
+    "name_en": "Evelyn Kao",
+    "gender": 2,
+    "department": "值班客服三組"
+}, {
+    "code": "R050",
+    "name": "吳美君",
+    "name_en": "Mavis Wu",
+    "gender": 2,
+    "department": "人力資源處"
+}, {
+    "code": "R052",
+    "name": "林永鋒",
+    "name_en": "Dennis Lin",
+    "gender": 1,
+    "department": "系統管理組"
+}, {
+    "code": "R049",
+    "name": "宋長洲",
+    "name_en": "Ryan Sung",
+    "gender": 1,
+    "department": "值班技術二組"
+}, {
+    "code": "R047",
+    "name": "鍾瀅",
+    "name_en": "Saya Zhun",
+    "gender": 2,
+    "department": "值班客服三組"
+}, {
+    "code": "R046",
+    "name": "林育賢",
+    "name_en": "Matt Lin",
+    "gender": 1,
+    "department": "值班客服二組"
+}, {
+    "code": "R043",
+    "name": "鄒宜君",
+    "name_en": "Candy Tsou",
+    "gender": 2,
+    "department": "值班客服一組"
+}, {
+    "code": "R044",
+    "name": "余佩霖",
+    "name_en": "Peilin Yu",
+    "gender": 2,
+    "department": "值班客服三組"
+}, {
+    "code": "R045",
+    "name": "張振華",
+    "name_en": "Walter Chang",
+    "gender": 1,
+    "department": "風險管理處"
+}, {
+    "code": "R040",
+    "name": "陳家德",
+    "name_en": "Jader Chen",
+    "gender": 1,
+    "department": "值班技術二組"
+}, {
+    "code": "R037",
+    "name": "黃子寧",
+    "name_en": "Ruiza Huang",
+    "gender": 2,
+    "department": "值班客服三組"
+}, {
+    "code": "R033",
+    "name": "朱書賢",
+    "name_en": "Kevin Chu",
+    "gender": 1,
+    "department": "值班客服三組"
+}, {
+    "code": "R035",
+    "name": "陳孟成",
+    "name_en": "Roy Chen",
+    "gender": 1,
+    "department": "值班客服二組"
+}, {
+    "code": "R031",
+    "name": "林子雲",
+    "name_en": "Eric Lin",
+    "gender": 1,
+    "department": "客戶服務部"
+}, {
+    "code": "R026",
+    "name": "趙祐晟",
+    "name_en": "Johnson Chao",
+    "gender": 1,
+    "department": "系統管理組"
+}, {
+    "code": "R027",
+    "name": "林欣馨",
+    "name_en": "Shin Lin",
+    "gender": 2,
+    "department": "值班客服三組"
+}, {
+    "code": "R022",
+    "name": "林世創",
+    "name_en": "Strong Lin",
+    "gender": 1,
+    "department": "值班客服一組"
+}, {
+    "code": "R023",
+    "name": "楊麗萍",
+    "name_en": "Crystal Yang",
+    "gender": 2,
+    "department": "產品服務處"
+}, {
+    "code": "R024",
+    "name": "許雅玲",
+    "name_en": "Rita Hsu",
+    "gender": 2,
+    "department": "值班客服一組"
+}, {
+    "code": "R148",
+    "name": "吳雅雯",
+    "name_en": "Lucy Wu",
+    "gender": 2,
+    "department": "風險管理處"
+}, {
+    "code": "R021",
+    "name": "楊伯麟",
+    "name_en": "Luke Yang",
+    "gender": 1,
+    "department": "運維中心"
+}, {
+    "code": "R018",
+    "name": "邱柏洋",
+    "name_en": "Quake Chiu",
+    "gender": 1,
+    "department": "值班技術三組"
+}, {
+    "code": "R019",
+    "name": "蘇穎珊",
+    "name_en": "Susan Su",
+    "gender": 2,
+    "department": "架構發展事業部"
+}, {
+    "code": "R017",
+    "name": "黃忠信",
+    "name_en": "Jeff Huang",
+    "gender": 1,
+    "department": "值班客服二組"
+}, {
+    "code": "R015",
+    "name": "甘博仁",
+    "name_en": "Ken Kan",
+    "gender": 1,
+    "department": "值班客服二組"
+}, {
+    "code": "R013",
+    "name": "焦小紅",
+    "name_en": "Jessie Chiao",
+    "gender": 2,
+    "department": "聊天管理組"
+}, {
+    "code": "R011",
+    "name": "何俊達",
+    "name_en": "Dada Ho",
+    "gender": 1,
+    "department": "值班技術四組"
+}, {
+    "code": "R009",
+    "name": "楊劭儀",
+    "name_en": "Hako Yang",
+    "gender": 2,
+    "department": "產品服務處"
+}, {
+    "code": "R010",
+    "name": "王姸茹",
+    "name_en": "Zoe Wang",
+    "gender": 2,
+    "department": "產品服務處"
+}, {
+    "code": "R007",
+    "name": "林子翔",
+    "name_en": "Poki Lin",
+    "gender": 1,
+    "department": "值班技術二組"
+}, {
+    "code": "R008",
+    "name": "黃海威",
+    "name_en": "Turtle Huang",
+    "gender": 1,
+    "department": "值班技術一組"
+}, {
+    "code": "R006",
+    "name": "全士芃",
+    "name_en": "Peter Chuang",
+    "gender": 1,
+    "department": "值班技術一組"
+}, {
+    "code": "R001",
+    "name": "侯統揚",
+    "name_en": "Mickey Hou",
+    "gender": 1,
+    "department": "運維中心"
+}, {
+    "code": "R002",
+    "name": "張裕",
+    "name_en": "Richard Chang",
+    "gender": 1,
+    "department": "資料庫管理處"
+}]
