@@ -16,5 +16,10 @@ const adminBro = new AdminBro({
 
 const router = AdminBroExpress.buildRouter(adminBro);
 
-app.use(adminBro.options.rootPath, router);
-app.listen(8787, () => console.log('AdminBro is under localhost:8787/admin'));
+module.exports = {
+  useAdminRouter: function(app) {
+    app.use(adminBro.options.rootPath, router);
+    // app.listen(8787, () => console.log('AdminBro is under localhost:8787/admin'));
+    return router;
+  }
+}

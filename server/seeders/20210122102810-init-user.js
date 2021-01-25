@@ -13,8 +13,11 @@ module.exports = {
     const template = {
       firstName: 'Snow',
       lastName: 'Jhung',
+      name: '',
+      nickname: '',
       departmentName: '開發組',
       code: '',
+      pwd: '',
       houseId: 0,
       houseIdTmp: 0,
       houseIdTmp: 0,

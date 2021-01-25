@@ -20,6 +20,9 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
+      nickname: {
+        type: Sequelize.STRING
+      },
       email: {
         type: Sequelize.STRING
       },
@@ -73,6 +76,9 @@ module.exports = {
       },
       mvp: {
         type: Sequelize.INTEGER
+      },
+      json: {
+        type: Sequelize.STRING
       },
 
       createdAt: {

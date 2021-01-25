@@ -1,36 +1,27 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Matches', {
+    await queryInterface.createTable('Games', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      game: {
-        type: Sequelize.INTEGER
-      },
-      round: {
-        type: Sequelize.INTEGER
-      },
       name: {
         type: Sequelize.STRING
       },
-      userId: {
+      gameNum: {
         type: Sequelize.INTEGER
       },
-      mvp: {
+      gameRound: {
         type: Sequelize.INTEGER
       },
-      shift: {
-        type: Sequelize.INTEGER
+      video: {
+        type: Sequelize.STRING
       },
-      activity: {
-        type: Sequelize.INTEGER
-      },
-      add: {
-        type: Sequelize.INTEGER
+      json: {
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
@@ -43,6 +34,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Matches');
+    await queryInterface.dropTable('Games');
   }
 };

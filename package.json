@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "admin": "node server/admin.js",
+    "watch": "webpack --watch --config build/webpack.prod.conf.js",
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
@@ -15,6 +16,7 @@
     "@admin-bro/express": "^3.1.0",
     "@admin-bro/sequelize": "^1.1.2",
     "admin-bro": "^3.3.1",
+    "ejs": "^3.1.5",
     "express": "^4.17.1",
     "express-formidable": "^1.2.0",
     "express-session": "^1.17.1",

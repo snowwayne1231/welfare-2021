@@ -11,11 +11,20 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      // this.belongsTo(models.User, {
+      //   through: 'leaderId',
+      // });
     }
   };
   House.init({
     name: DataTypes.STRING,
-    leaderId: DataTypes.INTEGER,
+    leaderId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Users',
+        key: 'id'
+      }
+    },
     land: DataTypes.INTEGER,
     score: DataTypes.INTEGER,
     scorePersonal: DataTypes.INTEGER,
