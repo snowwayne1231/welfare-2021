@@ -34,4 +34,7 @@ npx sequelize-cli db:migrate:undo
 
 npx sequelize-cli db:seed:all
 npx sequelize-cli db:seed:undo:all
+
+npm run build
+npm run service
 ```

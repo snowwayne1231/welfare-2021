@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Welfare-Register</title>
+    <style>
+      @keyframes collpse {
+        from {
+          height: 0px;
+        }
+        to {
+          height: 620px;
+        }
+      }
+      #register {
+        margin: 132px auto;
+        width: 680px;
+        text-align: center;
+      }
+
+      #register form {
+        position: relative;
+        padding: 00px 30px 00px;
+        background-color: rgba(27,17,5,0.7);
+        border: 2px outset #ecebea;
+        color: #ceccc9;
+        box-shadow: 2px 3px 3px #000;
+        overflow: hidden;
+        animation-name: collpse;
+        animation-fill-mode: forwards;
+        animation-duration: 1s;
+        animation-delay: 0s;
+        height: 0px;
+      }
+
+      #register form .title{
+        text-align: right;;
+      }
+
+      #register table {
+        margin-top: 40px;
+        width: 100%;
+      }
+
+      #registersubmit {
+        width: 220px;
+        height: 46px;
+        border: 1px outset #ecebea;
+        border-radius: 10px;
+        background-color: #54362e;
+        color: #a7a33d;
+        cursor: pointer;
+      }
+
+      #registersubmit:hover {
+        color: #f3ff3b;
+        background-color: #6d3a2c;
+      }
+
+      body {
+        height: 100vh;
+        width: 100%;
+        padding: 1px;
+        margin: 0px;
+        background-image: url('/static/GoT1.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      table .title {
+        width: 30%;
+        position: relative;
+      }
+      table .input {
+        width: 70%;
+        text-align: left;
+      }
+      table .input input {
+        height: 30px;
+        width: 240px;
+        margin-left: 20px;
+        border-radius: 12px;
+        padding: 2px 12px;
+      }
+
+      table input[readonly] {
+        color: #633200;
+        background-color: #bdbdbd;
+      }
+
+      .formbuttons {
+        margin-top: 32px;
+      }
+
+      .message {
+        color: #ef0000;
+      }
+
+      .tips {
+        position: absolute;
+        right: -10px;
+        top: 2px;
+        color: #d20000;
+        background-color: #ffc300;
+        border-radius: 50%;
+        height: 14px;
+        width: 14px;
+        font-size: 11px;
+        line-height: 14px;
+        text-align: center;
+        cursor: help;
+      }
+
+      .dice {
+        display: inline-block;
+        background-image: url('/static/dice.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+        height: 28px;
+        width: 28px;
+        cursor: pointer;
+      }
+
+      .dice:hover {
+        top: -2px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="register">
+      
+      <form name="form" method="post" action="./register" onsubmit="validateMyForm(event)">
+        <p>首次登入請創建您的帳號與角色資料.</p>
+        <input type="hidden" name="action" value="register">
+        <input type="hidden" name="userid" value="<%= userid %>">
+
+        <table>
+          <tbody>
+            <tr>
+              <td class="title">
+                <label for="registeruser">工號</label>
+              </td>
+              <td class="input">
+                <input name="usercode" id="registeruser" required="required" size="12" maxlength="12" autocapitalize="off" autocomplete="off" type="text" readonly="true" value="<%= usercode %>" />
+              </td>
+            </tr>
+          <tr>
+            <td class="title">
+              <label for="new_registerpwd">設定密碼</label>
+            </td>
+            <td class="input">
+              <input name="pwd" id="new_registerpwd" required="required" size="12" maxlength="12" autocapitalize="off" autocomplete="off" type="password" value="" placeholder="輸入密碼.." />
+            </td>
+          </tr>
+          <tr>
+            <td class="title">
+              <label for="check_registerpwd">重複密碼</label>
+            </td>
+            <td class="input">
+              <input name="check_pwd" id="check_registerpwd" required="required" size="12" maxlength="12" autocapitalize="off" autocomplete="off" type="text" value="" placeholder="驗證密碼.." />
+            </td>
+          </tr>
+          <tr>
+            <td class="title">
+              <label>角色暱稱</label>
+            </td>
+            <td class="input">
+              <input name="nickname" id="nickname" size="12" maxlength="12" autocapitalize="off" autocomplete="off" type="text" value="<%=nickname%>" placeholder="輸入暱稱.." />
+            </td>
+          </tr>
+          <tr>
+            <td class="title">
+              <label>力量</label>
+              <span class="tips" title="請輸入您欲設定的力量值，假設 (風控Steve 是100；人事Mavis 是50)">?</span>
+            </td>
+            <td class="input">
+              <input name="str" id="str" size="7" max="9999999" autocapitalize="off" autocomplete="off" type="number" value="<%=str%>"/>
+            </td>
+          </tr>
+          <tr>
+            <td class="title">
+              <label>敏捷</label>
+              <span class="tips" title="請輸入您欲設定的敏捷值，假設 (IT2 Vic 是100；開發Castle 是60)">?</span>
+            </td>
+            <td class="input">
+              <input name="dex" id="dex" size="7" max="9999999" autocapitalize="off" autocomplete="off" type="number" value="<%=dex%>"/>
+            </td>
+          </tr>
+          <tr>
+            <td class="title">
+              <label>體力</label>
+              <span class="tips" title="請輸入您欲設定的體力值，假設 (IT1 Yuchen 是100；CS3 Cailin 是50)">?</span>
+            </td>
+            <td class="input">
+              <input name="con" id="con" size="7" max="9999999" autocapitalize="off" autocomplete="off" type="number" value="<%=con%>"/>
+            </td>
+          </tr>
+          <tr>
+            <td class="title">
+              <label>智慧</label>
+              <span class="tips" title="請輸入您欲設定的智慧值，假設 (IT4 Dada 是100；Design Ariel 是70)">?</span>
+            </td>
+            <td class="input">
+              <input name="int" id="int" size="7" max="9999999" autocapitalize="off" autocomplete="off" type="number" value="<%=int%>"/>
+            </td>
+          </tr>
+          <tr>
+            <td class="title">
+              <label>魅力</label>
+              <span class="tips" title="請輸入您欲設定的魅力值，假設 (CS3 Bruce 是100；開發 Snow 是50)">?</span>
+            </td>
+            <td class="input">
+              <input name="cha" id="cha" size="7" max="9999999" autocapitalize="off" autocomplete="off" type="number" value="<%=cha%>"/>
+            </td>
+          </tr>
+          <tr>
+            <td class="message" colspan="2">
+              <%= msg %>
+              <span id="dice" class="dice"></span>
+            </td>
+          </tr>
+        </tbody>
+        </table>
+        <p class="formbuttons">
+          <input type="submit" id="registersubmit" class="button mainaction" value="儲存角色" />
+        </p>
+
+      </form>
+    </div>
+    <script>
+      var dice = document.getElementById('dice');
+      dice.addEventListener('click', function(evt) {
+        var str = Math.floor(Math.random() * 60) + 40;
+        var dex = Math.floor(Math.random() * 60) + 40;
+        var con = Math.floor(Math.random() * 60) + 40;
+        var int = Math.floor(Math.random() * 60) + 40;
+        var cha = Math.floor(Math.random() * 60) + 40;
+        document.getElementById('str').value = str;
+        document.getElementById('dex').value = dex;
+        document.getElementById('con').value = con;
+        document.getElementById('int').value = int;
+        document.getElementById('cha').value = cha;
+      });
+
+      function validateMyForm(evt) {
+        var pass = true;
+        var msg = '請確實填寫.';
+
+        ['str', 'dex', 'con', 'int', 'cha'].map(function(_){
+          var val = parseInt(document.getElementById(_).value);
+          if (isNaN(val) || val == 0) { pass = false; }
+          return pass;
+        });
+
+        if (document.getElementById('new_registerpwd').value != document.getElementById('check_registerpwd').value) {
+          pass = false;
+          msg = '密碼不對稱.'
+        }
+        
+        if (pass) {
+          var str = '您的密碼與數值是否已設定完成?';
+          pass = window.confirm(str);
+          if (!pass) {
+            evt.preventDefault();
+          }
+        } else {
+          evt.preventDefault();
+          window.alert(msg);
+        }
+        return pass;
+      }
+    </script>
+  </body>
+</html>

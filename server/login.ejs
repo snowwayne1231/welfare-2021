@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Welfare-Allstar-Login</title>
+    <style>
+      @keyframes collpse {
+        from {
+          height: 0px;
+        }
+        to {
+          height: 280px;
+        }
+      }
+      #login {
+        margin: 260px auto;
+        width: 680px;
+        text-align: center;
+      }
+
+      #login form {
+        position: relative;
+        padding: 00px 30px 00px;
+        background-color: rgba(27,17,5,0.7);
+        border: 2px outset #ecebea;
+        color: #ceccc9;
+        box-shadow: 2px 3px 3px #000;
+        overflow: hidden;
+        animation-name: collpse;
+        animation-fill-mode: forwards;
+        animation-duration: 1s;
+        animation-delay: 0s;
+        height: 0px;
+      }
+
+      #login form .title{
+        text-align: right;;
+      }
+
+      #login table {
+        width: 100%;
+        margin-top: 60px;
+      }
+
+      #loginsubmit {
+        width: 220px;
+        height: 46px;
+        border: 1px outset #ecebea;
+        border-radius: 10px;
+        background-color: #54362e;
+        color: #a7a33d;
+        cursor: pointer;
+      }
+
+      #loginsubmit:hover {
+        color: #f3ff3b;
+        background-color: #6d3a2c;
+      }
+
+      body {
+        height: 100vh;
+        width: 100%;
+        padding: 1px;
+        margin: 0px;
+        background-image: url('/static/GoT1.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      table .title {
+        width: 30%;
+      }
+      table .input {
+        width: 70%;
+        text-align: left;
+      }
+      table .input input {
+        height: 30px;
+        width: 240px;
+        margin-left: 20px;
+        border-radius: 12px;
+        padding: 2px 12px;
+      }
+
+      .formbuttons {
+        margin-top: 32px;
+      }
+
+      .message {
+        color: #ef0000;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="login">
+      
+      <form name="form" method="post" action="./login">
+
+        <input type="hidden" name="action" value="login">
+        <table>
+          <tbody>
+            <tr>
+              <td class="title">
+                <label for="rcmloginuser">工號</label>
+              </td>
+              <td class="input">
+                <input name="usercode" id="loginuser" required="required" size="40" autocapitalize="off" autocomplete="off" type="text" />
+              </td>
+            </tr>
+          <tr>
+            <td class="title">
+              <label for="rcmloginpwd">密碼</label>
+            </td>
+            <td class="input">
+              <input name="pwd" id="loginpwd" required="required" size="40" autocapitalize="off" autocomplete="off" type="password" />
+            </td>
+          </tr>
+          <tr>
+            <td class="message" colspan="2">
+              <%= msg %>
+            </td>
+          </tr>
+        </tbody>
+        </table>
+        <p class="formbuttons">
+          <input type="submit" id="loginsubmit" class="button mainaction" value="登錄" />
+        </p>
+      </form>
+
+    </div>
+    <script>
+      
+    </script>
+  </body>
+</html>
