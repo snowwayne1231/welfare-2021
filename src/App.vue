@@ -2,7 +2,9 @@
   <div id="app">
     <md-tabs router-link>
       <!-- <md-tab md-label="Staff" to="/staff"></md-tab> -->
-      <md-tab md-label="首頁" to="/"></md-tab>
+      <md-tab md-label="個人" to="/"></md-tab>
+      <md-tab md-label="家族大廳" to="/family"></md-tab>
+      <md-tab md-label="賽程紀錄" to="/record"></md-tab>
     </md-tabs>
     <router-view/>
     <div class="loading-mask">

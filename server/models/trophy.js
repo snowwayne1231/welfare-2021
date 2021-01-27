@@ -16,7 +16,13 @@ module.exports = (sequelize, DataTypes) => {
   Trophy.init({
     name: DataTypes.STRING,
     add: DataTypes.INTEGER,
-    ownerHouseId: DataTypes.INTEGER
+    ownerHouseId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Houses',
+        key: 'id'
+      }
+    },
   }, {
     sequelize,
     modelName: 'Trophy',

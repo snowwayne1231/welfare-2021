@@ -62,6 +62,21 @@ module.exports = {
       cha: {
         type: Sequelize.INTEGER
       },
+      strLv: {
+        type: Sequelize.STRING
+      },
+      dexLv: {
+        type: Sequelize.STRING
+      },
+      conLv: {
+        type: Sequelize.STRING
+      },
+      intLv: {
+        type: Sequelize.STRING
+      },
+      chaLv: {
+        type: Sequelize.STRING
+      },
       status: {
         type: Sequelize.INTEGER
       },
