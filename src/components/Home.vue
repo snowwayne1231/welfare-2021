@@ -114,3 +114,9 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.home {
+  background-image: url('/static/imgs/bg_black_wood.jpg');
+}
+</style>
