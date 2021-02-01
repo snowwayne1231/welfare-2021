@@ -20,12 +20,12 @@ module.exports = (sequelize, DataTypes) => {
     video: DataTypes.STRING,
     json: {
       type: DataTypes.TEXT,
-      get: function() {
-        return JSON.parse(this.getDataValue("json"));
-      },
-      set: function(value) {
-        return this.setDataValue("json", JSON.stringify(value));
-      },
+      // get: function() {
+      //   return JSON.parse(this.getDataValue("json"));
+      // },
+      // set: function(value) {
+      //   return this.setDataValue("json", JSON.stringify(value));
+      // },
     },
   }, {
     sequelize,

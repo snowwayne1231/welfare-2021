@@ -5,10 +5,11 @@
   "author": "snow.jhung",
   "private": true,
   "scripts": {
+    "test": "webpack --config build/webpack.dev.conf.js",
     "service": "node server/service.js",
     "watch-service": "nodemon server/service.js",
     "watch": "webpack --watch --config build/webpack.prod.conf.js",
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --config build/webpack.dev.conf.js",
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js"
   },

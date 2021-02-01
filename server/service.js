@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const http = require('http').createServer(app);
 const path = require('path');
-const io = require("socket.io")(http);
+const io = require("socket.io")(http, {cors: {origin: '*'}});
 const md5 =require("md5");
 
 
@@ -16,7 +16,7 @@ const models = require('./models');
 
 const argvv = process.argv.slice(2);
 
-let port = 80;
+let port = 81;
 
 if (argvv.length > 0) {
     argvv.forEach(a => {
@@ -58,15 +58,24 @@ app.use((req, res) => {
 
 io.on('connection', (socket) => {
     const session = socket.request.session;
-    const userInfo = session.userinfo;
-    if (!userInfo) {
-        console.log('A user connection be rejected. ');
-        return socket.disconnect();
-    }
+    const userInfo = session.userinfo || {};
+    // console.log('socket.request.headers: ', socket.request.headers);
+    // if (!userInfo.id) {
+    //     console.log('A user connection be rejected. ');
+    //     return socket.disconnect();
+    // }
     console.log('A user socket connected: ', userInfo.firstName);
     
     socket.on('AUTHORIZE', (msg) => {
         // console.log(session.userinfo);
+        if (socket.request.headers.host.match(/127.0.0.1/i)) {
+            models.User.findByPk(1).then(user => {
+                const userInfo = user.toJSON();
+                // const loginTimestamp = new Date().getTime();
+                socket.emit('MESSAGE', {...userInfo});
+            });
+            return;
+        }
         if (parseInt(msg) == userInfo.loginTimestamp) {
             socket.emit('MESSAGE', {...userInfo});
         } else {
@@ -87,9 +96,7 @@ http.listen(port, () => {
 
 
 
-
-
-const _index = path.join(__dirname, '..', 'dist', 'index.ejs');
+const _index = path.join(__dirname, '..', 'index.ejs');
 const _login = path.join(__dirname, 'login.ejs');
 const _register = path.join(__dirname, 'register.ejs');
 
@@ -102,6 +109,10 @@ function renderURI(req, res, uris) {
         res.clearCookie('rvtls');
         res.clearCookie('logintimestamp');
         res.redirect('/');
+    }
+
+    if (uris[0] == 'adminsnow') {
+
     }
     
     if (req.method=='POST') {
