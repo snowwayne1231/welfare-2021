@@ -50,6 +50,10 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@font-face {
+  font-family: 'Game of Thrones';
+  src: url('/static/front/Game of Thrones.ttf');
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -70,17 +74,17 @@ export default {
 }
 .title {
   position: fixed;
-  font-family: 'Philosopher', sans-serif;
-  font-size: 28px;
+  font-family: 'Game of Thrones', sans-serif;
+  font-size: 21px;
   color: #ac9d83;
   z-index: 10; 
   top: 155px;
   left: 76px;
   .top {
-    font-size: 24px;
+    font-size: 16px;
     margin-bottom: 2px;
     span {
-      font-size: 18px;
+      font-size: 12px;
     }
   }
 }
