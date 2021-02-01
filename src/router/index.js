@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/components/Home';
-import StaffRecord from '@/components/StaffRecord';
+import Player from '@/components/Player';
+import Arena from '@/components/Arena';
 
 Vue.use(Router);
 
@@ -13,9 +14,14 @@ export default new Router({
       component: Home,
     },
     {
-      path: '/staff',
-      name: 'StaffRecord',
-      component: StaffRecord,
+      path: '/player',
+      name: 'Player',
+      component: Player,
+    },
+    {
+      path: '/arena',
+      name: 'Arena',
+      component: Arena,
     },
   ],
 });

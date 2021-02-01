@@ -1,24 +1,20 @@
 <template>
   <div id="app">
+    <div class="logo">
+      <img src="/static/imgs/logo.png" alt="" />
+    </div>
+    <div class="title">
+      <div class="top">GAME <span>OF</span></div>
+      <div class="bottom">REVOVISION</div>
+    </div>
     <md-list class="menu" router-link>
-      <md-list-item class="logo">
-        睿訊王國旗幟圖
-      </md-list-item>
-      <md-list-item>
-        <span class="md-list-item-text" to="/">角色資訊</span>
-      </md-list-item>
-      <md-list-item>
-        <span class="md-list-item-text" to="/family">家族大廳</span>
-      </md-list-item>
-      <md-list-item>
-        <span class="md-list-item-text" to="/record">競技場</span>
+      <md-list-item v-for="(m, m_i) in menu" :to="m.url" :key="m_i">
+        <div class="md-list-item-text">
+          <div class="main">{{ m.name_en }}</div>
+          <div class="sub">{{ m.name }}</div>
+        </div>
       </md-list-item>
     </md-list>
-    <!-- <md-tabs router-link>
-      <md-tab md-label="個人" to="/"></md-tab>
-      <md-tab md-label="家族大廳" to="/family"></md-tab>
-      <md-tab md-label="賽程紀錄" to="/record"></md-tab>
-    </md-tabs> -->
     <router-view />
     <div class="loading-mask">
       <div :class="{ chunk: true, done: isLoadingDone }"></div>
@@ -30,6 +26,16 @@
 import { mapState } from 'vuex'
 export default {
   name: 'App',
+  data() {
+    return {
+      menu: [
+        { name: '王國大廳', name_en: 'KINGDOM', url: '/' },
+        { name: '臥室', name_en: 'ROOM', url: '/player' },
+        { name: '家族', name_en: 'FAMILY', url: '/family' },
+        { name: '競技場', name_en: 'ARENA', url: '/arena' }
+      ]
+    }
+  },
   computed: {
     ...mapState(['user']),
     isLoadingDone() {
@@ -43,6 +49,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -50,28 +57,52 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+.logo {
+  left: 50px;
+  top: 23px;
+  width: 210px;
+  position: fixed;
+  opacity: 0.75;
+  z-index: 10;
+  img {
+    width: 100%;
+  }
+}
+.title {
+  position: fixed;
+  font-family: 'Philosopher', sans-serif;
+  font-size: 28px;
+  color: #ac9d83;
+  z-index: 10; 
+  top: 155px;
+  left: 76px;
+  .top {
+    font-size: 24px;
+    margin-bottom: 2px;
+    span {
+      font-size: 18px;
+    }
+  }
+}
 .menu {
   position: fixed;
-  left: 10px;
+  left: 50px;
   top: 0;
   z-index: 2;
-  width: 180px;
+  width: 210px;
   height: 100vh;
-  background-color: #0000008c !important;
-  box-shadow: 0px 0px 6px 3px #6b6b6b;
-  .logo {
-    height: 160px;
-    color: #FFF !important;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    background-image: url('/static/imgs/logo.jpg');
-    background-repeat: no-repeat;
-    background-size: 250px 250px;
-    background-position: center top;
-    opacity: 0.6;
-  }
+  background-color: #0a0600ab !important;
+  padding-top: 300px;
   .md-list-item-text {
-    color: #fff;
+    color: #b18f5b;
+    font-size: 28px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: 'Philosopher', sans-serif;
+    .sub {
+      font-size: 15px;
+      color: #aaa;
+    }
   }
 }
 </style>
