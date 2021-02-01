@@ -22,19 +22,33 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     pwd: DataTypes.STRING,
     departmentName: DataTypes.STRING,
-    houseId: DataTypes.INTEGER,
-    houseIdTmp: DataTypes.INTEGER,
+    houseId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Houses',
+        key: 'id'
+      }
+    },
+    houseIdTmp: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Houses',
+        key: 'id'
+      }
+    },
     title: DataTypes.STRING,
     rv: DataTypes.INTEGER,
     isLeader: DataTypes.BOOLEAN,
     str: DataTypes.INTEGER,
     dex: DataTypes.INTEGER,
     con: DataTypes.INTEGER,
+    wis: DataTypes.INTEGER,
     int: DataTypes.INTEGER,
     cha: DataTypes.INTEGER,
     strLv: DataTypes.STRING,
     dexLv: DataTypes.STRING,
     conLv: DataTypes.STRING,
+    wisLv: DataTypes.STRING,
     intLv: DataTypes.STRING,
     chaLv: DataTypes.STRING,
     status: DataTypes.INTEGER,
@@ -42,6 +56,15 @@ module.exports = (sequelize, DataTypes) => {
     gender: DataTypes.INTEGER,
     partake: DataTypes.INTEGER,
     mvp: DataTypes.INTEGER,
+    json: {
+      type: DataTypes.STRING,
+      // get: function() {
+      //   return JSON.parse((this.getDataValue("json") || {}))
+      // },
+      // set: function(val) {
+      //   return this.setDataValue("json", JSON.stringify(val));
+      // },
+    },
   }, {
     sequelize,
     modelName: 'User',

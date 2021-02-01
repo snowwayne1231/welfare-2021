@@ -56,6 +56,9 @@ module.exports = {
       con: {
         type: Sequelize.INTEGER
       },
+      wis: {
+        type: Sequelize.INTEGER
+      },
       int: {
         type: Sequelize.INTEGER
       },
@@ -69,6 +72,9 @@ module.exports = {
         type: Sequelize.STRING
       },
       conLv: {
+        type: Sequelize.STRING
+      },
+      wisLv: {
         type: Sequelize.STRING
       },
       intLv: {
@@ -93,7 +99,9 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       json: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        defaultValue: '{}',
+        allowNull: false,
       },
 
       createdAt: {

@@ -2,8 +2,9 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import socketio from 'socket.io-client';
 import createSocketIoPlugin from 'vuex-socketio';
-
-const socket = socketio();
+console.log('process.env: ', process.env);
+const wsLocation = process.env.WS_LOCATION;
+const socket = socketio(wsLocation);
 const socketPlugin = createSocketIoPlugin(socket, {
     onPrefix: 'wsOn',
     emitPrefix: 'wsEmit',

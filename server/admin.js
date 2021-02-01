@@ -12,6 +12,15 @@ const db = require('./models');
 const adminBro = new AdminBro({
   databases: [db],
   rootPath: '/admin',
+  branding: {
+    companyName: 'RV Game Of Throne',
+  },
+  // resources: [{
+  //   resources: db.User,
+  //   options: {
+      // listProperties: ['name', 'id'],
+    // },
+  // }],
 });
 
 const router = AdminBroExpress.buildRouter(adminBro);
