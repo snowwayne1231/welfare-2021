@@ -41,9 +41,22 @@ module.exports = {
       gender: 1,
       partake: 0,
       mvp: 0,
+      json: '{}',
       createdAt: new Date(),
       updatedAt: new Date()
     };
+
+    const mvp_score_map = {
+      '-1': 99999,
+      '0': 0,
+      '1': 3,
+      '2': 3,
+      '3': 2,
+      '4': 2,
+      '5': 1,
+      '6': 1,
+      '7': 1,
+    }
 
 
     staff.map(s => {
@@ -55,6 +68,10 @@ module.exports = {
       next.code = s.code;
       next.name = s.name;
       next.gender = s.gender;
+      next.mvp = s.mvp > 0 ? 1 : s.mvp;
+      const _score = mvp_score_map[s.mvp];
+      next.rv = _score;
+      next.json = JSON.stringify({'before_mvp_score': _score});
 
       insertData.push(next);
     });

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Admin-Setting</title>
+    <style>
+
+      body {
+        height: 100vh;
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+      }
+
+      table {
+        margin: 20px auto;
+      }
+
+      table .title {
+        width: 30%;
+      }
+      table .input {
+        width: 70%;
+        text-align: left;
+      }
+      table .input input {
+        height: 30px;
+        width: 240px;
+        margin-left: 20px;
+        border-radius: 12px;
+        padding: 2px 12px;
+      }
+
+      .button {
+        height: 32px;
+        width: 120px;
+      }
+
+      select {
+        height: 26px;
+        width: 180px;
+        font-size: 16px;
+      }
+
+      form {
+        margin: 0px auto;
+        padding: 10px;
+      }
+
+      #table-view {
+        height: 560px;
+        overflow: auto;
+      }
+      #refresh-data button {
+        margin: 20px 50px;
+        padding: 20px 40px;
+        cursor: pointer;
+      }
+      #ttbody input {
+        width: 80px;
+        border: 1px solid #efefef;
+      }
+      #ttbody td {
+        min-width: 66px;
+        text-align: center;
+      }
+      #update-db {
+        margin-left: 20px;
+        padding: 5px 10px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="adminsnow">
+      
+      <form name="form" method="post" action="./adminsnow">
+
+        <select name="model" id="model">
+          <option value="1">Houses</option>
+          <option value="2">Trophies</option>
+          <option value="3">Users</option>
+          <option value="4">Results</option>
+          <option value="5">Games</option>
+          <option value="6">Matches</option>
+        </select>
+        <input type="submit" id="submit" class="button" value="Submit" />
+        <button id="update-db">Update</button>
+        <div id="table-view">
+          <table>
+            <tbody id="ttbody">
+              <tr>
+                <td class="message" colspan="2">
+                  <%= msg %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+      </form>
+
+      <div id="refresh-data">
+        <button id="resettinglv">Resetting-Init-LV</button>
+        <button id="freshuserscore">Refresh-User-Score</button>
+        <button id="freshfamilyscore">Refresh-Family-Score</button>
+        
+      </div>
+
+    </div>
+
+    <div>
+
+
+
+    </div>
+
+    <script>
+      var results = <%- JSON.stringify(results) %>;
+      var func = <%- JSON.stringify(func) %>;
+      var model = <%- JSON.stringify(model) %>;
+      var msg = <%- JSON.stringify(msg) %>;
+      console.log('results: ', results);
+      if (Array.isArray(results)) {
+        results.sort((a,b) => {
+          return b.id - a.id;
+        });
+      }
+
+      var dom_model = document.getElementById('model');
+      var dom_tbody = document.getElementById('ttbody');
+      dom_model.value = model;
+
+      var update_list = [];
+
+      dom_model.addEventListener('change', (evt) => {
+        dom_tbody.innerHTML = '';
+      });
+
+      document.getElementById('update-db').addEventListener('click', (evt) => {
+        evt.preventDefault();
+        evt.stopPropagation();
+        update_list.map(e => {
+          var id = e[0];
+          var data = e[1];
+          // var url = document.getElementById(id).href;
+          var url = `/adminsnow/update`;
+          var xhr = new XMLHttpRequest();
+          var fromdatas = [];
+          fromdatas.push('id='+id);
+          fromdatas.push('model='+model);
+          for (var k in data) {
+            fromdatas.push(`${k}=${data[k]}`);
+          }
+          xhr.open('POST', url, true);
+          xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+          xhr.send(fromdatas.join('&'));
+          // console.log(url);
+        });
+
+        update_list = [];
+      });
+
+      document.getElementById('resettinglv').addEventListener('click', (evt) => {
+        window.open('/adminsnow/resettinglv', "_blank");
+      });
+
+      document.getElementById('freshfamilyscore').addEventListener('click', (evt) => {
+        window.open('/adminsnow/freshfamilyscore', "_blank");
+      });
+
+      document.getElementById('freshuserscore').addEventListener('click', (evt) => {
+        window.open('/adminsnow/refreshuserscore', "_blank");
+      });
+
+      dom_tbody.addEventListener('change', (evt) => {
+        // console.log('change: ', evt);
+        var target = evt.target;
+        if (target.localName=='input' && target.value) {
+          var val = target.value;
+          var loc = target.id.split('_');
+          var id = loc[0];
+          var colName = loc[1];
+          var idx = update_list.findIndex(e => e[0] ==id);
+          if (idx >= 0) {
+            update_list[idx][1][colName] = val;
+          } else {
+            update_list.push([id, {[colName]: val}]);
+          }
+          console.log(update_list);
+        }
+      });
+
+      if (msg && msg.length > 0) {
+        // renderMsg(msg);
+      } else {
+        renderResult(dom_tbody, results);
+      }
+
+
+      
+      function renderResult(tbody, data) {
+        var modelMap = {
+          1: 'Houses',
+          2: 'Trophies',
+          3: 'Users',
+          4: 'Results',
+          5: 'Games',
+          6: 'Matches',
+        };
+        var tmp = 0;
+        var first_tr = document.createElement('tr');
+        data.map(_ => {
+          var tr = document.createElement('tr');
+          var _id = _.id;
+          var _href = `/admin/resources/${modelMap[model]}/records/${_id}/edit`;
+          for (var key in _) {
+            var loc = _[key];
+            var td = document.createElement('td');
+            
+            if (key == 'id') {
+              var aa = document.createElement('a');
+              aa.href = _href;
+              aa.target = '_blank';
+              aa.innerText = loc;
+              aa.id = _id;
+              td.appendChild(aa);
+            } else if (isNaN(loc)) {
+              td.innerText = loc;
+            } else {
+              var input = document.createElement('input');
+              input.type = 'text';
+              input.value = loc;
+              input.id = _id + '_' + (key) ;
+              td.appendChild(input);
+            }
+            
+
+            tr.appendChild(td);
+            if (tmp == 0) {
+              var th = document.createElement('th');
+              th.innerText = key;
+              first_tr.appendChild(th);
+            }
+          }
+          if (tmp == 0) {
+            tbody.appendChild(first_tr);
+            tmp = 1;
+          }
+          tbody.appendChild(tr);
+        });
+      }
+      
+    </script>
+
+  </body>
+</html>

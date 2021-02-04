@@ -14,9 +14,22 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Match.init({
+    game: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Games',
+        key: 'id'
+      }
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Users',
+        key: 'id'
+      }
+    },
     round: DataTypes.INTEGER,
     name: DataTypes.STRING,
-    userId: DataTypes.INTEGER,
     mvp: DataTypes.INTEGER,
     shift: DataTypes.INTEGER,
     activity: DataTypes.INTEGER,

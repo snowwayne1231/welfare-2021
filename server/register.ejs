@@ -205,11 +205,11 @@
           </tr>
           <tr>
             <td class="title">
-              <label>智慧</label>
-              <span class="tips" title="請輸入您欲設定的智慧值，假設 (IT4 Dada 是100；Design Ariel 是70)">?</span>
+              <label>精神</label>
+              <span class="tips" title="請輸入您欲設定的精神值，假設 (IT4 Dada 是50；JOANNE 是100)">?</span>
             </td>
             <td class="input">
-              <input name="int" id="int" size="7" max="9999999" autocapitalize="off" autocomplete="off" type="number" value="<%=int%>"/>
+              <input name="wis" id="wis" size="7" max="9999999" autocapitalize="off" autocomplete="off" type="number" value="<%=wis%>"/>
             </td>
           </tr>
           <tr>
@@ -241,12 +241,12 @@
         var str = Math.floor(Math.random() * 60) + 40;
         var dex = Math.floor(Math.random() * 60) + 40;
         var con = Math.floor(Math.random() * 60) + 40;
-        var int = Math.floor(Math.random() * 60) + 40;
+        var wis = Math.floor(Math.random() * 60) + 40;
         var cha = Math.floor(Math.random() * 60) + 40;
         document.getElementById('str').value = str;
         document.getElementById('dex').value = dex;
         document.getElementById('con').value = con;
-        document.getElementById('int').value = int;
+        document.getElementById('wis').value = wis;
         document.getElementById('cha').value = cha;
       });
 
@@ -254,7 +254,7 @@
         var pass = true;
         var msg = '請確實填寫.';
 
-        ['str', 'dex', 'con', 'int', 'cha'].map(function(_){
+        ['str', 'dex', 'con', 'wis', 'cha'].map(function(_){
           var val = parseInt(document.getElementById(_).value);
           if (isNaN(val) || val == 0) { pass = false; }
           return pass;
@@ -277,6 +277,17 @@
         }
         return pass;
       }
+
+      ['str', 'dex', 'con', 'wis', 'cha'].map(function(_){
+        var dom = document.getElementById(_);
+        var val = parseInt(dom.value, 10);
+        if (isNaN(val)) {
+          dom.value = 0;
+        } else if (val > 0) {
+          dom.readOnly = true;
+        }
+        console.log([dom]);
+      });
     </script>
   </body>
 </html>
