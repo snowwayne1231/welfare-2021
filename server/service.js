@@ -407,12 +407,99 @@ function resettingLV(res) {
 
 
 function refreshUserScore(res) {
+    models.Match.findAll({
+        attributes: {
+            exclude: ['name'],
+        }
+    }).then(matchs => {
+        var matchUidScoreMap = {};
+        matchs.map(m => {
+            var uid = m.userId;
+            var mobj = {mvp: m.mvp, shift: m.shift, activity: m.activity, add: m.add};
+            if (matchUidScoreMap[uid]) {
+                matchUidScoreMap[uid].push(mobj);
+            } else {
+                matchUidScoreMap[uid] = [mobj];
+            }
+        });
 
+        models.User.findAll({
+            attributes: {
+                include: ['id', 'mvp', 'partake', 'json', 'rv'],
+            },
+        }).then(users => {
+            var updated_users = [];
+            users.map(user => {
+                var user_id = user.id;
+                var matches = matchUidScoreMap[user_id];
+                if (matches && matches.length > 0) {
+                    var my_json = JSON.parse(user.json);
+                    var my_mvp = my_json.before_mvp_score > 0 ? 1 : 0;
+                    var my_rv = my_json.before_mvp_score + my_json.ability_score;
+                    var my_partake = matches.length;
+                    matches.map(match => {
+                        if (match.mvp > 0) { my_mvp+=1; }
+                        my_rv += (match.mvp + match.shift + match.activity + match.add);
+                    });
+                    if (isNaN(my_rv)) { my_rv = 0; }
+                    user.update({
+                        rv: my_rv,
+                        mvp: my_mvp,
+                        partake: my_partake,
+                    });
+                    updated_users.push(user);
+                }
+            });
+            return res.json(updated_users);
+        });
+    }).catch(err => {
+        return res.json({'error': err});
+    });
 }
 
 
-function refreshFamilyScore(res) {
-    res.json({'qq': 'qqq'});
+function refreshFamilyScore(res) { // not finished
+    models.User.findAll({
+        attributes: {
+            include: ['id', 'houseId', 'rv', 'strLv', 'dexLv', 'conLv', 'wisLv', 'chaLv', 'thankTimes', 'gender', 'partake', 'mvp', 'departmentName'],
+        },
+        where: {
+            status: 1,
+        },
+    }).then(users => {
+        var houseUserMap = {};
+        users.map(user => {
+            var hid = user.houseId;
+            if (hid && hid > 0) {
+                if (houseUserMap[hid]) {
+                    houseUserMap[hid].push(user);
+                } else {
+                    houseUserMap[hid] = [user];
+                }
+            }
+        });
+
+        models.House.findAll().then((houses) => {
+            houses.map(house => {
+                var id = house.id;
+                var usersInHouse = houseUserMap[id];
+                if (usersInHouse && usersInHouse.length > 0) {
+                    var new_land = 0;
+                    var new_scorePersonal = 0;
+                    var new_scoreTrophy = 0;
+                    var new_rank = 0;
+                    var new_rankMove = 0;
+                    var new_leaderMatchFamily = 0;
+                    var new_sameDepartment = 0;
+                    var new_totalPartake = 0;
+                }
+            });
+            res.json(houses);
+        });
+        
+    }).catch(err => {
+        res.json({'error': err});
+    });
 }
 
 function updateAdminDB(req, res) {

@@ -72,6 +72,17 @@ module.exports = {
       const _score = mvp_score_map[s.mvp];
       next.rv = _score;
       next.json = JSON.stringify({'before_mvp_score': _score});
+      if (_score > 999) {
+        next.thankTimes = 999;
+      }
+      // for test
+      if (true) {
+        next.str = Math.floor(Math.random() * 70) + 30;
+        next.dex = Math.floor(Math.random() * 70) + 30;
+        next.con = Math.floor(Math.random() * 70) + 30;
+        next.wis = Math.floor(Math.random() * 70) + 30;
+        next.cha = Math.floor(Math.random() * 70) + 30;
+      }
 
       insertData.push(next);
     });

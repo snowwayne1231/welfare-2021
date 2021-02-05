@@ -1,4 +1,5 @@
-
+const models = require('./models');
+const bar_tables = [];
 
 
 module.exports = {
@@ -15,15 +16,22 @@ module.exports = {
         socket.on('AUTHORIZE', (msg) => {
             // console.log(session.userinfo);
             if (socket.request.headers.host.match(/127.0.0.1/i)) {
-                models.User.findByPk(1).then(user => {
-                    const userInfo = user.toJSON();
-                    // const loginTimestamp = new Date().getTime();
-                    socket.emit('MESSAGE', {...userInfo});
+                return models.User.findByPk(1).then(user => {
+                    const _userInfo = user.toJSON();
+                    socket.emit('MESSAGE', _userInfo);
                 });
-                return;
             }
             if (parseInt(msg) == userInfo.loginTimestamp) {
-                socket.emit('MESSAGE', {...userInfo});
+                return models.User.findByPk(userInfo.id).then(user => {
+                    const _userInfo = user.toJSON();
+                    for (var key in userInfo) {
+                        if (_userInfo.hasOwnProperty(key)) {
+                            userInfo[key] = _userInfo[key];
+                        }
+                    }
+                    // const loginTimestamp = new Date().getTime();
+                    socket.emit('MESSAGE', userInfo);
+                });
             } else {
                 socket.emit('MESSAGE', {msg: 'failed', redirect: '/logout'});
             }
