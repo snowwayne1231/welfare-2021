@@ -1,10 +1,18 @@
 <template>
-  <div class="player">
+  <div class="player bg-img">
     <md-card class="personal-card" v-if="user.id > 0">
       <md-card-header>
         <md-card-header-text>
-          <div class="md-title">{{ user.nickname }}</div>
-          <div class="md-subhead">{{ user.firstName }} {{ user.lastName }}</div>
+          <div class="md-title">
+            <span v-if="!user.nickname"
+              >{{ user.firstName }} {{ user.lastName }}</span
+            >
+            <span v-else>{{ user.nickname }}</span>
+          </div>
+          <div class="md-subhead">
+            <span v-if="!user.nickname">people of the kingdom</span>
+            <span v-else>{{ user.firstName }} {{ user.lastName }}</span>
+          </div>
           <div class="note">{{ user.code }} {{ user.departmentName }}</div>
         </md-card-header-text>
 
@@ -14,37 +22,51 @@
       </md-card-header>
 
       <md-card-content>
-        <div class="md-layout md-gutter level">
-          <div class="md-layout-item">
-            <div>MVP</div>
-            <div>{{ user.mvp }}</div>
-          </div>
-          <div class="md-layout-item">
-            <div>RV</div>
-            <div>{{ user.rv }}</div>
-          </div>
-        </div>
-        <div class="md-layout md-gutter">
-          <div class="md-layout-item md-size-15">
-            <md-table>
+        <div class="md-layout md-gutter player-able-area">
+          <div></div>
+          <div class="md-layout-item md-size-30">
+            <md-table class="table-transparent able-block">
               <md-table-row>
-                <md-table-head>力量</md-table-head>
+                <md-table-head>MVP</md-table-head>
+                <md-table-cell
+                  >
+                  <md-icon v-for="i in user.mvp" :key="i">health_and_safety</md-icon>
+                </md-table-cell>
+              </md-table-row>
+              <md-table-row>
+                <md-table-head>RV</md-table-head>
+                <md-table-cell>
+                  <!-- <md-icon v-for="i in user.rv/10">star</md-icon> -->
+                  <md-icon>star</md-icon>
+                  <md-icon>star_border</md-icon>
+                  <md-icon>star_border</md-icon>
+                  <md-icon>star_border</md-icon>
+                  <md-icon>star_border</md-icon>
+                  <md-icon>star_border</md-icon>
+                  <md-icon>star_border</md-icon>
+                  <md-icon>star_border</md-icon>
+                  <md-icon>star_border</md-icon>
+                  <md-icon>star_border</md-icon>
+                </md-table-cell>
+              </md-table-row>
+              <md-table-row>
+                <md-table-head>STR 力量</md-table-head>
                 <md-table-cell>{{ user.strLv }}</md-table-cell>
               </md-table-row>
               <md-table-row>
-                <md-table-head>敏捷</md-table-head>
+                <md-table-head>DEX 敏捷</md-table-head>
                 <md-table-cell>{{ user.dexLv }}</md-table-cell>
               </md-table-row>
               <md-table-row>
-                <md-table-head>體力</md-table-head>
+                <md-table-head>CON 體力</md-table-head>
                 <md-table-cell>{{ user.conLv }}</md-table-cell>
               </md-table-row>
               <md-table-row>
-                <md-table-head>智慧</md-table-head>
+                <md-table-head>INT 智慧</md-table-head>
                 <md-table-cell>{{ user.intLv }}</md-table-cell>
               </md-table-row>
               <md-table-row>
-                <md-table-head>魅力</md-table-head>
+                <md-table-head>CHA 魅力</md-table-head>
                 <md-table-cell>{{ user.chaLv }}</md-table-cell>
               </md-table-row>
             </md-table>
@@ -77,6 +99,11 @@ export default {
   data() {
     return {
       optionRadar: {
+        legend: {
+          labels: {
+            fontSize: 16
+          }
+        },
         scale: {
           ticks: {
             suggestedMin: 0
@@ -97,13 +124,14 @@ export default {
         datasets: [
           {
             label: '數值',
-            backgroundColor: 'rgba(0, 254, 185, 0.5)',
+            backgroundColor: 'rgba(177, 143, 91, 0.6)',
+            borderColor: 'rgba(177, 143, 91, 0.8)',
             data: [
-              this.user.str,
-              this.user.dex,
-              this.user.con,
-              this.user.int,
-              this.user.cha
+              this.user.strLv,
+              this.user.dexLv,
+              this.user.conLv,
+              this.user.intLv,
+              this.user.chaLv
             ],
             spanGaps: true
           }
@@ -123,7 +151,6 @@ export default {
 <style lang="scss">
 .player {
   background-image: url('/static/imgs/bg_room.png');
-  height: 100vh;
   .personal-card {
     display: inline-block;
     position: fixed;
@@ -135,7 +162,7 @@ export default {
     border: 1px solid #805b00;
     border-radius: 10px;
     margin-top: 40px;
-    height: 100vh;
+    height: calc(100vh - 55px);
 
     .md-card-header {
       border-bottom: 1px solid#805b00;
@@ -160,7 +187,7 @@ export default {
           left: 0;
           bottom: 5px;
           font-size: 15px;
-          color:#987153;
+          color: #987153;
         }
       }
 
@@ -172,21 +199,35 @@ export default {
     .md-card-content {
       padding-top: 20px;
       line-height: normal !important;
-      height: calc(100vh - 175px);
+      height: calc(100vh - 220px);
       overflow-y: auto;
-      .level {
-        height: 500px;
-        font-family: 'Game of Thrones', sans-serif;
-        div {
-          color: #b18f5b;
-          font-size: 24px;
-        }
+    }
+    .table-transparent {
+      background-color: transparent;
+      .md-theme-default {
+        background-color: transparent;
       }
     }
-
-    .card-ability-chat {
-      width: 520px;
-      margin: 0px auto;
+    .player-able-area {
+      margin: 10px 30px;
+      .able-block {
+        .md-table-head {
+          font-size: 18px !important;
+          color: #b18f5b !important;
+        }
+        .md-table-cell {
+          font-size: 18px !important;
+          color: #ac9d83 !important;
+          .md-icon {
+            color: #ac9d83 !important;
+          }
+        }
+      }
+      .card-ability-chat {
+        width: 520px;
+        margin: 0px auto;
+        background-color: #ffffff8f;
+      }
     }
   }
 }

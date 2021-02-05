@@ -32,7 +32,8 @@ export default {
         { name: '王國大廳', name_en: 'KINGDOM', url: '/' },
         { name: '臥室', name_en: 'ROOM', url: '/player' },
         { name: '家族', name_en: 'FAMILY', url: '/family' },
-        { name: '競技場', name_en: 'ARENA', url: '/arena' }
+        { name: '競技場', name_en: 'ARENA', url: '/arena' },
+        { name: '離開', name_en: 'SIGN OUT', url: '/arena' }
       ]
     }
   },
@@ -79,13 +80,16 @@ export default {
   color: #ac9d83;
   z-index: 10; 
   top: 155px;
-  left: 76px;
+  left: 65px;
   .top {
     font-size: 16px;
     margin-bottom: 2px;
     span {
       font-size: 12px;
     }
+  }
+  .bottom {
+    letter-spacing: 2px;
   }
 }
 .menu {
@@ -108,5 +112,11 @@ export default {
       color: #aaa;
     }
   }
+}
+.bg-img {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
 }
 </style>

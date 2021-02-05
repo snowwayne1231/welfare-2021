@@ -1,5 +1,5 @@
 <template>
-  <div class="arena">
+  <div class="arena bg-img">
     <div class="personal-card" v-if="user.id > 0" style="display: none">
       <div class="card-header">
         <span>角色資訊</span>
@@ -117,8 +117,5 @@ export default {
 <style lang="scss">
 .arena {
   background-image: url('/static/imgs/bg_family.png');
-  background-repeat: no-repeat;
-  background-size: 100%;
-  height: 100vh;
 }
 </style>
