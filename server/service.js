@@ -85,7 +85,7 @@ function renderURI(req, res, uris) {
         req.session = null;
         res.clearCookie('rvtls');
         res.clearCookie('logintimestamp');
-        res.redirect('/');
+        return res.redirect('/');
     }
 
     if (uris[0] == 'adminsnow') {

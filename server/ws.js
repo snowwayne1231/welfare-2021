@@ -2,6 +2,24 @@ const models = require('./models');
 const bar_tables = [];
 
 
+function onMessage(socket) {
+    socket.on('MESSAGE', (msg) => {
+            
+    });
+}
+
+function onDisconnect(socket) {
+    socket.on('disconnecting', (msg) => {
+        console.log('disconnected: ', socket.request.session);
+    });
+}
+
+function bindSockets(socket) {
+    onMessage(socket);
+    onDisconnect(socket);
+}
+
+  
 module.exports = {
     onConnect: function(socket) {
         const session = socket.request.session;
@@ -16,7 +34,7 @@ module.exports = {
         socket.on('AUTHORIZE', (msg) => {
             // console.log(session.userinfo);
             if (socket.request.headers.host.match(/127.0.0.1/i)) {
-                return models.User.findByPk(1).then(user => {
+                return models.User.findOne({where: {code: 'R019'}}).then(user => {
                     const _userInfo = user.toJSON();
                     socket.emit('MESSAGE', _userInfo);
                 });
@@ -37,8 +55,6 @@ module.exports = {
             }
         });
 
-        socket.on('MESSAGE', (msg) => {
-            
-        });
+        bindSockets(socket);
     }
 }
