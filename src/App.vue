@@ -14,6 +14,7 @@
           <div class="sub">{{ m.name }}</div>
         </div>
       </md-list-item>
+      <md-list-item><a href="/logout"><div class="md-list-item-text"><div class="main">SIGN OUT</div><div class="sub">離開</div></div></a></md-list-item>
     </md-list>
     <router-view />
     <div class="loading-mask">
@@ -23,7 +24,8 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'vuex';
+import { ACT_GET_HOUSES_DATA } from './store/enum';
 export default {
   name: 'App',
   data() {
@@ -34,7 +36,7 @@ export default {
         { name: '家族', name_en: 'FAMILY', url: '/family' },
         { name: '酒吧', name_en: 'BAR', url: '/bar' },
         { name: '競技場', name_en: 'ARENA', url: '/arena' },
-        { name: '離開', name_en: 'SIGN OUT', url: '/logout' }
+        // { name: '離開', name_en: 'SIGN OUT', url: '/logout' }
       ]
     }
   },
@@ -45,7 +47,8 @@ export default {
     }
   },
   mounted() {
-    this.$store.dispatch('wsEmitAuthorize', this.$cookies.get('logintimestamp'))
+    this.$store.dispatch('wsEmitAuthorize', this.$cookies.get('logintimestamp'));
+    this.$store.dispatch('wsEmitMessage', {act: ACT_GET_HOUSES_DATA});
   }
 }
 </script>

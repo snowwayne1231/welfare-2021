@@ -67,7 +67,7 @@ http.listen(port, () => {
 
 
 // render and handle the uri
-const _index = path.join(__dirname, '..', 'index.ejs');
+const _index = path.join(__dirname, '..', 'dist', 'index.ejs');
 const _login = path.join(__dirname, 'login.ejs');
 const _register = path.join(__dirname, 'register.ejs');
 

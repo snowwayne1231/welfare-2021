@@ -22,6 +22,7 @@
 
 <script>
 import { mapState } from 'vuex';
+import { ACT_GET_FAMILY_DATA } from '../store/enum';
 
 export default {
   name: 'Family',
@@ -36,6 +37,7 @@ export default {
   mounted() {
     // console.log(this);
     // this.sendMessage();
+    this.$store.dispatch('wsEmitMessage', {act: ACT_GET_FAMILY_DATA, payload: {}});
   },
   computed: {
     ...mapState(['user']),

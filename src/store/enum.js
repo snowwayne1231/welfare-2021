@@ -11,4 +11,6 @@ module.exports = {
     ACT_LEAVE_TABLE: 4,
     ACT_JOIN_FAMILY: 5,
     ACT_SAY_CHAT_ROOM: 6,
+    ACT_GET_HOUSES_DATA: 21,
+    ACT_GET_FAMILY_DATA: 22,
 }

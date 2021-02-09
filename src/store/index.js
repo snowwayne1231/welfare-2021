@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import socketio from 'socket.io-client';
 import createSocketIoPlugin from 'vuex-socketio';
+import { ACT_SAY_CHAT_ROOM, ACT_GET_HOUSES_DATA, ACT_GET_FAMILY_DATA} from './enum';
 console.log('process.env: ', process.env);
 const wsLocation = process.env.WS_LOCATION;
 const socket = socketio(wsLocation);
@@ -40,6 +41,7 @@ const userInitState = {
     partake: 0,
     timestamp: 0,
     connected: false,
+    family: [],
 };
 
 const moduleUser = {
@@ -59,13 +61,20 @@ const moduleUser = {
                 window.location.href = message.redirect;
                 return;
             }
-            if (message.act == 0) {
-                const payload = message.payload;
-                for (let key in userInitState) {
-                    if (payload.hasOwnProperty(key)) {
-                        state[key] = payload[key];
+            const payload = message.payload;
+            switch (message.act) {
+                case ACT_GET_FAMILY_DATA:
+                    console.log(payload);
+                    if (payload.users) {
+                        state.family = payload.users;
                     }
-                }
+                    break;
+                default:
+                    for (let key in userInitState) {
+                        if (payload.hasOwnProperty(key)) {
+                            state[key] = payload[key];
+                        }
+                    }
             }
         },
     },
@@ -84,6 +93,22 @@ const moduleGame = {
 
 }
 
+const globalData = {
+    state: {
+        houses: [],
+    },
+    mutations: {
+        wsOnMessage: (state, message) => {
+            
+            if (message.act == ACT_GET_HOUSES_DATA) {
+                const payload = message.payload;
+                state.houses = payload.houses;
+                console.log('wsOnMessage ACT_GET_HOUSES_DATA', message);
+            }
+        },
+    },
+};
+
 const moduleChatRoom = {
     state: {
         tablePlayers: [0,0,0,0,0,0,0,0,0,0,0,0],
@@ -92,7 +117,7 @@ const moduleChatRoom = {
     mutations: {
         wsOnMessage: (state, message) => {
             console.log('wsOnMessage Chatroom');
-            if (message.act == 6) {
+            if (message.act == ACT_SAY_CHAT_ROOM) {
                 const payload = message.payload;
                 const next = [...state.histories];
                 console.log('payload: ', payload);
@@ -109,6 +134,7 @@ export default new Vuex.Store({
     modules: {
       'user': moduleUser,
       'chat': moduleChatRoom,
+      'global': globalData,
     },
     plugins: [socketPlugin]
 });

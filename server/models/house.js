@@ -11,9 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // this.belongsTo(models.User, {
-      //   through: 'leaderId',
-      // });
+      this.belongsTo(models.User, {
+        as: 'leader',
+        sourceKey: 'leaderId',
+        // foreignKey: 'leaderId',
+      });
     }
   };
   House.init({

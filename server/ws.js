@@ -1,6 +1,7 @@
 // import { ACT_JOIN_CHAT_ROOM } from '../src/store/enum';
 
 const socketIO = require("socket.io");
+const { Op } = require("sequelize");
 const models = require('./models');
 const enums = require('../src/store/enum');
 
@@ -22,6 +23,27 @@ function onMessage(socket) {
                 return socket.leave(ROOM_CHATTING_BAR);
             case enums.ACT_SAY_CHAT_ROOM:
                 return inners.io.to(ROOM_CHATTING_BAR).emit('MESSAGE', {act: enums.ACT_SAY_CHAT_ROOM, payload: {text: payload.text, nickname: userinfo.nickname}});
+
+            case enums.ACT_GET_HOUSES_DATA:
+                return models.House.findAll({include: [{model: models.User, as: 'leader'}]}).then((houses) => {
+                    socket.emit('MESSAGE', {act: enums.ACT_GET_HOUSES_DATA, payload: {houses}});
+                });
+            case enums.ACT_GET_FAMILY_DATA:
+                let house_id = 25;
+                if (userinfo) { 
+                    let house_id = userinfo.houseId > 0 ? userinfo.houseId : userinfo.houseIdTmp;
+                }
+                
+                if (house_id == 0) {
+                    return socket.emit('MESSAGE', {act: enums.ACT_GET_FAMILY_DATA, payload: {}});
+                } else {
+                    return models.User.findAll({
+                        attributes: ['id', 'mvp', 'gender', 'rv', 'houseId', 'houseIdTmp', 'nickname'],
+                        where: {status: 1, [Op.or]: {houseId: house_id, houseIdTmp: house_id}},
+                    }).then(users => {
+                        socket.emit('MESSAGE', {act: enums.ACT_GET_FAMILY_DATA, payload: {users}});
+                    });
+                }
             default:
                 
                 console.log(msg);
@@ -32,7 +54,7 @@ function onMessage(socket) {
 
 function onDisconnect(socket) {
     socket.on('disconnect', (msg) => {
-        console.log('disconnected: ', socket.request.session.userinfo);
+        console.log('disconnected: ', socket.request.session.userinfo ? socket.request.session.userinfo.nickname : 'unknown');
     });
 }
 
@@ -62,14 +84,6 @@ module.exports = {
         console.log('A user socket connected: ', userInfo.firstName);
         
         socket.on('AUTHORIZE', (msg) => {
-            // console.log(session.userinfo);
-            if (socket.request.headers.host.match(/127.0.0.1/i)) {
-                return models.User.findOne({where: {code: 'R019'}}).then(user => {
-                    const _userInfo = user.toJSON();
-                    session.userinfo = _userInfo;
-                    socket.emit('MESSAGE', {act: 0, payload: _userInfo});
-                });
-            }
             if (parseInt(msg) == userInfo.loginTimestamp) {
                 return models.User.findByPk(userInfo.id).then(user => {
                     const _userInfo = user.toJSON();
@@ -80,6 +94,12 @@ module.exports = {
                     }
                     // const loginTimestamp = new Date().getTime();
                     socket.emit('MESSAGE', {act: 0, payload: userInfo});
+                });
+            } else if (socket.request.headers.host.match(/127.0.0.1/i)) {
+                return models.User.findOne({where: {code: 'R019'}}).then(user => {
+                    const _userInfo = user.toJSON();
+                    session.userinfo = _userInfo;
+                    socket.emit('MESSAGE', {act: 0, payload: _userInfo});
                 });
             } else {
                 socket.emit('MESSAGE', {act: 'failed', redirect: '/logout'});
