@@ -1,0 +1,45 @@
+#rv-bar {
+    position: relative;
+    padding-left: 280px;
+
+    .bar-card {
+        
+    }
+    .md-card-content {
+        position: relative;
+        padding: 10px 10px 0px;
+    }
+
+    .bar-content {
+        position: relative;
+        height: 80%;
+    }
+
+    .chat-box {
+        position: relative;
+        height: 20%;
+
+        .chat-history {
+            height: 80%;
+            background-color: #160d07;
+            border: 1px solid #805b00;
+            box-sizing: border-box;
+            color: #fff;
+            text-align: left;
+            overflow-y: scroll;
+
+            ul {
+                list-style: none;
+                display: flex;
+                flex-direction: column-reverse;
+            }
+            li {
+                list-style: none;
+            }
+        }
+        .chat-tools {
+            height: 20%;
+            border: 1px solid #805b00;
+        }
+    }
+}
