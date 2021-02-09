@@ -67,6 +67,12 @@ body {
     .pb-#{$i}-px {
         padding-bottom: #{$i}px !important;
     }
+    .ma-#{$i}-px {
+        margin-left: #{$i}px !important;
+        margin-right: #{$i}px !important;
+        margin-top: #{$i}px !important;
+        margin-bottom: #{$i}px !important;
+    }
     .mx-#{$i}-px {
         margin-left: #{$i}px !important;
         margin-right: #{$i}px !important;

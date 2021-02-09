@@ -13,17 +13,17 @@ const bar_tables = [];
 
 function onMessage(socket) {
     socket.on('MESSAGE', (msg) => {
+        const payload = msg.payload;
+        const userinfo = socket.request.session.userinfo;
         switch (msg.act) {
             case enums.ACT_JOIN_CHAT_ROOM:
-                socket.join(ROOM_CHATTING_BAR);
-                console.log(socket.rooms);
-                console.log(msg);
-                
-                return 'qq';
-            case enums.ACT_JOIN_TABLE:
-                return 'www';
+                return socket.join(ROOM_CHATTING_BAR);
+            case enums.ACT_LEAVE_CHAT_ROOM:
+                return socket.leave(ROOM_CHATTING_BAR);
+            case enums.ACT_SAY_CHAT_ROOM:
+                return inners.io.to(ROOM_CHATTING_BAR).emit('MESSAGE', {act: enums.ACT_SAY_CHAT_ROOM, payload: {text: payload.text, nickname: userinfo.nickname}});
             default:
-                inners.io.to(ROOM_CHATTING_BAR).emit('MESSAGE', {act: enums.ACT_JOIN_TABLE, payload: {}});
+                
                 console.log(msg);
         }
         
@@ -32,7 +32,7 @@ function onMessage(socket) {
 
 function onDisconnect(socket) {
     socket.on('disconnect', (msg) => {
-        console.log('disconnected: ', socket.request.session);
+        console.log('disconnected: ', socket.request.session.userinfo);
     });
 }
 
@@ -67,7 +67,7 @@ module.exports = {
                 return models.User.findOne({where: {code: 'R019'}}).then(user => {
                     const _userInfo = user.toJSON();
                     session.userinfo = _userInfo;
-                    socket.emit('MESSAGE', _userInfo);
+                    socket.emit('MESSAGE', {act: 0, payload: _userInfo});
                 });
             }
             if (parseInt(msg) == userInfo.loginTimestamp) {
@@ -79,10 +79,10 @@ module.exports = {
                         }
                     }
                     // const loginTimestamp = new Date().getTime();
-                    socket.emit('MESSAGE', userInfo);
+                    socket.emit('MESSAGE', {act: 0, payload: userInfo});
                 });
             } else {
-                socket.emit('MESSAGE', {msg: 'failed', redirect: '/logout'});
+                socket.emit('MESSAGE', {act: 'failed', redirect: '/logout'});
             }
         });
 

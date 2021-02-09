@@ -10,4 +10,5 @@ module.exports = {
     ACT_LEAVE_CHAT_ROOM: 3,
     ACT_LEAVE_TABLE: 4,
     ACT_JOIN_FAMILY: 5,
+    ACT_SAY_CHAT_ROOM: 6,
 }

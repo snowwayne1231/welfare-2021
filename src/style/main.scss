@@ -1,5 +1,10 @@
-@import "./home";
-@import "./common";
+@import './home';
+@import './common';
+@import './bar';
+.family {
+  background-image: url("/static/imgs/stark.jpg");
+}
+
 
 #app {
   margin: 0 auto;

@@ -54,31 +54,28 @@ const moduleUser = {
             state.connected = false;
         },
         wsOnMessage: (state, message) => {
-            console.log('wsOnMessage');
-            console.log(state, message);
+            console.log('wsOnMessage User');
             if (message.redirect) {
                 window.location.href = message.redirect;
                 return;
             }
-            for (let key in userInitState) {
-                if (message.hasOwnProperty(key)) {
-                    state[key] = message[key];
+            if (message.act == 0) {
+                const payload = message.payload;
+                for (let key in userInitState) {
+                    if (payload.hasOwnProperty(key)) {
+                        state[key] = payload[key];
+                    }
                 }
             }
         },
     },
     actions: {
-        wsOnOtherMessage: (context, message) => {
-
-        },
         wsEmitMessage: (context, message) => {
-            console.log('context: ', context);
+            console.log('wsEmitMessage context: ', message);
             // context.commit('authorize', message);
         },
         wsEmitAuthorize: (context, message) => {
-            console.log('context: ', context);
-            console.log('message: ', message);
-            // context.commit('authorize', message);
+            console.log('wsEmitAuthorize context: ');
         },
     },
 }
@@ -87,9 +84,31 @@ const moduleGame = {
 
 }
 
+const moduleChatRoom = {
+    state: {
+        tablePlayers: [0,0,0,0,0,0,0,0,0,0,0,0],
+        histories: [],
+    },
+    mutations: {
+        wsOnMessage: (state, message) => {
+            console.log('wsOnMessage Chatroom');
+            if (message.act == 6) {
+                const payload = message.payload;
+                const next = [...state.histories];
+                console.log('payload: ', payload);
+                if (next.unshift(payload) > 10) {
+                    next.splice(-1,1);
+                }
+                state.histories = next;
+            }
+        },
+    }
+}
+
 export default new Vuex.Store({
     modules: {
       'user': moduleUser,
+      'chat': moduleChatRoom,
     },
     plugins: [socketPlugin]
 });
