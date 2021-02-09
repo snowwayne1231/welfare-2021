@@ -1,3 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@font-face {
+    font-family: "Game of Thrones";
+    src: url("/static/front/Game of Thrones.ttf");
+}
+
+@font-face {
+    font-family: "jf-openhuninn";
+    src: url("/static/fonts/jf-openhuninn/jf-openhuninn-1.1.ttf") format("truetype");
+}
+
+body {
+    background-color: #000;
+    font-family: "jf-openhuninn";
+}
+
 .close {
     display: inline-block;
     color: #fff;
@@ -13,7 +29,68 @@
 
     &:after {
         display: block;
-        content: 'X';
+        content: "X";
     }
 }
 
+@for $i from 0 through 500 {
+    .fz-#{$i}-px {
+        font-size: #{$i}px !important;
+        line-height: #{$i + 6}px !important;
+    }
+    .ltsc-#{$i} {
+        letter-spacing: #{$i}px !important;
+    }
+    .w-#{$i}-pct {
+        width: #{$i} + "%" !important;
+    }
+    .h-#{$i}-pct {
+        height: #{$i} + "%" !important;
+    }
+    .px-#{$i}-px {
+        padding-left: #{$i}px !important;
+        padding-right: #{$i}px !important;
+    }
+    .py-#{$i}-px {
+        padding-top: #{$i}px !important;
+        padding-bottom: #{$i}px !important;
+    }
+    .pl-#{$i}-px {
+        padding-left: #{$i}px !important;
+    }
+    .pt-#{$i}-px {
+        padding-top: #{$i}px !important;
+    }
+    .pr-#{$i}-px {
+        padding-right: #{$i}px !important;
+    }
+    .pb-#{$i}-px {
+        padding-bottom: #{$i}px !important;
+    }
+    .ma-#{$i}-px {
+        margin-left: #{$i}px !important;
+        margin-right: #{$i}px !important;
+        margin-top: #{$i}px !important;
+        margin-bottom: #{$i}px !important;
+    }
+    .mx-#{$i}-px {
+        margin-left: #{$i}px !important;
+        margin-right: #{$i}px !important;
+    }
+    .my-#{$i}-px {
+        margin-top: #{$i}px !important;
+        margin-bottom: #{$i}px !important;
+    }
+    .ml-#{$i}-px {
+        margin-left: #{$i}px !important;
+    }
+    .mt-#{$i}-px {
+        margin-top: #{$i}px !important;
+    }
+    .mr-#{$i}-px {
+        margin-right: #{$i}px !important;
+    }
+    .mb-#{$i}-px {
+        margin-bottom: #{$i}px !important;
+    }
+}
