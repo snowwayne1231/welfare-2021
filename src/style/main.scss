@@ -55,3 +55,104 @@
 body {
     background-color: #000;
 }
+
+
+.home {
+    background-image: url('/static/imgs/bg_black_lobby.jpg');
+}
+
+.home-card {
+    display: inline-block;
+    position: fixed;
+    left: 400px;
+    top: 0;
+    width: 70vw;
+    min-width: 360px;
+    background-color: #1c0f008f !important;
+    border: 1px solid #805b00;
+    border-radius: 10px;
+    margin-top: 40px;
+    height: calc(100vh - 55px);
+  
+    .md-card-header {
+      border-bottom: 1px solid#805b00;
+      margin: 0 20px;
+      .md-card-header-text {
+        height: 120px;
+        position: relative;
+        .md-title {
+          color: #fff;
+          font-size: 58px;
+          line-height: 64px;
+        }
+        .md-subhead {
+          color: #eed8b2;
+          font-family: 'Philosopher', sans-serif;
+          text-transform: uppercase;
+          font-size: 26px;
+          margin-top: 3px;
+        }
+        .note {
+          position: absolute;
+          left: 0;
+          bottom: 5px;
+          font-size: 15px;
+          color: #987153;
+        }
+      }
+  
+      .md-card-media {
+        height: 100%;
+      }
+    }
+  
+    .md-card-content {
+      padding-top: 20px;
+      line-height: normal !important;
+      height: calc(100vh - 220px);
+      overflow-y: auto;
+    }
+    .table-transparent {
+      background-color: transparent;
+      .md-theme-default {
+        background-color: transparent;
+      }
+    }
+    .list {
+      .md-list {
+        // background: transparent !important;
+        .md-list-item-container {
+          font-size: 18px !important;
+          color: #b18f5b !important;
+          display: block !important;
+          // :hover {
+          //   color: #b18f5b !important;
+          // }
+        }
+        .md-list-expand {
+          padding: 0 30px;
+          .md-list {
+            font-size: 16px !important;
+            color: #ac9d83 !important;
+            // :hover {
+            //   color: #ac9d83 !important;
+            // }
+          }
+  
+          .md-table {
+            width: 100%;
+          }
+          .md-table-head {
+            font-size: 18px !important;
+            color: #b18f5b !important;
+            border: 1px solid #ac9d83;
+          }
+          .md-table-cell {
+            font-size: 18px !important;
+            color: #6a5a3c  !important;
+            border: 1px solid #ac9d83;
+          }
+        }
+      }
+    }
+  }

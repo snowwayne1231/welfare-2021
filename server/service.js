@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const http = require('http').createServer(app);
 const path = require('path');
-const io = require("socket.io")(http, {cors: {origin: '*'}});
+// const io = require("socket.io")(http, {cors: {origin: '*'}});
 const md5 =require("md5");
 const { Op } = require("sequelize");
 
@@ -30,9 +30,9 @@ if (argvv.length > 0) {
 
 
 // setting http service
+adminbro.useAdminRouter(app);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-adminbro.useAdminRouter(app);
 app.engine('ejs', require('ejs').renderFile);
 app.set('trust proxy', 1);
 
@@ -55,13 +55,7 @@ app.use((req, res) => {
 });
 //
 
-
-// setting websocket
-io.on('connection', ws.onConnect);
-io.use(function(socket, next) {
-    session_middleware(socket.request, socket.request.res || {}, next);
-});
-//
+ws.buildWsConnection(http, session_middleware);
 
 
 // listen service by port
