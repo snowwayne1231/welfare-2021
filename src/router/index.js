@@ -5,6 +5,7 @@ import Player from '@/components/Player';
 import Arena from '@/components/Arena';
 import Family from '@/components/Family';
 import Bar from '@/components/Bar';
+import Maintain from '@/components/Maintain';
 
 Vue.use(Router);
 
@@ -23,12 +24,14 @@ export default new Router({
     {
       path: '/arena',
       name: 'Arena',
-      component: Arena,
+      // component: Arena,
+      component: Maintain,
     },
     {
       path: '/family',
       name: 'Family',
-      component: Family,
+      // component: Family,
+      component: Maintain,
     },
     {
       path: '/bar',

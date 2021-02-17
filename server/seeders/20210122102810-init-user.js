@@ -76,13 +76,13 @@ module.exports = {
         next.thankTimes = 999;
       }
       // for test
-      if (true) {
-        next.str = Math.floor(Math.random() * 70) + 30;
-        next.dex = Math.floor(Math.random() * 70) + 30;
-        next.con = Math.floor(Math.random() * 70) + 30;
-        next.wis = Math.floor(Math.random() * 70) + 30;
-        next.cha = Math.floor(Math.random() * 70) + 30;
-      }
+      // if (true) {
+      //   next.str = Math.floor(Math.random() * 70) + 30;
+      //   next.dex = Math.floor(Math.random() * 70) + 30;
+      //   next.con = Math.floor(Math.random() * 70) + 30;
+      //   next.wis = Math.floor(Math.random() * 70) + 30;
+      //   next.cha = Math.floor(Math.random() * 70) + 30;
+      // }
 
       insertData.push(next);
     });

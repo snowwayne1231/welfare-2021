@@ -1,5 +1,5 @@
 <template>
-  <div class="home bg-img" id="rv-bar">
+  <div class="bg-img" id="rv-bar">
     <md-card class="home-card bar-card">
       <md-card-header>
         <md-card-header-text>
@@ -15,7 +15,14 @@
 
       <md-card-content>
         <div class="bar-content">
-
+          <md-table v-model="chat.publicPeople" md-sort="lvScore" md-sort-order="asc" md-card md-fixed-header>
+            <md-table-row slot="md-table-row" slot-scope="{ item }">
+              <md-table-cell md-label="Nickname" md-sort-by="nickname">{{ item.nickname }}</md-table-cell>
+              <md-table-cell md-label="Rv" md-sort-by="rv">{{ item.rv }}</md-table-cell>
+              <md-table-cell md-label="Mvp" md-sort-by="mvp">{{ item.mvp }}</md-table-cell>
+              <md-table-cell md-label="lvScore" md-sort-by="lvScore" :class="item.lvColor">{{ item.lvColor }}</md-table-cell>
+            </md-table-row>
+          </md-table>
         </div>
         <div class="chat-box">
           <div class="chat-history" ref="chatHistory">
@@ -39,7 +46,7 @@
 <script>
 import { mapState } from 'vuex';
 import RadarChart from './chart/radar';
-import { ACT_JOIN_CHAT_ROOM, ACT_LEAVE_CHAT_ROOM, ACT_JOIN_FAMILY, ACT_SAY_CHAT_ROOM } from '../store/enum';
+import { ACT_JOIN_CHAT_ROOM, ACT_LEAVE_CHAT_ROOM, ACT_JOIN_FAMILY, ACT_SAY_CHAT_ROOM, ACT_GET_PEOPLE_DATA } from '../store/enum';
 
 export default {
   name: 'Bar',
@@ -49,14 +56,17 @@ export default {
   data() {
     return {
       chatInput: '',
+      timeoutSecond: 5,
     };
   },
   mounted() {
     // console.log(this);
-    this.$store.dispatch('wsEmitMessage', {act: ACT_JOIN_CHAT_ROOM, payload: {}});
+    this.$store.dispatch('wsEmitMessage', {act: ACT_JOIN_CHAT_ROOM});
+    this.$store.dispatch('wsEmitMessage', {act: ACT_GET_PEOPLE_DATA});
+    console.log('ACT_GET_PEOPLE_DATA: ', ACT_GET_PEOPLE_DATA);
   },
   beforeDestroy() {
-    this.$store.dispatch('wsEmitMessage', {act: ACT_LEAVE_CHAT_ROOM, payload: {}});
+    this.$store.dispatch('wsEmitMessage', {act: ACT_LEAVE_CHAT_ROOM});
   },
   computed: {
     ...mapState(['user', 'chat']),
@@ -72,10 +82,18 @@ export default {
       if (this.chatInput.length > 0) {
         this.$store.dispatch('wsEmitMessage', {act: ACT_SAY_CHAT_ROOM, payload: {text: this.chatInput.substr(0,47)}});
         this.chatInput = '';
+        this.timer = window.setTimeout(this.timeoutHandler, this.timeoutSecond * 1000);
       }
     },
     onInputEnter(evt) {
+      if (this.timer > 0) {
+        return window.alert('Please Wait 5 Second To Say Something.');
+      }
       this.sendMessage(evt);
+    },
+    timeoutHandler(evt) {
+      window.clearTimeout(this.timer);
+      this.timer = 0;
     },
   }
 }

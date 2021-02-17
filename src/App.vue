@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="logo">
-      <img src="/static/imgs/logo.png" alt="" />
+      <!-- <img src="/static/imgs/logo_small.png" alt="" /> -->
     </div>
     <div class="title">
       <div class="top">GAME <span>OF</span></div>
@@ -14,7 +14,7 @@
           <div class="sub">{{ m.name }}</div>
         </div>
       </md-list-item>
-      <md-list-item><a href="/logout"><div class="md-list-item-text"><div class="main">SIGN OUT</div><div class="sub">離開</div></div></a></md-list-item>
+      <md-list-item><div class="md-list-item-text" @click="onClickLogout" :style="{cursor: 'pointer'}"><div class="main">SIGN OUT</div><div class="sub">離開</div></div></md-list-item>
     </md-list>
     <router-view />
     <div class="loading-mask">
@@ -49,6 +49,11 @@ export default {
   mounted() {
     this.$store.dispatch('wsEmitAuthorize', this.$cookies.get('logintimestamp'));
     this.$store.dispatch('wsEmitMessage', {act: ACT_GET_HOUSES_DATA});
-  }
+  },
+  methods: {
+    onClickLogout() {
+      window.location.href = '/logout';
+    },
+  },
 }
 </script>

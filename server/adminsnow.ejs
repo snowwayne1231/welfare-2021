@@ -125,7 +125,7 @@
       var func = <%- JSON.stringify(func) %>;
       var model = <%- JSON.stringify(model) %>;
       var msg = <%- JSON.stringify(msg) %>;
-      console.log('results: ', results);
+      console.log('Results: ', results);
       if (Array.isArray(results)) {
         results.sort((a,b) => {
           return b.id - a.id;
@@ -145,25 +145,39 @@
       document.getElementById('update-db').addEventListener('click', (evt) => {
         evt.preventDefault();
         evt.stopPropagation();
-        update_list.map(e => {
+        Promise.all(update_list.map(e => {
           var id = e[0];
           var data = e[1];
           // var url = document.getElementById(id).href;
           var url = `/adminsnow/update`;
           var xhr = new XMLHttpRequest();
           var fromdatas = [];
+          var pormise = new Promise((resolve, reject) => {
+            xhr.addEventListener("load", (res) => {
+              resolve(res);
+            });
+            xhr.addEventListener("error", (err) => {
+              console.log('XHR failed: ', err);
+              reject(err);
+            });
+          });
           fromdatas.push('id='+id);
           fromdatas.push('model='+model);
           for (var k in data) {
             fromdatas.push(`${k}=${data[k]}`);
           }
+          
           xhr.open('POST', url, true);
           xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
           xhr.send(fromdatas.join('&'));
           // console.log(url);
+          return pormise;
+        })).then(values => {
+          window.alert('Update Successful.');
+          update_list = [];
+          console.log(values);
         });
-
-        update_list = [];
+        
       });
 
       document.getElementById('resettinglv').addEventListener('click', (evt) => {
@@ -192,7 +206,7 @@
           } else {
             update_list.push([id, {[colName]: val}]);
           }
-          console.log(update_list);
+          console.log("Update List: ", update_list);
         }
       });
 

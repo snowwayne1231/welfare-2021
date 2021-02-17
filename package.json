@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "test": "webpack --config build/webpack.dev.conf.js",
-    "service": "node server/service.js 81",
+    "service": "node server/service.js 9898",
     "watch-service": "nodemon server/service.js",
     "watch": "webpack --watch --config build/webpack.prod.conf.js",
     "dev": "webpack-dev-server --config build/webpack.dev.conf.js",

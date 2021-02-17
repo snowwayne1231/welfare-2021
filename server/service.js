@@ -83,7 +83,11 @@ function renderURI(req, res, uris) {
     }
 
     if (uris[0] == 'adminsnow') {
-        return handleAdminSnow(req, res, uris);
+        if (userinfo && userinfo.code == 'R343') {
+            return handleAdminSnow(req, res, uris);
+        } else {
+            return res.status(404).send('Not Found.');
+        }
     }
     
     if (req.method=='POST') {
@@ -244,9 +248,7 @@ function handleAdminSnow(req, res, uris) {
         }
     }
 
-    
-
-    console.log(data);
+    // console.log(data);
 
     const _model_name = _models_map[data.model];
     if (_model_name && req.method=='POST') {

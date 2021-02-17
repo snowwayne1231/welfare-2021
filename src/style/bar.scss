@@ -13,6 +13,19 @@
     .bar-content {
         position: relative;
         height: 80%;
+
+        .gold {
+            color: gold;
+        }
+        .purple {
+            color: purple;
+        }
+        .blue {
+            color: blue;
+        }
+        .green {
+            color: green;
+        }
     }
 
     .chat-box {
@@ -40,6 +53,13 @@
         .chat-tools {
             height: 20%;
             border: 1px solid #805b00;
+            position: relative;
+            box-sizing: border-box;
+            padding: 2px;
+
+            .chat-tool-input {
+                width: calc(100% - 100px);
+            }
         }
     }
 }

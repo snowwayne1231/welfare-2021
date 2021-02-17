@@ -23,17 +23,17 @@ const adminBro = new AdminBro({
   // }],
 });
 
-const router = AdminBroExpress.buildRouter(adminBro);
-// const router = AdminBroExpress.buildAuthenticatedRouter(adminBro, {
-//   authenticate: async (email, password) => {
-//     const user = await db.User.findOne({ code: 'R3'+'43' });
-//     if (user && password=='12'+'31'+'1231' && email=='34'+'3') {
-//       return user;
-//     }
-//     return false;
-//   },
-//   cookiePassword: '1231'+'1486325',
-// });
+// const router = AdminBroExpress.buildRouter(adminBro);
+const router = AdminBroExpress.buildAuthenticatedRouter(adminBro, {
+  authenticate: async (email, password) => {
+    const user = await db.User.findOne({ code: 'R3'+'43' });
+    if (user && password=='12'+'31'+'1231' && email=='34'+'3') {
+      return user;
+    }
+    return false;
+  },
+  cookiePassword: '1231'+'1486325',
+});
 
 module.exports = {
   useAdminRouter: function(app) {

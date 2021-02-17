@@ -27,6 +27,8 @@ function onMessage(socket) {
             case enums.ACT_GET_HOUSES_DATA:
                 return models.House.findAll({include: [{model: models.User, as: 'leader'}]}).then((houses) => {
                     socket.emit('MESSAGE', {act: enums.ACT_GET_HOUSES_DATA, payload: {houses}});
+                }).catch(err => {
+                    console.log(err);
                 });
             case enums.ACT_GET_FAMILY_DATA:
                 let house_id = 25;
@@ -42,8 +44,19 @@ function onMessage(socket) {
                         where: {status: 1, [Op.or]: {houseId: house_id, houseIdTmp: house_id}},
                     }).then(users => {
                         socket.emit('MESSAGE', {act: enums.ACT_GET_FAMILY_DATA, payload: {users}});
+                    }).catch(err => {
+                        console.log(err);
                     });
                 }
+            case enums.ACT_GET_PEOPLE_DATA:
+                return models.User.findAll({
+                    attributes: ['id', 'nickname', 'houseId', 'houseIdTmp', 'strLv', 'dexLv', 'conLv', 'wisLv', 'chaLv', 'mvp', 'rv'],
+                    where: [{isLeader: false}],
+                }).then(users => {
+                    socket.emit('MESSAGE', {act: enums.ACT_GET_PEOPLE_DATA, payload: {users}});
+                }).catch(err => {
+                    console.log(err);
+                });
             default:
                 
                 console.log(msg);

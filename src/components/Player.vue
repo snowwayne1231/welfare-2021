@@ -20,12 +20,12 @@
       <md-card-content>
         <div class="md-layout md-gutter player-able-area">
           <div></div>
-          <div class="md-layout-item md-size-30">
+          <div class="md-layout-item">
             <md-table class="table-transparent able-block">
               <md-table-row>
                 <md-table-head>MVP</md-table-head>
                 <md-table-cell>
-                  <md-icon v-for="i in user.mvp" :key="i"
+                  <md-icon v-for="i in user.mvp" :key="i" class="mvp-star"
                     >star</md-icon
                   >
                 </md-table-cell>
@@ -34,7 +34,7 @@
                 <md-table-head>RV</md-table-head>
                 <md-table-cell>
                   <!-- <md-icon v-for="i in user.rv/10">star</md-icon> -->
-                  <md-icon v-for="i in userRV[0]" :key="'f' + i">favorite</md-icon>
+                  <md-icon v-for="i in userRV[0]" :key="'f' + i" class="bigger-favorite">favorite</md-icon>
                   <md-icon v-for="i in userRV[1]" :key="'h' + i"
                     >favorite_border</md-icon
                   >
@@ -42,23 +42,23 @@
               </md-table-row>
               <md-table-row>
                 <md-table-head>STR 力量</md-table-head>
-                <md-table-cell>{{ userData.strLv }}</md-table-cell>
+                <md-table-cell class="border-wraped">{{ user.strLv }}</md-table-cell>
               </md-table-row>
               <md-table-row>
                 <md-table-head>DEX 敏捷</md-table-head>
-                <md-table-cell>{{ userData.dexLv }}</md-table-cell>
+                <md-table-cell class="border-wraped">{{ user.dexLv }}</md-table-cell>
               </md-table-row>
               <md-table-row>
                 <md-table-head>CON 體力</md-table-head>
-                <md-table-cell>{{ userData.conLv }}</md-table-cell>
+                <md-table-cell class="border-wraped">{{ user.conLv }}</md-table-cell>
               </md-table-row>
               <md-table-row>
                 <md-table-head>WIS 精神</md-table-head>
-                <md-table-cell>{{ userData.wisLv }}</md-table-cell>
+                <md-table-cell class="border-wraped">{{ user.wisLv }}</md-table-cell>
               </md-table-row>
               <md-table-row>
                 <md-table-head>CHA 魅力</md-table-head>
-                <md-table-cell>{{ userData.chaLv }}</md-table-cell>
+                <md-table-cell class="border-wraped">{{ user.chaLv }}</md-table-cell>
               </md-table-row>
             </md-table>
           </div>
@@ -67,8 +67,8 @@
               <RadarChart
                 :chart-data="dataRadar"
                 :options="optionRadar"
-                :width="520"
-                :height="520"
+                :width="460"
+                :height="460"
               ></RadarChart>
               <div class="notouch"></div>
             </div>
@@ -91,16 +91,35 @@ export default {
       userPowerForm: [ 'strLv', 'dexLv', 'conLv', 'wisLv', 'chaLv' ],
       optionRadar: {
         legend: {
+          display: false,
           labels: {
-            fontSize: 16
+            fontSize: 20
           }
         },
         scale: {
           ticks: {
             display: false,
-            maxTicksLimit: 3
-          }
-        }
+            // maxTicksLimit: 10,
+            suggestedMin: 0,
+            suggestedMax: 5,
+            stepSize: 1,
+            // showLabelBackdrop: true,
+          },
+          pointLabels: {
+            fontSize: 24,
+            fontColor: '#ac9d83',
+          },
+          angleLines: {
+            display: true,
+            color: '#863821',
+            lineWidth: 2,
+          },
+          gridLines: {
+            dispaly: true,
+            color: '#75321e',
+            lineWidth: 1,
+          },
+        },
       }
     }
   },
@@ -117,34 +136,26 @@ export default {
       arr[2] = vm.user.rv
       return arr
     },
-    userData() {
-      const vm = this
-      const lv = { 5: 'S', 4: 'A', 3: 'B', 2: 'C', 1: 'D', }
-      const obj = {}
-      for (const i in vm.userPowerForm) {
-        const key = vm.userPowerForm[i]
-        const curr = vm.user[key]
-        obj[key] = !lv[curr] ? curr : lv[curr]
-      }
-      return obj
-    },
     dataRadar() {
-      console.log('dataRadar: ', this)
+      const lvMap = {'S': 5, 'A': 4, 'B': 3, 'C': 2, 'D': 1, '-': 0};
       return {
         labels: ['力', '敏', '體', '精', '魅'],
         datasets: [
           {
-            label: '數值',
+            label: '',
             backgroundColor: 'rgba(177, 143, 91, 0.6)',
             borderColor: 'rgba(177, 143, 91, 0.8)',
             data: [
-              this.user.strLv,
-              this.user.dexLv,
-              this.user.conLv,
-              this.user.wisLv,
-              this.user.chaLv
+              lvMap[this.user.strLv] || 0,
+              lvMap[this.user.dexLv] || 0,
+              lvMap[this.user.conLv] || 0,
+              lvMap[this.user.wisLv] || 0,
+              lvMap[this.user.chaLv] || 0
             ],
-            spanGaps: true
+            spanGaps: true,
+            pointBackgroundColor: 'transparent',
+            pointBorderColor: 'transparent',
+            
           }
         ]
       }
@@ -158,97 +169,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.player {
-  background-image: url('/static/imgs/bg_room.png');
-  .notouch {
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-  }
-  .personal-card {
-    display: inline-block;
-    position: fixed;
-    left: 400px;
-    top: 0;
-    width: 70vw;
-    min-width: 360px;
-    background-color: #1c0f008f;
-    border: 1px solid #805b00;
-    border-radius: 10px;
-    margin-top: 40px;
-    height: calc(100vh - 55px);
-
-    .md-card-header {
-      border-bottom: 1px solid#805b00;
-      margin: 0 20px;
-      .md-card-header-text {
-        height: 120px;
-        position: relative;
-        .md-title {
-          color: #fff;
-          font-size: 58px;
-          line-height: 64px;
-        }
-        .md-subhead {
-          color: #eed8b2;
-          font-family: 'Philosopher', sans-serif;
-          text-transform: uppercase;
-          font-size: 26px;
-          margin-top: 3px;
-        }
-        .note {
-          position: absolute;
-          left: 0;
-          bottom: 5px;
-          font-size: 15px;
-          color: #987153;
-        }
-      }
-
-      .md-card-media {
-        height: 100%;
-      }
-    }
-
-    .md-card-content {
-      padding-top: 20px;
-      line-height: normal !important;
-      height: calc(100vh - 220px);
-      overflow-y: auto;
-    }
-    .table-transparent {
-      background-color: transparent;
-      .md-theme-default {
-        background-color: transparent;
-      }
-    }
-    .player-able-area {
-      margin: 10px 30px;
-      .able-block {
-        .md-table-head {
-          font-size: 18px !important;
-          color: #b18f5b !important;
-        }
-        .md-table-cell {
-          font-size: 18px !important;
-          color: #ac9d83 !important;
-          .md-icon {
-            color: #ac9d83 !important;
-          }
-        }
-      }
-      .card-ability-chat {
-        width: 520px;
-        margin: 0px auto;
-        background-color: #ffffff8f;
-        position: relative;
-      }
-    }
-  }
-}
-</style>

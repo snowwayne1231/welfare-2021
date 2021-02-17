@@ -7,6 +7,7 @@
 
 1. Docker
 2. Nodejs 14+
+3. Git
 
 ``` bash
 # install dependencies

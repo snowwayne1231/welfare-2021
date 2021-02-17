@@ -1,0 +1,27 @@
+.family {
+    background-image: url("/static/imgs/stark.jpg");
+    .role-area {
+      text-align: left;
+    }
+    .role {
+      width: auto;
+      min-width: 300px;
+      display: inline-block;
+      background-color: #e8e8e8c4;
+      &.leader {
+        background-color: #ffb1b1c4;
+      }
+      &.partner {
+        background-color:#ffe1bcc4;
+      }
+      &.member {
+        background-color:#b1ffffc4;
+      }
+      &.traveler {
+        background-color: #b1d0ffc4;
+      }
+      .md-card-header {
+        border: none;
+      }
+    }
+  }
