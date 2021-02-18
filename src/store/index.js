@@ -78,7 +78,7 @@ const moduleUser = {
                     state.skillSDCWC = state.skillPointJson.sdcwc.map(n => {spended += n; return n;});
                     state.skillSpended = spended;
                     break;
-                default:
+                case 0:
                     for (let key in userInitState) {
                         if (payload.hasOwnProperty(key)) {
                             if ((key=='json' || key=='skillPointJson') && typeof payload[key] == 'string') {
@@ -93,6 +93,7 @@ const moduleUser = {
                             }
                         }
                     }
+                default:
             }
         },
     },
