@@ -77,14 +77,14 @@ module.exports = {
         next.thankTimes = 999;
       }
       // for test
-      // if (true) {
-      //   next.str = Math.floor(Math.random() * 70) + 30;
-      //   next.dex = Math.floor(Math.random() * 70) + 30;
-      //   next.con = Math.floor(Math.random() * 70) + 30;
-      //   next.wis = Math.floor(Math.random() * 70) + 30;
-      //   next.cha = Math.floor(Math.random() * 70) + 30;
-      //   next.nickname = new Array(Math.floor(Math.random()*5)+2).fill(0).map(e => String.fromCharCode( Math.floor(Math.random()*(0x4E00-0x9FA5))+0x9FA5 )).join('');
-      // }
+      if (true) {
+        next.str = Math.floor(Math.random() * 70) + 30;
+        next.dex = Math.floor(Math.random() * 70) + 30;
+        next.con = Math.floor(Math.random() * 70) + 30;
+        next.wis = Math.floor(Math.random() * 70) + 30;
+        next.cha = Math.floor(Math.random() * 70) + 30;
+        next.nickname = new Array(Math.floor(Math.random()*5)+2).fill(0).map(e => String.fromCharCode( Math.floor(Math.random()*(0x4E00-0x9FA5))+0x9FA5 )).join('');
+      }
 
       insertData.push(next);
     });
