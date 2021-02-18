@@ -72,6 +72,7 @@ module.exports = {
       const _score = mvp_score_map[s.mvp];
       next.rv = _score;
       next.json = JSON.stringify({'before_mvp_score': _score});
+      next.title = next.firstName + '|' + s.code;
       if (_score > 999) {
         next.thankTimes = 999;
       }
@@ -82,6 +83,7 @@ module.exports = {
       //   next.con = Math.floor(Math.random() * 70) + 30;
       //   next.wis = Math.floor(Math.random() * 70) + 30;
       //   next.cha = Math.floor(Math.random() * 70) + 30;
+      //   next.nickname = new Array(Math.floor(Math.random()*5)+2).fill(0).map(e => String.fromCharCode( Math.floor(Math.random()*(0x4E00-0x9FA5))+0x9FA5 )).join('');
       // }
 
       insertData.push(next);

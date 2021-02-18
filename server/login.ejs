@@ -134,7 +134,14 @@
 
     </div>
     <script>
-      
+      document.getElementById('loginuser').addEventListener('change', (evt) => {
+        var target = evt.target;
+        var val = target.value;
+        if (/[^(A-Z0-9)]/.test(val)) {
+          val = val.replace(/[^(A-Z0-9)]/i, '');
+          target.value = val.toUpperCase();
+        }
+      });
     </script>
   </body>
 </html>

@@ -98,6 +98,11 @@ module.exports = {
       mvp: {
         type: Sequelize.INTEGER
       },
+      skillPointJson: {
+        type: Sequelize.STRING,
+        defaultValue: '{"origin": 0,"now": 0,"sdcwc":[0,0,0,0,0]}',
+        allowNull: false,
+      },
       json: {
         type: Sequelize.STRING,
         defaultValue: '{}',

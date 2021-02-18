@@ -56,6 +56,7 @@ module.exports = (sequelize, DataTypes) => {
     gender: DataTypes.INTEGER,
     partake: DataTypes.INTEGER,
     mvp: DataTypes.INTEGER,
+    skillPointJson: DataTypes.STRING,
     json: {
       type: DataTypes.STRING,
       // get: function() {

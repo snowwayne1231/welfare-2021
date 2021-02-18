@@ -159,7 +159,9 @@ function handlePOST(req, res, uris) {
         if (setting_pwd != check_pwd || setting_pwd.length > 12) {
             error_msg = 'Different Password or Password Too Long.';
         }
-
+        if (nickname.length == 0) {
+            error_msg = 'Nickname Empty.';
+        }
         if (nickname.length > 12) {
             error_msg = 'Too Long Nickname.';
         }
@@ -178,8 +180,8 @@ function handlePOST(req, res, uris) {
                 return res.render(_register, {...req.body, msg: 'Failed, Code Not Matched.'});
             }
 
-            if (!nickname || nickname.length == 0) {
-                nickname = user_data.firstName;
+            if (nickname.match(new RegExp(user.firstName, 'i')) || user.firstName.match(new RegExp(nickname, 'i'))) {
+                return res.render(_register, {...req.body, msg: 'Failed, Nickname Similar With Name.'});
             }
 
             user.update({

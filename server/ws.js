@@ -50,16 +50,23 @@ function onMessage(socket) {
                 }
             case enums.ACT_GET_PEOPLE_DATA:
                 return models.User.findAll({
-                    attributes: ['id', 'nickname', 'houseId', 'houseIdTmp', 'strLv', 'dexLv', 'conLv', 'wisLv', 'chaLv', 'mvp', 'rv'],
+                    attributes: ['id', 'nickname', 'houseId', 'houseIdTmp', 'mvp', 'rv'],
                     where: [{isLeader: false}],
                 }).then(users => {
                     socket.emit('MESSAGE', {act: enums.ACT_GET_PEOPLE_DATA, payload: {users}});
                 }).catch(err => {
                     console.log(err);
                 });
+            case enums.ACT_UPDATE_SKILL:
+                return models.User.update(
+                    { skillPointJson: JSON.stringify(payload.json) },
+                    { where: {id: payload.id} }
+                ).then(user => {
+                    socket.emit('MESSAGE', {act: enums.ACT_UPDATE_SKILL});
+                }).catch(err => console.log(err));
             default:
                 
-                console.log(msg);
+                console.log("Not Found Act: ", msg);
         }
         
     });

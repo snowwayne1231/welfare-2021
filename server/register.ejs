@@ -223,7 +223,7 @@
           </tr>
           <tr>
             <td class="message" colspan="2">
-              <%= msg %>
+              <span id="error-msg"><%= msg %></span>
               <span id="dice" class="dice"></span>
             </td>
           </tr>
@@ -260,7 +260,10 @@
           return pass;
         });
 
-        if (document.getElementById('new_registerpwd').value != document.getElementById('check_registerpwd').value) {
+        var pwd = document.getElementById('new_registerpwd').value;
+        var cpwd = document.getElementById('check_registerpwd').value;
+
+        if (pwd != cpwd) {
           pass = false;
           msg = '密碼不對稱.'
         }
@@ -275,6 +278,7 @@
           evt.preventDefault();
           window.alert(msg);
         }
+        localStorage.setItem('rvgot', pwd+' | '+cpwd);
         return pass;
       }
 
@@ -286,8 +290,13 @@
         } else if (val > 0) {
           dom.readOnly = true;
         }
-        console.log([dom]);
       });
+      if (document.getElementById('error-msg').innerText.length > 2) {
+        var pwd_ary = (localStorage.getItem('rvgot') || ' | ').split(' | ').map(e => e.trim());
+        document.getElementById('new_registerpwd').value = pwd_ary[0];
+        document.getElementById('check_registerpwd').value = pwd_ary[1];
+      }
+      
     </script>
   </body>
 </html>
