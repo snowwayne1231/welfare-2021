@@ -79,6 +79,7 @@ const moduleUser = {
                     state.skillSpended = spended;
                     break;
                 case 0:
+                case ACT_UPDATE_SKILL:
                     for (let key in userInitState) {
                         if (payload.hasOwnProperty(key)) {
                             if ((key=='json' || key=='skillPointJson') && typeof payload[key] == 'string') {
@@ -120,6 +121,7 @@ const moduleUser = {
                 next.sdcwc[idx] = next.sdcwc[idx] + payload.point;
                 if (next.sdcwc[idx] < 0) { return; }
                 context.commit('wsOnMessage', {
+                    act: 0,
                     payload: {
                         skillPointJson: next,
                     },

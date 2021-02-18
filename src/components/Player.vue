@@ -215,7 +215,12 @@ export default {
       this.$store.dispatch('updateSkillPoint', {key, point: -1});
     },
     onClickSubmit() {
-      if (this.user.skillPointJson.sdcwc.join('') != this.user.skillSDCWC.join('')) {
+      const json = this.user.skillPointJson;
+      if (json.sdcwc.join('') != this.user.skillSDCWC.join('')) {
+        let sum = json.sdcwc.reduce((a,b) => a+b, 0);
+        if (sum > json.origin) {
+          return window.alert('Something Wrong.');
+        }
         this.$store.dispatch('wsEmitMessage', {act: ACT_UPDATE_SKILL, payload: {id: this.user.id, json: this.user.skillPointJson}});
         
       }
