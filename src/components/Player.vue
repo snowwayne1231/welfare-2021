@@ -18,9 +18,9 @@
       </md-card-header>
 
       <md-card-content>
-        <div class="md-layout md-gutter player-able-area">
-          <div></div>
-          <div class="md-layout-item">
+        <div class="md-layout md-gutter player-able-area" :class="{'p-eq-0': user.skillPointJson.now <= 0, 'p-gap': (user.skillPointJson.origin - user.skillPointJson.now) > 0}">
+          <!-- <div></div> -->
+          <div class="md-layout-item info-table">
             <md-table class="table-transparent able-block">
               <md-table-row>
                 <md-table-head>MVP</md-table-head>
@@ -42,23 +42,50 @@
               </md-table-row>
               <md-table-row>
                 <md-table-head>STR 力量</md-table-head>
-                <md-table-cell class="border-wraped">{{ user.strLv }}</md-table-cell>
+                <md-table-cell class="border-wraped">
+                  <i class="circle minus" v-if="checkMinusShow(0)" @click="onClickMinus('str')"><md-icon>remove_circle</md-icon></i>
+                  <i class="circle add" v-if="displayLvNums.str < 5" @click="onClickAdd('str')"><md-icon>add_circle</md-icon></i>
+                  {{ displayLv.str }}
+                </md-table-cell>
               </md-table-row>
               <md-table-row>
                 <md-table-head>DEX 敏捷</md-table-head>
-                <md-table-cell class="border-wraped">{{ user.dexLv }}</md-table-cell>
+                <md-table-cell class="border-wraped">
+                  <i class="circle minus" v-if="checkMinusShow(1)" @click="onClickMinus('dex')"><md-icon>remove_circle</md-icon></i>
+                  <i class="circle add" v-if="displayLvNums.dex < 5" @click="onClickAdd('dex')"><md-icon>add_circle</md-icon></i>
+                  {{ displayLv.dex }}
+                </md-table-cell>
               </md-table-row>
               <md-table-row>
                 <md-table-head>CON 體力</md-table-head>
-                <md-table-cell class="border-wraped">{{ user.conLv }}</md-table-cell>
+                <md-table-cell class="border-wraped">
+                  <i class="circle minus" v-if="checkMinusShow(2)" @click="onClickMinus('con')"><md-icon>remove_circle</md-icon></i>
+                  <i class="circle add" v-if="displayLvNums.con < 5" @click="onClickAdd('con')"><md-icon>add_circle</md-icon></i>
+                  {{ displayLv.con }}
+                </md-table-cell>
               </md-table-row>
               <md-table-row>
                 <md-table-head>WIS 精神</md-table-head>
-                <md-table-cell class="border-wraped">{{ user.wisLv }}</md-table-cell>
+                <md-table-cell class="border-wraped">
+                  <i class="circle minus" v-if="checkMinusShow(3)" @click="onClickMinus('wis')"><md-icon>remove_circle</md-icon></i>
+                  <i class="circle add" v-if="displayLvNums.wis < 5" @click="onClickAdd('wis')"><md-icon>add_circle</md-icon></i>
+                  {{ displayLv.wis }}
+                </md-table-cell>
               </md-table-row>
               <md-table-row>
                 <md-table-head>CHA 魅力</md-table-head>
-                <md-table-cell class="border-wraped">{{ user.chaLv }}</md-table-cell>
+                <md-table-cell class="border-wraped">
+                  <i class="circle minus" v-if="checkMinusShow(4)" @click="onClickMinus('cha')"><md-icon>remove_circle</md-icon></i>
+                  <i class="circle add" v-if="displayLvNums.cha < 5" @click="onClickAdd('cha')"><md-icon>add_circle</md-icon></i>
+                  {{ displayLv.cha }}
+                </md-table-cell>
+              </md-table-row>
+              <md-table-row>
+                <md-table-head>POINT 點數</md-table-head>
+                <md-table-cell>
+                  <span class="point">{{ user.skillPointJson.now }}</span>
+                  <button class="btn" @click="onClickSubmit">確定</button>
+                </md-table-cell>
               </md-table-row>
             </md-table>
           </div>
@@ -80,8 +107,9 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import RadarChart from './chart/radar'
+import { ACT_UPDATE_SKILL } from '../store/enum';
 
 export default {
   name: 'Player',
@@ -120,7 +148,7 @@ export default {
             lineWidth: 1,
           },
         },
-      }
+      },
     }
   },
   mounted() {
@@ -128,6 +156,7 @@ export default {
   },
   computed: {
     ...mapState(['user']),
+    ...mapGetters(['displayLv', 'lvNums', 'displayLvNums']),
     userRV() {
       const vm = this
       const arr = []
@@ -137,35 +166,60 @@ export default {
       return arr
     },
     dataRadar() {
-      const lvMap = {'S': 5, 'A': 4, 'B': 3, 'C': 2, 'D': 1, '-': 0};
+      console.log('updated dataRadar');
       return {
         labels: ['力', '敏', '體', '精', '魅'],
         datasets: [
           {
-            label: '',
+            label: 'origin',
             backgroundColor: 'rgba(177, 143, 91, 0.6)',
             borderColor: 'rgba(177, 143, 91, 0.8)',
             data: [
-              lvMap[this.user.strLv] || 0,
-              lvMap[this.user.dexLv] || 0,
-              lvMap[this.user.conLv] || 0,
-              lvMap[this.user.wisLv] || 0,
-              lvMap[this.user.chaLv] || 0
+              this.lvNums.str,
+              this.lvNums.dex,
+              this.lvNums.con,
+              this.lvNums.wis,
+              this.lvNums.cha,
             ],
             spanGaps: true,
             pointBackgroundColor: 'transparent',
             pointBorderColor: 'transparent',
-            
+          },
+          {
+            label: 'improve',
+            backgroundColor: 'rgba(48, 223, 208, 0.3)',
+            borderColor: 'rgba(48, 223, 208, 0.3)',
+            data: [
+              this.displayLvNums.str,
+              this.displayLvNums.dex,
+              this.displayLvNums.con,
+              this.displayLvNums.wis,
+              this.displayLvNums.cha,
+            ],
+            spanGaps: true,
+            pointBackgroundColor: 'transparent',
+            pointBorderColor: 'transparent',
           }
         ]
       }
-    }
+    },
   },
   methods: {
-    sendMessage(evt) {
-      console.log('sendMessage')
-      // this.$store.dispatch('wsEmitAuthorize', this.$cookies.get('logintimestamp'));
-    }
+    checkMinusShow(idx) {
+      return this.user.skillPointJson.sdcwc[idx] > this.user.skillSDCWC[idx];
+    },
+    onClickAdd(key) {
+      this.$store.dispatch('updateSkillPoint', {key, point: 1});
+    },
+    onClickMinus(key) {
+      this.$store.dispatch('updateSkillPoint', {key, point: -1});
+    },
+    onClickSubmit() {
+      if (this.user.skillPointJson.sdcwc.join('') != this.user.skillSDCWC.join('')) {
+        this.$store.dispatch('wsEmitMessage', {act: ACT_UPDATE_SKILL, payload: {id: this.user.id, json: this.user.skillPointJson}});
+        
+      }
+    },
   }
 }
 </script>

@@ -14,4 +14,5 @@ module.exports = {
     ACT_GET_HOUSES_DATA: 21,
     ACT_GET_FAMILY_DATA: 22,
     ACT_GET_PEOPLE_DATA: 23,
+    ACT_UPDATE_SKILL: 51,
 }

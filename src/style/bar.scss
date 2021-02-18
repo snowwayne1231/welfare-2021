@@ -2,9 +2,6 @@
     position: relative;
     padding-left: 280px;
 
-    .bar-card {
-        
-    }
     .md-card-content {
         position: relative;
         padding: 10px 10px 0px;
@@ -15,16 +12,48 @@
         height: 80%;
 
         .gold {
-            color: gold;
+            color: #ffd90a;
         }
         .purple {
-            color: purple;
+            color: #a611bf;
         }
         .blue {
-            color: blue;
+            color: #005cbb;
         }
         .green {
-            color: green;
+            color: #13a202;
+        }
+    }
+
+    .wanted-table {
+        position: relative;
+        box-sizing: border-box;
+        background-color: #e7d3bb;
+        border: 10px outset #604c42;
+        // box-shadow: 1px 3px 3px #111; 
+        color: #604c42;
+        overflow-x: hidden;
+
+        .md-title {
+            font-size: 52px;
+            line-height: 70px;
+            padding: 12px;
+            color: #604c42;
+            font-weight: bold;
+        }
+
+        .md-table-fixed-header {
+            background-color: #ffe5d4;
+            box-shadow: 1px 3px 3px #9c8888; 
+        }
+
+        .md-table-content {
+            background: transparent;
+
+            .md-table-cell {
+                font-size: 20px;
+                font-weight: bold;
+            }
         }
     }
 
@@ -62,4 +91,5 @@
             }
         }
     }
+
 }

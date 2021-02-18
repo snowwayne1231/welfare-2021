@@ -15,12 +15,13 @@
 
       <md-card-content>
         <div class="bar-content">
-          <md-table v-model="chat.publicPeople" md-sort="lvScore" md-sort-order="asc" md-card md-fixed-header>
+          <md-table v-model="showWantedPeople" md-sort="rv" md-sort-order="desc" md-fixed-header class="wanted-table">
+            <md-table-toolbar>
+              <h1 class="md-title">WANTED</h1>
+            </md-table-toolbar>
             <md-table-row slot="md-table-row" slot-scope="{ item }">
-              <md-table-cell md-label="Nickname" md-sort-by="nickname">{{ item.nickname }}</md-table-cell>
+              <md-table-cell md-label="Nickname" md-sort-by="nickname" :class="item.lvColor">{{ item.nickname }}</md-table-cell>
               <md-table-cell md-label="Rv" md-sort-by="rv">{{ item.rv }}</md-table-cell>
-              <md-table-cell md-label="Mvp" md-sort-by="mvp">{{ item.mvp }}</md-table-cell>
-              <md-table-cell md-label="lvScore" md-sort-by="lvScore" :class="item.lvColor">{{ item.lvColor }}</md-table-cell>
             </md-table-row>
           </md-table>
         </div>
@@ -45,14 +46,10 @@
 
 <script>
 import { mapState } from 'vuex';
-import RadarChart from './chart/radar';
 import { ACT_JOIN_CHAT_ROOM, ACT_LEAVE_CHAT_ROOM, ACT_JOIN_FAMILY, ACT_SAY_CHAT_ROOM, ACT_GET_PEOPLE_DATA } from '../store/enum';
 
 export default {
   name: 'Bar',
-  components: {
-    RadarChart
-  },
   data() {
     return {
       chatInput: '',
@@ -63,13 +60,22 @@ export default {
     // console.log(this);
     this.$store.dispatch('wsEmitMessage', {act: ACT_JOIN_CHAT_ROOM});
     this.$store.dispatch('wsEmitMessage', {act: ACT_GET_PEOPLE_DATA});
-    console.log('ACT_GET_PEOPLE_DATA: ', ACT_GET_PEOPLE_DATA);
   },
   beforeDestroy() {
     this.$store.dispatch('wsEmitMessage', {act: ACT_LEAVE_CHAT_ROOM});
   },
   computed: {
     ...mapState(['user', 'chat']),
+    showWantedPeople: {
+      get() {
+        return this.chat.publicPeople.filter(e => {
+          return e.houseId == 0 && e.houseIdTmp == 0 && e.mvp == 0;
+        });
+      },
+      set(next) {
+        this.$store.commit('updateChat', {publicPeople: next});
+      },
+    },
   },
   updated() {
     if (this.$refs['chatHistory']) {
