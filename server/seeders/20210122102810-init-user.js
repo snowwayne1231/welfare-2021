@@ -77,7 +77,7 @@ module.exports = {
         next.thankTimes = 999;
       }
       // for test
-      if (true) {
+      if (false) {
         next.str = Math.floor(Math.random() * 70) + 30;
         next.dex = Math.floor(Math.random() * 70) + 30;
         next.con = Math.floor(Math.random() * 70) + 30;
