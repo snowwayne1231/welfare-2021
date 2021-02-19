@@ -12,8 +12,78 @@
         overflow: hidden;
         height: 80%;
 
+        .bar-content-background {
+            position: relative;
+            height: 100%;
+            z-index: 1;
+            background-color: rgba(5,5,5,0.4);
+        }
+
+        .bar-content-table {
+            display: inline-block;
+            position: absolute;
+            z-index: 2;
+            top: 0px;
+            left: 0px;
+            height: 0%;
+            width: 100%;
+            overflow: hidden;
+            transition: 0.5s height ease-in;
+
+            &.active {
+                height: 100%;
+            }
+        }
+
+        .bar-content-open-table-btn {
+            position: absolute;
+            top: 5px;
+            right: 25px;
+            cursor: pointer;
+        }
+        .bar-content-close-btn {
+            cursor: pointer;
+        }
+
+        .bar-content-people {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            padding: 0px;
+            cursor: pointer;
+
+            .bar-person-unit {
+                display: inline-block;
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                transition: 0.6s transform ease-out;
+                width: 50px;
+                height: 50px;
+                margin-top: -25px;
+                margin-left: -25px;
+
+                .bar-person-name{
+                    display: block;
+                    background-color: rgba(90,60,60,0.6);
+                    color: #fff;
+                    white-space: nowrap;
+                    font-size: 12px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    border-radius: 3px;
+                }
+                .md-icon {
+                    color: #b18f3c;
+                    font-size: 32px !important;
+                    height: 32px;
+                }
+            }
+        }
+
         .gold {
             color: #ffd90a;
+            text-shadow: 1px 1px #756b6a;
         }
         .purple {
             color: #a611bf;

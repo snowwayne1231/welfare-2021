@@ -2,7 +2,10 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import socketio from 'socket.io-client';
 import createSocketIoPlugin from 'vuex-socketio';
-import { ACT_SAY_CHAT_ROOM, ACT_GET_HOUSES_DATA, ACT_GET_FAMILY_DATA, ACT_GET_PEOPLE_DATA, ACT_UPDATE_SKILL} from './enum';
+import {
+    ACT_GET_HOUSES_DATA, ACT_GET_FAMILY_DATA, ACT_GET_PEOPLE_DATA, ACT_UPDATE_SKILL, 
+    ACT_JOIN_CHAT_ROOM, ACT_LEAVE_CHAT_ROOM, ACT_MOVE_CHAT_ROOM, ACT_SAY_CHAT_ROOM
+} from './enum';
 console.log('process.env: ', process.env);
 const wsLocation = process.env.WS_LOCATION;
 const socket = socketio(wsLocation);
@@ -190,26 +193,47 @@ const moduleChatRoom = {
         tablePlayers: [0,0,0,0,0,0,0,0,0,0,0,0],
         histories: [],
         publicPeople: [],
+        peopleInBarHouse: [],
     },
     mutations: {
         wsOnMessage: (state, message) => {
             const payload = message.payload;
-            if (message.act == ACT_SAY_CHAT_ROOM) {
-                const next = [...state.histories];
-                if (payload && next.unshift(payload) > 20) {
-                    next.splice(-1,1);
-                }
-                state.histories = next;
-            } else if (message.act == ACT_GET_PEOPLE_DATA) {
-                const users = payload.users;
-                if (Array.isArray(users)) {
-                    const lvColors = [['gold', 24], ['purple', 16], ['blue', 10], ['green', 4], ['gray', 0]];
-                    users.map(u => {
-                        let score = u.rv;
-                        u.lvColor = lvColors.find(c => c[1] <= score)[0];
-                    });
-                    state.publicPeople = users;
-                }
+            switch (message.act) {
+                case ACT_JOIN_CHAT_ROOM:
+                    state.peopleInBarHouse = payload.bar_house_people;
+                    break;
+                case ACT_LEAVE_CHAT_ROOM:
+                    state.peopleInBarHouse = payload.bar_house_people;
+                    break;
+                case ACT_MOVE_CHAT_ROOM:
+                    const user_id = payload.user_id;
+                    const nextHouse = state.peopleInBarHouse.slice();
+                    const user_idx = nextHouse.findIndex(e => e.id == user_id);
+                    if (user_idx >= 0) {
+                        nextHouse[user_idx].position = payload.position;
+                    }
+                    state.peopleInBarHouse = nextHouse;
+                    break;
+                case ACT_SAY_CHAT_ROOM:
+                    const next = [...state.histories];
+                    if (payload && next.unshift(payload) > 20) {
+                        next.splice(-1,1);
+                    }
+                    state.histories = next;
+                    break;
+                case ACT_GET_PEOPLE_DATA:
+                    const users = payload.users;
+                    if (Array.isArray(users)) {
+                        const lvColors = [['gold', 24], ['purple', 16], ['blue', 10], ['green', 4], ['gray', 0]];
+                        users.map(u => {
+                            let score = u.rv;
+                            u.lvColor = lvColors.find(c => c[1] <= score)[0];
+                        });
+                        state.publicPeople = users;
+                    }
+                    break;
+                default:
+                    console.log('Nothing Happend. ', message);
             }
         },
         updateChat: (state, payload) => {

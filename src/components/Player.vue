@@ -22,7 +22,7 @@
           <!-- <div></div> -->
           <div class="md-layout-item info-table">
             <md-table class="table-transparent able-block">
-              <md-table-row>
+              <md-table-row v-if="user.mvp >= 0">
                 <md-table-head>MVP</md-table-head>
                 <md-table-cell>
                   <md-icon v-for="i in user.mvp" :key="i" class="mvp-star"

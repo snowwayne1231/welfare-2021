@@ -1,4 +1,3 @@
-// import { ACT_JOIN_CHAT_ROOM } from '../src/store/enum';
 
 const socketIO = require("socket.io");
 const { Op } = require("sequelize");
@@ -9,6 +8,7 @@ const ROOM_CHATTING_BAR = 'roomchattingbar';
 
 const inners = {};
 const bar_tables = [];
+const bar_house_people = [];
 
 
 
@@ -18,11 +18,35 @@ function onMessage(socket) {
         const userinfo = socket.request.session.userinfo;
         switch (msg.act) {
             case enums.ACT_JOIN_CHAT_ROOM:
-                return socket.join(ROOM_CHATTING_BAR);
+                if (!userinfo) { return; }
+                let myinfo = {id: userinfo.id, nickname: userinfo.nickname, position: [65,65], box: []};
+                if (bar_house_people.findIndex(e => e.id == userinfo.id) < 0) {
+                    bar_house_people.push(myinfo);
+                }
+                socket.join(ROOM_CHATTING_BAR);                
+                return broadcastChatRoom({act: enums.ACT_JOIN_CHAT_ROOM, payload: {user: myinfo, bar_house_people}});
             case enums.ACT_LEAVE_CHAT_ROOM:
-                return socket.leave(ROOM_CHATTING_BAR);
+                if (!userinfo) { return; }
+                let myinfo_l = {id: userinfo.id, nickname: userinfo.nickname, position: [0,0], box: []};
+                socket.leave(ROOM_CHATTING_BAR);
+                let idx = bar_house_people.findIndex(e => e.id == userinfo.id);
+                if (idx >= 0) {
+                    bar_house_people.splice(idx, 1);
+                } else {
+                    console.log('Failed Find Bar Leave: ', userinfo);
+                }
+                return broadcastChatRoom({act: enums.ACT_LEAVE_CHAT_ROOM, payload: {user: myinfo_l, bar_house_people}});
             case enums.ACT_SAY_CHAT_ROOM:
-                return inners.io.to(ROOM_CHATTING_BAR).emit('MESSAGE', {act: enums.ACT_SAY_CHAT_ROOM, payload: {text: payload.text, nickname: userinfo.nickname}});
+                if (!userinfo) { return; }
+                return broadcastChatRoom({act: enums.ACT_SAY_CHAT_ROOM, payload: {text: payload.text, nickname: userinfo.nickname}});
+            case enums.ACT_MOVE_CHAT_ROOM:
+                if (!userinfo) { return; }
+                let idx_move = bar_house_people.findIndex(e => e.id == userinfo.id);
+                let new_position = [payload.x, payload.y];
+                if (idx_move >= 0) {
+                    bar_house_people[idx_move].position = new_position;
+                }
+                return broadcastChatRoom({act: enums.ACT_MOVE_CHAT_ROOM, payload: {user_id: userinfo.id, position: new_position}});
 
             case enums.ACT_GET_HOUSES_DATA:
                 return models.House.findAll({include: [{model: models.User, as: 'leader'}]}).then((houses) => {
@@ -65,7 +89,6 @@ function onMessage(socket) {
                     socket.emit('MESSAGE', {act: enums.ACT_UPDATE_SKILL});
                 }).catch(err => console.log(err));
             default:
-                
                 console.log("Not Found Act: ", msg);
         }
         
@@ -74,13 +97,22 @@ function onMessage(socket) {
 
 function onDisconnect(socket) {
     socket.on('disconnect', (msg) => {
-        console.log('disconnected: ', socket.request.session.userinfo ? socket.request.session.userinfo.nickname : 'unknown');
+        var userinfo = socket.request.session.userinfo;
+        console.log('disconnected: ', userinfo ? userinfo.nickname : 'unknown');
+        var house_idx = bar_house_people.findIndex(e => e.id == userinfo.id);
+        if (house_idx >= 0) {
+            bar_house_people.splice(house_idx, 1);
+        }
     });
 }
 
 function bindSockets(socket) {
     onMessage(socket);
     onDisconnect(socket);
+}
+
+function broadcastChatRoom(obj) {
+    return inners.io.to(ROOM_CHATTING_BAR).emit('MESSAGE', obj);
 }
 
 

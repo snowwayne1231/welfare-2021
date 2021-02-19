@@ -94,13 +94,19 @@
         color: #ef0000;
       }
 
+      .tips {
+        font-size: 12px;
+        margin: 0px;
+        color: #a9a124;
+      }
+
     </style>
   </head>
   <body>
     <div id="login">
       
       <form name="form" method="post" action="./login">
-
+        
         <input type="hidden" name="action" value="login">
         <table>
           <tbody>
@@ -109,7 +115,7 @@
                 <label for="rcmloginuser">工號</label>
               </td>
               <td class="input">
-                <input name="usercode" id="loginuser" required="required" size="40" autocapitalize="off" autocomplete="off" type="text" />
+                <input name="usercode" id="loginuser" required="required" size="40" autocapitalize="off" autocomplete="off" type="text" placeholder="ex: R001"/>
               </td>
             </tr>
           <tr>
@@ -117,16 +123,18 @@
               <label for="rcmloginpwd">密碼</label>
             </td>
             <td class="input">
-              <input name="pwd" id="loginpwd" required="required" size="40" autocapitalize="off" autocomplete="off" type="password" />
+              <input name="pwd" id="loginpwd" required="required" size="40" autocapitalize="off" autocomplete="off" type="password" placeholder=""/>
             </td>
           </tr>
           <tr>
             <td class="message" colspan="2">
-              <%= msg %>
+              <p id="error-msg"><%= msg %></p>
+              <p class="tips" id="tips"></p>
             </td>
           </tr>
         </tbody>
         </table>
+        
         <p class="formbuttons">
           <input type="submit" id="loginsubmit" class="button mainaction" value="登錄" />
         </p>
@@ -142,6 +150,9 @@
           target.value = val.toUpperCase();
         }
       });
+      if (document.getElementById('error-msg').innerText.length <= 1) {
+        document.getElementById('tips').innerText = 'Tips: 第一次登入請隨意輸入密碼，接著會進入密碼設定';
+      }
     </script>
   </body>
 </html>
