@@ -1,5 +1,8 @@
 .player {
     background-image: url('/static/imgs/bg_room.png');
+    &.vagrant {
+        background-image: url('/static/imgs/bg_room_1.png');
+    }
     .notouch {
         position: absolute;
         z-index: 1;

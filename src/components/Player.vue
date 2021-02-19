@@ -1,5 +1,5 @@
 <template>
-  <div class="player bg-img">
+  <div class="player bg-img" :class="{ 'vagrant': user.houseId == 0 }">
     <md-card class="personal-card" v-if="user.id > 0">
       <md-card-header>
         <md-card-header-text>
