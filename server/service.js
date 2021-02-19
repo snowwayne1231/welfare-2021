@@ -44,7 +44,7 @@ const session_middleware = ex_session({
     saveUninitialized: true,
 });
 app.use(session_middleware);
-app.use(express.static(path.join(__dirname, '..', 'dist')));
+app.use(express.static(path.join(__dirname, '..', 'dist'), {maxAge: 1000*60*60}));
 app.use((req, res) => {
     const _ary = req.url.split(/[\/\\]+/g).filter(e=>e.length > 0);
     // console.log(`Access [${new Date()}]  Request url: ${req.url}`);
