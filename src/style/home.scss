@@ -121,3 +121,16 @@
         }
     }
 }
+
+@media screen and (max-width: 1440px){
+    .home-card{
+        left: 350px;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .home-card{
+        left: 300px;
+    }
+}
+

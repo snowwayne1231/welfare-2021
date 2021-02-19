@@ -10,7 +10,7 @@
     .bar-content {
         position: relative;
         overflow: hidden;
-        height: 80%;
+        height: calc(100% - 160px);
 
         .bar-content-background {
             position: relative;
@@ -130,7 +130,7 @@
 
     .chat-box {
         position: relative;
-        height: 20%;
+        height: 160px;
 
         .chat-history {
             height: 80%;

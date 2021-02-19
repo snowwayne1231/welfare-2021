@@ -8,13 +8,15 @@
       <div class="bottom">REVOVISION</div>
     </div>
     <md-list class="menu" router-link>
-      <md-list-item v-for="(m, m_i) in menu" :to="m.url" :key="m_i">
-        <div class="md-list-item-text">
-          <div class="main">{{ m.name_en }}</div>
-          <div class="sub">{{ m.name }}</div>
-        </div>
-      </md-list-item>
-      <md-list-item><div class="md-list-item-text" @click="onClickLogout" :style="{cursor: 'pointer'}"><div class="main">SIGN OUT</div><div class="sub">離開</div></div></md-list-item>
+      <div class="meun-wrapper">
+        <md-list-item v-for="(m, m_i) in menu" :to="m.url" :key="m_i">
+          <div class="md-list-item-text">
+            <div class="main">{{ m.name_en }}</div>
+            <div class="sub">{{ m.name }}</div>
+          </div>
+        </md-list-item>
+        <md-list-item><div class="md-list-item-text" @click="onClickLogout" :style="{cursor: 'pointer'}"><div class="main">SIGN OUT</div><div class="sub">離開</div></div></md-list-item>
+      </div>
     </md-list>
     <router-view />
     <div class="loading-mask">
