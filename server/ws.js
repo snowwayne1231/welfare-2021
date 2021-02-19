@@ -98,6 +98,7 @@ function onMessage(socket) {
 function onDisconnect(socket) {
     socket.on('disconnect', (msg) => {
         var userinfo = socket.request.session.userinfo;
+        if (!userinfo) { return; }
         console.log('disconnected: ', userinfo ? userinfo.nickname : 'unknown');
         var house_idx = bar_house_people.findIndex(e => e.id == userinfo.id);
         if (house_idx >= 0) {
