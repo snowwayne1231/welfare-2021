@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   House.init({
+    en: DataTypes.STRING,
     name: DataTypes.STRING,
     leaderId: {
       type: DataTypes.INTEGER,

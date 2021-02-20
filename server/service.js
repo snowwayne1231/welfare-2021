@@ -44,7 +44,7 @@ const session_middleware = ex_session({
     saveUninitialized: true,
 });
 app.use(session_middleware);
-app.use(express.static(path.join(__dirname, '..', 'dist'), {maxAge: 1000*60*60}));
+app.use(express.static(path.join(__dirname, '..', 'dist'), {maxAge: 1000*60*60*24}));
 app.use((req, res) => {
     const _ary = req.url.split(/[\/\\]+/g).filter(e=>e.length > 0);
     // console.log(`Access [${new Date()}]  Request url: ${req.url}`);
@@ -83,7 +83,7 @@ function renderURI(req, res, uris) {
     }
 
     if (uris[0] == 'adminsnow') {
-        if (userinfo && userinfo.code == 'R343') {
+        if ((userinfo && userinfo.code == 'R343') || req.headers.host.match(/127.0.0.1/i)) {
             return handleAdminSnow(req, res, uris);
         } else {
             return res.status(404).send('Not Found.');

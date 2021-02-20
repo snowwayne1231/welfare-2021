@@ -55,16 +55,14 @@ function onMessage(socket) {
                     console.log(err);
                 });
             case enums.ACT_GET_FAMILY_DATA:
-                let house_id = 25;
-                if (userinfo) { 
-                    let house_id = userinfo.houseId > 0 ? userinfo.houseId : userinfo.houseIdTmp;
-                }
+                if (!userinfo) { return; }
+                let house_id = userinfo.houseId > 0 ? userinfo.houseId : userinfo.houseIdTmp;;
                 
                 if (house_id == 0) {
-                    return socket.emit('MESSAGE', {act: enums.ACT_GET_FAMILY_DATA, payload: {}});
+                    return socket.emit('MESSAGE', {act: enums.ACT_GET_FAMILY_DATA, payload: {users: []}});
                 } else {
                     return models.User.findAll({
-                        attributes: ['id', 'mvp', 'gender', 'rv', 'houseId', 'houseIdTmp', 'nickname'],
+                        attributes: ['id', 'mvp', 'gender', 'rv', 'houseId', 'houseIdTmp', 'nickname', 'int', 'strLv', 'dexLv', 'conLv', 'wisLv', 'chaLv'],
                         where: {status: 1, [Op.or]: {houseId: house_id, houseIdTmp: house_id}},
                     }).then(users => {
                         socket.emit('MESSAGE', {act: enums.ACT_GET_FAMILY_DATA, payload: {users}});
