@@ -19,7 +19,7 @@
             <div class="bar-content-people" @click="onClickBarBackground">
               <b class="bar-person-unit" v-for="person in chat.peopleInBarHouse" :key="person.id" :style="personalStyle(person)">
                 <span class="bar-person-name">{{person.nickname}}</span>
-                <md-icon>adb</md-icon>
+                <md-icon :style="{color: getColorByUserId(person.id)}">person</md-icon>
               </b>
             </div>
             <div class="bar-content-open-table-btn" @click="onClickBarOpenBoard"><img src="/static/imgs/board.png" /></div>
@@ -31,8 +31,8 @@
                 <span class="bar-content-close-btn" @click="onClickCloseBoard"><md-icon>close</md-icon></span>
               </md-table-toolbar>
               <md-table-row slot="md-table-row" slot-scope="{ item }">
-                <md-table-cell md-label="Nickname" md-sort-by="nickname" :class="item.lvColor">{{ item.nickname }}</md-table-cell>
-                <md-table-cell md-label="Rv" md-sort-by="rv">{{ item.rv }}</md-table-cell>
+                <md-table-cell md-label="Nickname" md-sort-by="nickname">{{ item.nickname || 'none' }}</md-table-cell>
+                <md-table-cell md-label="Rv" md-sort-by="rv" :class="item.lvColor">{{ getRvNameByColor(item.lvColor) }}</md-table-cell>
               </md-table-row>
             </md-table>
           </div>
@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 import { ACT_JOIN_CHAT_ROOM, ACT_LEAVE_CHAT_ROOM, ACT_JOIN_FAMILY, ACT_SAY_CHAT_ROOM, ACT_GET_PEOPLE_DATA, ACT_MOVE_CHAT_ROOM } from '../store/enum';
 
 export default {
@@ -72,17 +72,24 @@ export default {
   mounted() {
     // console.log(this);
     const $this = this;
-    $this.timer = window.setTimeout(() => {
+    if ($this.user.connected) {
       $this.$store.dispatch('wsEmitMessage', {act: ACT_GET_PEOPLE_DATA});
       $this.$store.dispatch('wsEmitMessage', {act: ACT_JOIN_CHAT_ROOM});
-      $this.timeoutHandler();
-    }, 1000);
+    } else {
+      $this.timer = window.setTimeout(() => {
+        $this.$store.dispatch('wsEmitMessage', {act: ACT_GET_PEOPLE_DATA});
+        $this.$store.dispatch('wsEmitMessage', {act: ACT_JOIN_CHAT_ROOM});
+        $this.timeoutHandler();
+      }, 1000);
+    }
+    
   },
   beforeDestroy() {
     this.$store.dispatch('wsEmitMessage', {act: ACT_LEAVE_CHAT_ROOM});
   },
   computed: {
-    ...mapState(['user', 'chat']),
+    ...mapState(['user', 'chat', 'global']),
+    ...mapGetters(['myHouse', 'usersColor']),
     showWantedPeople: {
       get() {
         return this.chat.publicPeople.filter(e => {
@@ -143,7 +150,24 @@ export default {
     },
     onClickCloseBoard(evt) {
       this.openBoard = false;
-    }
+    },
+    getColorByUserId(id) {
+      const user = this.usersColor.find(e => e.id == id);
+      // console.log('getColorByUserId: ', user);
+      if (user && user.color) {
+        return user.color;
+      }
+      return '#ffffff';
+    },
+    getRvNameByColor(color) {
+      switch (color) {
+        case 'green': return '活耀';
+        case 'blue': return '菁英';
+        case 'purple': return '史詩';
+        case 'gold': return '傳說';
+        default: return '一般';
+      }
+    },
   }
 }
 </script>

@@ -30,8 +30,8 @@ export default new Router({
     {
       path: '/family',
       name: 'Family',
-      // component: Family,
-      component: Maintain,
+      component: Family,
+      // component: Maintain,
     },
     {
       path: '/bar',

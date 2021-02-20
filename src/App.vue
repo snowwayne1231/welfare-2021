@@ -20,7 +20,7 @@
     </md-list>
     <router-view />
     <div class="loading-mask">
-      <div :class="{ chunk: true, done: isLoadingDone }"></div>
+      <div :class="{ chunk: true, done: isLoadingDone }">{{user.connected}}</div>
     </div>
   </div>
 </template>
@@ -49,13 +49,25 @@ export default {
     }
   },
   mounted() {
-    this.$store.dispatch('wsEmitAuthorize', this.$cookies.get('logintimestamp'));
-    this.$store.dispatch('wsEmitMessage', {act: ACT_GET_HOUSES_DATA});
+    this.nowConnecting = false;
+    this.recheckConnection();
+  },
+  updated() {
+    this.recheckConnection();
   },
   methods: {
     onClickLogout() {
       window.location.href = '/logout';
     },
+    recheckConnection() {
+      if (this.nowConnecting == false) {
+        if (this.user.connected) {
+          this.$store.dispatch('wsEmitAuthorize', this.$cookies.get('logintimestamp'));
+          this.$store.dispatch('wsEmitMessage', {act: ACT_GET_HOUSES_DATA});
+        }
+      }
+      this.nowConnecting = this.user.connected;
+    }
   },
 }
 </script>

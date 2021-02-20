@@ -1,7 +1,41 @@
 .family {
-    background-image: url("/static/imgs/stark.jpg");
+    background-image: url('/static/imgs/bg_black_lobby.jpg');
+    
+    .family-logo {
+      position: absolute;
+      height: 102px;
+      display: inline-block;
+      left: 10px;
+      top: 10px;
+    }
     .role-area {
       text-align: left;
+
+      .zone {
+        height: 34%;
+        min-height: 120px;
+        width: 98%;
+        margin: 0 auto;
+        border-bottom: 1px solid #805b00;
+        padding-left: 200px;
+        box-sizing: border-box;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 10px 0px;
+        overflow: auto;
+
+        &.castle {
+          background-image: url("/static/imgs/house_1.png");
+        }
+        &.flat-house {
+          background-image: url("/static/imgs/house_2.png");
+        }
+        &.suck-house {
+          background-image: url("/static/imgs/suck_house.png");
+          height: 32%;
+          background-position: 4px 18px;
+        }
+      }
     }
     .role {
       width: auto;
@@ -23,5 +57,15 @@
       .md-card-header {
         border: none;
       }
+    }
+
+    .no-join-family {
+      height: 100%;
+      position: relative;
+      .suck-house { position: absolute; bottom: 55px; left: 12%; }
+      .active-man { position: absolute; bottom: 160px; left: 50%; }
+    }
+    .grassland {
+      background: linear-gradient(to bottom, transparent, transparent 35%, #81a068 45%, #4e7109 55%, #183105 100%);
     }
   }

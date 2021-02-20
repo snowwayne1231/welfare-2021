@@ -35,6 +35,26 @@
     left: 0px;
     height: 0px;
     width: 100%;
+    overflow: hidden;
+  }
+
+  .active-man {
+
+    .md-icon {
+      position: absolute;
+      // display: none;
+      font-size: 60px !important;
+      color: #fff;
+      animation-name: toggledisplay;
+      animation-timing-function: linear;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-delay: 0s;
+
+      &:first-child {
+        animation-delay: 1s;
+      }
+    }
   }
 }
 
@@ -117,6 +137,7 @@
     overflow: auto;
   }
 }
+
 .bg-img {
   background-repeat: no-repeat;
   background-position: center center;
@@ -133,4 +154,11 @@
   line-height: 100px;
   padding: 280px;
   box-sizing: border-box;
+}
+
+@keyframes toggledisplay{
+  0% {opacity: 0;}
+  49% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 1;}
 }

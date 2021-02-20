@@ -58,7 +58,6 @@ const moduleUser = {
     state: {...userInitState},
     mutations: {
         wsOnConnect: (state) => {
-            console.log('User State Change OnWsConnection');
             state.connected = true;
         },
         wsOnDisconnect: (state) => {
@@ -72,9 +71,10 @@ const moduleUser = {
             const payload = message.payload;
             switch (message.act) {
                 case ACT_GET_FAMILY_DATA:
-                    if (payload.users) {
+                    if (payload.users && payload.users.length > 0) {
                         state.family = payload.users;
                     }
+                    console.log('state.family: ', state.family);
                     break;
                 case ACT_UPDATE_SKILL:
                     let spended = 0;
@@ -165,27 +165,50 @@ const moduleUser = {
             let cha = lvMap[displayLvs.cha] || 0;
             return {str,dex,con,wis,cha};
         },
+        myHouseId: (state) => {
+            return state.houseId > 0 ? state.houseId : state.houseIdTmp;
+        },
     },
-}
-
-const moduleGame = {
-
 }
 
 const globalData = {
     state: {
         houses: [],
+        users: [],
     },
     mutations: {
         wsOnMessage: (state, message) => {
-            
-            if (message.act == ACT_GET_HOUSES_DATA) {
-                const payload = message.payload;
-                state.houses = payload.houses;
-                console.log('wsOnMessage ACT_GET_HOUSES_DATA', message);
+            const payload = message.payload;
+            switch (message.act) {
+                case ACT_GET_HOUSES_DATA:
+                    state.houses = payload.houses;
+                    return console.log('Global Data Houses: ', payload);
+                case ACT_GET_PEOPLE_DATA:
+                    state.users = payload.users;
+                    return console.log('Global Data Users: ', payload);
+                default:
             }
         },
     },
+    getters: {
+        myHouse: (state, getters) => {
+            const id = getters.myHouseId;
+            if (id > 0 && state.houses.length > 0) {
+                const house = state.houses.find(e => e.id == id);
+                if (house) { return house; }
+            }
+            return false;
+        },
+        usersColor: (state) => {
+            const houseColorMap = {};
+            state.houses.map(h => {houseColorMap[h.id] = h.color});
+            return state.users.map(u => {
+                const hid = u.houseId > 0 ? u.houseId : u.houseIdTmp;
+                const color = houseColorMap[hid] || '#fff';
+                return {id: u.id, color};
+            });
+        },
+    }
 };
 
 const moduleChatRoom = {
@@ -233,7 +256,6 @@ const moduleChatRoom = {
                     }
                     break;
                 default:
-                    console.log('Nothing Happend. ', message);
             }
         },
         updateChat: (state, payload) => {
@@ -244,6 +266,10 @@ const moduleChatRoom = {
             }
         },
     },
+}
+
+const moduleGame = {
+
 }
 
 export default new Vuex.Store({
