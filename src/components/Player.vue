@@ -160,7 +160,7 @@ export default {
     userRV() {
       const vm = this
       const arr = []
-      arr[0] = Math.floor(vm.user.rv / 10)
+      arr[0] = Math.min(Math.floor(vm.user.rv / 10), 9);
       arr[1] = vm.user.rv % 10
       arr[2] = vm.user.rv
       return arr
