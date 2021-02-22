@@ -4,14 +4,8 @@
     src: url("/static/front/Game of Thrones.ttf");
 }
 
-@font-face {
-    font-family: "jf-openhuninn";
-    src: url("/static/fonts/jf-openhuninn/jf-openhuninn-1.1.ttf") format("truetype");
-}
-
 body {
     background-color: #000;
-    font-family: "jf-openhuninn";
 }
 
 .close {

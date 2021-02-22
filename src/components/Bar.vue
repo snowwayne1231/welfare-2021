@@ -93,7 +93,8 @@ export default {
     showWantedPeople: {
       get() {
         return this.chat.publicPeople.filter(e => {
-          return e.houseId == 0 && e.houseIdTmp == 0 && e.mvp == 0;
+          console.log(e);
+          return e.houseId == 0 && e.houseIdTmp == 0 && e.mvp == 0 && e.isLeader == false;
         });
       },
       set(next) {
