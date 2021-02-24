@@ -35,7 +35,7 @@ export default {
       menu: [
         { name: '王國大廳', name_en: 'KINGDOM', url: '/' },
         { name: '臥室', name_en: 'ROOM', url: '/player' },
-        { name: '家族', name_en: 'FAMILY', url: '/family' },
+        { name: '家族', name_en: 'HOUSE', url: '/family' },
         { name: '酒吧', name_en: 'BAR', url: '/bar' },
         { name: '競技場', name_en: 'ARENA', url: '/arena' },
         // { name: '離開', name_en: 'SIGN OUT', url: '/logout' }
