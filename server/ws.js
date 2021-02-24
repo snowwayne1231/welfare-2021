@@ -73,7 +73,7 @@ function onMessage(socket) {
             case enums.ACT_GET_PEOPLE_DATA:
                 return models.User.findAll({
                     attributes: ['id', 'nickname', 'houseId', 'houseIdTmp', 'mvp', 'rv', 'isLeader'],
-                    where: [{isLeader: false, status: 1}],
+                    where: [{status: 1}],
                 }).then(users => {
                     socket.emit('MESSAGE', {act: enums.ACT_GET_PEOPLE_DATA, payload: {users}});
                 }).catch(err => {

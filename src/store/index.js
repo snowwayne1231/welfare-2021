@@ -274,6 +274,7 @@ const moduleChatRoom = {
                         users.map(u => {
                             let score = u.rv;
                             u.lvColor = lvColors.find(c => c[1] <= score)[0];
+                            u.houseIdNow = u.houseId > 0 ? u.houseId : u.houseIdTmp;
                         });
                         state.publicPeople = users;
                     }

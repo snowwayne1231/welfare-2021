@@ -7,6 +7,7 @@ import Family from '@/components/Family';
 import Bar from '@/components/Bar';
 import Maintain from '@/components/Maintain';
 import AdminFront from '@/components/AdminFront';
+import GameEditor from '@/components/GameEditor';
 
 Vue.use(Router);
 
@@ -38,6 +39,11 @@ export default new Router({
       path: '/bar',
       name: 'Bar',
       component: Bar,
+    },
+    {
+      path: '/ge',
+      name: 'GameEditor',
+      component: GameEditor,
     },
     {
       path: '/adminfront',

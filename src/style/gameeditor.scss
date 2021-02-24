@@ -1,0 +1,22 @@
+#rv-game-editor {
+
+  .md-table {
+    position: relative;
+    padding-top: 66px;
+    width: 48%;
+    display: inline-block;
+
+    .md-table-cell {
+      padding: 0px;
+      height: 20px;
+    }
+    .md-table-cell-container {
+      padding: 0px;
+    }
+  }
+}
+
+#game-name-input {
+  width: 400px;
+  padding: 12px;
+}
