@@ -12,4 +12,5 @@ module.exports = {
     ACT_GET_FAMILY_DATA: 22,
     ACT_GET_PEOPLE_DATA: 23,
     ACT_UPDATE_SKILL: 51,
+    ACT_GET_ADMIN_DATASET: 91,
 }

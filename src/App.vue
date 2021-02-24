@@ -51,6 +51,7 @@ export default {
   mounted() {
     this.nowConnecting = false;
     this.recheckConnection();
+    console.log('store: ', this.$store);
   },
   updated() {
     this.recheckConnection();

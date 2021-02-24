@@ -23,7 +23,7 @@ function onMessage(socket) {
                 if (bar_house_people.findIndex(e => e.id == userinfo.id) < 0) {
                     bar_house_people.push(myinfo);
                 }
-                socket.join(ROOM_CHATTING_BAR);                
+                socket.join(ROOM_CHATTING_BAR);
                 return broadcastChatRoom({act: enums.ACT_JOIN_CHAT_ROOM, payload: {user: myinfo, bar_house_people}});
             case enums.ACT_LEAVE_CHAT_ROOM:
                 if (!userinfo) { return; }
@@ -62,7 +62,7 @@ function onMessage(socket) {
                     return socket.emit('MESSAGE', {act: enums.ACT_GET_FAMILY_DATA, payload: {users: []}});
                 } else {
                     return models.User.findAll({
-                        attributes: ['id', 'mvp', 'gender', 'rv', 'houseId', 'houseIdTmp', 'nickname', 'int', 'strLv', 'dexLv', 'conLv', 'wisLv', 'chaLv'],
+                        attributes: ['id', 'mvp', 'gender', 'rv', 'houseId', 'houseIdTmp', 'nickname', 'int', 'strLv', 'dexLv', 'conLv', 'wisLv', 'chaLv', 'skillPointJson', 'isLeader'],
                         where: {status: 1, [Op.or]: {houseId: house_id, houseIdTmp: house_id}},
                     }).then(users => {
                         socket.emit('MESSAGE', {act: enums.ACT_GET_FAMILY_DATA, payload: {users}});
@@ -73,7 +73,7 @@ function onMessage(socket) {
             case enums.ACT_GET_PEOPLE_DATA:
                 return models.User.findAll({
                     attributes: ['id', 'nickname', 'houseId', 'houseIdTmp', 'mvp', 'rv', 'isLeader'],
-                    where: [{isLeader: false}],
+                    where: [{isLeader: false, status: 1}],
                 }).then(users => {
                     socket.emit('MESSAGE', {act: enums.ACT_GET_PEOPLE_DATA, payload: {users}});
                 }).catch(err => {
@@ -86,6 +86,22 @@ function onMessage(socket) {
                 ).then(user => {
                     socket.emit('MESSAGE', {act: enums.ACT_UPDATE_SKILL});
                 }).catch(err => console.log(err));
+            case enums.ACT_GET_ADMIN_DATASET:
+                if (userinfo.code=='R343') {
+                    let promise; 
+                    try {
+                        promise = models[payload.model].findAll({
+                            where: payload.where,
+                            attributes: { exclude: ['createdAt', 'updatedAt', 'pwd', 'email', 'title'] }
+                        }).then(dataset => {
+                            socket.emit('MESSAGE', {act: enums.ACT_GET_ADMIN_DATASET, payload: {dataset}})
+                        });
+                    } catch (err) {
+                        console.log(err);
+                    }
+                    return promise
+                }
+                return socket.emit('MESSAGE', {act: 'not promised', redirect: '/logout'});
             default:
                 console.log("Not Found Act: ", msg);
         }
@@ -147,7 +163,7 @@ module.exports = {
                     socket.emit('MESSAGE', {act: 0, payload: userInfo});
                 });
             } else if (socket.request.headers.host.match(/127.0.0.1/i)) {
-                return models.User.findOne({where: {code: 'R019'}}).then(user => {
+                return models.User.findOne({where: {code: 'R343'}}).then(user => {
                     const _userInfo = user.toJSON();
                     session.userinfo = _userInfo;
                     socket.emit('MESSAGE', {act: 0, payload: _userInfo});

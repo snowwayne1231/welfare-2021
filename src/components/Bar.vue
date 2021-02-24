@@ -93,7 +93,6 @@ export default {
     showWantedPeople: {
       get() {
         return this.chat.publicPeople.filter(e => {
-          console.log(e);
           return e.houseId == 0 && e.houseIdTmp == 0 && e.mvp == 0 && e.isLeader == false;
         });
       },
@@ -147,7 +146,11 @@ export default {
       // return {transform: `translate(${person.position[0]}[x], ${person.position[1]}px)`};
     },
     onClickBarOpenBoard(evt) {
-      this.openBoard = true;
+      if (this.showWantedPeople.length > 0) {
+        this.openBoard = true;
+      } else {
+        window.alert('目前無懸賞人員.');
+      }
     },
     onClickCloseBoard(evt) {
       this.openBoard = false;

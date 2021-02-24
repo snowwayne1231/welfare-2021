@@ -6,6 +6,7 @@ import Arena from '@/components/Arena';
 import Family from '@/components/Family';
 import Bar from '@/components/Bar';
 import Maintain from '@/components/Maintain';
+import AdminFront from '@/components/AdminFront';
 
 Vue.use(Router);
 
@@ -38,5 +39,10 @@ export default new Router({
       name: 'Bar',
       component: Bar,
     },
+    {
+      path: '/adminfront',
+      name: 'AdminFront',
+      component: AdminFront,
+    }
   ],
 });

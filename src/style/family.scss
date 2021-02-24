@@ -1,11 +1,15 @@
 .family {
     background-image: url('/static/imgs/bg_black_lobby.jpg');
+
+    .home-card {
+      min-width: 620px;
+    }
     
     .family-logo {
       position: absolute;
       height: 102px;
       display: inline-block;
-      left: 10px;
+      right: 10px;
       top: 10px;
     }
     .role-area {
@@ -17,7 +21,8 @@
         width: 98%;
         margin: 0 auto;
         border-bottom: 1px solid #805b00;
-        padding-left: 200px;
+        padding-top: 15px;
+        padding-left: calc(25vh);
         box-sizing: border-box;
         background-size: contain;
         background-repeat: no-repeat;
@@ -35,13 +40,22 @@
           height: 32%;
           background-position: 4px 18px;
         }
+        .active-man {
+          height: 60px;
+          width: 100%;
+          .md-icon {
+            left: 15px;
+          }
+        }
       }
     }
     .role {
-      width: auto;
-      min-width: 300px;
+      width: 90px;
+      cursor: pointer;
       display: inline-block;
       background-color: #e8e8e8c4;
+      text-align: center;
+      
       &.leader {
         background-color: #ffb1b1c4;
       }
@@ -54,8 +68,14 @@
       &.traveler {
         background-color: #b1d0ffc4;
       }
-      .md-card-header {
-        border: none;
+      .name {
+        display: block;
+        width: 100%;
+        height: 20px;
+        font-size: 12px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
 
@@ -63,9 +83,10 @@
       height: 100%;
       position: relative;
       .suck-house { position: absolute; bottom: 55px; left: 12%; }
-      .active-man { position: absolute; bottom: 160px; left: 50%; }
+      .active-man { position: absolute; bottom: 120px; left: 50%; width: 50px; height: 80px; }
     }
     .grassland {
       background: linear-gradient(to bottom, transparent, transparent 35%, #81a068 45%, #4e7109 55%, #183105 100%);
     }
+
   }

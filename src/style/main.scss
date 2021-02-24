@@ -39,11 +39,15 @@
   }
 
   .active-man {
+    display: inline-block;
 
     .md-icon {
       position: absolute;
       // display: none;
       font-size: 60px !important;
+      line-height: 60px !important;
+      height: 60px;
+      width: 60px;
       color: #fff;
       animation-name: toggledisplay;
       animation-timing-function: linear;
@@ -154,6 +158,15 @@
   line-height: 100px;
   padding: 280px;
   box-sizing: border-box;
+}
+
+.admin-table {
+  height: 100%;
+
+  .md-table-content {
+    height: auto !important;
+    max-height: none !important;
+  }
 }
 
 @keyframes toggledisplay{
