@@ -11,54 +11,51 @@
           <div class="md-subhead" v-if="myHouse">
             <span>House Of {{myHouse.en}}</span>
           </div>
-          <div class="note"></div>
+          <div class="note">
+            <table>
+              <tr>
+                <th>攻擊力: </th>
+                <td>{{myHouseAbility.atk}}</td>
+              </tr>
+              <tr>
+                <th>移動力: </th>
+                <td>{{myHouseAbility.move}}</td>
+              </tr>
+              <tr>
+                <th>再動: </th>
+                <td>{{myHouseAbility.moveAgain}}</td>
+              </tr>
+            </table>
+          </div>
         </md-card-header-text>
       </md-card-header>
 
       <md-card-content class="role-area" v-if="myHouse">
         <div class="castle zone">
-          <md-card class="role ma-5-px" :class="[r.type]" v-for="(r, i) in roles.a" :key="'a' + i">
-            <md-card-header>
-              <md-avatar>
-                <!-- <img src="/assets/examples/avatar.png" alt="Avatar" /> --><span
-                  class="material-icons"
-                >
-                  account_circle
-                </span>
-              </md-avatar>
-              <div class="md-title">{{ r.name }}</div>
-              <div class="md-subhead">{{ r.role }}</div>
-            </md-card-header>
+          <md-card class="role" v-for="(user) in myFamilyCastle" :key="user.id" :class="{leader: user.isLeader, partner: user.int > 0}">
+            <span class="name">{{user.nickname}}</span>
+            <span class="active-man">
+              <md-icon>accessibility_new</md-icon>
+              <md-icon>emoji_people</md-icon>
+            </span>
           </md-card>
         </div>
         <div class="flat-house zone">
-          <md-card class="role ma-5-px" :class="[r.type]" v-for="(r, i) in roles.b" :key="'b' + i">
-            <md-card-header>
-              <md-avatar>
-                <!-- <img src="/assets/examples/avatar.png" alt="Avatar" /> --><span
-                  class="material-icons"
-                >
-                  account_circle
-                </span>
-              </md-avatar>
-              <div class="md-title">{{ r.name }}</div>
-              <div class="md-subhead">{{ r.role }}</div>
-            </md-card-header>
+          <md-card class="role member" v-for="(user) in myFamilyHouse" :key="user.id">
+            <span class="name">{{user.nickname}}</span>
+            <span class="active-man">
+              <md-icon>accessibility_new</md-icon>
+              <md-icon>emoji_people</md-icon>
+            </span>
           </md-card>
         </div>
         <div class="zone suck-house">
-          <md-card class="role ma-5-px" :class="[r.type]" v-for="(r, i) in roles.c" :key="'c' + i">
-            <md-card-header>
-              <md-avatar>
-                <!-- <img src="/assets/examples/avatar.png" alt="Avatar" /> --><span
-                  class="material-icons"
-                >
-                  account_circle
-                </span>
-              </md-avatar>
-              <div class="md-title">{{ r.name }}</div>
-              <div class="md-subhead">{{ r.role }}</div>
-            </md-card-header>
+          <md-card class="role traveler" v-for="(user) in myFamilyPopulace" :key="user.id">
+            <span class="name">{{user.nickname}}</span>
+            <span class="active-man">
+              <md-icon>accessibility_new</md-icon>
+              <md-icon>emoji_people</md-icon>
+            </span>
           </md-card>
         </div>
         
@@ -135,7 +132,7 @@ export default {
   },
   computed: {
     ...mapState(['user']),
-    ...mapGetters(['myHouse']),
+    ...mapGetters(['myHouse', 'myHouseAbility']),
     myHouseLogo() {
       const HouseImages = {
         'stark': 'wolf.png',
@@ -150,6 +147,17 @@ export default {
       const house_en = this.myHouse.en;
       return '/static/imgs/' + HouseImages[house_en];
     },
+    myFamilyCastle() {
+      const loc = this.user.family.filter(u => u.int > 0 || u.isLeader);
+      loc.sort((a,b) => a.int - b.int);
+      return loc;
+    },
+    myFamilyHouse() {
+      return this.user.family.filter(u => u.houseId > 0 && !u.isLeader);
+    },
+    myFamilyPopulace() {
+      return this.user.family.filter(u => u.houseId == 0 && !u.isLeader);
+    }
   },
   methods: {
     whileConnection() {

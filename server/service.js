@@ -392,8 +392,8 @@ function resettingLV(res) {
         var ratio = idx / _length_users;
         var rank = 'D';
         switch (true) {
-            case ratio <= 0.15: rank = 'S'; break;
-            case ratio <= 0.4: rank = 'A'; break;
+            case ratio <= 0.12: rank = 'S'; break;
+            case ratio <= 0.37: rank = 'A'; break;
             case ratio <= 0.65: rank = 'B';  break;
             case ratio <= 0.90: rank = 'C';  break;
             default: // D

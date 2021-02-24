@@ -4,7 +4,8 @@ import socketio from 'socket.io-client';
 import createSocketIoPlugin from 'vuex-socketio';
 import {
     ACT_GET_HOUSES_DATA, ACT_GET_FAMILY_DATA, ACT_GET_PEOPLE_DATA, ACT_UPDATE_SKILL, 
-    ACT_JOIN_CHAT_ROOM, ACT_LEAVE_CHAT_ROOM, ACT_MOVE_CHAT_ROOM, ACT_SAY_CHAT_ROOM
+    ACT_JOIN_CHAT_ROOM, ACT_LEAVE_CHAT_ROOM, ACT_MOVE_CHAT_ROOM, ACT_SAY_CHAT_ROOM,
+    ACT_GET_ADMIN_DATASET,
 } from './enum';
 console.log('process.env: ', process.env);
 const wsLocation = process.env.WS_LOCATION;
@@ -13,7 +14,15 @@ const socketPlugin = createSocketIoPlugin(socket, {
     onPrefix: 'wsOn',
     emitPrefix: 'wsEmit',
 });
-const lvMap = {'S': 5, 'A': 4, 'B': 3, 'C': 2, 'D': 1, '-': 0};
+const _lvMap = {'S': 5, 'A': 4, 'B': 3, 'C': 2, 'D': 1, '-': 0};
+const _lvNums = (s,d,c,w,ca) => {
+    let str = _lvMap[s] || 0;
+    let dex = _lvMap[d] || 0;
+    let con = _lvMap[c] || 0;
+    let wis = _lvMap[w] || 0;
+    let cha = _lvMap[ca] || 0;
+    return {str,dex,con,wis,cha};
+}
 
 Vue.use(Vuex);
 
@@ -72,9 +81,11 @@ const moduleUser = {
             switch (message.act) {
                 case ACT_GET_FAMILY_DATA:
                     if (payload.users && payload.users.length > 0) {
-                        state.family = payload.users;
+                        state.family = payload.users.map(u => {
+                            u.skillPointJson = JSON.parse(u.skillPointJson);
+                            return u;
+                        });
                     }
-                    console.log('state.family: ', state.family);
                     break;
                 case ACT_UPDATE_SKILL:
                     let spended = 0;
@@ -134,12 +145,7 @@ const moduleUser = {
     },
     getters: {
         lvNums: (state) => {
-            let str = lvMap[state.strLv] || 0;
-            let dex = lvMap[state.dexLv] || 0;
-            let con = lvMap[state.conLv] || 0;
-            let wis = lvMap[state.wisLv] || 0;
-            let cha = lvMap[state.chaLv] || 0;
-            return {str,dex,con,wis,cha};
+            return _lvNums(state.strLv, state.dexLv, state.conLv, state.wisLv, state.chaLv);
         },
         displayLv: (state, getters) => {
             const nums = getters.lvNums;
@@ -158,16 +164,29 @@ const moduleUser = {
         },
         displayLvNums: (state, getters) => {
             const displayLvs = getters.displayLv;
-            let str = lvMap[displayLvs.str] || 0;
-            let dex = lvMap[displayLvs.dex] || 0;
-            let con = lvMap[displayLvs.con] || 0;
-            let wis = lvMap[displayLvs.wis] || 0;
-            let cha = lvMap[displayLvs.cha] || 0;
-            return {str,dex,con,wis,cha};
+            return _lvNums(displayLvs.str, displayLvs.dex, displayLvs.con, displayLvs.wis, displayLvs.cha);
         },
         myHouseId: (state) => {
             return state.houseId > 0 ? state.houseId : state.houseIdTmp;
         },
+        myHouseAbility: (state, getters) => {
+            let atk = 0;
+            let move = 5;
+            let moveAgain = 0;
+            state.family.map(u => {
+                const lvmaps = _lvNums(u.strLv, u.dexLv, u.conLv, '-', '-');
+                if (lvmaps.str + u.skillPointJson.sdcwc[0] >= 5) {
+                    atk += 1;
+                }
+                if (lvmaps.dex + u.skillPointJson.sdcwc[1] >= 5) {
+                    move += 1;
+                }
+                if (lvmaps.con + u.skillPointJson.sdcwc[0] >= 5) {
+                    moveAgain += 1;
+                }
+            });
+            return {atk, move, moveAgain};
+        }
     },
 }
 
@@ -175,6 +194,7 @@ const globalData = {
     state: {
         houses: [],
         users: [],
+        dataset: [],
     },
     mutations: {
         wsOnMessage: (state, message) => {
@@ -186,6 +206,9 @@ const globalData = {
                 case ACT_GET_PEOPLE_DATA:
                     state.users = payload.users;
                     return console.log('Global Data Users: ', payload);
+                case ACT_GET_ADMIN_DATASET:
+                    state.dataset = payload.dataset;
+                    return console.log('Global Dataset: ', payload);
                 default:
             }
         },
