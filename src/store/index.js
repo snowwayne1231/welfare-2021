@@ -15,6 +15,7 @@ const socketPlugin = createSocketIoPlugin(socket, {
     emitPrefix: 'wsEmit',
 });
 const _lvMap = {'S': 5, 'A': 4, 'B': 3, 'C': 2, 'D': 1, '-': 0};
+const _numToLvMap = {1: 'D', 2: 'C', 3: 'B', 4: 'A'};
 const _lvNums = (s,d,c,w,ca) => {
     let str = _lvMap[s] || 0;
     let dex = _lvMap[d] || 0;
@@ -22,6 +23,19 @@ const _lvNums = (s,d,c,w,ca) => {
     let wis = _lvMap[w] || 0;
     let cha = _lvMap[ca] || 0;
     return {str,dex,con,wis,cha};
+}
+const _plusLv = (nums, json) => {
+    let str = nums.str + json.sdcwc[0];
+    let dex = nums.dex + json.sdcwc[1];
+    let con = nums.con + json.sdcwc[2];
+    let wis = nums.wis + json.sdcwc[3];
+    let cha = nums.cha + json.sdcwc[4];
+    str = str >= 5 ? 'S' : (_numToLvMap[str] || '-');
+    dex = dex >= 5 ? 'S' : (_numToLvMap[dex] || '-');
+    con = con >= 5 ? 'S' : (_numToLvMap[con] || '-');
+    wis = wis >= 5 ? 'S' : (_numToLvMap[wis] || '-');
+    cha = cha >= 5 ? 'S' : (_numToLvMap[cha] || '-');
+    return {str, dex, con, wis, cha};
 }
 
 Vue.use(Vuex);
@@ -83,6 +97,13 @@ const moduleUser = {
                     if (payload.users && payload.users.length > 0) {
                         state.family = payload.users.map(u => {
                             u.skillPointJson = JSON.parse(u.skillPointJson);
+                            const nums = _lvNums(u.strLv, u.dexLv, u.conLv, u.wisLv, u.chaLv);
+                            const plused = _plusLv(nums, u.skillPointJson);
+                            u.strLv = plused.str;
+                            u.dexLv = plused.dex;
+                            u.conLv = plused.con;
+                            u.wisLv = plused.wis;
+                            u.chaLv = plused.cha;
                             return u;
                         });
                     }
@@ -149,18 +170,7 @@ const moduleUser = {
         },
         displayLv: (state, getters) => {
             const nums = getters.lvNums;
-            const numToLvMap = {1: 'D', 2: 'C', 3: 'B', 4: 'A'};
-            let str = nums.str + state.skillPointJson.sdcwc[0];
-            let dex = nums.dex + state.skillPointJson.sdcwc[1];
-            let con = nums.con + state.skillPointJson.sdcwc[2];
-            let wis = nums.wis + state.skillPointJson.sdcwc[3];
-            let cha = nums.cha + state.skillPointJson.sdcwc[4];
-            str = str >= 5 ? 'S' : (numToLvMap[str] || '-');
-            dex = dex >= 5 ? 'S' : (numToLvMap[dex] || '-');
-            con = con >= 5 ? 'S' : (numToLvMap[con] || '-');
-            wis = wis >= 5 ? 'S' : (numToLvMap[wis] || '-');
-            cha = cha >= 5 ? 'S' : (numToLvMap[cha] || '-');
-            return {str,dex,con,wis,cha};
+            return _plusLv(nums, state.skillPointJson);
         },
         displayLvNums: (state, getters) => {
             const displayLvs = getters.displayLv;
@@ -175,13 +185,13 @@ const moduleUser = {
             let moveAgain = 0;
             state.family.map(u => {
                 const lvmaps = _lvNums(u.strLv, u.dexLv, u.conLv, '-', '-');
-                if (lvmaps.str + u.skillPointJson.sdcwc[0] >= 5) {
+                if (lvmaps.str >= 5) {
                     atk += 1;
                 }
-                if (lvmaps.dex + u.skillPointJson.sdcwc[1] >= 5) {
+                if (lvmaps.dex >= 5) {
                     move += 1;
                 }
-                if (lvmaps.con + u.skillPointJson.sdcwc[0] >= 5) {
+                if (lvmaps.con >= 5) {
                     moveAgain += 1;
                 }
             });

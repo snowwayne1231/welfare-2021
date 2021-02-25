@@ -22,7 +22,7 @@
                 <md-icon :style="{color: getColorByUserId(person.id)}">person</md-icon>
               </b>
             </div>
-            <div class="bar-content-open-table-btn" @click="onClickBarOpenBoard"><img src="/static/imgs/board.png" /></div>
+            
           </div>
           <div class="bar-content-table" :class="{active: openBoard}">
             <md-table v-model="showWantedPeople" md-sort="rv" md-sort-order="desc" md-fixed-header class="wanted-table" v-if="showWantedPeople.length>0">
@@ -36,6 +36,23 @@
               </md-table-row>
             </md-table>
           </div>
+          <div class="bar-content-open-table-btn bar-content-open" @click="onClickBarOpenBoard"><img src="/static/imgs/board.png" /></div>
+          <div class="bar-content-menu" :class="{active: openMenu}">
+            <md-tabs>
+              <md-tab id="bar-tab-store" md-label="商品" md-icon="store" exact>
+                <md-list>
+                  <md-list-item>Plain Text</md-list-item>
+                  <md-list-item @click="onClickCancelMenu">Button</md-list-item>
+                </md-list>
+              </md-tab>
+              <md-tab id="bar-tab-join" md-label="加入" md-icon="directions_run">
+              
+              </md-tab>
+              <md-tab id="bar-tab-posts" md-label="離開" md-icon="exit_to_app" @click="onClickCancelMenu">
+              </md-tab>
+            </md-tabs>
+          </div>
+          <div class="bar-content-open-bartender bar-content-open" @click="onClickBarOpenMenu"><img src="/static/imgs/bartender.png" /></div>
         </div>
         <div class="chat-box">
           <div class="chat-history" ref="chatHistory">
@@ -67,6 +84,7 @@ export default {
       chatInput: '',
       timeoutSecond: 3,
       openBoard: false,
+      openMenu: false,
     };
   },
   mounted() {
@@ -154,6 +172,12 @@ export default {
     },
     onClickCloseBoard(evt) {
       this.openBoard = false;
+    },
+    onClickBarOpenMenu(evt) {
+      this.openMenu = true;
+    },
+    onClickCancelMenu(evt) {
+      this.openMenu = false;
     },
     getColorByUserId(id) {
       const user = this.usersColor.find(e => e.id == id);

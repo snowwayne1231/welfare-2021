@@ -14,6 +14,7 @@
     }
     .role-area {
       text-align: left;
+      padding: 5px;
 
       .zone {
         height: 34%;
@@ -21,13 +22,14 @@
         width: 98%;
         margin: 0 auto;
         border-bottom: 1px solid #805b00;
-        padding-top: 15px;
+        padding-top: 10px;
         padding-left: calc(25vh);
         box-sizing: border-box;
         background-size: contain;
         background-repeat: no-repeat;
         background-position: 10px 0px;
-        overflow: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
 
         &.castle {
           background-image: url("/static/imgs/house_1.png");
@@ -47,31 +49,74 @@
             left: 15px;
           }
         }
+        .man {
+          .group-ability {
+            position: absolute;
+            bottom: -8px;
+            left: -6px;
+            width: 100px;
+            height: 22px;
+            white-space: nowrap;
+            pointer-events: none;
+          }
+          .icon-ability {
+            display: inline-block;
+            height: 20px;
+            width: 20px;
+            background-size: cover;
+            background-position: center;
+            background-color: #1e130a;
+            border: 1px solid #ffda7a;
+            border-radius: 8px;
+            box-sizing: border-box;
+            &.icon-str { background-image: url('/static/imgs/str.png'); }
+            &.icon-dex { background-image: url('/static/imgs/dex.png'); }
+            &.icon-con { background-image: url('/static/imgs/con_.png'); }
+            &.icon-wis { background-image: url('/static/imgs/wis.png'); }
+            &.icon-cha { background-image: url('/static/imgs/cha.png'); }
+          }
+          .mvp {
+            position: absolute;
+            top: 15px;
+            left: 0px;
+            .md-icon {
+              color: #ffe845;
+            }
+          }
+        }
       }
     }
     .role {
       width: 90px;
       cursor: pointer;
       display: inline-block;
-      background-color: #e8e8e8c4;
       text-align: center;
-      
+      box-sizing: border-box;
+      border: 1px solid #805b00;
+      border-radius: 5px;
+      background-color: rgba(15,15,15,0.5);
+      margin: 2px 4px;
+
+      &:hover {
+        background-color: rgba(45,45,45,0.6);
+      }
       &.leader {
-        background-color: #ffb1b1c4;
+        color: #ffb1b1c4;
       }
       &.partner {
-        background-color:#ffe1bcc4;
+        color:#ffe1bcc4;
       }
       &.member {
-        background-color:#b1ffffc4;
+        color:#b1ffffc4;
       }
       &.traveler {
-        background-color: #b1d0ffc4;
+        color: #b1d0ffc4;
       }
       .name {
         display: block;
         width: 100%;
         height: 20px;
+        line-height: 20px;
         font-size: 12px;
         white-space: nowrap;
         overflow: hidden;

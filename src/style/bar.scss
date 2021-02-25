@@ -2,9 +2,31 @@
     position: relative;
     padding-left: 280px;
     background-image: url('/static/imgs/bg_bar.jpg');
+    .bar-card { min-width: 860px; overflow-y: auto; overflow-x: hidden; }
     .md-card-content {
         position: relative;
         padding: 10px 10px 0px;
+        min-height: 600px;
+    }
+    .md-tabs {
+        height: 100%;
+        .md-icon, .md-tab-label {
+            color: #805b00 !important;
+        }
+        .md-tabs-navigation {
+            background-color: #000 !important;
+        }
+        .md-tabs-indicator {
+            background-color: transparent !important;
+        }
+        .md-content {
+            background-color: rgba(35, 35, 35, 0.4);
+            box-sizing: border-box;
+            height: 100%;
+        }
+        .md-list {
+            background-color: transparent;
+        }
     }
 
     .bar-content {
@@ -22,7 +44,7 @@
         .bar-content-table {
             display: inline-block;
             position: absolute;
-            z-index: 2;
+            z-index: 6;
             top: 0px;
             left: 0px;
             height: 0%;
@@ -34,15 +56,46 @@
                 height: 100%;
             }
         }
-
-        .bar-content-open-table-btn {
+        .bar-content-open {
             position: absolute;
+            cursor: help;
+        }
+        .bar-content-open-table-btn {
             top: 5px;
-            right: 25px;
-            cursor: pointer;
+            right: 5px;
+            z-index: 2;
         }
         .bar-content-close-btn {
             cursor: pointer;
+        }
+        .bar-content-open-bartender {
+            bottom: 0px;
+            right: 12px;
+            width: 120px;
+            z-index: 5;
+        }
+        .bar-content-menu {
+            display: inline-block;
+            position: absolute;
+            z-index: 4;
+            top: 0px;
+            left: 0px;
+            height: 0%;
+            width: 100%;
+            overflow: hidden;
+            transition: 0.5s height ease-in;
+            // background-color: rgba(70, 25, 67, 0.2);
+            background-image: url('/static/imgs/bg_black_wood.jpg');
+            background-size: cover;
+            background-position: center;
+
+            &.active {
+                height: 100%;
+            }
+
+            .md-menu {
+
+            }
         }
 
         .bar-content-people {
