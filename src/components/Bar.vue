@@ -40,14 +40,21 @@
           <div class="bar-content-menu" :class="{active: openMenu}">
             <md-tabs>
               <md-tab id="bar-tab-store" md-label="商品" md-icon="store" exact>
-                <md-list>
-                  <md-list-item>Plain Text</md-list-item>
-                  <md-list-item @click="onClickCancelMenu">Button</md-list-item>
-                </md-list>
+                <div class="bar-store">
+                  <div class="item"><i class="img-warpper" title="更名卷軸"><img src="/static/imgs/paper.jpg" /></i>
+                  </div><div class="item"><i class="img-warpper" title="紅色藥水"><img src="/static/imgs/red_water.jpg" /></i>
+                  </div><div class="item"><i class="img-warpper" title="綠色藥水"><img src="/static/imgs/green_water.jpg" /></i>
+                  </div><div class="item"><i class="img-warpper" title="魔法寶石"><img src="/static/imgs/magic_rock.jpg" /></i>
+                  </div><div class="item" v-for="i in 12" :key="i"><i class="img-warpper" title=""></i></div>
+                </div>
               </md-tab>
               <md-tab id="bar-tab-join" md-label="加入" md-icon="directions_run">
-              
+                <div class="family-join">
+                  <div class="house" v-for="idx in 8" :key="idx" :class="'house-'+idx"></div>
+                  
+                </div>
               </md-tab>
+              <md-tab id="bar-tab-empty" md-label=""></md-tab>
               <md-tab id="bar-tab-posts" md-label="離開" md-icon="exit_to_app" @click="onClickCancelMenu">
               </md-tab>
             </md-tabs>
@@ -174,7 +181,7 @@ export default {
       this.openBoard = false;
     },
     onClickBarOpenMenu(evt) {
-      this.openMenu = true;
+      this.openMenu = !this.openMenu;
     },
     onClickCancelMenu(evt) {
       this.openMenu = false;

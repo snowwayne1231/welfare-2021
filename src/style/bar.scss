@@ -14,18 +14,27 @@
             color: #805b00 !important;
         }
         .md-tabs-navigation {
-            background-color: #000 !important;
+            background-color: rgba(31, 17, 6, 0.7) !important;
+            border-bottom: 1px solid #805b00;
         }
         .md-tabs-indicator {
             background-color: transparent !important;
         }
         .md-content {
-            background-color: rgba(35, 35, 35, 0.4);
+            background-color: transparent;
             box-sizing: border-box;
             height: 100%;
         }
         .md-list {
             background-color: transparent;
+            
+        }
+        .md-tab-nav-button {
+            width: 25%;
+            max-width: none;
+        }
+        .md-list-item-content {
+            color: #9e8e78;
         }
     }
 
@@ -217,4 +226,55 @@
         }
     }
 
+}
+
+
+#bar-tab-store {
+    .bar-store {
+        background-color: rgba(15,15,15,0.3);
+        padding: 10px;
+        width: 222px;
+        height: 228px;
+
+        .img-warpper {
+            display: inline-block;
+            border: 1px gray solid;
+            background-color: #000a03;
+            width: 42px;
+            height: 42px;
+        }
+
+        .item {
+            display: inline-block;
+            padding: 5px 3px 0px;
+            height: 48px;
+            width: 48px;
+        }
+    }
+}
+
+#bar-tab-join {
+    height: 520px;
+    padding: 0px;
+    .family-join {
+        height: 100%;
+    }
+    .house {
+        display: block;
+        float: left;
+        width: 12.5%;
+        height: 100%;
+        background-position: 0px 10px;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        &.house-1 { background-color: #afaeab; background-image: url('/static/imgs/wolf.png'); }
+        &.house-2 { background-color: #111; background-image: url('/static/imgs/dragon.png'); }
+        &.house-3 { background-color: red; background-image: url('/static/imgs/lion.png'); }
+        &.house-4 { background-color: gold; background-image: url('/static/imgs/deer.png'); }
+        &.house-5 { background-color: green; background-image: url('/static/imgs/rose.png'); }
+        &.house-6 { background-color: blue; background-image: url('/static/imgs/bird.png'); }
+        &.house-7 { background-color: pink; background-image: url('/static/imgs/fish.png'); }
+        &.house-8 { background-color: orange; background-image: url('/static/imgs/sun.png'); }
+    }
 }
