@@ -33,29 +33,17 @@
       <md-card-content class="role-area" v-if="myHouse">
         <div class="castle zone">
           <md-card class="role" v-for="(user) in myFamilyCastle" :key="user.id" :class="{leader: user.isLeader, partner: user.int > 0}">
-            <span class="name">{{user.nickname}}</span>
-            <span class="active-man">
-              <md-icon>accessibility_new</md-icon>
-              <md-icon>emoji_people</md-icon>
-            </span>
+            <Man :name="user.nickname" :str="user.strLv" :dex="user.dexLv" :con="user.conLv" :wis="user.wisLv" :cha="user.chaLv" :mvp="user.mvp"></Man>
           </md-card>
         </div>
         <div class="flat-house zone">
           <md-card class="role member" v-for="(user) in myFamilyHouse" :key="user.id">
-            <span class="name">{{user.nickname}}</span>
-            <span class="active-man">
-              <md-icon>accessibility_new</md-icon>
-              <md-icon>emoji_people</md-icon>
-            </span>
+            <Man :name="user.nickname" :str="user.strLv" :dex="user.dexLv" :con="user.conLv" :wis="user.wisLv" :cha="user.chaLv" :mvp="user.mvp"></Man>
           </md-card>
         </div>
         <div class="zone suck-house">
           <md-card class="role traveler" v-for="(user) in myFamilyPopulace" :key="user.id">
-            <span class="name">{{user.nickname}}</span>
-            <span class="active-man">
-              <md-icon>accessibility_new</md-icon>
-              <md-icon>emoji_people</md-icon>
-            </span>
+            <Man :name="user.nickname" :str="user.strLv" :dex="user.dexLv" :con="user.conLv" :wis="user.wisLv" :cha="user.chaLv" :mvp="user.mvp"></Man>
           </md-card>
         </div>
         
@@ -78,45 +66,14 @@
 
 import { mapState, mapGetters } from 'vuex';
 import { ACT_GET_FAMILY_DATA } from '../store/enum';
+import Man from './panels/Man';
 
 
 export default {
   name: 'Family',
+  components: {Man},
   data() {
-    return {
-      roles: {
-        a: [
-          { name: '暱稱', role: '族長', type: 'leader' },
-          { name: '暱稱', role: '封臣', type: 'partner' },
-          { name: '暱稱', role: '封臣', type: 'partner' },
-          { name: '暱稱', role: '封臣', type: 'partner' },
-          { name: '暱稱', role: '封臣', type: 'partner' },
-          { name: '暱稱', role: '封臣', type: 'partner' }
-        ],
-        b: [
-          { name: '暱稱', role: '成員', type: 'member' },
-          { name: '暱稱', role: '成員', type: 'member' },
-          { name: '暱稱', role: '成員', type: 'member' },
-          { name: '暱稱', role: '成員', type: 'member' },
-          { name: '暱稱', role: '成員', type: 'member' },
-          { name: '暱稱', role: '成員', type: 'member' },
-        ],
-        c: [
-          { name: '暱稱', role: '國民', type: 'traveler' },
-          { name: '暱稱', role: '國民', type: 'traveler' },
-          { name: '暱稱', role: '國民', type: 'traveler' },
-          { name: '暱稱', role: '國民', type: 'traveler' },
-          { name: '暱稱', role: '國民', type: 'traveler' },
-          { name: '暱稱', role: '國民', type: 'traveler' },
-          { name: '暱稱', role: '國民', type: 'traveler' },
-          { name: '暱稱', role: '國民', type: 'traveler' },
-          { name: '暱稱', role: '國民', type: 'traveler' },
-          { name: '暱稱', role: '國民', type: 'traveler' },
-          { name: '暱稱', role: '國民', type: 'traveler' },
-
-        ]
-      }
-    }
+    return {}
   },
   mounted() {
     // console.log(this);
@@ -153,10 +110,14 @@ export default {
       return loc;
     },
     myFamilyHouse() {
-      return this.user.family.filter(u => u.houseId > 0 && !u.isLeader);
+      const loc = this.user.family.filter(u => u.houseId > 0 && !u.isLeader);
+      loc.sort((a,b) => b.rv - a.rv);
+      return loc;
     },
     myFamilyPopulace() {
-      return this.user.family.filter(u => u.houseId == 0 && !u.isLeader);
+      const loc = this.user.family.filter(u => u.houseId == 0 && !u.isLeader);
+      loc.sort((a,b) => b.rv - a.rv);
+      return loc;
     }
   },
   methods: {

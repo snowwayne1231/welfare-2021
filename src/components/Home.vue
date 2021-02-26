@@ -36,7 +36,7 @@
                       <md-table-cell>睿訊之國的闖關者</md-table-cell>
                     </md-table-row>
                     <md-table-row>
-                      <md-table-cell>04月 (週六)</md-table-cell>
+                      <md-table-cell>04月 (17日 週六)</md-table-cell>
                       <md-table-cell>城市尋寶</md-table-cell>
                     </md-table-row>
                     <md-table-row>
@@ -56,7 +56,7 @@
                       <md-table-cell>舌尖上的屈原</md-table-cell>
                     </md-table-row>
                     <md-table-row>
-                      <md-table-cell>07月 (週六)</md-table-cell>
+                      <md-table-cell>07月 (31日 週六)</md-table-cell>
                       <md-table-cell>逆流而上 向陽而生 </md-table-cell>
                     </md-table-row>
                     <md-table-row>

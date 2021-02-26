@@ -36,7 +36,7 @@ import { mapState } from 'vuex';
 import { ACT_GET_ADMIN_DATASET } from '../store/enum';
 
 export default {
-  name: 'Bar',
+  name: 'AdminFront',
   data() {
     return {
       whereInput: '',
@@ -44,22 +44,12 @@ export default {
     };
   },
   mounted() {
-    // console.log(this);
-    // const $this = this;
-    // if ($this.user.connected) {
-    //   $this.$store.dispatch('wsEmitMessage', {act: ACT_GET_PEOPLE_DATA});
-    //   $this.$store.dispatch('wsEmitMessage', {act: ACT_JOIN_CHAT_ROOM});
-    // } else {
-    //   $this.timer = window.setTimeout(() => {
-    //     $this.$store.dispatch('wsEmitMessage', {act: ACT_GET_PEOPLE_DATA});
-    //     $this.$store.dispatch('wsEmitMessage', {act: ACT_JOIN_CHAT_ROOM});
-    //     $this.timeoutHandler();
-    //   }, 1000);
-    // }
-    
+    if (this.user.rv > 0 && this.user.rv < 99) {
+      window.location.href = '/logout';
+    }
   },
   computed: {
-    ...mapState(['global']),
+    ...mapState(['global', 'user']),
     datasetKeys() {
       if (this.global.dataset.length > 0) {
         return Object.keys(this.global.dataset[0]);

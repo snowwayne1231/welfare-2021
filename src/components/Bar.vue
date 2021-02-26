@@ -22,7 +22,7 @@
                 <md-icon :style="{color: getColorByUserId(person.id)}">person</md-icon>
               </b>
             </div>
-            <div class="bar-content-open-table-btn" @click="onClickBarOpenBoard"><img src="/static/imgs/board.png" /></div>
+            
           </div>
           <div class="bar-content-table" :class="{active: openBoard}">
             <md-table v-model="showWantedPeople" md-sort="rv" md-sort-order="desc" md-fixed-header class="wanted-table" v-if="showWantedPeople.length>0">
@@ -36,6 +36,30 @@
               </md-table-row>
             </md-table>
           </div>
+          <div class="bar-content-open-table-btn bar-content-open" @click="onClickBarOpenBoard"><img src="/static/imgs/board.png" /></div>
+          <div class="bar-content-menu" :class="{active: openMenu}">
+            <md-tabs>
+              <md-tab id="bar-tab-store" md-label="商品" md-icon="store" exact>
+                <div class="bar-store">
+                  <div class="item"><i class="img-warpper" title="更名卷軸"><img src="/static/imgs/paper.jpg" /></i>
+                  </div><div class="item"><i class="img-warpper" title="紅色藥水"><img src="/static/imgs/red_water.jpg" /></i>
+                  </div><div class="item"><i class="img-warpper" title="綠色藥水"><img src="/static/imgs/green_water.jpg" /></i>
+                  </div><div class="item"><i class="img-warpper" title="魔法寶石"><img src="/static/imgs/magic_rock.jpg" /></i>
+                  </div><div class="item" v-for="i in 12" :key="i"><i class="img-warpper" title=""></i></div>
+                </div>
+              </md-tab>
+              <md-tab id="bar-tab-join" md-label="加入" md-icon="directions_run">
+                <div class="family-join">
+                  <div class="house" v-for="idx in 8" :key="idx" :class="'house-'+idx"></div>
+                  
+                </div>
+              </md-tab>
+              <md-tab id="bar-tab-empty" md-label=""></md-tab>
+              <md-tab id="bar-tab-posts" md-label="離開" md-icon="exit_to_app" @click="onClickCancelMenu">
+              </md-tab>
+            </md-tabs>
+          </div>
+          <div class="bar-content-open-bartender bar-content-open" @click="onClickBarOpenMenu"><img src="/static/imgs/bartender.png" /></div>
         </div>
         <div class="chat-box">
           <div class="chat-history" ref="chatHistory">
@@ -67,6 +91,7 @@ export default {
       chatInput: '',
       timeoutSecond: 3,
       openBoard: false,
+      openMenu: false,
     };
   },
   mounted() {
@@ -154,6 +179,12 @@ export default {
     },
     onClickCloseBoard(evt) {
       this.openBoard = false;
+    },
+    onClickBarOpenMenu(evt) {
+      this.openMenu = !this.openMenu;
+    },
+    onClickCancelMenu(evt) {
+      this.openMenu = false;
     },
     getColorByUserId(id) {
       const user = this.usersColor.find(e => e.id == id);

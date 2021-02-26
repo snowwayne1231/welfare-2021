@@ -284,9 +284,10 @@ function resettingLV(res) {
     var should_update_list = [];
     var _length_users = 0;
     models.User.findAll({
-        attributes: ['id', 'firstName', 'str', 'strLv', 'dex', 'dexLv', 'con', 'conLv', 'wis', 'wisLv', 'cha', 'chaLv', 'gender', 'code', 'json', 'rv'],
+        attributes: ['id', 'firstName', 'str', 'strLv', 'dex', 'dexLv', 'con', 'conLv', 'wis', 'wisLv', 'cha', 'chaLv', 'gender', 'code', 'json', 'rv', 'nickname'],
         where: {'status': 1},
     }).then(users => {
+        users = users.filter(u => u.nickname && u.nickname.length > 0);
         var _strs = [];
         var _dexs = [];
         var _cons = [];
