@@ -5,7 +5,7 @@ import createSocketIoPlugin from 'vuex-socketio';
 import {
     ACT_GET_HOUSES_DATA, ACT_GET_FAMILY_DATA, ACT_GET_PEOPLE_DATA, ACT_UPDATE_SKILL, 
     ACT_JOIN_CHAT_ROOM, ACT_LEAVE_CHAT_ROOM, ACT_MOVE_CHAT_ROOM, ACT_SAY_CHAT_ROOM,
-    ACT_GET_ADMIN_DATASET,
+    ACT_GET_ADMIN_DATASET, ACT_GET_COUNTRYSIDE_DATA, ACT_GET_TROPHY,
 } from './enum';
 console.log('process.env: ', process.env);
 const wsLocation = process.env.WS_LOCATION;
@@ -184,6 +184,7 @@ const moduleUser = {
             let move = 5;
             let moveAgain = 0;
             state.family.map(u => {
+                if (u.houseId == 0) { return u; }
                 const lvmaps = _lvNums(u.strLv, u.dexLv, u.conLv, '-', '-');
                 if (lvmaps.str >= 5) {
                     atk += 1;
@@ -205,6 +206,8 @@ const globalData = {
         houses: [],
         users: [],
         dataset: [],
+        countryBorder: [],
+        trophy: [],
     },
     mutations: {
         wsOnMessage: (state, message) => {
@@ -219,6 +222,17 @@ const globalData = {
                 case ACT_GET_ADMIN_DATASET:
                     state.dataset = payload.dataset;
                     return console.log('Global Dataset: ', payload);
+                case ACT_GET_COUNTRYSIDE_DATA:
+                    state.countryBorder = payload.map(e => {
+                        let id = e[1];
+                        let user = state.users.find(u => u.id == id);
+                        e[2] = user ? user.nickname : '';
+                        return e;
+                    });
+                    return console.log('Global countryBorder: ', payload);
+                case ACT_GET_TROPHY:
+                    state.trophy = payload;
+                    return console.log('Global trophy: ', payload);
                 default:
             }
         },

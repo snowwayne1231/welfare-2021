@@ -48,15 +48,17 @@
                   </div><div class="item" v-for="i in 12" :key="i"><i class="img-warpper" title=""></i></div>
                 </div>
               </md-tab>
-              <md-tab id="bar-tab-join" md-label="加入" md-icon="directions_run">
+              <md-tab id="bar-tab-join" md-label="國境" md-icon="directions_run">
                 <div class="family-join">
-                  <div class="house" v-for="idx in 8" :key="idx" :class="'house-'+idx"></div>
-                  
+                  <div class="house" v-for="idx in 8" :key="idx" :class="'house-'+idx">
+                    
+                  </div>
+                  <div class="house-none">
+                    <li class="freefork" v-for="hero in showNoneFamilyHeros" :key="hero[1]">{{hero[2]}}</li>
+                  </div>
                 </div>
               </md-tab>
-              <md-tab id="bar-tab-empty" md-label=""></md-tab>
-              <md-tab id="bar-tab-posts" md-label="離開" md-icon="exit_to_app" @click="onClickCancelMenu">
-              </md-tab>
+              <md-tab id="bar-tab-posts" md-label="離開" md-icon="exit_to_app" @click="onClickCancelMenu"></md-tab>
             </md-tabs>
           </div>
           <div class="bar-content-open-bartender bar-content-open" @click="onClickBarOpenMenu"><img src="/static/imgs/bartender.png" /></div>
@@ -82,7 +84,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex';
-import { ACT_JOIN_CHAT_ROOM, ACT_LEAVE_CHAT_ROOM, ACT_JOIN_FAMILY, ACT_SAY_CHAT_ROOM, ACT_GET_PEOPLE_DATA, ACT_MOVE_CHAT_ROOM } from '../store/enum';
+import { ACT_JOIN_CHAT_ROOM, ACT_LEAVE_CHAT_ROOM, ACT_JOIN_FAMILY, ACT_SAY_CHAT_ROOM, ACT_GET_PEOPLE_DATA, ACT_MOVE_CHAT_ROOM, ACT_GET_COUNTRYSIDE_DATA } from '../store/enum';
 
 export default {
   name: 'Bar',
@@ -124,6 +126,9 @@ export default {
       set(next) {
         this.$store.commit('updateChat', {publicPeople: next});
       },
+    },
+    showNoneFamilyHeros() {
+      return this.global.countryBorder.filter(e => e[0] == 0);
     },
   },
   updated() {
@@ -182,9 +187,14 @@ export default {
     },
     onClickBarOpenMenu(evt) {
       this.openMenu = !this.openMenu;
+      if (this.openMenu && this.global.countryBorder.length == 0) {
+        this.$store.dispatch('wsEmitMessage', {act: ACT_GET_COUNTRYSIDE_DATA});
+      }
     },
     onClickCancelMenu(evt) {
       this.openMenu = false;
+      evt.preventDefault();
+      evt.stopPropagation();
     },
     getColorByUserId(id) {
       const user = this.usersColor.find(e => e.id == id);

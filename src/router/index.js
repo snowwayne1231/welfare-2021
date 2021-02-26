@@ -26,8 +26,8 @@ export default new Router({
     {
       path: '/arena',
       name: 'Arena',
-      // component: Arena,
-      component: Maintain,
+      component: Arena,
+      // component: Maintain,
     },
     {
       path: '/family',

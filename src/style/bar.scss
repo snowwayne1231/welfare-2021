@@ -10,6 +10,9 @@
     }
     .md-tabs {
         height: 100%;
+        .md-tab {
+            height: 520px;
+        }
         .md-icon, .md-tab-label {
             color: #805b00 !important;
         }
@@ -18,7 +21,7 @@
             border-bottom: 1px solid #805b00;
         }
         .md-tabs-indicator {
-            background-color: transparent !important;
+            background-color: #805b00  !important;
         }
         .md-content {
             background-color: transparent;
@@ -30,8 +33,11 @@
             
         }
         .md-tab-nav-button {
-            width: 25%;
+            width: 33.2%;
             max-width: none;
+            &.md-active {
+                background-color: #171311;
+            }
         }
         .md-list-item-content {
             color: #9e8e78;
@@ -254,7 +260,6 @@
 }
 
 #bar-tab-join {
-    height: 520px;
     padding: 0px;
     .family-join {
         height: 100%;
@@ -262,19 +267,22 @@
     .house {
         display: block;
         float: left;
-        width: 12.5%;
+        width: 10%;
         height: 100%;
         background-position: 0px 10px;
         background-repeat: no-repeat;
         background-size: contain;
+        box-sizing: border-box;
+        padding-top: calc(5vw + 34px);
 
-        &.house-1 { background-color: #afaeab; background-image: url('/static/imgs/wolf.png'); }
-        &.house-2 { background-color: #111; background-image: url('/static/imgs/dragon.png'); }
-        &.house-3 { background-color: red; background-image: url('/static/imgs/lion.png'); }
-        &.house-4 { background-color: gold; background-image: url('/static/imgs/deer.png'); }
-        &.house-5 { background-color: green; background-image: url('/static/imgs/rose.png'); }
-        &.house-6 { background-color: blue; background-image: url('/static/imgs/bird.png'); }
-        &.house-7 { background-color: pink; background-image: url('/static/imgs/fish.png'); }
-        &.house-8 { background-color: orange; background-image: url('/static/imgs/sun.png'); }
+        &.house-1 { background-color: rgba(175, 175, 175, 0.7); background-image: url('/static/imgs/wolf.png'); }
+        &.house-2 { background-color: rgba(17, 17, 17, 0.7); background-image: url('/static/imgs/dragon.png'); }
+        &.house-3 { background-color: rgba(255, 0, 0, 0.7); background-image: url('/static/imgs/lion.png'); }
+        &.house-4 { background-color: rgba(255, 215, 0, 0.7); background-image: url('/static/imgs/deer.png'); }
+        &.house-5 { background-color: rgba(0, 128, 0, 0.7); background-image: url('/static/imgs/rose.png'); }
+        &.house-6 { background-color: rgba(0, 0, 255, 0.7); background-image: url('/static/imgs/bird.png'); }
+        &.house-7 { background-color: rgba(255, 192, 200, 0.7); background-image: url('/static/imgs/fish.png'); }
+        &.house-8 { background-color: rgba(255, 165, 0, 0.7); background-image: url('/static/imgs/sun.png'); }
+        &.house-none { width: 20%; }
     }
 }

@@ -187,6 +187,7 @@ export default {
         ['聊天管理組', 3, '黃瑋顥', 'Howard Huang'],
         ['聊天管理組', 5, '方科登', 'Jack Fun'],
         ['聊天管理組', 4, '焦小紅', 'Jessie Chiao'],
+        ['聊天管理組', 6, '黃忠政', 'Sky Huang'],
         ['資料庫管理組', 2, '徐銘鴻', 'Leo Hsu'],
         ['運維中心', 5, '楊伯麟', 'Luke Yang'],
         ['運維中心', 1, '侯統揚', 'Mickey Hou'],

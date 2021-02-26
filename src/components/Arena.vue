@@ -1,64 +1,67 @@
 <template>
-  <div class="arena bg-img">
-    <div class="personal-card maintaining">
-      暫不開放
-      
-    </div>
+  <div class="arena bg-img" id="arena">
+    <md-card class="home-card">
+      <md-card-header>
+        <md-card-header-text>
+          <div class="md-title">
+            <span>競技場</span>
+          </div>
+          <div class="md-subhead">
+            <span>bulletin of the kingdom</span>
+          </div>
+        </md-card-header-text>
+      </md-card-header>
+      <md-card-content>
+        <md-table class="arena-table">
+          <md-table-row>
+            <md-table-head>名次</md-table-head>
+            <md-table-head>家族</md-table-head>
+            <md-table-head>家族積分</md-table-head>
+            <md-table-head>獎牌</md-table-head>
+          </md-table-row>
+          <md-table-row v-for="(loc, idx) in showResult" :key="loc.id">
+            <md-table-cell>{{rerenderRank(idx)}}</md-table-cell>
+            <md-table-cell>{{loc.name}}</md-table-cell>
+            <md-table-cell>{{loc.score}}</md-table-cell>
+            <md-table-cell></md-table-cell>
+          </md-table-row>
+        </md-table>
+      </md-card-content>
+    </md-card>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
-import RadarChart from './chart/radar';
+import { ACT_GET_TROPHY } from '../store/enum';
 
 export default {
-  name: 'Home',
-  components: {
-    RadarChart
-  },
+  name: 'Arena',
   data() {
     return {
-      optionRadar: {
-        scale: {
-          ticks: {
-            suggestedMin: 0,
-          }
-        }
-      }
+      
     };
   },
   mounted() {
     // console.log(this);
-    
+    this.$store.dispatch('wsEmitMessage', {act: ACT_GET_TROPHY});
   },
   computed: {
-    ...mapState(['user']),
-    dataRadar() {
-      console.log('dataRadar: ', this);
-      return {
-        labels: ['力', '敏', '體', '智', '魅'],
-        datasets: [
-          {
-            label: '數值',
-            backgroundColor: 'rgba(0, 254, 185, 0.5)',
-            data: [this.user.str, this.user.dex, this.user.con, this.user.int, this.user.cha],
-            spanGaps: true,
-          },
-        ]
-      };
+    ...mapState(['user', 'global']),
+    showResult() {
+      const loc = this.global.houses.slice();
+      loc.sort((a,b) => {return b.score - a.score});
+      return loc;
     },
   },
   methods: {
     sendMessage(evt) {
-      console.log('sendMessage');
       // this.$store.dispatch('wsEmitAuthorize', this.$cookies.get('logintimestamp'));
+    },
+    rerenderRank(idx) {
+      const ary = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
+      return ary[idx];
     },
   }
 };
 </script>
-
-<style lang="scss">
-.arena {
-  background-image: url('/static/imgs/bg_family.png');
-}
-</style>

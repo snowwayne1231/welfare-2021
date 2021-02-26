@@ -1,0 +1,17 @@
+#arena {
+    &.arena {
+        background-image: url('/static/imgs/bg_family.jpg');
+    }
+
+    .md-table {
+        background-color: rgba(15, 15, 15, 0.5);
+    }
+    .md-table-head {
+        background-color: rgba(125, 0, 0, 0.4);
+        color: #805b00;
+    }
+    .md-table-content {
+        color: #805b00;
+        background-color: rgba(15, 15, 15, 0.5);
+    }
+}
