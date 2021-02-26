@@ -1,6 +1,7 @@
 
 const socketIO = require("socket.io");
 const { Op } = require("sequelize");
+const fs = require('fs');
 const models = require('./models');
 const enums = require('../src/store/enum');
 
@@ -9,7 +10,25 @@ const ROOM_CHATTING_BAR = 'roomchattingbar';
 const inners = {};
 const bar_tables = [];
 const bar_house_people = [];
-
+const country_border = [];
+if (country_border.length == 0) {
+    models.Countryside.findAll({attributes: ['userId', 'houseId']}).then((cs) => {
+        // for first time data
+        if (cs.length == 0) {
+            models.User.findAll({
+                attributes: ['id'],
+                where: {status: 1, houseId: 0, isLeader: false},
+            }).then(users => {
+                const userIds = users.map(u => { country_border.push([0, u.id]); return {userId: u.id}});
+                models.Countryside.bulkCreate(userIds);
+            });
+        } else {
+            cs.map(c => {
+                country_border.push([c.houseId, c.userId]);
+            });
+        }
+    });
+}
 
 
 function onMessage(socket) {
@@ -102,6 +121,18 @@ function onMessage(socket) {
                     return promise
                 }
                 return socket.emit('MESSAGE', {act: 'not promised', redirect: '/logout'});
+            case enums.ACT_GET_COUNTRYSIDE_DATA:
+                return socket.emit('MESSAGE', {act: enums.ACT_GET_COUNTRYSIDE_DATA, payload: country_border});
+            case enums.ACT_UPDATE_COUNTRYSIDE:
+                let uId = userinfo.id;
+                let country_houseid = payload.house;
+                return broadcast({act: enums.ACT_GET_COUNTRYSIDE_DATA, payload: country_border});
+            case enums.ACT_GET_TROPHY:
+                return models.Trophy.findAll({
+                    attributes: ['name', 'ownerHouseId', 'add']
+                }).then(t => {
+                    socket.emit('MESSAGE', {act: enums.ACT_GET_TROPHY, payload: t});
+                }).catch(err => console.log(err));
             default:
                 console.log("Not Found Act: ", msg);
         }
@@ -128,6 +159,10 @@ function bindSockets(socket) {
 
 function broadcastChatRoom(obj) {
     return inners.io.to(ROOM_CHATTING_BAR).emit('MESSAGE', obj);
+}
+
+function broadcast(obj) {
+    return inners.io.emit('MESSAGE', obj);
 }
 
 
