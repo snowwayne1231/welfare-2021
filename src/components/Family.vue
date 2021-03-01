@@ -67,11 +67,12 @@
 import { mapState, mapGetters } from 'vuex';
 import { ACT_GET_FAMILY_DATA } from '../store/enum';
 import Man from './panels/Man';
+import Helper from './panels/Helper';
 
 
 export default {
   name: 'Family',
-  components: {Man},
+  components: {Man, Helper},
   data() {
     return {}
   },

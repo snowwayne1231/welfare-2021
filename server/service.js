@@ -30,7 +30,12 @@ if (argvv.length > 0) {
 
 
 // setting http service
-adminbro.useAdminRouter(app);
+if (port == 81) {
+    adminbro.useAdminRouterDev(app);
+} else {
+    adminbro.useAdminRouter(app);
+}
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.engine('ejs', require('ejs').renderFile);
@@ -223,6 +228,8 @@ const _models_map = {
     '4': 'Result',
     '5': 'Game',
     '6': 'Match',
+    '7': 'Countryside',
+    '7': 'Order',
 }
 
 function handleAdminSnow(req, res, uris) {
@@ -512,8 +519,10 @@ function updateAdminDB(req, res) {
         case '4': _model = models.Result; break;
         case '5': _model = models.Game; break;
         case '6': _model = models.Match; break;
+        case '7': _model = models.Countryside; break;
+        case '8': _model = models.Order; break;
         default:
-            return res.json({'msg': 'failed'});
+            return res.status(403).json({'msg': 'failed'});
     }
     var updateData = {};
     for (var key in parameter) {

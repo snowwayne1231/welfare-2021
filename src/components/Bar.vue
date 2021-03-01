@@ -27,6 +27,7 @@
           <div class="bar-content-table" :class="{active: openBoard}">
             <md-table v-model="showWantedPeople" md-sort="rv" md-sort-order="desc" md-fixed-header class="wanted-table" v-if="showWantedPeople.length>0">
               <md-table-toolbar>
+                <Hepler title="目前可被招募為家族成員的自由民" />
                 <h1 class="md-title">WANTED</h1>
                 <span class="bar-content-close-btn" @click="onClickCloseBoard"><md-icon>close</md-icon></span>
               </md-table-toolbar>
@@ -37,26 +38,56 @@
             </md-table>
           </div>
           <div class="bar-content-open-table-btn bar-content-open" @click="onClickBarOpenBoard"><img src="/static/imgs/board.png" /></div>
-          <div class="bar-content-menu" :class="{active: openMenu}">
+          <div class="bar-content-menu" :class="{active: openMenu}" ref="menuContent">
             <md-tabs>
-              <md-tab id="bar-tab-store" md-label="商品" md-icon="store" exact>
+              <md-tab id="bar-tab-store" md-label="商品" md-icon="store" exact md-active-tab>
+                <Hepler title="可以在此使用ＲＶ值購買商品" />
                 <div class="bar-store">
-                  <div class="item"><i class="img-warpper" title="更名卷軸"><img src="/static/imgs/paper.jpg" /></i>
-                  </div><div class="item"><i class="img-warpper" title="紅色藥水"><img src="/static/imgs/red_water.jpg" /></i>
-                  </div><div class="item"><i class="img-warpper" title="綠色藥水"><img src="/static/imgs/green_water.jpg" /></i>
-                  </div><div class="item"><i class="img-warpper" title="魔法寶石"><img src="/static/imgs/magic_rock.jpg" /></i>
-                  </div><div class="item" v-for="i in 12" :key="i"><i class="img-warpper" title=""></i></div>
+                  <div class="item" v-for="(it, idx) in items" :key="idx" :class="{inactive: !it.activate}" @click="onClickItem(it)">
+                    <i class="img-wrapper" :title="it.name"><img :src="it.img" />
+                    </i><div class="name-wrapper">
+                      <span class="item-name">{{it.name}}</span>
+                      <span class="item-text">[ {{it.text}} ]</span>
+                      <span class="item-price">消耗： ( {{it.price}} ) RV</span>
+                    </div>
+                  </div>
                 </div>
+                <md-dialog
+                  :md-active.sync="activeBuy"
+                >
+                  <div class="md-dialog-container">
+                    <span class="md-dialog-title md-title">請輸入您想更換的名稱</span>
+                    <div class="md-dialog-content md-theme-default">
+                      <div class="md-field md-theme-default md-has-placeholder">
+                        <input type="text" v-model="buyingInput" id="buying-input" placeholder="請輸入中文" maxlength="12" class="md-input">
+                      </div>
+                    </div>
+                    <div class="md-dialog-actions">
+                      <button type="button" class="md-button" @click="activeBuy=false">
+                        <div class="md-ripple">
+                          <div class="md-button-content">取消</div>
+                        </div>
+                      </button>
+                      <button type="button" class="md-button" @click="onConfirmBuying">
+                        <div class="md-ripple">
+                          <div class="md-button-content" >確定</div>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                </md-dialog>
               </md-tab>
-              <md-tab id="bar-tab-join" md-label="國境" md-icon="directions_run">
+              <md-tab id="bar-tab-join" md-label="國民入境" md-icon="directions_run">
                 <div class="family-join">
-                  <div class="house" v-for="idx in 8" :key="idx" :class="'house-'+idx">
-                    
+                  <div class="house" v-for="house in global.houses" :key="house.id" :class="'house-'+house.en">
+                    <li class="freefork" v-for="fork in mapHouseFreefork[house.en]" :key="fork[0]"><i>{{fork[2]}}</i>{{fork[1]}}</li>
+                    <li class="freefork" v-if="imNotInCountry"><button class="click-join" @click="onClickJoinCountry(house.id)">加入</button></li>
                   </div>
-                  <div class="house-none">
-                    <li class="freefork" v-for="hero in showNoneFamilyHeros" :key="hero[1]">{{hero[2]}}</li>
+                  <div class="house-none house">
+                    <li class="freefork" v-for="hero in showNoneFamilyHeros" :key="hero[1]"><i>{{hero[3]}}</i>{{hero[2]}}</li>
                   </div>
                 </div>
+                <Hepler title="自由國民在此選擇入境，在每季選秀結束後為期一個禮拜期間可以自由移動到心屬的家族國境" />
               </md-tab>
               <md-tab id="bar-tab-posts" md-label="離開" md-icon="exit_to_app" @click="onClickCancelMenu"></md-tab>
             </md-tabs>
@@ -84,16 +115,28 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex';
-import { ACT_JOIN_CHAT_ROOM, ACT_LEAVE_CHAT_ROOM, ACT_JOIN_FAMILY, ACT_SAY_CHAT_ROOM, ACT_GET_PEOPLE_DATA, ACT_MOVE_CHAT_ROOM, ACT_GET_COUNTRYSIDE_DATA } from '../store/enum';
+import { ACT_JOIN_CHAT_ROOM, ACT_LEAVE_CHAT_ROOM, ACT_JOIN_FAMILY, ACT_SAY_CHAT_ROOM, ACT_GET_PEOPLE_DATA, ACT_MOVE_CHAT_ROOM, ACT_GET_COUNTRYSIDE_DATA, ACT_UPDATE_COUNTRYSIDE, ACT_UPDATE_NICKNAME } from '../store/enum';
+import Hepler from './panels/Helper';
 
 export default {
   name: 'Bar',
+  components: {
+    Hepler,
+  },
   data() {
     return {
       chatInput: '',
       timeoutSecond: 3,
       openBoard: false,
       openMenu: false,
+      items: [
+        {name: '更名卷軸', activate: true, img: '/static/imgs/paper.jpg', price: 3, text: '購買立即使用，可以重新登錄新的角色暱稱'},
+        {name: '紅色藥水', activate: false, img: '/static/imgs/red_water.jpg', price: 1, text: '可以在同月份的公司內部活動中額外再挑戰一次遊戲門檻'},
+        {name: '綠色藥水', activate: false, img: '/static/imgs/green_water.jpg', price: 0, text: '暫無..'},
+        {name: '魔法寶石', activate: false, img: '/static/imgs/magic_rock.jpg', price: 8, text: '購買立即使用，可以獲得一點能力點數，任意增加一項能力'},
+      ],
+      activeBuy: false,
+      buyingInput: '',
     };
   },
   mounted() {
@@ -116,7 +159,7 @@ export default {
   },
   computed: {
     ...mapState(['user', 'chat', 'global']),
-    ...mapGetters(['myHouse', 'usersColor']),
+    ...mapGetters(['myHouse', 'usersColor', 'mapHouseFreefork']),
     showWantedPeople: {
       get() {
         return this.chat.publicPeople.filter(e => {
@@ -129,6 +172,12 @@ export default {
     },
     showNoneFamilyHeros() {
       return this.global.countryBorder.filter(e => e[0] == 0);
+    },
+    maxChoice() {
+      return Math.ceil(this.global.countryBorder.length / 8);
+    },
+    imNotInCountry() {
+      return this.global.countryBorder.findIndex(e => e[1] == this.user.id && e[0] == 0) >= 0;
     },
   },
   updated() {
@@ -190,6 +239,14 @@ export default {
       if (this.openMenu && this.global.countryBorder.length == 0) {
         this.$store.dispatch('wsEmitMessage', {act: ACT_GET_COUNTRYSIDE_DATA});
       }
+      if (this.openMenu) {
+        const naviBtn = this.$refs.menuContent.querySelector('.md-tabs-navigation .md-button');
+        if (Array.isArray(naviBtn)) {
+          naviBtn[0] && naviBtn[0].click();
+        } else if(naviBtn) {
+          naviBtn.click();
+        }
+      }
     },
     onClickCancelMenu(evt) {
       this.openMenu = false;
@@ -213,6 +270,43 @@ export default {
         default: return '一般';
       }
     },
+    onClickJoinCountry(house) {
+      const houseTarget = this.global.houses.find(h => h.id == house);
+      const bool = window.confirm(`確定要加入家族『${houseTarget.name}』嗎？`);
+      const payload = { house };
+      if (bool) {
+        const houseFree = this.mapHouseFreefork[houseTarget.en];
+        if (houseFree.length >= this.maxChoice) {
+          const idxMax = houseFree.reduce((a,b,idx,arr) => b[2] > arr[a][2] ? idx : a, 0);
+          payload.replace = houseFree[idxMax][0];
+        }
+        this.$store.dispatch('wsEmitMessage', {act: ACT_UPDATE_COUNTRYSIDE, payload});
+      }
+    },
+    onClickItem(item) {
+      if (item.activate) {
+        if (item.price > this.user.rv) {
+          return window.alert('ＲＶ值不足');
+        }
+        
+        switch (item.name) {
+          case '更名卷軸':
+            this.activeBuy = true;
+            return ;
+            default:
+        }
+
+      }
+    },
+    onConfirmBuying(evt) {
+      const nextName = this.buyingInput;
+      if (window.confirm(`確定暱稱修改為 『 ${nextName} 』 嗎？`)) {
+        this.activeBuy = false;
+        this.$store.dispatch('wsEmitMessage', {act: ACT_UPDATE_NICKNAME, payload: {nickname: nextName}});
+      }
+      
+    },
+    
   }
 }
 </script>

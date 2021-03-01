@@ -12,6 +12,7 @@
         height: 100%;
         .md-tab {
             height: 520px;
+            position: relative;
         }
         .md-icon, .md-tab-label {
             color: #805b00 !important;
@@ -236,35 +237,81 @@
 
 
 #bar-tab-store {
+    .helper {
+        right: 5px;
+        top: 5px;
+    }
     .bar-store {
+        position: relative;
         background-color: rgba(15,15,15,0.3);
         padding: 10px;
-        width: 222px;
-        height: 228px;
+        min-width: 520px;
+        width: calc(100% - 200px);
 
-        .img-warpper {
+        .img-wrapper {
             display: inline-block;
             border: 1px gray solid;
             background-color: #000a03;
             width: 42px;
             height: 42px;
         }
+        .name-wrapper {
+            display: inline-block;
+            height: 42px;
+            line-height: 40px;
+            width: calc(100% - 44px);
+            background-color: rgba(24, 24, 24, 0.4);
+        }
 
         .item {
             display: inline-block;
+            width: 100%;
             padding: 5px 3px 0px;
-            height: 48px;
-            width: 48px;
+            height: 50px;
+            border-bottom: 1px solid #7f7959;
+            text-align: left;
+            color: #fff;
+            cursor: pointer;
+
+            &.inactive {
+                cursor: not-allowed;
+                .item-name { color: #5d5b5b; }
+                .item-text { color: #5d5b5b; }
+            }
+
+            .item-name {
+                font-size: 16px;
+                padding: 2px 10px;
+            }
+            .item-text {
+                font-size: 12px;
+            }
+            .item-price {
+                float: right;
+                color: #e6ac1d;
+                padding: 2px 10px;
+            }
         }
+        
     }
 }
 
 #bar-tab-join {
+    .helper {
+        right: 5px;
+        top: 5px;
+    }
     padding: 0px;
     .family-join {
         height: 100%;
+        position: relative;
+        .helper {
+            right: 5px;
+            top: 5px;
+        }
     }
     .house {
+        position: relative;
         display: block;
         float: left;
         width: 10%;
@@ -273,16 +320,55 @@
         background-repeat: no-repeat;
         background-size: contain;
         box-sizing: border-box;
+        padding: 8px;
         padding-top: calc(5vw + 34px);
+        cursor: pointer;
 
-        &.house-1 { background-color: rgba(175, 175, 175, 0.7); background-image: url('/static/imgs/wolf.png'); }
-        &.house-2 { background-color: rgba(17, 17, 17, 0.7); background-image: url('/static/imgs/dragon.png'); }
-        &.house-3 { background-color: rgba(255, 0, 0, 0.7); background-image: url('/static/imgs/lion.png'); }
-        &.house-4 { background-color: rgba(255, 215, 0, 0.7); background-image: url('/static/imgs/deer.png'); }
-        &.house-5 { background-color: rgba(0, 128, 0, 0.7); background-image: url('/static/imgs/rose.png'); }
-        &.house-6 { background-color: rgba(0, 0, 255, 0.7); background-image: url('/static/imgs/bird.png'); }
-        &.house-7 { background-color: rgba(255, 192, 200, 0.7); background-image: url('/static/imgs/fish.png'); }
-        &.house-8 { background-color: rgba(255, 165, 0, 0.7); background-image: url('/static/imgs/sun.png'); }
-        &.house-none { width: 20%; }
+        &.house-stark { background-color: rgba(175, 175, 175, 0.4); background-image: url('/static/imgs/wolf.png'); }
+        &.house-targaryen { background-color: rgba(17, 17, 17, 0.4); background-image: url('/static/imgs/dragon.png'); }
+        &.house-lannister { background-color: rgba(255, 0, 0, 0.4); background-image: url('/static/imgs/lion.png'); }
+        &.house-baratheon { background-color: rgba(255, 215, 0, 0.4); background-image: url('/static/imgs/deer.png'); }
+        &.house-tyrell { background-color: rgba(0, 128, 0, 0.4); background-image: url('/static/imgs/rose.png'); }
+        &.house-eyrie { background-color: rgba(37, 37, 200, 0.4); background-image: url('/static/imgs/bird.png'); }
+        &.house-tully { background-color: rgba(255, 192, 200, 0.4); background-image: url('/static/imgs/fish.png'); }
+        &.house-martell { background-color: rgba(255, 165, 0, 0.4); background-image: url('/static/imgs/sun.png'); }
+        &.house-none { width: 20%; padding-top: 5px; }
+        
+
+        .freefork {
+            position: relative;
+            list-style: none;
+            color: #fff;
+            border-bottom: 1px solid #e2a510;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 6px 4px 4px 10px;
+            height: 34px;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+            background-color: rgba(0,0,0,0.3);
+            text-align: left;
+            &:hover {
+                background-color: rgba(0,0,0,0.5);
+            }
+            >i {
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                border-radius: 50%;
+                background-color: #171411;
+                color: #f9bf31;
+                z-index: 2;
+                font-size: 12px;
+                line-height: 12px;
+                width: 14px;
+                height: 14px;
+                text-align: center;
+            }
+        }
+        .click-join {
+            
+        }
     }
 }

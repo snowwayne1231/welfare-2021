@@ -171,6 +171,52 @@
   }
 }
 
+.helper {
+  position: absolute;
+  
+  cursor: help;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+
+  .md-icon {
+    color: #805b00 !important;
+    pointer-events: none;
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 20px !important;
+    line-height: 20px;
+    min-width: auto;
+    margin: 0px !important;
+  }
+}
+
+.md-theme-default {
+  .md-dialog {
+    .md-dialog-container {
+      background-color: rgba(44, 42, 40, 0.8);
+      border: 3px outset #b5a867;
+      color: #b8b9b3;
+      .md-dialog-content {
+
+        .md-field, .md-count, .md-input {
+          color: #b8b9b3;
+        }
+        .md-input {
+          -webkit-text-fill-color: #b8b9b3;
+        }
+      }
+      .md-dialog-actions {
+        .md-button-content {
+          color: #b8b9b3;
+        }
+      }
+    }
+  }
+}
+
+
 @keyframes toggledisplay{
   0% {opacity: 0;}
   49% {opacity: 0;}

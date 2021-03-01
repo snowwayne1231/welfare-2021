@@ -123,16 +123,57 @@ function onMessage(socket) {
                 return socket.emit('MESSAGE', {act: 'not promised', redirect: '/logout'});
             case enums.ACT_GET_COUNTRYSIDE_DATA:
                 return socket.emit('MESSAGE', {act: enums.ACT_GET_COUNTRYSIDE_DATA, payload: country_border});
-            case enums.ACT_UPDATE_COUNTRYSIDE:
+            case enums.ACT_UPDATE_COUNTRYSIDE: {
                 let uId = userinfo.id;
-                let country_houseid = payload.house;
+                let country_houseid = payload.house || 0;
+                let idx = country_border.findIndex(e => e[1] == uId);
+                if (idx < 0) { return; }
+
+                let maxNum = Math.ceil(country_border.length / 8);
+                let sameHouseUsers = country_border.filter(e => e[0] == country_houseid);
+                if (sameHouseUsers.length >= maxNum) {
+                    let id_replace = payload.replace;
+                    if (id_replace > 0 && sameHouseUsers.filter(e => e[1]==id_replace).length == 1) {
+                        let idxReplace = country_border.findIndex(e => e[1] == id_replace);
+                        if (idxReplace >= 0) {
+                            country_border[idxReplace][0] = 0;
+                            country_border[idx][0] = country_houseid;
+                            models.Countryside.update(
+                                { houseId: country_houseid },
+                                { where: {userId: uId} }
+                            );
+                            models.Countryside.update(
+                                { houseId: 0 },
+                                { where: {userId: id_replace} }
+                            );
+                        }
+                    }
+                } else {
+                    country_border[idx][0] = country_houseid;
+                    models.Countryside.update(
+                        { houseId: country_houseid },
+                        { where: {userId: uId} }
+                    );
+                }
                 return broadcast({act: enums.ACT_GET_COUNTRYSIDE_DATA, payload: country_border});
+            }
             case enums.ACT_GET_TROPHY:
                 return models.Trophy.findAll({
                     attributes: ['name', 'ownerHouseId', 'add']
                 }).then(t => {
                     socket.emit('MESSAGE', {act: enums.ACT_GET_TROPHY, payload: t});
                 }).catch(err => console.log(err));
+            case enums.ACT_UPDATE_NICKNAME:
+                if (userinfo.rv < 3) { return; }
+                return models.User.findOne({where: {id: userinfo.id}}).then(user => {
+                    user.update({nickname: payload.nickname, rv: userinfo.rv - 3}).then(updated => {
+                        const next_userinfo = updated.toJSON();
+                        models.Order.create({before: userinfo.nickname, after: next_userinfo.nickname, userId: userinfo.id, spend: 3});
+                        socket.emit('MESSAGE', {act: 'successed', redirect: '/logout'});
+                    });
+                }).catch(err => console.log(err));
+
+                
             default:
                 console.log("Not Found Act: ", msg);
         }

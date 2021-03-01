@@ -21,7 +21,7 @@
           </md-table-row>
           <md-table-row v-for="(loc, idx) in showResult" :key="loc.id">
             <md-table-cell>{{rerenderRank(idx)}}</md-table-cell>
-            <md-table-cell>{{loc.name}}</md-table-cell>
+            <md-table-cell><img class="arena-house-img" :src="renderHouseImage(loc)" />{{rerenderHouseName(loc)}}</md-table-cell>
             <md-table-cell>{{loc.score}}</md-table-cell>
             <md-table-cell></md-table-cell>
           </md-table-row>
@@ -61,6 +61,22 @@ export default {
     rerenderRank(idx) {
       const ary = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
       return ary[idx];
+    },
+    rerenderHouseName(house) {
+      return house.name;
+    },
+    renderHouseImage(house) {
+      const mapImages = {
+        'stark': 'wolf.png',
+        'eyrie': 'bird.png',
+        'tully': 'fish.png',
+        'lannister': 'lion.png',
+        'tyrell': 'rose.png',
+        'baratheon': 'deer.png',
+        'targaryen': 'dragon.png',
+        'martell': 'sun.png',
+      }
+      return `/static/imgs/${mapImages[house.en]}`;
     },
   }
 };

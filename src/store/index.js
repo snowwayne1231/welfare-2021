@@ -138,7 +138,7 @@ const moduleUser = {
             // console.log('wsEmitMessage context: ', message);
         },
         wsEmitAuthorize: (context, message) => {
-            console.log('wsEmitAuthorize context: ');
+            // console.log('wsEmitAuthorize context: ');
         },
         updateSkillPoint: (context, payload) => {
             const idxMap = {'str': 0, 'dex': 1, 'con': 2, 'wis': 3, 'cha': 4};
@@ -222,14 +222,18 @@ const globalData = {
                 case ACT_GET_ADMIN_DATASET:
                     state.dataset = payload.dataset;
                     return console.log('Global Dataset: ', payload);
-                case ACT_GET_COUNTRYSIDE_DATA:
-                    state.countryBorder = payload.map(e => {
+                case ACT_GET_COUNTRYSIDE_DATA: {
+                    const newBorder = payload.map(e => {
                         let id = e[1];
                         let user = state.users.find(u => u.id == id);
                         e[2] = user ? user.nickname : '';
+                        e[3] = user ? user.rv : 0;
                         return e;
                     });
-                    return console.log('Global countryBorder: ', payload);
+                    newBorder.sort((a,b) => b[3] - a[3]);
+                    state.countryBorder = newBorder;
+                    return;
+                }
                 case ACT_GET_TROPHY:
                     state.trophy = payload;
                     return console.log('Global trophy: ', payload);
@@ -254,6 +258,23 @@ const globalData = {
                 const color = houseColorMap[hid] || '#fff';
                 return {id: u.id, color};
             });
+        },
+        mapHouseFreefork: (state) => {
+            const map = {};
+            const mapIds = {};
+            state.countryBorder.map(c => {
+                const hid = c[0];
+                if (mapIds.hasOwnProperty(hid)) {
+                    mapIds[hid].push(c.slice(1));
+                } else {
+                    mapIds[hid] = [c.slice(1)];
+                }
+            });
+            
+            state.houses.map(house => {
+                map[house.en] = mapIds.hasOwnProperty(house.id) ? mapIds[house.id] : [];
+            });
+            return map;
         },
     }
 };
