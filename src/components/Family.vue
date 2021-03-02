@@ -14,15 +14,15 @@
           <div class="note">
             <table>
               <tr>
-                <th>攻擊力: </th>
+                <th><Helper title="地圖板塊遊戲中能夠擊敗異鬼的數值" />攻擊力: </th>
                 <td>{{myHouseAbility.atk}}</td>
               </tr>
               <tr>
-                <th>移動力: </th>
+                <th><Helper title="地圖板塊遊戲中能夠移動的格數" />移動力: </th>
                 <td>{{myHouseAbility.move}}</td>
               </tr>
               <tr>
-                <th>再動: </th>
+                <th><Helper title="地圖板塊遊戲中搭完船後能移動的格數" />再動: </th>
                 <td>{{myHouseAbility.moveAgain}}</td>
               </tr>
             </table>

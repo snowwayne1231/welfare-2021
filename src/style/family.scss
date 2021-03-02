@@ -134,4 +134,13 @@
       background: linear-gradient(to bottom, transparent, transparent 35%, #81a068 45%, #4e7109 55%, #183105 100%);
     }
 
-  }
+    .note {
+      th {
+        position: relative;
+      }
+      .helper {
+        left: -20px;
+        top: 0px;
+      }
+    }
+}

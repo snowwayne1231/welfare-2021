@@ -16,7 +16,7 @@
         <div class="list">
           <md-list :md-expand-single="expandSingle">
             <md-list-item md-expand>
-              <span class="material-icons mr-6-px"> local_fire_department </span
+              <span class="material-icons mr-6-px"></span
               ><span class="md-list-item-text"
                 >2021-02-10 【2021 Game of REVOVISION 年度活動時間表】</span
               >
@@ -89,9 +89,7 @@
             </md-list-item>
 
             <md-list-item md-expand>
-              <span class="material-icons mr-6-px">
-                local_fire_department
-              </span>
+              <span class="material-icons mr-6-px"></span>
               <span class="md-list-item-text"
                 >2021-02-22 【2020 REVOVISION 年度 Team Building 活動票選 MVP人員】</span
               >
@@ -116,15 +114,91 @@
             </md-list-item>
 
             <md-list-item md-expand>
-              <span class="material-icons mr-6-px">
-                local_fire_department
-              </span>
-              <span class="md-list-item-text"
-                >2021-02-24 【2021 Game of REVOVISION 各家族族長】</span
-              >
-
+              <span class="material-icons mr-6-px">local_fire_department</span>
+              <span class="md-list-item-text">2021-02-24 【2021 Game of REVOVISION 各家族族長】</span>
               <md-list slot="md-expand">
                 <img src="/static/imgs/news_2021022401.png" alt="Skyscraper">
+              </md-list>
+            </md-list-item>
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px">local_fire_department</span>
+              <span class="md-list-item-text">2021-03-02 【2021 家族組成與選秀辦法】</span>
+              <md-list slot="md-expand">
+                
+                <md-table class="news-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">1. 家族組成 (舉例)</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 20%">家族</md-table-head>
+                    <md-table-cell>家族B</md-table-cell>
+                    <md-table-cell>家族C</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-head>族長</md-table-head>
+                    <md-table-cell>1人</md-table-cell>
+                    <md-table-cell>龜龜</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-head>封臣</md-table-head>
+                    <md-table-cell>3+人</md-table-cell>
+                    <md-table-cell>海獅, 五臉</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-head>家族成員</md-table-head>
+                    <md-table-cell>10+人</md-table-cell>
+                    <md-table-cell>寶寶, 貝貝, 寶貝</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-head>國民</md-table-head>
+                    <md-table-cell>0-7人</md-table-cell>
+                    <md-table-cell>國民1, 國民2, 國民3, ...</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  每個家族都傭有4種身份族長、封臣、成員、國民</br>
+                  1. 族長與封臣: 需共同承擔遊戲勝負的後果 (尾牙表演)</br>
+                  2. 家族成員: 幫助族長一同努力，但沒有額外負擔</br>
+                  3. 國民: 暫時加入幫助族長參與遊戲，本身的數值不會加權到家族上，下一次選秀來臨時，可以回歸"自由民"的身分
+                </md-content>
+                </br>
+
+                <md-table class="news-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">2. 選秀規則</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head></md-table-head>
+                    <md-table-head colspan="2">選秀人數</md-table-head>
+                    <md-table-head>選秀方式</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-head>第一次選秀</md-table-head>
+                    <md-table-cell>家族選7名家族成員</br>(第一位加入為封臣)</md-table-cell>
+                    <md-table-cell>自由民入境成為國民6-7名</md-table-cell>
+                    <md-table-cell>由組長給予願望清單，並依清單唱名，</br>如有重複爭奪的成員由輪次落後的族長獲得</br>(去年MVP不能選擇)</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-head>第二次選秀</md-table-head>
+                    <md-table-cell>家族選3-4名家族成員</br>(第一位加入為封臣)</md-table-cell>
+                    <md-table-cell>自由民入境成為國民2-3名</md-table-cell>
+                    <md-table-cell>由當前團體積分排名靠後的族長優先選人</br>依序選到剩去年各組前三名MVP(24人)為止</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-head>第三次選秀</md-table-head>
+                    <md-table-cell>各家族選3名家族成員</br>(第一位加入為封臣)</md-table-cell>
+                    <md-table-cell>無自由民</md-table-cell>
+                    <md-table-cell>由當前團體積分排名靠後的族長優先選人</br>除福委工作人員外所有人都會加入家族</md-table-cell>
+                  </md-table-row>
+                  
+                </md-table>
+                <md-content>
+                  每一次選秀的順序依序為</br>
+                  1. 家族族長選擇成員</br>
+                  2. 福委選擇工作人員3~5名</br>
+                  3. 自由民自由選擇入境各國</br>
+                  PS: 每一次的選秀活動中，第一位加入該家族的成員會自動任命為"封臣"
+                </md-content>
               </md-list>
             </md-list-item>
           </md-list>

@@ -23,7 +23,7 @@
           <div class="md-layout-item info-table">
             <md-table class="table-transparent able-block">
               <md-table-row v-if="user.mvp >= 0">
-                <md-table-head><Hepler title="被投票票選為最有價值玩家的次數" />MVP</md-table-head>
+                <md-table-head><Helper title="被投票票選為最有價值玩家的次數" />MVP</md-table-head>
                 <md-table-cell>
                   <md-icon v-for="i in user.mvp" :key="i" class="mvp-star"
                     >star</md-icon
@@ -31,7 +31,7 @@
                 </md-table-cell>
               </md-table-row>
               <md-table-row>
-                <md-table-head><Hepler title="睿訊值：代表在一年的活動中的活躍程度，也會影響族長招募家族成員時所消耗的積分" />RV</md-table-head>
+                <md-table-head><Helper title="睿訊值：代表在一年的活動中的活躍程度，也會影響族長招募家族成員時所消耗的積分" />RV</md-table-head>
                 <md-table-cell>
                   <!-- <md-icon v-for="i in user.rv/10">star</md-icon> -->
                   <md-icon v-for="i in userRV[0]" :key="'f' + i" class="bigger-favorite">favorite</md-icon>
@@ -41,7 +41,7 @@
                 </md-table-cell>
               </md-table-row>
               <md-table-row>
-                <md-table-head><Hepler title="影響地圖板塊玩法" />STR 力量</md-table-head>
+                <md-table-head><Helper title="影響地圖板塊玩法的攻擊力" />STR 力量</md-table-head>
                 <md-table-cell class="border-wraped">
                   <i class="circle minus" v-if="checkMinusShow(0)" @click="onClickMinus('str')"><md-icon>remove_circle</md-icon></i>
                   <i class="circle add" v-if="displayLvNums.str < 5" @click="onClickAdd('str')"><md-icon>add_circle</md-icon></i>
@@ -49,7 +49,7 @@
                 </md-table-cell>
               </md-table-row>
               <md-table-row>
-                <md-table-head><Hepler title="影響地圖板塊玩法" />DEX 敏捷</md-table-head>
+                <md-table-head><Helper title="影響地圖板塊玩法的移動能力" />DEX 敏捷</md-table-head>
                 <md-table-cell class="border-wraped">
                   <i class="circle minus" v-if="checkMinusShow(1)" @click="onClickMinus('dex')"><md-icon>remove_circle</md-icon></i>
                   <i class="circle add" v-if="displayLvNums.dex < 5" @click="onClickAdd('dex')"><md-icon>add_circle</md-icon></i>
@@ -57,7 +57,7 @@
                 </md-table-cell>
               </md-table-row>
               <md-table-row>
-                <md-table-head><Hepler title="影響地圖板塊玩法與獎牌條件" />CON 體力</md-table-head>
+                <md-table-head><Helper title="影響地圖板塊玩法與獎牌條件" />CON 體力</md-table-head>
                 <md-table-cell class="border-wraped">
                   <i class="circle minus" v-if="checkMinusShow(2)" @click="onClickMinus('con')"><md-icon>remove_circle</md-icon></i>
                   <i class="circle add" v-if="displayLvNums.con < 5" @click="onClickAdd('con')"><md-icon>add_circle</md-icon></i>
@@ -65,7 +65,7 @@
                 </md-table-cell>
               </md-table-row>
               <md-table-row>
-                <md-table-head><Hepler title="影響地圖板塊玩法與獎牌的條件" />WIS 精神</md-table-head>
+                <md-table-head><Helper title="影響地圖板塊玩法與獎牌的條件" />WIS 精神</md-table-head>
                 <md-table-cell class="border-wraped">
                   <i class="circle minus" v-if="checkMinusShow(3)" @click="onClickMinus('wis')"><md-icon>remove_circle</md-icon></i>
                   <i class="circle add" v-if="displayLvNums.wis < 5" @click="onClickAdd('wis')"><md-icon>add_circle</md-icon></i>
@@ -73,7 +73,7 @@
                 </md-table-cell>
               </md-table-row>
               <md-table-row>
-                <md-table-head><Hepler title="影響團體遊戲中的某種條件" />CHA 魅力</md-table-head>
+                <md-table-head><Helper title="影響遊戲中的某種條件" />CHA 魅力</md-table-head>
                 <md-table-cell class="border-wraped">
                   <i class="circle minus" v-if="checkMinusShow(4)" @click="onClickMinus('cha')"><md-icon>remove_circle</md-icon></i>
                   <i class="circle add" v-if="displayLvNums.cha < 5" @click="onClickAdd('cha')"><md-icon>add_circle</md-icon></i>
@@ -81,7 +81,7 @@
                 </md-table-cell>
               </md-table-row>
               <md-table-row>
-                <md-table-head><Hepler title="在活動中有機會取得增加單項能力的點數" />POINT 點數</md-table-head>
+                <md-table-head><Helper title="在活動中有機會取得增加單項能力的點數" />POINT 點數</md-table-head>
                 <md-table-cell>
                   <span class="point">{{ user.skillPointJson.now }}</span>
                   <button class="btn" @click="onClickSubmit">確定</button>
@@ -110,11 +110,11 @@
 import { mapState, mapGetters } from 'vuex'
 import RadarChart from './chart/radar'
 import { ACT_UPDATE_SKILL } from '../store/enum';
-import Hepler from './panels/Helper';
+import Helper from './panels/Helper';
 
 export default {
   name: 'Player',
-  components: { RadarChart, Hepler },
+  components: { RadarChart, Helper },
   data() {
     return {
       userPowerForm: [ 'strLv', 'dexLv', 'conLv', 'wisLv', 'chaLv' ],
