@@ -11,7 +11,7 @@
           <div class="md-subhead" v-if="myHouse">
             <span>House Of {{myHouse.en}}</span>
           </div>
-          <div class="note">
+          <div class="note" v-if="myHouse">
             <table>
               <tr>
                 <th><Helper title="地圖板塊遊戲中能夠擊敗異鬼的數值" />攻擊力: </th>
@@ -24,6 +24,10 @@
               <tr>
                 <th><Helper title="地圖板塊遊戲中搭完船後能移動的格數" />再動: </th>
                 <td>{{myHouseAbility.moveAgain}}</td>
+              </tr>
+              <tr>
+                <th><Helper title="家族當前領土 / 領土最大值" />領土: </th>
+                <td>{{myHouse.land}} / {{Math.floor(myHouseAbility.totalRV/10)}}</td>
               </tr>
             </table>
           </div>
@@ -74,7 +78,10 @@ export default {
   name: 'Family',
   components: {Man, Helper},
   data() {
-    return {}
+    return {
+      voteRound: 1,
+      voteName: '睿訊之國的闖關者',
+    }
   },
   mounted() {
     // console.log(this);

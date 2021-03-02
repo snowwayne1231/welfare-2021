@@ -183,6 +183,7 @@ const moduleUser = {
             let atk = 0;
             let move = 5;
             let moveAgain = 0;
+            let totalRV = 0;
             state.family.map(u => {
                 if (u.houseId == 0) { return u; }
                 const lvmaps = _lvNums(u.strLv, u.dexLv, u.conLv, '-', '-');
@@ -195,8 +196,9 @@ const moduleUser = {
                 if (lvmaps.con >= 5) {
                     moveAgain += 1;
                 }
+                totalRV += u.rv;
             });
-            return {atk, move, moveAgain};
+            return {atk, move, moveAgain, totalRV};
         }
     },
 }
