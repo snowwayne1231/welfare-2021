@@ -172,8 +172,33 @@ function onMessage(socket) {
                         socket.emit('MESSAGE', {act: 'successed', redirect: '/logout'});
                     });
                 }).catch(err => console.log(err));
-
-                
+            case enums.ACT_ADMIN_CREATE_GAME: {
+                if (userinfo.code != 'R343') { return socket.emit('MESSAGE', {act: 'not promised', redirect: '/logout'}); }
+                let name = payload.name;
+                let gameRound = payload.round;
+                let gameNum = payload.num;
+                return models.Game.create({
+                    name,
+                    gameRound,
+                    gameNum,
+                }).then(game => {
+                    const matches = payload.users.map(u => {
+                        return {
+                            name,
+                            add: u.add,
+                            activity: u.activity,
+                            shift: 0,
+                            mvp: 0,
+                            round: gameRound,
+                            userId: u.id,
+                            game: game.id,
+                        }
+                    });
+                    models.Match.bulkCreate(matches).then(m => {
+                        socket.emit('MESSAGE', {act: enums.ACT_ADMIN_CREATE_GAME, payload: 'done'});
+                    });
+                }).catch(err => console.log(err));
+            }
             default:
                 console.log("Not Found Act: ", msg);
         }

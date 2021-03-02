@@ -219,9 +219,6 @@ const globalData = {
                 case ACT_GET_PEOPLE_DATA:
                     state.users = payload.users.map(u => {
                         u.json = JSON.parse(u.json);
-                        if (u.json.ability_score + u.json.before_mvp_score != u.rv) {
-                            console.log('rvw: ', u);
-                        }
                         return u;
                     });
                     return console.log('Global Data Users: ', payload);

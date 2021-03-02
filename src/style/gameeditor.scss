@@ -1,9 +1,17 @@
 #rv-game-editor {
 
+  .md-title {
+    font-size: 20px;
+    line-height: 22px;
+  }
+  .md-card-content {
+    
+  }
+
   .md-table {
     position: relative;
     padding-top: 66px;
-    width: 48%;
+    width: 100%;
     display: inline-block;
 
     .md-table-cell {
@@ -12,6 +20,28 @@
     }
     .md-table-cell-container {
       padding: 0px;
+
+      input {
+        min-width: 18px;
+        min-height: 18px;
+        &[type=number] {
+          width: 42px;
+          cursor: pointer;
+          text-align: center;
+        }
+        &.good {
+          color: #fff;
+          background-color: blue;
+        }
+        &.normal {
+          color: #fff;
+          background-color: green;
+        }
+        &.excellent {
+          color: #fff;
+          background-color: orange;
+        }
+      }
     }
   }
 }

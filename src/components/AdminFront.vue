@@ -44,7 +44,7 @@ export default {
     };
   },
   mounted() {
-    if (this.user.rv > 0 && this.user.rv < 99) {
+    if (this.user.rv > 0 && this.user.rv < 90) {
       window.location.href = '/logout';
     }
   },
