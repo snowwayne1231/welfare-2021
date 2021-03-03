@@ -52,7 +52,10 @@ export default {
     // ...mapGetters(['mapHouseAbility']),
     showResult() {
       const loc = this.global.houses.slice();
-      loc.sort((a,b) => {return b.score - a.score});
+      loc.sort((a,b) => {
+        const gap = b.score - a.score;
+        return gap == 0 ? b.leader.cha - a.leader.cha : gap;
+      });
       return loc;
     },
   },
