@@ -140,22 +140,31 @@
 
                 <md-table class="news-table">
                   <md-table-toolbar>
-                    <h1 class="md-title">3. 獎勵</h1>
+                    <h1 class="md-title">3. 獎勵與懲罰</h1>
                   </md-table-toolbar>
                   <md-table-row>
-                    <md-table-head style="width: 20%">區間</md-table-head>
+                    <md-table-head style="width: 15%">類型</md-table-head>
+                    <md-table-head style="width: 15%">區間</md-table-head>
                     <md-table-head>參考績分</md-table-head>
-                    <md-table-head>獎勵辦法</md-table-head>
+                    <md-table-head>獎懲辦法</md-table-head>
                   </md-table-row>
                   <md-table-row>
+                    <md-table-cell>獎勵</md-table-cell>
                     <md-table-cell>季度</md-table-cell>
                     <md-table-cell>團體積分 + 該次戶外活動的參與分</md-table-cell>
                     <md-table-cell>在該季外出的活動中當前排名前兩名的家族會享受更佳的活動體驗</md-table-cell>
                   </md-table-row>
                   <md-table-row>
+                    <md-table-cell>獎勵</md-table-cell>
                     <md-table-cell>年度</md-table-cell>
                     <md-table-cell>團體積分 + 獎牌積分 + 個人RV值總和</md-table-cell>
                     <md-table-cell>在整年結算時排名第一的家族，全家族成員將獲得豪華獎品</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>懲罰</md-table-cell>
+                    <md-table-cell>季度</md-table-cell>
+                    <md-table-cell>團體積分 + 該次戶外活動的參與分</md-table-cell>
+                    <md-table-cell>在該季外出的活動中當前排名最後兩名的家族可能會有不好的活動體驗</md-table-cell>
                   </md-table-row>
                 </md-table>
 
@@ -182,12 +191,12 @@
                     <md-table-cell>龜龜</md-table-cell>
                   </md-table-row>
                   <md-table-row>
-                    <md-table-head>封臣</md-table-head>
+                    <md-table-head>封臣 (家族成員)</md-table-head>
                     <md-table-cell>3+人</md-table-cell>
                     <md-table-cell>海獅, 五臉</md-table-cell>
                   </md-table-row>
                   <md-table-row>
-                    <md-table-head>家族成員</md-table-head>
+                    <md-table-head>一般家人 (家族成員)</md-table-head>
                     <md-table-cell>10+人</md-table-cell>
                     <md-table-cell>寶寶, 貝貝, 寶貝</md-table-cell>
                   </md-table-row>
@@ -198,9 +207,9 @@
                   </md-table-row>
                 </md-table>
                 <md-content>
-                  每個家族都有4種身份族長、封臣、成員、國民</br>
+                  每個家族都有4種身份族長、封臣、家人、國民</br>
                   1. 族長與封臣: 需共同承擔遊戲勝負的後果 (尾牙表演)</br>
-                  2. 家族成員: 幫助族長一同努力，但沒有額外負擔</br>
+                  2. 家人: 幫助族長一同努力，但沒有額外負擔</br>
                   3. 國民: 暫時加入幫助族長參與遊戲，本身的數值不會加權到家族上，下一次選秀來臨時，可以回歸"自由民"的身分
                 </md-content>
                 </br>
