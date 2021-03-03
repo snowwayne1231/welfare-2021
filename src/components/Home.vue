@@ -31,18 +31,20 @@
                     <md-table-cell>-1 團體積分</md-table-cell>
                   </md-table-row>
                   <md-table-row>
-                    <md-table-cell>§ 在活動過程中將答案洩漏給非同家族的成員</md-table-cell>
+                    <md-table-cell>§ 在活動過程中將答案洩漏給非同家族的成員</br>§ 在活動過程惡意違反規則、不遵從柔性勸導</md-table-cell>
                     <md-table-cell>第一次就範:</br>將涉及家族 團體分數歸零、個人RV全數歸零 且該場次活動不計分，八大家族一起勝利的條件也取消</br>第二次就範:</br>涉及的家族全數直接尾牙表演，且不能享有任何福委獎勵</md-table-cell>
                   </md-table-row>
                   <md-table-row>
-                    <md-table-cell>§ 在活動中針對特定人進行欺壓、惡意攻擊、或是違反自主意願行為</br>(可舉報、經由福委查實)</md-table-cell>
-                    <md-table-cell>該家族族長與施加者直接尾牙表演、且更換族長帶領家族</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>§ 在活動中以職權令人屈服、妥協或者辱罵他人</br>(可舉報、經由福委查實)</md-table-cell>
+                    <md-table-cell>§ 在活動中針對特定人進行欺壓、惡意攻擊、或是違反自主意願行為</br>§ 在活動中以職權令人屈服、妥協或者辱罵他人</br>(可舉報、經由福委查實)</md-table-cell>
                     <md-table-cell>該家族族長與施加者直接尾牙表演、且更換族長帶領家族</md-table-cell>
                   </md-table-row>
                 </md-table>
+                <md-content>
+                  各身份 TIPS:</br>
+                  1. 睿訊同仁(非封臣): 各位在一年的活動中沒有任何負擔 請享受活動帶來的樂趣遊玩</br></br>
+                  2. 管理職與封臣:  雖然有承擔著上台表演的可能性，但請勿使用職權命令他人服從，因為其他同仁並沒有義務幫助你們，請將心比心將同仁視為朋友、夥伴或家人</br>
+                  如真有必須抗拒表演之因素，請用仁德之心與平等的心態 請求夥伴們的協助</br>
+                </md-content>
               </md-list>
             </md-list-item>
 
@@ -67,13 +69,13 @@
                   </md-table-row>
                   <md-table-row>
                     <md-table-cell>夜王被封印</md-table-cell>
-                    <md-table-cell>將10面獎牌放置到絕境長城</md-table-cell>
+                    <md-table-cell>將10面獎牌放置到絕境長城</br>(帶有獎牌的族長們同時)</md-table-cell>
                     <md-table-cell>1. 八大家族共同勝利，所有人暫時先免除表演之義務</br>2. 由於族長們出色的表現與領導能力，尾牙由福委Dada, Snow, Jack各自選7人(強制)上台表演</md-table-cell>
                   </md-table-row>
                 </md-table>
                 <md-content>
                   原先全睿訊管理職皆有義務進行尾牙表演，但若經由一整年同仁的努力，以及族長們的良好領導</br>
-                  能達成封印夜王的挑戰，代表族長門的團體建立能力十分優秀，那福委活動的宗旨就已經達成</br>
+                  能達成封印夜王的挑戰，代表族長們的團體建立能力十分優秀，那福委活動的宗旨就已經達成</br>
                   最後則會由福委上台表演感謝各位一年的付出</br></br>
                   PS: 被福委選上一起表演的同仁請開心面對，這是一個光榮的時刻，共同歡慶睿訊人的優秀
                 </md-content>
@@ -115,7 +117,8 @@
                   </ul></br>
                   <ul>(獎牌積分)
                     <li>A. 有十張獎牌各自擁有固定的隱藏規則</li>
-                    <li>B. 每面獎牌都有其相應的積分   PS: 同時獲得"工作不養閒人"與"團隊不養懶人"的獎牌時額外+100分</li>
+                    <li>B. 每面獎牌都有其相應的積分，只有在當年度結束活動總決算時才會計算</li>
+                    <li>C. 同時獲得"工作不養閒人"與"團隊不養懶人"的獎牌時額外+100分</li>
                     <li>
                       <md-table class="news-table">
                         <md-table-row>
@@ -165,6 +168,12 @@
                       </md-table>
                     </li>
                   </ul>
+                </md-content>
+                <md-content>
+                  PS. 如果有兩家族同時符合資格</br>
+                  I. 先依照變動順序 後者符合資格者 覆蓋前者符合資格者</br>
+                  II. 依照當前團體積分名次排序 排名靠後者得</br>
+                  III. 若以上都相同 則由福委擲硬幣直接決定</br>
                 </md-content>
                 </br></br>
 
