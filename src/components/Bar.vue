@@ -277,10 +277,11 @@ export default {
       const payload = { house };
       if (houseFree.length >= this.maxChoice) {
         payload.replace = houseFree[idxMax][0];
+        if (houseFree[idxMax] && this.user.rv >= houseFree[idxMax][2]) {
+          return window.alert('RV值大於等於該國境成員.');
+        }
       }
-      if (houseFree[idxMax] && this.user.rv >= houseFree[idxMax][2]) {
-        return window.alert('RV值大於等於該國境成員.');
-      }
+      
       const bool = window.confirm(`確定要加入家族『${houseTarget.name}』嗎？`);
       if (bool) {
         this.$store.dispatch('wsEmitMessage', {act: ACT_UPDATE_COUNTRYSIDE, payload});

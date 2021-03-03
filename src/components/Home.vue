@@ -16,6 +16,34 @@
         <div class="list">
           <md-list :md-expand-single="expandSingle">
 
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px">vertical_align_top</span>
+              <span class="md-list-item-text">2021-03-03 【 遊戲通則 】</span>
+              <md-list slot="md-expand">
+                <md-table class="news-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">1. 鐵則</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 20%">條款</md-table-head>
+                    <md-table-head>違反結果</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>§在活動過程中沒有確實以暱稱稱呼彼此</md-table-cell>
+                    <md-table-cell>-1 團體積分</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>§在活動過程中將答案洩漏給非同家族的成員</md-table-cell>
+                    <md-table-cell>第一次就範:</br>將涉及家族 團體分數歸零、個人RV全數歸零 且該場次活動不計分，八大家族一起勝利的條件也取消</br>第二次就範:</br>涉及的家族全數直接尾牙表演，且不能享有任何福委獎勵</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>§在活動中針對特定人進行欺壓、惡意攻擊、或是違反自主意願行為</br>(可舉報、經由福委查實)</md-table-cell>
+                    <md-table-cell>該家族族長與施加者直接尾牙表演、且更換族長帶領家族</md-table-cell>
+                  </md-table-row>
+                </md-table>
+              </md-list>
+            </md-list-item>
+
 
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">vertical_align_top</span>
