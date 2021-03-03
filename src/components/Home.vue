@@ -15,114 +15,156 @@
       <md-card-content>
         <div class="list">
           <md-list :md-expand-single="expandSingle">
-            <md-list-item md-expand>
-              <span class="material-icons mr-6-px"></span
-              ><span class="md-list-item-text"
-                >2021-02-10 【2021 Game of REVOVISION 年度活動時間表】</span
-              >
-              <md-list slot="md-expand">
-                <div>
-                  <md-table class="news-table">
-                    <md-table-row>
-                      <md-table-head style="width: 25%">Season 1</md-table-head>
-                      <md-table-head>S1 Events</md-table-head>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>02月 (26日 週五)</md-table-cell>
-                      <md-table-cell>元宵賞燈選人才</md-table-cell>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>03月 (整月)</md-table-cell>
-                      <md-table-cell>睿訊之國的闖關者</md-table-cell>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>04月 (17日 週六)</md-table-cell>
-                      <md-table-cell>城市尋寶</md-table-cell>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-head>Season 2</md-table-head>
-                      <md-table-head>S2 Events</md-table-head>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>05月 (07日 週五)</md-table-cell>
-                      <md-table-cell>讓媽媽看見你</md-table-cell>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>05月 (整月)</md-table-cell>
-                      <md-table-cell>趣味運動月</md-table-cell>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>06月 (11日 週五)</md-table-cell>
-                      <md-table-cell>舌尖上的屈原</md-table-cell>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>07月 (31日 週六)</md-table-cell>
-                      <md-table-cell>逆流而上 向陽而生 </md-table-cell>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-head>Season 3</md-table-head>
-                      <md-table-head>S3 Events</md-table-head>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>08月 (06日 週五)</md-table-cell>
-                      <md-table-cell>爸爸在找你</md-table-cell>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>09月 (整月)</md-table-cell>
-                      <md-table-cell>至尊桌遊月</md-table-cell>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>10月 (1日 週五)</md-table-cell>
-                      <md-table-cell>全明星運動會</md-table-cell>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>11月 (整月)</md-table-cell>
-                      <md-table-cell>統神電競月</md-table-cell>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>12月 (8日 週六)</md-table-cell>
-                      <md-table-cell>溫泉之旅</md-table-cell>
-                    </md-table-row>
-                  </md-table>
-                </div>
-              </md-list>
-            </md-list-item>
+
 
             <md-list-item md-expand>
-              <span class="material-icons mr-6-px"></span>
-              <span class="md-list-item-text"
-                >2021-02-22 【2020 REVOVISION 年度 Team Building 活動票選 MVP人員】</span
-              >
-
+              <span class="material-icons mr-6-px">vertical_align_top</span>
+              <span class="md-list-item-text">2021-03-03 【 遊戲結局與積分細則 】</span>
               <md-list slot="md-expand">
                 <md-table class="news-table">
                   <md-table-toolbar>
-                    <h1 class="md-title">2020 Team Building MVP</h1>
+                    <h1 class="md-title">1. 遊戲結局</h1>
                   </md-table-toolbar>
                   <md-table-row>
-                    <md-table-head>Department</md-table-head>
-                    <md-table-head>Name</md-table-head>
-                    <md-table-head>Name(EN)</md-table-head>
+                    <md-table-head style="width: 20%">結局</md-table-head>
+                    <md-table-head style="width: 25%">條件</md-table-head>
+                    <md-table-head>結果</md-table-head>
                   </md-table-row>
-                  <md-table-row v-for="(v, idx) in mvp2020" :key="idx">
-                    <md-table-cell>{{ v[0] }}</md-table-cell>
-                    <md-table-cell>{{ v[2] }}</md-table-cell>
-                    <md-table-cell>{{ v[3] }}</md-table-cell>
+                  <md-table-row>
+                    <md-table-cell>夜王襲來</md-table-cell>
+                    <md-table-cell></md-table-cell>
+                    <md-table-cell>1. 八家族中 團體積分+獎牌積分+家族成員RV值總和 進行排名，名次於1,3,6的家族可以免除表演義務</br>2. 獲得獎牌數量最高的家族可以免除表演義務</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>夜王被封印</md-table-cell>
+                    <md-table-cell>將10面獎牌放置到絕境長城</md-table-cell>
+                    <md-table-cell>1. 八大家族共同勝利，所有人暫時先免除表演之義務</br>2. 由於族長們出色的表現與領導能力，尾牙由福委Dada, Snow, Jack各自選7人(強制)上台表演</md-table-cell>
                   </md-table-row>
                 </md-table>
+                <md-content>
+                  原先全睿訊管理職皆有義務進行尾牙表演，但若經由一整年同仁的努力，以及族長們的良好領導</br>
+                  能達成封印夜王的挑戰，代表族長門的團體建立能力十分優秀，那福委活動的宗旨就已經達成</br>
+                  最後則會由福委上台表演感謝各位一年的付出</br></br>
+                  PS: 被福委選上一起表演的同仁請開心面對，這是一個光榮的時刻，共同歡慶睿訊人的優秀
+                </md-content>
+                </br></br>
+
+                <md-table class="news-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">2. 積分規則</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 20%">名稱</md-table-head>
+                    <md-table-head>詳細</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>團隊積分</md-table-cell>
+                    <md-table-cell>每一家族都有一個象徵團體的積分，經由活動的過程與家族成員的參與率來提升</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>獎牌積分</md-table-cell>
+                    <md-table-cell>共有十面獎牌各自有不同獲得條件與積分加成</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>個人RV值</md-table-cell>
+                    <md-table-cell>每位睿訊人都有一個，經由參與團體活動的熱忱度&表現來提升</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  如何獲得?</br>
+                  <ul>(個人RV)
+                    <li>A. 每場遊戲活動每家族內票選一位MVP選手+3</li>
+                    <li>B. 每個遊戲門檻加分+2/+3/+4 ； 未達門檻+1參加獎勵</li>
+                    <li>C. MVP只能從有達成遊戲門檻的人中票選</li>
+                  </ul></br>
+                  <ul>(團體積分)
+                    <li>A. 家族成員每一人參加遊戲活動 +3</li>
+                    <li>B. 每一次遊戲活動會依照名次 + [30 / 24 / 18 / 12 / 6 / 6 / 6 / 6] 分  (第三季*2)</li>
+                    <li>C. (特殊加成) 值班人員一整年有一次機會，在因值班不能參與活動(戶外)時為團隊 +5分</li>
+                    <li>D. (特殊加成) 家族成員每季第一次參與活動(戶外)額外 +2分</li>
+                  </ul></br>
+                  <ul>(獎牌積分)
+                    <li>A. 有十張獎牌各自擁有固定的隱藏規則</li>
+                    <li>B. 每面獎牌都有其相應的積分   PS: 同時獲得"工作不養閒人"與"團隊不養懶人"的獎牌時額外+100分</li>
+                    <li>
+                      <md-table class="news-table">
+                        <md-table-row>
+                          <md-table-head style="width: 25%">獎牌名稱</md-table-head>
+                          <md-table-head>積分</md-table-head>
+                        </md-table-row>
+                        <md-table-row>
+                          <md-table-cell>獨孤求敗</md-table-cell>
+                          <md-table-cell>10</md-table-cell>
+                        </md-table-row>
+                        <md-table-row>
+                          <md-table-cell>工作不養閒人</md-table-cell>
+                          <md-table-cell>20</md-table-cell>
+                        </md-table-row>
+                        <md-table-row>
+                          <md-table-cell>團隊不養懶人</md-table-cell>
+                          <md-table-cell>30</md-table-cell>
+                        </md-table-row>
+                        <md-table-row>
+                          <md-table-cell>寸草春暉</md-table-cell>
+                          <md-table-cell>40</md-table-cell>
+                        </md-table-row>
+                        <md-table-row>
+                          <md-table-cell>情投意合</md-table-cell>
+                          <md-table-cell>50</md-table-cell>
+                        </md-table-row>
+                        <md-table-row>
+                          <md-table-cell>九淺一深</md-table-cell>
+                          <md-table-cell>60</md-table-cell>
+                        </md-table-row>
+                        <md-table-row>
+                          <md-table-cell>如夢似幻</md-table-cell>
+                          <md-table-cell>70</md-table-cell>
+                        </md-table-row>
+                        <md-table-row>
+                          <md-table-cell>含辛茹苦</md-table-cell>
+                          <md-table-cell>80</md-table-cell>
+                        </md-table-row>
+                        <md-table-row>
+                          <md-table-cell>阿姨我不想努力了</md-table-cell>
+                          <md-table-cell>90</md-table-cell>
+                        </md-table-row>
+                        <md-table-row>
+                          <md-table-cell>魚知水恩乃幸福之源</md-table-cell>
+                          <md-table-cell>100</md-table-cell>
+                        </md-table-row>
+                      </md-table>
+                    </li>
+                  </ul>
+                </md-content>
+                </br></br>
+
+                <md-table class="news-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">3. 獎勵</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 20%">區間</md-table-head>
+                    <md-table-head>參考績分</md-table-head>
+                    <md-table-head>獎勵辦法</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>季度</md-table-cell>
+                    <md-table-cell>團體積分 + 該次戶外活動的參與分</md-table-cell>
+                    <md-table-cell>在該季外出的活動中當前排名前兩名的家族會享受更佳的活動體驗</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>年度</md-table-cell>
+                    <md-table-cell>團體積分 + 獎牌積分 + 個人RV值總和</md-table-cell>
+                    <md-table-cell>在整年結算時排名第一的家族，全家族成員將獲得豪華獎品</md-table-cell>
+                  </md-table-row>
+                </md-table>
+
               </md-list>
             </md-list-item>
 
             <md-list-item md-expand>
-              <span class="material-icons mr-6-px">local_fire_department</span>
-              <span class="md-list-item-text">2021-02-24 【2021 Game of REVOVISION 各家族族長】</span>
-              <md-list slot="md-expand">
-                <img src="/static/imgs/news_2021022401.png" alt="Skyscraper">
-              </md-list>
-            </md-list-item>
-            <md-list-item md-expand>
-              <span class="material-icons mr-6-px">local_fire_department</span>
-              <span class="md-list-item-text">2021-03-02 【2021 家族組成與選秀辦法】</span>
+              <span class="material-icons mr-6-px">vertical_align_top</span>
+              <span class="md-list-item-text">2021-03-02 【 家族組成與選秀辦法 】</span>
               <md-list slot="md-expand">
                 
                 <md-table class="news-table">
@@ -204,9 +246,132 @@
                   入境規則如下:</br>
                   1. RV值較低者擁有更大的優先權，若是在該家族滿員的情況，低RV值的人選擇加入會把最高RV值的人擠出該家族</br>
                   2. 每次選擇加入後不能再更改、除非被低RV值的人擠回自由民身分</br>
-                </md-content>
+                </md-content></br></br>
+                <md-table class="news-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">3. 選秀成本</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 25%;">團體積分為正數</md-table-head>
+                    <md-table-cell>消耗積分為該招募成員當前RV值</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-head>團體積分為負數</md-table-head>
+                    <md-table-cell>消耗積分為該招募成員當前RV值 * 2</md-table-cell>
+                  </md-table-row>
+                </md-table>
               </md-list>
             </md-list-item>
+
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px">vertical_align_top</span
+              ><span class="md-list-item-text"
+                >2021-02-10 【2021 Game of REVOVISION 年度活動時間表】</span
+              >
+              <md-list slot="md-expand">
+                <div>
+                  <md-table class="news-table">
+                    <md-table-row>
+                      <md-table-head style="width: 25%">Season 1</md-table-head>
+                      <md-table-head>S1 Events</md-table-head>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>02月 (26日 週五)</md-table-cell>
+                      <md-table-cell>元宵賞燈選人才</md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>03月 (整月)</md-table-cell>
+                      <md-table-cell>睿訊之國的闖關者</md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>04月 (17日 週六)</md-table-cell>
+                      <md-table-cell>城市尋寶</md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-head>Season 2</md-table-head>
+                      <md-table-head>S2 Events</md-table-head>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>05月 (07日 週五)</md-table-cell>
+                      <md-table-cell>讓媽媽看見你</md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>05月 (整月)</md-table-cell>
+                      <md-table-cell>趣味運動月</md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>06月 (11日 週五)</md-table-cell>
+                      <md-table-cell>舌尖上的屈原</md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>07月 (31日 週六)</md-table-cell>
+                      <md-table-cell>逆流而上 向陽而生 </md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-head>Season 3</md-table-head>
+                      <md-table-head>S3 Events</md-table-head>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>08月 (06日 週五)</md-table-cell>
+                      <md-table-cell>爸爸在找你</md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>09月 (整月)</md-table-cell>
+                      <md-table-cell>至尊桌遊月</md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>10月 (1日 週五)</md-table-cell>
+                      <md-table-cell>全明星運動會</md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>11月 (整月)</md-table-cell>
+                      <md-table-cell>統神電競月</md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>12月 (8日 週六)</md-table-cell>
+                      <md-table-cell>溫泉之旅</md-table-cell>
+                    </md-table-row>
+                  </md-table>
+                </div>
+              </md-list>
+            </md-list-item>
+
+            
+
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px">local_fire_department</span>
+              <span class="md-list-item-text">2021-02-24 【2021 Game of REVOVISION 各家族族長】</span>
+              <md-list slot="md-expand">
+                <img src="/static/imgs/news_2021022401.png" alt="Skyscraper">
+              </md-list>
+            </md-list-item>
+
+
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px"></span>
+              <span class="md-list-item-text"
+                >2021-02-22 【2020 REVOVISION 年度 Team Building 活動票選 MVP人員】</span
+              >
+              <md-list slot="md-expand">
+                <md-table class="news-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">2020 Team Building MVP</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head>Department</md-table-head>
+                    <md-table-head>Name</md-table-head>
+                    <md-table-head>Name(EN)</md-table-head>
+                  </md-table-row>
+                  <md-table-row v-for="(v, idx) in mvp2020" :key="idx">
+                    <md-table-cell>{{ v[0] }}</md-table-cell>
+                    <md-table-cell>{{ v[2] }}</md-table-cell>
+                    <md-table-cell>{{ v[3] }}</md-table-cell>
+                  </md-table-row>
+                </md-table>
+              </md-list>
+            </md-list-item>
+
+            
           </md-list>
         </div>
       </md-card-content>

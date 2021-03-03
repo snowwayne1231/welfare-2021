@@ -33,7 +33,7 @@ if (country_border.length == 0) {
 
 function onMessage(socket) {
     socket.on('MESSAGE', (msg) => {
-        const payload = msg.payload;
+        const payload = msg.payload || {};
         const userinfo = socket.request.session.userinfo;
         switch (msg.act) {
             case enums.ACT_JOIN_CHAT_ROOM:
@@ -89,15 +89,20 @@ function onMessage(socket) {
                         console.log(err);
                     });
                 }
-            case enums.ACT_GET_PEOPLE_DATA:
+            case enums.ACT_GET_PEOPLE_DATA: {
+                let attributes = ['id', 'nickname', 'houseId', 'houseIdTmp', 'mvp', 'rv', 'isLeader', 'json'];
+                if (payload.more) {
+                    attributes = attributes.concat(['strLv', 'dexLv', 'conLv', 'wisLv', 'chaLv', 'firstName', 'code', 'int']);
+                }
                 return models.User.findAll({
-                    attributes: ['id', 'nickname', 'houseId', 'houseIdTmp', 'mvp', 'rv', 'isLeader', 'json'],
+                    attributes,
                     where: [{status: 1}],
                 }).then(users => {
                     socket.emit('MESSAGE', {act: enums.ACT_GET_PEOPLE_DATA, payload: {users}});
                 }).catch(err => {
                     console.log(err);
                 });
+            }
             case enums.ACT_UPDATE_SKILL:
                 return models.User.update(
                     { skillPointJson: JSON.stringify(payload.json) },

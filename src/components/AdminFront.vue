@@ -17,6 +17,24 @@
               <td>Length: {{global.dataset.length}}</td>
             </tr>
           </table>
+          <table class="md-subhead">
+            <tr>
+              <th></th>
+              <th v-for="house in showHouseAbility" :key="house.id">{{house.name}}</th>
+            </tr>
+            <tr>
+              <td>ATK</td>
+              <td v-for="house in showHouseAbility" :key="house.id">{{house.ability.atk}} / {{house.ability.vassal}}</td>
+            </tr>
+            <tr>
+              <td>MOVE</td>
+              <td v-for="house in showHouseAbility" :key="house.id">{{house.ability.move}}</td>
+            </tr>
+            <tr>
+              <td>AGAIN</td>
+              <td v-for="house in showHouseAbility" :key="house.id">{{house.ability.moveAgain}}</td>
+            </tr>
+          </table>
         </md-card-header-text>
       </md-card-header>
 
@@ -32,8 +50,8 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import { ACT_GET_ADMIN_DATASET } from '../store/enum';
+import { mapState, mapGetters } from 'vuex';
+import { ACT_GET_ADMIN_DATASET, ACT_GET_PEOPLE_DATA } from '../store/enum';
 
 export default {
   name: 'AdminFront',
@@ -47,9 +65,11 @@ export default {
     if (this.user.rv > 0 && this.user.rv < 90) {
       window.location.href = '/logout';
     }
+    this.$store.dispatch('wsEmitMessage', {act: ACT_GET_PEOPLE_DATA, payload: {more: true}});
   },
   computed: {
     ...mapState(['global', 'user']),
+    ...mapGetters(['mapHouseAbility']),
     datasetKeys() {
       if (this.global.dataset.length > 0) {
         return Object.keys(this.global.dataset[0]);
@@ -57,6 +77,9 @@ export default {
         return []
       }
     },
+    showHouseAbility() {
+      return this.global.houses.map(house => { return {...house, ability: this.mapHouseAbility[house.en]}});
+    }
   },
   methods: {
     onClickBtn(evt) {
@@ -78,3 +101,15 @@ export default {
   }
 }
 </script>
+
+
+<style>
+#rv-admin .md-subhead{
+  font-size: 16px;
+  float: left;
+  width: 50%;
+}
+#rv-admin .md-subhead td{
+  border: 1px solid #9c826b;
+}
+</style>

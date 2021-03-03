@@ -32,8 +32,8 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import { ACT_GET_TROPHY } from '../store/enum';
+import { mapState, mapGetters } from 'vuex';
+import { ACT_GET_TROPHY, ACT_GET_PEOPLE_DATA } from '../store/enum';
 
 export default {
   name: 'Arena',
@@ -45,9 +45,11 @@ export default {
   mounted() {
     // console.log(this);
     this.$store.dispatch('wsEmitMessage', {act: ACT_GET_TROPHY});
+    // this.$store.dispatch('wsEmitMessage', {act: ACT_GET_PEOPLE_DATA});
   },
   computed: {
     ...mapState(['user', 'global']),
+    // ...mapGetters(['mapHouseAbility']),
     showResult() {
       const loc = this.global.houses.slice();
       loc.sort((a,b) => {return b.score - a.score});

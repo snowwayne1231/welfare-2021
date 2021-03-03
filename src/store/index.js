@@ -37,6 +37,31 @@ const _plusLv = (nums, json) => {
     cha = cha >= 5 ? 'S' : (_numToLvMap[cha] || '-');
     return {str, dex, con, wis, cha};
 }
+const _houseAbility = (users) => {
+    let atk = 0;
+    let move = 5;
+    let moveAgain = 0;
+    let totalRV = 0;
+    let vassal = 0;
+    users.map(u => {
+        if (u.houseId == 0) { return u; }
+        const lvmaps = _lvNums(u.strLv, u.dexLv, u.conLv, '-', '-');
+        if (lvmaps.str >= 5) {
+            atk += 1;
+        }
+        if (lvmaps.dex >= 5) {
+            move += 1;
+        }
+        if (lvmaps.con >= 5) {
+            moveAgain += 1;
+        }
+        if (u.int > 0) {
+            vassal += 1;
+        }
+        totalRV += u.rv;
+    });
+    return {atk, move, moveAgain, totalRV, vassal};
+}
 
 Vue.use(Vuex);
 
@@ -179,26 +204,8 @@ const moduleUser = {
         myHouseId: (state) => {
             return state.houseId > 0 ? state.houseId : state.houseIdTmp;
         },
-        myHouseAbility: (state, getters) => {
-            let atk = 0;
-            let move = 5;
-            let moveAgain = 0;
-            let totalRV = 0;
-            state.family.map(u => {
-                if (u.houseId == 0) { return u; }
-                const lvmaps = _lvNums(u.strLv, u.dexLv, u.conLv, '-', '-');
-                if (lvmaps.str >= 5) {
-                    atk += 1;
-                }
-                if (lvmaps.dex >= 5) {
-                    move += 1;
-                }
-                if (lvmaps.con >= 5) {
-                    moveAgain += 1;
-                }
-                totalRV += u.rv;
-            });
-            return {atk, move, moveAgain, totalRV};
+        myHouseAbility: (state) => {
+            return _houseAbility(state.family);
         }
     },
 }
@@ -278,6 +285,15 @@ const globalData = {
             
             state.houses.map(house => {
                 map[house.en] = mapIds.hasOwnProperty(house.id) ? mapIds[house.id] : [];
+            });
+            return map;
+        },
+        mapHouseAbility: (state) => {
+            const map = {};
+            state.houses.map(h => {
+                const users = state.users.filter(u => u.houseId == h.id);
+                const ability = _houseAbility(users);
+                map[h.en] = ability;
             });
             return map;
         },

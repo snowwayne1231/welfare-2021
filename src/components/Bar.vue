@@ -272,14 +272,17 @@ export default {
     },
     onClickJoinCountry(house) {
       const houseTarget = this.global.houses.find(h => h.id == house);
-      const bool = window.confirm(`確定要加入家族『${houseTarget.name}』嗎？`);
+      const houseFree = this.mapHouseFreefork[houseTarget.en];
+      const idxMax = houseFree.reduce((a,b,idx,arr) => b[2] > arr[a][2] ? idx : a, 0);
       const payload = { house };
+      if (houseFree.length >= this.maxChoice) {
+        payload.replace = houseFree[idxMax][0];
+      }
+      if (houseFree[idxMax] && this.user.rv >= houseFree[idxMax][2]) {
+        return window.alert('RV值大於等於該國境成員.');
+      }
+      const bool = window.confirm(`確定要加入家族『${houseTarget.name}』嗎？`);
       if (bool) {
-        const houseFree = this.mapHouseFreefork[houseTarget.en];
-        if (houseFree.length >= this.maxChoice) {
-          const idxMax = houseFree.reduce((a,b,idx,arr) => b[2] > arr[a][2] ? idx : a, 0);
-          payload.replace = houseFree[idxMax][0];
-        }
         this.$store.dispatch('wsEmitMessage', {act: ACT_UPDATE_COUNTRYSIDE, payload});
       }
     },
