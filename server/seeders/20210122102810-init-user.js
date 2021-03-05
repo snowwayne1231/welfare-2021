@@ -8,6 +8,10 @@ const staff = JSON.parse(rawdata);
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
+    const user = await queryInterface.rawSelect('Users', {}, ['id']);
+    if (user) {
+      return false;
+    }
 
     const insertData = [];
     const template = {
@@ -93,12 +97,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
-    await queryInterface.bulkDelete('Users', null, {});
+    await queryInterface.bulkDelete('Users', null, {truncate: true, cascade: true, restartIdentity: true});
   }
 };

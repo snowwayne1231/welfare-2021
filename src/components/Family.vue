@@ -118,7 +118,7 @@ export default {
       return loc;
     },
     myFamilyHouse() {
-      const loc = this.user.family.filter(u => u.houseId > 0 && !u.isLeader);
+      const loc = this.user.family.filter(u => u.houseId > 0 && !u.isLeader && u.int == 0);
       loc.sort((a,b) => b.rv - a.rv);
       return loc;
     },

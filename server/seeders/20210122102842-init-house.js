@@ -2,6 +2,10 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
+    const loc = await queryInterface.rawSelect('Houses', {}, ['id']);
+    if (loc) {
+      return false;
+    }
     const insertData = [
       { en: 'stark', name: '史塔克', leaderId: 0, land:0, score: 0, scorePersonal: 0, scoreTrophy: 0, rank: 0, color: '#a7a7a7', rankMove: 0, leaderMatchFamily: 0, sameDepartment: 0, totalFamilyAbility: 0, totalPartake: 0, createdAt: new Date(), updatedAt: new Date(), },
       { en: 'eyrie', name: '艾林', leaderId: 0, land:0, score: 0, scorePersonal: 0, scoreTrophy: 0, rank: 0, color: '#0400ff', rankMove: 0, leaderMatchFamily: 0, sameDepartment: 0, totalFamilyAbility: 0, totalPartake: 0, createdAt: new Date(), updatedAt: new Date(), },
@@ -17,7 +21,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    
-    await queryInterface.bulkDelete('Houses', null, {});
+    await queryInterface.bulkDelete('Houses', null, {truncate: true, cascade: true, restartIdentity: true});
   }
 };

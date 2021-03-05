@@ -2,6 +2,11 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
+    const loc = await queryInterface.rawSelect('Trophies', {}, ['id']);
+    if (loc) {
+      return false;
+    }
+
     const insertData = [
       { name: '獨孤求敗', ownerHouseId: 0, add: 10, createdAt: new Date(), updatedAt: new Date() },
       { name: '工作不養閒人', ownerHouseId: 0, add: 20, createdAt: new Date(), updatedAt: new Date() },
@@ -18,7 +23,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    
-    await queryInterface.bulkDelete('Trophies', null, {});
+    await queryInterface.bulkDelete('Trophies', null, {truncate: true, cascade: true, restartIdentity: true});
   }
 };

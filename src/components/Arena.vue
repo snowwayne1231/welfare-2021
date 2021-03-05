@@ -12,20 +12,30 @@
         </md-card-header-text>
       </md-card-header>
       <md-card-content>
-        <md-table class="arena-table">
-          <md-table-row>
-            <md-table-head>名次</md-table-head>
-            <md-table-head>家族</md-table-head>
-            <md-table-head>家族積分</md-table-head>
-            <md-table-head>獎牌</md-table-head>
-          </md-table-row>
-          <md-table-row v-for="(loc, idx) in showResult" :key="loc.id">
-            <md-table-cell>{{rerenderRank(idx)}}</md-table-cell>
-            <md-table-cell><img class="arena-house-img" :src="renderHouseImage(loc)" />{{rerenderHouseName(loc)}}</md-table-cell>
-            <md-table-cell>{{loc.score}}</md-table-cell>
-            <md-table-cell></md-table-cell>
-          </md-table-row>
-        </md-table>
+        <md-tabs>
+
+          <md-tab id="tab-ranking" md-label="排名" exact>
+            <md-table class="arena-table">
+              <md-table-row>
+                <md-table-head>名次</md-table-head>
+                <md-table-head>家族</md-table-head>
+                <md-table-head>家族積分</md-table-head>
+                <md-table-head>獎牌</md-table-head>
+              </md-table-row>
+              <md-table-row v-for="(loc, idx) in showResult" :key="loc.id">
+                <md-table-cell>{{rerenderRank(idx)}}</md-table-cell>
+                <md-table-cell><img class="arena-house-img" :src="renderHouseImage(loc)" />{{rerenderHouseName(loc)}}</md-table-cell>
+                <md-table-cell>{{loc.score}}</md-table-cell>
+                <md-table-cell></md-table-cell>
+              </md-table-row>
+            </md-table>
+          </md-tab>
+
+          <md-tab id="tab-live" md-label="戰場" >
+            <LiveBattle />
+          </md-tab>
+
+        </md-tabs>
       </md-card-content>
     </md-card>
   </div>
@@ -34,9 +44,13 @@
 <script>
 import { mapState, mapGetters } from 'vuex';
 import { ACT_GET_TROPHY, ACT_GET_PEOPLE_DATA } from '../store/enum';
+import LiveBattle from './panels/LiveBattle';
 
 export default {
   name: 'Arena',
+  components: {
+    LiveBattle
+  },
   data() {
     return {
       

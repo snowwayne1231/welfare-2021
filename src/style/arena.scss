@@ -3,6 +3,9 @@
         background-image: url('/static/imgs/bg_family.jpg');
     }
 
+    .md-content {
+        background-color: transparent;
+    }
     .md-table {
         background-color: rgba(15, 15, 15, 0.5);
     }
@@ -23,5 +26,19 @@
         max-width: 80px;
         max-height: 60px;
         padding-right: 10px;
+    }
+
+    .md-tabs-navigation {
+        background-color: rgba(0,0,0,0.5);
+        .md-button {
+            color: #c7c7c7;
+        }
+        .md-active {
+            color: #eaae19;
+        }
+        .md-tabs-indicator {
+            color: #eaae19;
+            background-color: #eaae19;
+        }
     }
 }
