@@ -94,20 +94,7 @@
           </div>
           <div class="bar-content-open-bartender bar-content-open" @click="onClickBarOpenMenu"><img src="/static/imgs/bartender.png" /></div>
         </div>
-        <div class="chat-box">
-          <div class="chat-history" ref="chatHistory">
-            <ul>
-              <li v-for="(history, idx) in chat.histories" :key="idx">
-                <label>{{history.nickname}}</label>
-                <span>: {{history.text}}</span>
-              </li>
-            </ul>
-          </div>
-          <div class="chat-tools">
-            <input class="chat-tool-input" type="text" v-model="chatInput" maxlength="48" v-on:keyup.enter="onInputEnter" />
-            <button @click="sendMessage">Submit</button>
-          </div>
-        </div>
+        <ChatBox></ChatBox>
       </md-card-content>
     </md-card>
   </div>
@@ -115,17 +102,18 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex';
-import { ACT_JOIN_CHAT_ROOM, ACT_LEAVE_CHAT_ROOM, ACT_JOIN_FAMILY, ACT_SAY_CHAT_ROOM, ACT_GET_PEOPLE_DATA, ACT_MOVE_CHAT_ROOM, ACT_GET_COUNTRYSIDE_DATA, ACT_UPDATE_COUNTRYSIDE, ACT_UPDATE_NICKNAME } from '../store/enum';
+import { ACT_LEAVE_CHAT_ROOM, ACT_GET_PEOPLE_DATA, ACT_MOVE_CHAT_ROOM, ACT_GET_COUNTRYSIDE_DATA, ACT_UPDATE_COUNTRYSIDE, ACT_UPDATE_NICKNAME } from '../store/enum';
 import Hepler from './panels/Helper';
+import ChatBox from './interactive/ChatBox';
 
 export default {
   name: 'Bar',
   components: {
     Hepler,
+    ChatBox,
   },
   data() {
     return {
-      chatInput: '',
       timeoutSecond: 3,
       openBoard: false,
       openMenu: false,
@@ -142,17 +130,7 @@ export default {
   mounted() {
     // console.log(this);
     const $this = this;
-    if ($this.user.connected) {
-      $this.$store.dispatch('wsEmitMessage', {act: ACT_GET_PEOPLE_DATA});
-      $this.$store.dispatch('wsEmitMessage', {act: ACT_JOIN_CHAT_ROOM});
-    } else {
-      $this.timer = window.setTimeout(() => {
-        $this.$store.dispatch('wsEmitMessage', {act: ACT_GET_PEOPLE_DATA});
-        $this.$store.dispatch('wsEmitMessage', {act: ACT_JOIN_CHAT_ROOM});
-        $this.timeoutHandler();
-      }, 1000);
-    }
-    
+    $this.$store.dispatch('wsEmitMessage', { act: ACT_GET_PEOPLE_DATA });
   },
   beforeDestroy() {
     this.$store.dispatch('wsEmitMessage', {act: ACT_LEAVE_CHAT_ROOM});
@@ -180,30 +158,8 @@ export default {
       return this.isCountrysideOpen && this.global.countryBorder.findIndex(e => e[1] == this.user.id && e[0] == 0) >= 0;
     },
   },
-  updated() {
-    if (this.$refs['chatHistory']) {
-      this.$refs['chatHistory'].scrollTop = this.$refs['chatHistory'].scrollHeight;
-    }
-  },
+  
   methods: {
-    sendMessage(evt) {
-      // console.log('Bar sendMessage');
-      if (this.chatInput.length > 0) {
-        this.$store.dispatch('wsEmitMessage', {act: ACT_SAY_CHAT_ROOM, payload: {text: this.chatInput.substr(0,47)}});
-        this.chatInput = '';
-        this.timer = window.setTimeout(this.timeoutHandler, this.timeoutSecond * 1000);
-      }
-    },
-    onInputEnter(evt) {
-      if (this.timer > 0) {
-        return window.alert('Please Wait 3 Second To Say Something.');
-      }
-      this.sendMessage(evt);
-    },
-    timeoutHandler(evt) {
-      window.clearTimeout(this.timer);
-      this.timer = 0;
-    },
     timeoutMoveHandler(evt) {
       window.clearTimeout(this.timer_move);
       this.timer_move = 0;
