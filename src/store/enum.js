@@ -13,6 +13,7 @@ module.exports = {
     ACT_GET_PEOPLE_DATA: 23,
     ACT_GET_COUNTRYSIDE_DATA: 24,
     ACT_GET_TROPHY: 25,
+    ACT_GET_CONFIG: 26,
 
     ACT_UPDATE_SKILL: 51,
     ACT_UPDATE_COUNTRYSIDE: 52,
@@ -20,4 +21,6 @@ module.exports = {
     
     ACT_GET_ADMIN_DATASET: 91,
     ACT_ADMIN_CREATE_GAME: 92,
+    ACT_ADMIN_REFRESH_CONFIG: 93,
+    
 }

@@ -5,7 +5,8 @@ import createSocketIoPlugin from 'vuex-socketio';
 import {
     ACT_GET_HOUSES_DATA, ACT_GET_FAMILY_DATA, ACT_GET_PEOPLE_DATA, ACT_UPDATE_SKILL, 
     ACT_JOIN_CHAT_ROOM, ACT_LEAVE_CHAT_ROOM, ACT_MOVE_CHAT_ROOM, ACT_SAY_CHAT_ROOM,
-    ACT_GET_ADMIN_DATASET, ACT_GET_COUNTRYSIDE_DATA, ACT_GET_TROPHY,
+    ACT_GET_ADMIN_DATASET, ACT_GET_COUNTRYSIDE_DATA, ACT_GET_TROPHY, ACT_GET_CONFIG,
+
 } from './enum';
 console.log('process.env: ', process.env);
 const wsLocation = process.env.WS_LOCATION;
@@ -217,6 +218,7 @@ const globalData = {
         dataset: [],
         countryBorder: [],
         trophy: [],
+        configs: [],
     },
     mutations: {
         wsOnMessage: (state, message) => {
@@ -249,6 +251,10 @@ const globalData = {
                 case ACT_GET_TROPHY:
                     state.trophy = payload;
                     return console.log('Global trophy: ', payload);
+                case ACT_GET_CONFIG: {
+                    state.configs = payload;
+                    return;
+                }
                 default:
             }
         },
@@ -297,6 +303,18 @@ const globalData = {
             });
             return map;
         },
+        isCountrysideOpen: (state) => {
+            const found = state.configs.find(e => e.name=='countryside' && e.status == 1);
+            return !!found;
+        },
+        isVoteOpen: (state) => {
+            const found = state.configs.find(e => e.name=='vote' && e.status == 1);
+            return !!found;
+        },
+        isPredictionOpen: (state) => {
+            const found = state.configs.find(e => e.name=='prediction' && e.status == 1);
+            return !!found;
+        }
     }
 };
 

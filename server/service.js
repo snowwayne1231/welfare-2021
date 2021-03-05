@@ -232,6 +232,8 @@ const _models_map = {
     '7': 'Countryside',
     '8': 'Order',
     '9': 'Voter',
+    '10': 'Config',
+    '11': 'Prediction',
 }
 
 function handleAdminSnow(req, res, uris) {
@@ -524,6 +526,8 @@ function updateAdminDB(req, res) {
         case '7': _model = models.Countryside; break;
         case '8': _model = models.Order; break;
         case '9': _model = models.Voter; break;
+        case '10': _model = models.Config; break;
+        case '11': _model = models.Prediction; break;
         default:
             return res.status(403).json({'msg': 'failed'});
     }

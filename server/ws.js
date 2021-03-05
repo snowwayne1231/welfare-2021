@@ -10,9 +10,13 @@ const ROOM_CHATTING_BAR = 'roomchattingbar';
 const inners = {};
 const bar_tables = [];
 const bar_house_people = [];
-const country_border = [];
-if (country_border.length == 0) {
-    models.Countryside.findAll({attributes: ['userId', 'houseId']}).then((cs) => {
+let country_border = [];
+let configs = [];
+refreshBasicData();
+
+
+function refreshBasicData(callback) {
+    const promise1 = models.Countryside.findAll({attributes: ['userId', 'houseId']}).then((cs) => {
         // for first time data
         if (cs.length == 0) {
             models.User.findAll({
@@ -23,11 +27,15 @@ if (country_border.length == 0) {
                 models.Countryside.bulkCreate(userIds);
             });
         } else {
-            cs.map(c => {
-                country_border.push([c.houseId, c.userId]);
-            });
+            country_border = cs.map(c => [c.houseId, c.userId]);
         }
+        return country_border;
     });
+    const promise2 = models.Config.findAll({attributes: ['name', 'status', 'setting']}).then(c => {
+        configs = c.map(e => e.toJSON());
+        return configs;
+    });
+    callback && Promise.all([promise1, promise2]).then(callback);
 }
 
 
@@ -203,6 +211,14 @@ function onMessage(socket) {
                         socket.emit('MESSAGE', {act: enums.ACT_ADMIN_CREATE_GAME, payload: 'done'});
                     });
                 }).catch(err => console.log(err));
+            }
+            case enums.ACT_GET_CONFIG: {
+                return socket.emit('MESSAGE', {act: enums.ACT_GET_CONFIG, payload: configs});
+            }
+            case enums.ACT_ADMIN_REFRESH_CONFIG: {
+                return refreshBasicData((e) => {
+                    broadcast({act: enums.ACT_GET_CONFIG, payload: configs});
+                });
             }
             default:
                 console.log("Not Found Act: ", msg);

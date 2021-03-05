@@ -159,7 +159,7 @@ export default {
   },
   computed: {
     ...mapState(['user', 'chat', 'global']),
-    ...mapGetters(['myHouse', 'usersColor', 'mapHouseFreefork']),
+    ...mapGetters(['myHouse', 'usersColor', 'mapHouseFreefork', 'isCountrysideOpen']),
     showWantedPeople: {
       get() {
         return this.chat.publicPeople.filter(e => {
@@ -177,7 +177,7 @@ export default {
       return Math.ceil(this.global.countryBorder.length / 8);
     },
     imNotInCountry() {
-      return this.global.countryBorder.findIndex(e => e[1] == this.user.id && e[0] == 0) >= 0;
+      return this.isCountrysideOpen && this.global.countryBorder.findIndex(e => e[1] == this.user.id && e[0] == 0) >= 0;
     },
   },
   updated() {

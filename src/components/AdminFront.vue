@@ -51,7 +51,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex';
-import { ACT_GET_ADMIN_DATASET, ACT_GET_PEOPLE_DATA } from '../store/enum';
+import { ACT_GET_ADMIN_DATASET, ACT_GET_PEOPLE_DATA, ACT_ADMIN_REFRESH_CONFIG } from '../store/enum';
 
 export default {
   name: 'AdminFront',
@@ -66,6 +66,7 @@ export default {
       window.location.href = '/logout';
     }
     this.$store.dispatch('wsEmitMessage', {act: ACT_GET_PEOPLE_DATA, payload: {more: true}});
+    this.$store.dispatch('wsEmitMessage', {act: ACT_ADMIN_REFRESH_CONFIG});
   },
   computed: {
     ...mapState(['global', 'user']),
@@ -74,7 +75,7 @@ export default {
       if (this.global.dataset.length > 0) {
         return Object.keys(this.global.dataset[0]);
       } else {
-        return []
+        return [];
       }
     },
     showHouseAbility() {

@@ -27,7 +27,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import { ACT_GET_HOUSES_DATA } from './store/enum';
+import { ACT_GET_HOUSES_DATA, ACT_GET_CONFIG } from './store/enum';
 export default {
   name: 'App',
   data() {
@@ -65,6 +65,7 @@ export default {
         if (this.user.connected) {
           this.$store.dispatch('wsEmitAuthorize', this.$cookies.get('logintimestamp'));
           this.$store.dispatch('wsEmitMessage', {act: ACT_GET_HOUSES_DATA});
+          this.$store.dispatch('wsEmitMessage', {act: ACT_GET_CONFIG});
         }
       }
       this.nowConnecting = this.user.connected;
