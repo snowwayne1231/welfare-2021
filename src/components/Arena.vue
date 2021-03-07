@@ -12,7 +12,7 @@
         </md-card-header-text>
       </md-card-header>
       <md-card-content>
-        <md-tabs>
+        <md-tabs @md-changed="onTabChanged">
 
           <md-tab id="tab-ranking" md-label="排名" exact>
             <md-table class="arena-table">
@@ -32,7 +32,8 @@
           </md-tab>
 
           <md-tab id="tab-live" md-label="戰場" >
-            <LiveBattle />
+            <LiveBattle v-if="openLive" />
+            <ChatBox v-if="openLive"/>
           </md-tab>
 
         </md-tabs>
@@ -45,15 +46,17 @@
 import { mapState, mapGetters } from 'vuex';
 import { ACT_GET_TROPHY, ACT_GET_PEOPLE_DATA } from '../store/enum';
 import LiveBattle from './panels/LiveBattle';
+import ChatBox from './interactive/ChatBox';
 
 export default {
   name: 'Arena',
   components: {
-    LiveBattle
+    LiveBattle,
+    ChatBox
   },
   data() {
     return {
-      
+      openLive: false,
     };
   },
   mounted() {
@@ -68,7 +71,8 @@ export default {
       const loc = this.global.houses.slice();
       loc.sort((a,b) => {
         const gap = b.score - a.score;
-        return gap == 0 ? b.leader.cha - a.leader.cha : gap;
+        const leaderChaGap = b.leader && a.leader ? b.leader.cha - a.leader.cha : 0;
+        return gap == 0 ? leaderChaGap : gap;
       });
       return loc;
     },
@@ -97,6 +101,13 @@ export default {
       }
       return `/static/imgs/${mapImages[house.en]}`;
     },
+    onTabChanged(tabId) {
+      if (tabId == 'tab-live') {
+        this.openLive = true;
+      } else {
+        this.openLive = false;
+      }
+    }
   }
 };
 </script>

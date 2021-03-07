@@ -12,10 +12,13 @@ const bar_tables = [];
 const bar_house_people = [];
 let country_border = [];
 let configs = [];
+let loves = {};
+let nowLoveRound = 0;
 refreshBasicData();
 
 
 function refreshBasicData(callback) {
+    const promises = [];
     const promise1 = models.Countryside.findAll({attributes: ['userId', 'houseId']}).then((cs) => {
         // for first time data
         if (cs.length == 0) {
@@ -33,9 +36,36 @@ function refreshBasicData(callback) {
     });
     const promise2 = models.Config.findAll({attributes: ['name', 'status', 'setting']}).then(c => {
         configs = c.map(e => e.toJSON());
+        const configLove = configs.find(e => e.name == 'love');
+        if (configLove) {
+            const gameNum = configLove.setting;
+            nowLoveRound = gameNum;
+            // console.log('gameNum: ', gameNum);
+            if (loves[gameNum] >= 0) {
+                let json = JSON.stringify({love: loves[gameNum]});
+                models.Game.findOne({where: {gameNum}}).then(game => {
+                    if (game) {
+                        game.update({
+                            json,
+                        });
+                    } else {
+                        models.Game.create({
+                            gameNum,
+                            json,
+                        });
+                    }
+                });
+            } else {
+                loves[gameNum] = 0;
+            }
+        }
         return configs;
     });
-    callback && Promise.all([promise1, promise2]).then(callback);
+    promises.push(promise1);
+    promises.push(promise2);
+    if (callback) {
+        Promise.all(promises).then(callback);
+    }
 }
 
 
@@ -134,6 +164,20 @@ function onMessage(socket) {
                     return promise
                 }
                 return socket.emit('MESSAGE', {act: 'not promised', redirect: '/logout'});
+            case enums.ACT_ADMIN_UPDATE: {
+                if (userinfo.code=='R343') {
+                    try {
+                        return models[payload.model].update(payload.data,{
+                            where: payload.where,
+                        }).then(dataset => {
+                            socket.emit('MESSAGE', {act: enums.ACT_ADMIN_UPDATE, payload: {dataset}})
+                        });
+                    } catch (err) {
+                        console.log(err);
+                    }
+                }
+                return socket.emit('MESSAGE', {act: 'not promised', redirect: '/logout'});
+            }
             case enums.ACT_GET_COUNTRYSIDE_DATA:
                 return socket.emit('MESSAGE', {act: enums.ACT_GET_COUNTRYSIDE_DATA, payload: country_border});
             case enums.ACT_UPDATE_COUNTRYSIDE: {
@@ -190,12 +234,8 @@ function onMessage(socket) {
                 let name = payload.name;
                 let gameRound = payload.round;
                 let gameNum = payload.num;
-                return models.Game.create({
-                    name,
-                    gameRound,
-                    gameNum,
-                }).then(game => {
-                    const matches = payload.users.map(u => {
+                let bulkMatchs = (users, gid) => {
+                    const matches = users.map(u => {
                         return {
                             name,
                             add: u.add,
@@ -204,12 +244,26 @@ function onMessage(socket) {
                             mvp: 0,
                             round: gameRound,
                             userId: u.id,
-                            game: game.id,
+                            game: gid,
                         }
                     });
                     models.Match.bulkCreate(matches).then(m => {
                         socket.emit('MESSAGE', {act: enums.ACT_ADMIN_CREATE_GAME, payload: 'done'});
                     });
+                }
+                return models.Game.findOne({
+                    where: {
+                        gameNum,
+                    },
+                }).then(game => {
+                    if (game) {
+                        game.update({name, gameRound, gameNum});
+                        bulkMatchs(payload.users, game.id);
+                    } else {
+                        models.Game.create({name, gameRound, gameNum}).then(gameLoc => {
+                            bulkMatchs(payload.users, gameLoc.id);
+                        });
+                    }
                 }).catch(err => console.log(err));
             }
             case enums.ACT_GET_CONFIG: {
@@ -218,7 +272,21 @@ function onMessage(socket) {
             case enums.ACT_ADMIN_REFRESH_CONFIG: {
                 return refreshBasicData((e) => {
                     broadcast({act: enums.ACT_GET_CONFIG, payload: configs});
+                    return e;
                 });
+            }
+            case enums.ACT_SEND_LOVE: {
+                if (loves[nowLoveRound] >= 0) {
+                    loves[nowLoveRound]++;
+                    return broadcastChatRoom({
+                        act: enums.ACT_GET_LOVE,
+                        payload: loves[nowLoveRound],
+                    });
+                }
+                break;
+            }
+            case enums.ACT_GET_LOVE: {
+                return socket.emit('MESSAGE', {act: enums.ACT_GET_LOVE, payload: loves[nowLoveRound] || 0});
             }
             default:
                 console.log("Not Found Act: ", msg);

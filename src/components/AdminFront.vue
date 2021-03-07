@@ -6,7 +6,11 @@
           <table class="md-subhead">
             <tr>
               <th>Model</th>
-              <td><input type="text" v-model="modelInput" style="width: 100%;" /></td>
+              <td>
+                <md-autocomplete v-model="modelInput" :md-options="models">
+                  <label></label>
+                </md-autocomplete>
+              </td>
             </tr>
             <tr>
               <th>Where</th>
@@ -19,7 +23,7 @@
           </table>
           <table class="md-subhead">
             <tr>
-              <th></th>
+              <th><button @click="onClickRefresh"><md-icon>refresh</md-icon></button></th>
               <th v-for="house in showHouseAbility" :key="house.id">{{house.name}}</th>
             </tr>
             <tr>
@@ -39,9 +43,12 @@
       </md-card-header>
 
       <md-card-content>
-        <md-table v-model="global.dataset" md-sort="id" md-sort-order="asc" class="admin-table" md-fixed-header>
+        <md-table v-model="global.dataset" md-sort="id" md-sort-order="asc" class="admin-table">
           <md-table-row slot="md-table-row" slot-scope="{ item }">
-            <md-table-cell v-for="k in datasetKeys" :key="k" :md-label="k" :md-sort-by="k">{{ item[k] }}</md-table-cell>
+            <md-table-cell v-for="k in datasetKeys" :key="k" :md-label="k" :md-sort-by="k">
+              <span v-if="isNaN(item[k]) || typeof item[k] == 'boolean'">{{ item[k] }}</span>
+              <input v-else type="text" :value="item[k]" @change="onChangeNumber(k, item, $event)"/>
+            </md-table-cell>
           </md-table-row>
         </md-table>
       </md-card-content>
@@ -51,7 +58,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex';
-import { ACT_GET_ADMIN_DATASET, ACT_GET_PEOPLE_DATA, ACT_ADMIN_REFRESH_CONFIG } from '../store/enum';
+import { ACT_GET_ADMIN_DATASET, ACT_GET_PEOPLE_DATA, ACT_ADMIN_REFRESH_CONFIG, ACT_ADMIN_UPDATE } from '../store/enum';
 
 export default {
   name: 'AdminFront',
@@ -59,6 +66,18 @@ export default {
     return {
       whereInput: '',
       modelInput: 'User',
+      models: [
+        'User',
+        'House',
+        'Game',
+        'Config',
+        'Match',
+        'Trophy',
+        'Countryside',
+        'Order',
+        'Voter',
+        'Prediction',
+      ],
     };
   },
   mounted() {
@@ -66,14 +85,13 @@ export default {
       window.location.href = '/logout';
     }
     this.$store.dispatch('wsEmitMessage', {act: ACT_GET_PEOPLE_DATA, payload: {more: true}});
-    this.$store.dispatch('wsEmitMessage', {act: ACT_ADMIN_REFRESH_CONFIG});
   },
   computed: {
     ...mapState(['global', 'user']),
     ...mapGetters(['mapHouseAbility']),
     datasetKeys() {
       if (this.global.dataset.length > 0) {
-        return Object.keys(this.global.dataset[0]);
+        return Object.keys(this.global.dataset[0]).filter(e => e != 'id');
       } else {
         return [];
       }
@@ -99,6 +117,19 @@ export default {
         console.log(err);
       }
     },
+    onClickRefresh(evt) {
+      this.$store.dispatch('wsEmitMessage', {act: ACT_ADMIN_REFRESH_CONFIG});
+    },
+    onChangeNumber(key, item, evt) {
+      const id = item.id;
+      const where = {id};
+      const data = {[key]: parseInt(evt.target.value)};
+      this.$store.dispatch('wsEmitMessage', {act: ACT_ADMIN_UPDATE, payload: {
+        model: this.modelInput.trim(),
+        where,
+        data
+      }});
+    }
   }
 }
 </script>
@@ -112,5 +143,17 @@ export default {
 }
 #rv-admin .md-subhead td{
   border: 1px solid #9c826b;
+}
+#rv-admin .md-field {
+  margin: 0px;
+  padding: 0px;
+  background-color: #fff;
+  min-height: 32px;
+}
+#rv-admin .md-field .md-input-action {
+  top: 0px;
+}
+#rv-admin .md-table-cell .md-table-cell-container input{
+  width: 48px;
 }
 </style>

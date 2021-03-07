@@ -6,7 +6,7 @@ import {
     ACT_GET_HOUSES_DATA, ACT_GET_FAMILY_DATA, ACT_GET_PEOPLE_DATA, ACT_UPDATE_SKILL, 
     ACT_JOIN_CHAT_ROOM, ACT_LEAVE_CHAT_ROOM, ACT_MOVE_CHAT_ROOM, ACT_SAY_CHAT_ROOM,
     ACT_GET_ADMIN_DATASET, ACT_GET_COUNTRYSIDE_DATA, ACT_GET_TROPHY, ACT_GET_CONFIG,
-
+    ACT_SEND_LOVE, ACT_GET_LOVE,
 } from './enum';
 console.log('process.env: ', process.env);
 const wsLocation = process.env.WS_LOCATION;
@@ -318,12 +318,14 @@ const globalData = {
     }
 };
 
+const loveMax = 18;
 const moduleChatRoom = {
     state: {
         tablePlayers: [0,0,0,0,0,0,0,0,0,0,0,0],
         histories: [],
-        publicPeople: [],
         peopleInBarHouse: [],
+        loveCount: 0,
+        loveArray: new Array(loveMax).fill(-1),
     },
     mutations: {
         wsOnMessage: (state, message) => {
@@ -334,6 +336,7 @@ const moduleChatRoom = {
                     break;
                 case ACT_LEAVE_CHAT_ROOM:
                     state.peopleInBarHouse = payload.bar_house_people;
+                    
                     break;
                 case ACT_MOVE_CHAT_ROOM:
                     const user_id = payload.user_id;
@@ -346,23 +349,22 @@ const moduleChatRoom = {
                     break;
                 case ACT_SAY_CHAT_ROOM:
                     const next = [...state.histories];
-                    if (payload && next.unshift(payload) > 20) {
+                    if (payload && next.unshift(payload) > 28) {
                         next.splice(-1,1);
                     }
                     state.histories = next;
                     break;
-                case ACT_GET_PEOPLE_DATA:
-                    const users = payload.users;
-                    if (Array.isArray(users)) {
-                        const lvColors = [['gold', 24], ['purple', 16], ['blue', 10], ['green', 4], ['gray', 0]];
-                        users.map(u => {
-                            let score = u.rv;
-                            u.lvColor = lvColors.find(c => c[1] <= score)[0];
-                            u.houseIdNow = u.houseId > 0 ? u.houseId : u.houseIdTmp;
-                        });
-                        state.publicPeople = users;
+                case ACT_GET_LOVE: {
+                    if (state.loveCount > 0 && state.loveCount != payload) {
+                        let nextArray = state.loveArray.slice();
+                        let left = payload % loveMax;
+                        let add = Math.floor(Math.random() * 2) + 1;
+                        nextArray[left] = (nextArray[left]+add) % 3;
+                        state.loveArray = nextArray;
                     }
+                    state.loveCount = payload;
                     break;
+                }
                 default:
             }
         },

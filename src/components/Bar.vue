@@ -102,7 +102,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex';
-import { ACT_LEAVE_CHAT_ROOM, ACT_GET_PEOPLE_DATA, ACT_MOVE_CHAT_ROOM, ACT_GET_COUNTRYSIDE_DATA, ACT_UPDATE_COUNTRYSIDE, ACT_UPDATE_NICKNAME } from '../store/enum';
+import { ACT_GET_PEOPLE_DATA, ACT_MOVE_CHAT_ROOM, ACT_GET_COUNTRYSIDE_DATA, ACT_UPDATE_COUNTRYSIDE, ACT_UPDATE_NICKNAME } from '../store/enum';
 import Hepler from './panels/Helper';
 import ChatBox from './interactive/ChatBox';
 
@@ -125,6 +125,7 @@ export default {
       ],
       activeBuy: false,
       buyingInput: '',
+      wantedPeoples: [],
     };
   },
   mounted() {
@@ -132,20 +133,25 @@ export default {
     const $this = this;
     $this.$store.dispatch('wsEmitMessage', { act: ACT_GET_PEOPLE_DATA });
   },
-  beforeDestroy() {
-    this.$store.dispatch('wsEmitMessage', {act: ACT_LEAVE_CHAT_ROOM});
-  },
   computed: {
     ...mapState(['user', 'chat', 'global']),
     ...mapGetters(['myHouse', 'usersColor', 'mapHouseFreefork', 'isCountrysideOpen']),
     showWantedPeople: {
       get() {
-        return this.chat.publicPeople.filter(e => {
-          return e.houseId == 0 && e.houseIdTmp == 0 && e.mvp == 0 && e.isLeader == false && e.nickname;
+        if (this.wantedPeoples.length > 0) { return this.wantedPeoples; }
+        const users = this.global.users;
+        const lvColors = [['gold', 24], ['purple', 16], ['blue', 10], ['green', 4], ['gray', 0]];
+        return users.map(u => {
+            let score = u.rv;
+            u.lvColor = lvColors.find(c => c[1] <= score)[0];
+            u.houseIdNow = u.houseId > 0 ? u.houseId : u.houseIdTmp;
+            return u;
+        }).filter(e => {
+          return e.houseIdNow == 0 && e.isLeader == false && e.nickname;
         });
       },
       set(next) {
-        this.$store.commit('updateChat', {publicPeople: next});
+        this.wantedPeoples = next;
       },
     },
     showNoneFamilyHeros() {
