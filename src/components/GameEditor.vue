@@ -38,6 +38,7 @@
           <md-table-row slot="md-table-row" slot-scope="{ item }" md-selectable="multiple" md-auto-select>
             <md-table-cell md-label="House" md-sort-by="houseIdNow" md-numeric>{{ item.houseIdNow }}</md-table-cell>
             <md-table-cell md-label="Tmp" md-sort-by="houseIdTmp" md-numeric>{{ item.houseIdTmp }}</md-table-cell>
+            <md-table-cell md-label="名" md-sort-by="firstName">{{ item.firstName }}</md-table-cell>
             <md-table-cell md-label="暱稱" md-sort-by="nickname">{{ item.nickname }}</md-table-cell>
             <md-table-cell md-label="團體積分增加" md-sort-by="add"><input type="number" v-model="item.add" @click.stop @click="item.add = item.add == 3 ? 5 : (item.add == 5 ? 0 : 3)" readonly style="width: 52px;" :class="{good: item.add==5, normal: item.add==3}" /></md-table-cell>
             <md-table-cell md-label="門檻" md-sort-by="activity"><input type="number" v-model="item.activity" @click.stop @click="item.activity = item.activity >= 4 ? 0 : item.activity+1" readonly :class="{excellent: item.activity==4, good: item.activity==3, normal: item.activity==2}" /></md-table-cell>
@@ -86,6 +87,7 @@ export default {
         u.add = 3;
         u.activity = 1;
         u.success = false;
+        u.houseIdNow = u.houseId == 0 ? u.houseIdTmp : u.houseId;
         return u;
       });
     },

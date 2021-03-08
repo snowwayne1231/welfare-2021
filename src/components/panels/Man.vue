@@ -1,5 +1,5 @@
 <template>
-  <div class="man">
+  <div class="man" @click="$emit('click')" >
     <span class="name">{{name}}</span>
     <span class="active-man">
       <md-icon>accessibility_new</md-icon>
@@ -15,6 +15,9 @@
     <span class="mvp" v-if="mvp > 0">
       <md-icon>star</md-icon>
     </span>
+    <span class="be-voted" v-if="voted">
+      <md-icon>local_police</md-icon>
+    </span>
   </div>
 </template>
 
@@ -29,6 +32,7 @@ export default {
     wis: String,
     cha: String,
     mvp: Number,
+    voted: Boolean,
   },
   data() {
     return {

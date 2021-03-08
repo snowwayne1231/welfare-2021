@@ -1,11 +1,11 @@
 <template>
   <div class="live-battle">
-    <iframe id="live-iframe" :src="`${host}/WebRTCAppEE/play.html?name=${keyid}`" frameborder="0" allowfullscreen ref="iframe"></iframe>
+    <iframe id="live-iframe" :src="iframeSrc" frameborder="0" allowfullscreen ref="iframe"></iframe>
     <div class="love-zone">
       <div class="loves-flying">
         <i :class="getClassNameLove(n)" v-for="(n, idx) in chat.loveArray" :key="idx">favorite</i>
       </div>
-      <div class="loves-btn" @click="onClickLoveBtn" :class="{'disable': !isOpenLove}">
+      <div class="loves-btn" @click="onClickLoveBtn" :class="{'disable': !isLoveOpen}">
         <i class="love md-icon">favorite</i>
       </div>
       <div class="love-count">{{chat.loveCount}}</div>
@@ -16,7 +16,7 @@
 
 <script>
 import { ACT_SEND_LOVE, ACT_GET_LOVE } from '../../store/enum';
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 
 export default {
   name: 'LiveBattle',
@@ -26,23 +26,28 @@ export default {
   data() {
     return {
       // keyid: 'GOR2021',
-      host: 'https://ant.etwlt.com:5443',
+      host: '',
       keyid: 'snow1',
     };
   },
   computed: {
     ...mapState(['global', 'chat']),
-    isOpenLove() {
-      return (this.global.configs.find(e => e.name == 'love') || {}).status == 1;
+    ...mapGetters(['isLoveOpen']),
+    iframeSrc() {
+      return this.host ? `${this.host}/WebRTCAppEE/play.html?name=${this.keyid}` : '';
     },
   },
   mounted() {
     const iframe = this.$refs.iframe;
     this.$store.dispatch('wsEmitMessage', {act: ACT_GET_LOVE});
+    this.host = 'https://ant.etwlt.com:5443';
+  },
+  beforeDestroy() {
+    this.host = '';
   },
   methods: {
     onClickLoveBtn() {
-      if (this.isOpenLove) {
+      if (this.isLoveOpen) {
         this.$store.dispatch('wsEmitMessage', {act: ACT_SEND_LOVE});
       }
     },
@@ -52,11 +57,11 @@ export default {
     reload() {
       if (this.timer > 0) { return; }
       const $this = this;
-      const oldKey = $this.keyid;
+      const oldHost = $this.host;
       $this.$store.dispatch('wsEmitMessage', {act: ACT_GET_LOVE});
-      $this.keyid = 'stream1';
+      $this.host = '';
       $this.timer = window.setTimeout(() => {
-        $this.keyid = oldKey;
+        $this.host = oldHost;
         $this.timer = 0;
       },500);
     }

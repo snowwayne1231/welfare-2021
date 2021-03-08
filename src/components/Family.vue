@@ -10,6 +10,7 @@
           </div>
           <div class="md-subhead" v-if="myHouse">
             <span>House Of {{myHouse.en}}</span>
+            <div class="mvp-voting" v-if="isVoteOpen">開放MVP投票中...</div>
           </div>
           <div class="note" v-if="myHouse">
             <table>
@@ -36,18 +37,18 @@
 
       <md-card-content class="role-area" v-if="myHouse">
         <div class="castle zone">
-          <md-card class="role" v-for="(user) in myFamilyCastle" :key="user.id" :class="{leader: user.isLeader, partner: user.int > 0}">
-            <Man :name="user.nickname" :str="user.strLv" :dex="user.dexLv" :con="user.conLv" :wis="user.wisLv" :cha="user.chaLv" :mvp="user.mvp"></Man>
+          <md-card class="role" v-for="(user) in myFamilyCastle" :key="user.id" :class="{leader: user.isLeader, partner: user.int > 0, self: user.isSelf}" >
+            <Man :name="user.nickname" :str="user.strLv" :dex="user.dexLv" :con="user.conLv" :wis="user.wisLv" :cha="user.chaLv" :mvp="user.mvp" :voted="user.voted" @click="onClickFamily(user)"></Man>
           </md-card>
         </div>
         <div class="flat-house zone">
-          <md-card class="role member" v-for="(user) in myFamilyHouse" :key="user.id">
-            <Man :name="user.nickname" :str="user.strLv" :dex="user.dexLv" :con="user.conLv" :wis="user.wisLv" :cha="user.chaLv" :mvp="user.mvp"></Man>
+          <md-card class="role member" v-for="(user) in myFamilyHouse" :key="user.id" :class="{self: user.isSelf}" >
+            <Man :name="user.nickname" :str="user.strLv" :dex="user.dexLv" :con="user.conLv" :wis="user.wisLv" :cha="user.chaLv" :mvp="user.mvp" :voted="user.voted" @click="onClickFamily(user)"></Man>
           </md-card>
         </div>
         <div class="zone suck-house">
-          <md-card class="role traveler" v-for="(user) in myFamilyPopulace" :key="user.id">
-            <Man :name="user.nickname" :str="user.strLv" :dex="user.dexLv" :con="user.conLv" :wis="user.wisLv" :cha="user.chaLv" :mvp="user.mvp"></Man>
+          <md-card class="role traveler" v-for="(user) in myFamilyPopulace" :key="user.id" :class="{self: user.isSelf}">
+            <Man :name="user.nickname" :str="user.strLv" :dex="user.dexLv" :con="user.conLv" :wis="user.wisLv" :cha="user.chaLv" :mvp="user.mvp" :voted="user.voted" @click="onClickFamily(user)"></Man>
           </md-card>
         </div>
         
@@ -69,7 +70,7 @@
 <script>
 
 import { mapState, mapGetters } from 'vuex';
-import { ACT_GET_FAMILY_DATA } from '../store/enum';
+import { ACT_GET_FAMILY_DATA, ACT_GET_SELF_VOTE, ACT_UPDATE_SELF_VOTE } from '../store/enum';
 import Man from './panels/Man';
 import Helper from './panels/Helper';
 
@@ -79,7 +80,6 @@ export default {
   components: {Man, Helper},
   data() {
     return {
-      voteRound: 1,
       voteName: '睿訊之國的闖關者',
     }
   },
@@ -87,9 +87,9 @@ export default {
     // console.log(this);
     // this.sendMessage();
     if (this.user.connected) {
-      this.$store.dispatch('wsEmitMessage', {act: ACT_GET_FAMILY_DATA});
+      this.whileConnection();
     } else {
-      this.timer = window.setInterval(this.whileConnection, 500);
+      this.timer = window.setInterval(this.whileConnection, 200);
     }
   },
   beforeDestroy() {
@@ -97,7 +97,10 @@ export default {
   },
   computed: {
     ...mapState(['user']),
-    ...mapGetters(['myHouse', 'myHouseAbility']),
+    ...mapGetters(['myHouse', 'myHouseAbility', 'isVoteOpen', 'VoteConfig']),
+    voteRound() {
+      return this.VoteConfig.setting;
+    },
     myHouseLogo() {
       const HouseImages = {
         'stark': 'wolf.png',
@@ -112,19 +115,25 @@ export default {
       const house_en = this.myHouse.en;
       return '/static/imgs/' + HouseImages[house_en];
     },
+    family() {
+      return JSON.parse(JSON.stringify(this.user.family));
+    },
     myFamilyCastle() {
-      const loc = this.user.family.filter(u => u.int > 0 || u.isLeader);
+      const loc = this.family.filter(u => u.int > 0 || u.isLeader);
       loc.sort((a,b) => a.int - b.int);
+      this.mapPeople(loc);
       return loc;
     },
     myFamilyHouse() {
-      const loc = this.user.family.filter(u => u.houseId > 0 && !u.isLeader && u.int == 0);
+      const loc = this.family.filter(u => u.houseId > 0 && !u.isLeader && u.int == 0);
       loc.sort((a,b) => b.rv - a.rv);
+      this.mapPeople(loc);
       return loc;
     },
     myFamilyPopulace() {
-      const loc = this.user.family.filter(u => u.houseId == 0 && !u.isLeader);
+      const loc = this.family.filter(u => u.houseId == 0 && !u.isLeader);
       loc.sort((a,b) => b.rv - a.rv);
+      this.mapPeople(loc);
       return loc;
     }
   },
@@ -132,9 +141,53 @@ export default {
     whileConnection() {
       if (this.user.connected) {
         this.$store.dispatch('wsEmitMessage', {act: ACT_GET_FAMILY_DATA});
+        this.$store.dispatch('wsEmitMessage', {act: ACT_GET_SELF_VOTE});
         window.clearInterval(this.timer);
       }
     },
+    mapPeople(ary) {
+      const myuser = this.user;
+      const voter = myuser.voter;
+      const open = this.isVoteOpen;
+      ary.map(e => {
+        e.isSelf = e.id == myuser.id ;
+        e.voted = open && (e.id == voter.vote || e.id == voter.voteTwo || e.id == voter.voteThree);
+      });
+    },
+    onClickFamily(user) {
+      if (user.id == this.user.id) { return; }
+      if (!this.isVoteOpen) { return; }
+      
+      const voter = this.user.voter;
+      const uid = user.id;
+      let vote = voter.vote;
+      let voteTwo = voter.voteTwo;
+      let voteThree = voter.voteThree;
+      if (user.voted) {
+        if (vote == uid) {
+          vote = 0;
+        } else if (voteTwo == uid) {
+          voteTwo = 0;
+        } else {
+          voteThree = 0;
+        }
+      } else {
+        if (vote == 0) {
+          vote = uid;
+        } else if (voteTwo == 0) {
+          voteTwo = uid;
+        } else {
+          voteThree = uid;
+        }
+      }
+      
+      this.$store.dispatch('wsEmitMessage', {act: ACT_UPDATE_SELF_VOTE, payload: {
+        id: voter.id,
+        vote,
+        voteTwo,
+        voteThree,
+      }});
+    }
   }
 }
 </script>

@@ -26,7 +26,7 @@
                 <md-table-cell>{{rerenderRank(idx)}}</md-table-cell>
                 <md-table-cell><img class="arena-house-img" :src="renderHouseImage(loc)" />{{rerenderHouseName(loc)}}</md-table-cell>
                 <md-table-cell>{{loc.score}}</md-table-cell>
-                <md-table-cell></md-table-cell>
+                <md-table-cell><img class="arena-trophy-img" :src="`/static/imgs/trophy/${t.add}.png`" :title="t.name" v-for="t in loc.trophies" :key="t.add" /></md-table-cell>
               </md-table-row>
             </md-table>
           </md-tab>
@@ -61,18 +61,23 @@ export default {
   },
   mounted() {
     // console.log(this);
-    this.$store.dispatch('wsEmitMessage', {act: ACT_GET_TROPHY});
-    // this.$store.dispatch('wsEmitMessage', {act: ACT_GET_PEOPLE_DATA});
+    if (this.global.trophy.length == 0) {
+        this.$store.dispatch('wsEmitMessage', {act: ACT_GET_TROPHY});
+    }
   },
   computed: {
     ...mapState(['user', 'global']),
     // ...mapGetters(['mapHouseAbility']),
     showResult() {
-      const loc = this.global.houses.slice();
+      const loc = JSON.parse(JSON.stringify(this.global.houses));
       loc.sort((a,b) => {
         const gap = b.score - a.score;
         const leaderChaGap = b.leader && a.leader ? b.leader.cha - a.leader.cha : 0;
         return gap == 0 ? leaderChaGap : gap;
+      });
+      loc.map(e => {
+        const trophies = this.global.trophy.filter(t => t.ownerHouseId == e.id);
+        e.trophies = trophies || [];
       });
       return loc;
     },

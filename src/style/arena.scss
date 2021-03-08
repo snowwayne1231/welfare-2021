@@ -6,8 +6,16 @@
     .md-content {
         background-color: transparent;
     }
+    .md-tab {
+        min-height: 520px;
+    }
     .md-table {
         background-color: rgba(15, 15, 15, 0.5);
+        .md-table-row:nth-child(2),
+        .md-table-row:nth-child(4),
+        .md-table-row:nth-child(7) {
+            background-color: rgba(55, 50, 10, 0.5);
+        }
     }
     .md-table-head {
         background-color: rgba(250, 20, 20, 0.4);
@@ -30,6 +38,9 @@
         max-width: 80px;
         max-height: 48px;
         padding-right: 10px;
+    }
+    .arena-trophy-img {
+        max-height: 48px;
     }
 
     .md-tabs-navigation {

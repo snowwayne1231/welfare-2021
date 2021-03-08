@@ -6,7 +6,7 @@ import {
     ACT_GET_HOUSES_DATA, ACT_GET_FAMILY_DATA, ACT_GET_PEOPLE_DATA, ACT_UPDATE_SKILL, 
     ACT_JOIN_CHAT_ROOM, ACT_LEAVE_CHAT_ROOM, ACT_MOVE_CHAT_ROOM, ACT_SAY_CHAT_ROOM,
     ACT_GET_ADMIN_DATASET, ACT_GET_COUNTRYSIDE_DATA, ACT_GET_TROPHY, ACT_GET_CONFIG,
-    ACT_SEND_LOVE, ACT_GET_LOVE,
+    ACT_SEND_LOVE, ACT_GET_LOVE, ACT_GET_SELF_VOTE,
 } from './enum';
 console.log('process.env: ', process.env);
 const wsLocation = process.env.WS_LOCATION;
@@ -101,6 +101,7 @@ const userInitState = {
     skillPointJson: {"origin": 0, "now": 0, "sdcwc": [0,0,0,0,0]},
     skillSpended: -1,
     skillSDCWC: [0,0,0,0,0],
+    voter: {},
 };
 
 const moduleUser = {
@@ -155,6 +156,19 @@ const moduleUser = {
                             }
                         }
                     }
+                    break;
+                case ACT_GET_SELF_VOTE:
+                    if (payload) {
+                        state.voter = payload;
+                    } else {
+                        state.voter = {
+                            id: 0,
+                            vote: 0,
+                            voteTwo: 0,
+                            voteThree: 0,
+                        }
+                    }
+                    break
                 default:
             }
         },
@@ -303,18 +317,26 @@ const globalData = {
             });
             return map;
         },
+        VoteConfig: (state) => {
+            return state.configs.find(e => e.name=='vote') || {};
+        },
+        LoveConfig: (state) => {
+            return state.configs.find(e => e.name=='love') || {};
+        },
         isCountrysideOpen: (state) => {
             const found = state.configs.find(e => e.name=='countryside' && e.status == 1);
             return !!found;
         },
-        isVoteOpen: (state) => {
-            const found = state.configs.find(e => e.name=='vote' && e.status == 1);
-            return !!found;
+        isVoteOpen: (state, getters) => {
+            return !!(getters.VoteConfig.status == 1);
         },
         isPredictionOpen: (state) => {
             const found = state.configs.find(e => e.name=='prediction' && e.status == 1);
             return !!found;
-        }
+        },
+        isLoveOpen: (state, getters) => {
+            return !!(getters.LoveConfig.status == 1);
+        },
     }
 };
 

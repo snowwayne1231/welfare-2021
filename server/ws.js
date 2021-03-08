@@ -245,6 +245,7 @@ function onMessage(socket) {
                             round: gameRound,
                             userId: u.id,
                             game: gid,
+                            success: u.success ? 1 : 0,
                         }
                     });
                     models.Match.bulkCreate(matches).then(m => {
@@ -269,6 +270,12 @@ function onMessage(socket) {
             case enums.ACT_GET_CONFIG: {
                 return socket.emit('MESSAGE', {act: enums.ACT_GET_CONFIG, payload: configs});
             }
+            case enums.ACT_GET_SELF_VOTE: {
+                let configVote = configs.find(e => e.name == 'vote');
+                return models.Voter.findOne({attributes: ['id', 'vote', 'voteTwo', 'voteThree'], where: {userId: userinfo.id, round: configVote.setting}}).then(vote => {
+                    socket.emit('MESSAGE', {act: enums.ACT_GET_SELF_VOTE, payload: vote});
+                }).catch(err => console.log(err));
+            }
             case enums.ACT_ADMIN_REFRESH_CONFIG: {
                 return refreshBasicData((e) => {
                     broadcast({act: enums.ACT_GET_CONFIG, payload: configs});
@@ -287,6 +294,35 @@ function onMessage(socket) {
             }
             case enums.ACT_GET_LOVE: {
                 return socket.emit('MESSAGE', {act: enums.ACT_GET_LOVE, payload: loves[nowLoveRound] || 0});
+            }
+            case enums.ACT_UPDATE_SELF_VOTE: {
+                let configVote = configs.find(e => e.name == 'vote');
+                return models.Voter.findOne({attributes: ['id', 'vote', 'voteTwo', 'voteThree'], where: {id: payload.id}}).then(vote => {
+                    if (vote) {
+                        vote.update({
+                            vote: payload.vote,
+                            voteTwo: payload.voteTwo,
+                            voteThree: payload.voteThree,
+                        });
+                        socket.emit('MESSAGE', {act: enums.ACT_GET_SELF_VOTE, payload: vote.toJSON()});
+                    } else {
+                        models.Voter.create({
+                            vote: payload.vote,
+                            voteTwo: payload.voteTwo,
+                            voteThree: payload.voteThree,
+                            userId: userinfo.id,
+                            houseId: userinfo.houseId,
+                            round: configVote.setting,
+                        }).then(v => {
+                            socket.emit('MESSAGE', {act: enums.ACT_GET_SELF_VOTE, payload: {
+                                id: v.id,
+                                vote: v.vote,
+                                voteTwo: v.voteTwo,
+                                voteThree: v.voteThree,
+                            }});
+                        })
+                    }
+                }).catch(err => console.log(err));
             }
             default:
                 console.log("Not Found Act: ", msg);

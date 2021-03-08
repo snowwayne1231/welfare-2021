@@ -294,10 +294,23 @@ function handleAdminSnow(req, res, uris) {
 function resettingLV(res) {
     var should_update_list = [];
     var _length_users = 0;
-    models.User.findAll({
+    const promise_users = models.User.findAll({
         attributes: ['id', 'firstName', 'str', 'strLv', 'dex', 'dexLv', 'con', 'conLv', 'wis', 'wisLv', 'cha', 'chaLv', 'gender', 'code', 'json', 'rv', 'nickname'],
         where: {'status': 1},
-    }).then(users => {
+    });
+    const promise_orders = models.Order.findAll({
+        attributes: ['userId', 'spend']
+    });
+    Promise.all([promise_users, promise_orders]).then(([users, orders]) => {
+        var orderMap = {};
+        orders.map(o => {
+            var uid = o.userId;
+            if (orderMap[uid]) {
+                orderMap[uid] += o.spend;
+            } else {
+                orderMap[uid] = o.spend;
+            }
+        });
         users = users.filter(u => u.nickname && u.nickname.length > 0);
         var _strs = [];
         var _dexs = [];
@@ -365,7 +378,7 @@ function resettingLV(res) {
         sort_lv_scored.sort(_sort_ability);
 
         // basic rv
-        users.map(u => {
+        const resUsers = users.map(u => {
             const idx = sort_lv_scored.findIndex(e => e[0]==u.id);
             const rate = idx / sort_lv_scored.length;
             var add_score = 1;
@@ -377,18 +390,23 @@ function resettingLV(res) {
                 default:
             }
             const ujson = JSON.parse(u.json);
+            if (ujson.ability_score && ujson.ability_score > add_score) { add_score = ujson.ability_score; }
             const basic_rv = add_score + parseInt(ujson['before_mvp_score'], 10);
+            const minus_order_rv = (orderMap[u.id] || 0);
             ujson['ability_score'] = add_score;
             const new_rv = Math.min(Math.max(basic_rv, u.rv), 99);
+            
             u.update({
                 'json': JSON.stringify(ujson),
-                'rv': new_rv,
+                'rv': new_rv - minus_order_rv,
             });
-            return u;
-        });
+            
+            const res = u.toJSON();
+            res.isdiff = new_rv != basic_rv;
+            return res;
+        }).filter(e => e.isdiff);
 
-        
-        res.json(users);
+        res.json(resUsers);
     }).catch(err => {
         console.log(err);
         res.json({'error': err});
@@ -417,54 +435,79 @@ function resettingLV(res) {
 
 
 function refreshUserScore(res) {
-    models.Match.findAll({
-        attributes: {
-            exclude: ['name'],
-        }
-    }).then(matchs => {
+    const promise_matches = models.Match.findAll({
+        attributes: ['success', 'add', 'activity', 'shift', 'mvp', 'round', 'userId']
+    });
+    const promise_orders = models.Order.findAll({
+        attributes: ['userId', 'spend']
+    });
+    const promise_users = models.User.findAll({
+        attributes: ['id', 'json', 'mvp', 'partake', 'rv', 'houseId', 'firstName'],
+        where: { status: 1 },
+    });
+    Promise.all([promise_matches, promise_orders, promise_users]).then(([matches, orders, users]) => {
+        console.log(matches.length);
+        console.log(orders.length);
+        console.log(users.length);
         var matchUidScoreMap = {};
-        matchs.map(m => {
+        matches.map(m => {
             var uid = m.userId;
             var mobj = {mvp: m.mvp, shift: m.shift, activity: m.activity, add: m.add};
             if (matchUidScoreMap[uid]) {
-                matchUidScoreMap[uid].push(mobj);
+                matchUidScoreMap[uid].dataset.push(mobj);
+                matchUidScoreMap[uid].total += (mobj.mvp + mobj.shift + mobj.activity + mobj.add);
             } else {
-                matchUidScoreMap[uid] = [mobj];
+                matchUidScoreMap[uid] = {
+                    total: (mobj.mvp + mobj.shift + mobj.activity + mobj.add),
+                    dataset: [mobj],
+                };
+            }
+        });
+        
+        var orderUidSpendMap = {};
+        orders.map(o => {
+            var uid = o.userId;
+            var spend = o.spend;
+            if (orderUidSpendMap[uid]) {
+                orderUidSpendMap[uid].dataset.push(spend);
+                orderUidSpendMap[uid].total += spend;
+            } else {
+                orderUidSpendMap[uid] = {
+                    total: spend,
+                    dataset: [spend],
+                };
             }
         });
 
-        models.User.findAll({
-            attributes: {
-                include: ['id', 'mvp', 'partake', 'json', 'rv'],
-            },
-        }).then(users => {
-            var updated_users = [];
-            users.map(user => {
-                var user_id = user.id;
-                var matches = matchUidScoreMap[user_id];
-                if (matches && matches.length > 0) {
-                    var my_json = JSON.parse(user.json);
-                    var my_mvp = my_json.before_mvp_score > 0 ? 1 : 0;
-                    var my_rv = my_json.before_mvp_score + my_json.ability_score;
-                    var my_partake = matches.length;
-                    matches.map(match => {
-                        if (match.mvp > 0) { my_mvp+=1; }
-                        my_rv += (match.mvp + match.shift + match.activity + match.add);
-                    });
-                    if (isNaN(my_rv)) { my_rv = 0; }
-                    user.update({
-                        rv: my_rv,
-                        mvp: my_mvp,
-                        partake: my_partake,
-                    });
-                    updated_users.push(user);
-                }
-            });
-            return res.json(updated_users);
+        const resUsers = users.map(user => {
+            var id = user.id;
+            var myMatches = matchUidScoreMap[id];
+            var myOrders = orderUidSpendMap[id];
+            var myJson = JSON.parse(user.json);
+            var res = {};
+            res.matchScore = myMatches ? myMatches.total : 0;
+            res.orderSpend = myOrders ? myOrders.total : 0;
+            res.basic = myJson.before_mvp_score + myJson.ability_score;
+            res.additionalMvp = myMatches ? myMatches.dataset.filter(m => m.mvp > 0).length : 0;
+            
+            var userNextData = {
+                mvp: (myJson.before_mvp_score > 0 ? 1:0) + res.additionalMvp,
+                rv: res.basic + res.matchScore - res.orderSpend,
+                partake: myMatches ? myMatches.dataset.length : 0,
+            }
+            res.userNextData = userNextData;
+            if (user.rv <= userNextData.rv) {
+                user.update(userNextData);
+            } else {
+                res.diff = true;
+                res.user = user.toJSON();
+            }
+            return res;
         });
-    }).catch(err => {
-        return res.json({'error': err});
-    });
+        
+        return res.json(resUsers.filter(e => e.diff));
+        
+    }).catch(err => res.json({'error': err}));
 }
 
 

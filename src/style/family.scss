@@ -4,6 +4,12 @@
     .home-card {
       min-width: 620px;
     }
+
+    .mvp-voting {
+      color: #ffeb00;
+      font-size: 18px;
+      padding-top: 10px;
+    }
     
     .family-logo {
       position: absolute;
@@ -83,6 +89,21 @@
               color: #ffe845;
             }
           }
+          .be-voted {
+            position: absolute;
+            top: -8px;
+            right: -6px;
+            .md-icon {
+              color: #ff0000;
+              font-size: 32px !important;
+              border: 2px outset #ffe845;
+              border-radius: 50%;
+              width: 32px;
+              height: 32px;
+              background-color: #fff6b8;
+              border-top-right-radius: 0px;
+            }
+          }
         }
       }
     }
@@ -94,7 +115,7 @@
       box-sizing: border-box;
       border: 1px solid #805b00;
       border-radius: 5px;
-      background-color: rgba(15,15,15,0.5);
+      background-color: rgba(15,15,15,0.4);
       margin: 2px 4px;
 
       &:hover {
@@ -111,6 +132,9 @@
       }
       &.traveler {
         color: #b1d0ffc4;
+      }
+      &.self {
+        background-color: rgba(60,38,10,0.6);
       }
       .name {
         display: block;

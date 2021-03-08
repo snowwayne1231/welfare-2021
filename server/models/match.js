@@ -33,7 +33,8 @@ module.exports = (sequelize, DataTypes) => {
     mvp: DataTypes.INTEGER,
     shift: DataTypes.INTEGER,
     activity: DataTypes.INTEGER,
-    add: DataTypes.INTEGER
+    add: DataTypes.INTEGER,
+    success: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Match',
