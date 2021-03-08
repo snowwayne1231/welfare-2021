@@ -143,7 +143,7 @@ export default {
         const lvColors = [['gold', 24], ['purple', 16], ['blue', 10], ['green', 4], ['gray', 0]];
         return users.map(u => {
             let score = u.rv;
-            u.lvColor = lvColors.find(c => c[1] <= score)[0];
+            u.lvColor = (lvColors.find(c => c[1] <= score) || ['gray'])[0];
             u.houseIdNow = u.houseId > 0 ? u.houseId : u.houseIdTmp;
             return u;
         }).filter(e => {

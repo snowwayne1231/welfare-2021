@@ -398,7 +398,7 @@ function resettingLV(res) {
             
             u.update({
                 'json': JSON.stringify(ujson),
-                'rv': new_rv - minus_order_rv,
+                'rv': Math.max(new_rv - minus_order_rv, 0),
             });
             
             const res = u.toJSON();
