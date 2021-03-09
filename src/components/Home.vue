@@ -18,39 +18,6 @@
 
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">vertical_align_top</span>
-              <span class="md-list-item-text">2021-03-03 【 活動通則 】</span>
-              <md-list slot="md-expand">
-                <md-table class="news-table">
-                  
-                  <md-table-row>
-                    <md-table-head style="width: 20%">條款</md-table-head>
-                    <md-table-head>違反結果</md-table-head>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>§ 在活動過程中沒有確實以暱稱稱呼彼此</md-table-cell>
-                    <md-table-cell>-1 團體積分</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>§ 在活動過程中將答案洩漏給非同家族的成員</br>§ 在活動過程惡意違反規則、不遵從柔性勸導</md-table-cell>
-                    <md-table-cell>第一次就範:</br>將涉及家族 團體分數歸零、個人RV全數歸零 且該場次活動不計分，八大家族一起勝利的條件也取消</br>第二次就範:</br>涉及的家族全數直接尾牙表演，且不能享有任何福委獎勵</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>§ 在活動中針對特定人進行欺壓、惡意攻擊、或是違反自主意願行為</br>§ 在活動中以職權令人屈服、妥協或者辱罵他人</br>(可舉報、經由福委查實)</md-table-cell>
-                    <md-table-cell>該家族族長與施加者直接尾牙表演、且更換族長帶領家族</md-table-cell>
-                  </md-table-row>
-                </md-table>
-                <md-content>
-                  各身份 TIPS:</br>
-                  1. 睿訊同仁(非封臣): 各位在一年的活動中沒有任何負擔 請享受活動帶來的樂趣遊玩</br></br>
-                  2. 管理職與封臣:  雖然有承擔著上台表演的可能性，但請勿使用職權命令他人服從，因為其他同仁並沒有義務幫助你們，請將心比心將同仁視為朋友、夥伴或家人</br>
-                  如真有必須抗拒表演之因素，請用仁德之心與平等的心態 請求夥伴們的協助</br>
-                </md-content>
-              </md-list>
-            </md-list-item>
-
-
-            <md-list-item md-expand>
-              <span class="material-icons mr-6-px">vertical_align_top</span>
               <span class="md-list-item-text">2021-03-03 【 遊戲結局與積分細則 】</span>
               <md-list slot="md-expand">
                 <md-table class="news-table">
@@ -311,8 +278,122 @@
               </md-list>
             </md-list-item>
 
+            
             <md-list-item md-expand>
-              <span class="material-icons mr-6-px">vertical_align_top</span
+              <span class="material-icons mr-6-px">local_fire_department</span>
+              <span class="md-list-item-text">2021-03-09 【 NEWS 】 睿訊之國的闖關者 與 獎牌結算公告</span>
+              <md-list slot="md-expand">
+                <md-table class="news-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">睿訊之國的闖關者 排名方式</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 20%"></md-table-head>
+                    <md-table-head>關卡獲勝次數</md-table-head>
+                    <md-table-head>名次</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>家族A</md-table-cell>
+                    <md-table-cell>18</md-table-cell>
+                    <md-table-cell>1</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>家族C</md-table-cell>
+                    <md-table-cell>15</md-table-cell>
+                    <md-table-cell>2</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>家族B</md-table-cell>
+                    <md-table-cell>10</md-table-cell>
+                    <md-table-cell>3</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  1. 依照各家族在20場關卡活動中獲勝的總數排序名次</br>
+                  2. 獲勝次數相等時依照參賽者全體的"達成門檻率"為第二排序</br>
+                  3. 兩者皆相同時由福委擲硬幣決定</br>
+                </md-content>
+                <md-table class="news-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">獎牌結算</h1>
+                  </md-table-toolbar>
+                </md-table>
+                <md-content>
+                  1. 每次活動過後1~2周時間內會做一次結算，並且執行"發出"or"移動" 獎牌</br>
+                  2. 每次更新後會在"競技場"下方公示獎牌結算的時間，不會再另行公告獎牌的異動</br>
+                </md-content>
+              </md-list>
+            </md-list-item>
+
+
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px"></span>
+              <span class="md-list-item-text">2021-03-03 【 活動通則 】</span>
+              <md-list slot="md-expand">
+                <md-table class="news-table">
+                  
+                  <md-table-row>
+                    <md-table-head style="width: 20%">條款</md-table-head>
+                    <md-table-head>違反結果</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>§ 在活動過程中沒有確實以暱稱稱呼彼此</md-table-cell>
+                    <md-table-cell>-1 團體積分</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>§ 在活動過程中將答案洩漏給非同家族的成員</br>§ 在活動過程惡意違反規則、不遵從柔性勸導</md-table-cell>
+                    <md-table-cell>第一次就範:</br>將涉及家族 團體分數歸零、個人RV全數歸零 且該場次活動不計分，八大家族一起勝利的條件也取消</br>第二次就範:</br>涉及的家族全數直接尾牙表演，且不能享有任何福委獎勵</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>§ 在活動中針對特定人進行欺壓、惡意攻擊、或是違反自主意願行為</br>§ 在活動中以職權令人屈服、妥協或者辱罵他人</br>(可舉報、經由福委查實)</md-table-cell>
+                    <md-table-cell>該家族族長與施加者直接尾牙表演、且更換族長帶領家族</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  各身份 TIPS:</br>
+                  1. 睿訊同仁(非封臣): 各位在一年的活動中沒有任何負擔 請享受活動帶來的樂趣遊玩</br></br>
+                  2. 管理職與封臣:  雖然有承擔著上台表演的可能性，但請勿使用職權命令他人服從，因為其他同仁並沒有義務幫助你們，請將心比心將同仁視為朋友、夥伴或家人</br>
+                  如真有必須抗拒表演之因素，請用仁德之心與平等的心態 請求夥伴們的協助</br>
+                </md-content>
+              </md-list>
+            </md-list-item>
+
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px"></span>
+              <span class="md-list-item-text">2021-02-24 【2021 Game of REVOVISION 各家族族長】</span>
+              <md-list slot="md-expand">
+                <img src="/static/imgs/news_2021022401.png" alt="Skyscraper">
+              </md-list>
+            </md-list-item>
+
+
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px"></span>
+              <span class="md-list-item-text"
+                >2021-02-22 【2020 REVOVISION 年度 Team Building 活動票選 MVP人員】</span
+              >
+              <md-list slot="md-expand">
+                <md-table class="news-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">2020 Team Building MVP</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head>Department</md-table-head>
+                    <md-table-head>Name</md-table-head>
+                    <md-table-head>Name(EN)</md-table-head>
+                  </md-table-row>
+                  <md-table-row v-for="(v, idx) in mvp2020" :key="idx">
+                    <md-table-cell>{{ v[0] }}</md-table-cell>
+                    <md-table-cell>{{ v[2] }}</md-table-cell>
+                    <md-table-cell>{{ v[3] }}</md-table-cell>
+                  </md-table-row>
+                </md-table>
+              </md-list>
+            </md-list-item>
+
+
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px"></span
               ><span class="md-list-item-text"
                 >2021-02-10 【2021 Game of REVOVISION 年度活動時間表】</span
               >
@@ -383,42 +464,6 @@
                 </div>
               </md-list>
             </md-list-item>
-
-            
-
-            <md-list-item md-expand>
-              <span class="material-icons mr-6-px">local_fire_department</span>
-              <span class="md-list-item-text">2021-02-24 【2021 Game of REVOVISION 各家族族長】</span>
-              <md-list slot="md-expand">
-                <img src="/static/imgs/news_2021022401.png" alt="Skyscraper">
-              </md-list>
-            </md-list-item>
-
-
-            <md-list-item md-expand>
-              <span class="material-icons mr-6-px"></span>
-              <span class="md-list-item-text"
-                >2021-02-22 【2020 REVOVISION 年度 Team Building 活動票選 MVP人員】</span
-              >
-              <md-list slot="md-expand">
-                <md-table class="news-table">
-                  <md-table-toolbar>
-                    <h1 class="md-title">2020 Team Building MVP</h1>
-                  </md-table-toolbar>
-                  <md-table-row>
-                    <md-table-head>Department</md-table-head>
-                    <md-table-head>Name</md-table-head>
-                    <md-table-head>Name(EN)</md-table-head>
-                  </md-table-row>
-                  <md-table-row v-for="(v, idx) in mvp2020" :key="idx">
-                    <md-table-cell>{{ v[0] }}</md-table-cell>
-                    <md-table-cell>{{ v[2] }}</md-table-cell>
-                    <md-table-cell>{{ v[3] }}</md-table-cell>
-                  </md-table-row>
-                </md-table>
-              </md-list>
-            </md-list-item>
-
             
           </md-list>
         </div>

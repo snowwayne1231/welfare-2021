@@ -11,6 +11,9 @@
           </div>
           <div class="note"></div>
         </md-card-header-text>
+        <div class="welfare-controller" v-if="user.intLv == 'W'">
+          <md-switch v-model="isOpenCountry">入境開關</md-switch>
+        </div>
       </md-card-header>
 
       <md-card-content>
@@ -102,7 +105,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex';
-import { ACT_GET_PEOPLE_DATA, ACT_MOVE_CHAT_ROOM, ACT_GET_COUNTRYSIDE_DATA, ACT_UPDATE_COUNTRYSIDE, ACT_UPDATE_NICKNAME } from '../store/enum';
+import { ACT_GET_PEOPLE_DATA, ACT_MOVE_CHAT_ROOM, ACT_GET_COUNTRYSIDE_DATA, ACT_UPDATE_COUNTRYSIDE, ACT_UPDATE_NICKNAME, ACT_WELFARE_CONFIG_SETTING } from '../store/enum';
 import Hepler from './panels/Helper';
 import ChatBox from './interactive/ChatBox';
 
@@ -162,6 +165,12 @@ export default {
     },
     imNotInCountry() {
       return this.isCountrysideOpen && this.global.countryBorder.findIndex(e => e[1] == this.user.id && e[0] == 0) >= 0;
+    },
+    isOpenCountry: {
+      get() { return this.isCountrysideOpen },
+      set(val) {
+        this.$store.dispatch('wsEmitMessage', {act: ACT_WELFARE_CONFIG_SETTING, payload: {name: 'countryside', open: val}});
+      },
     },
   },
   

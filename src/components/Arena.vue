@@ -10,6 +10,10 @@
             <span>bulletin of the kingdom</span>
           </div>
         </md-card-header-text>
+        <div class="welfare-controller" v-if="user.intLv == 'W'">
+          <!-- <md-input v-model="loveNumber" type="number"></md-input> -->
+          <md-switch v-model="isOpenLove">愛心開關</md-switch>
+        </div>
       </md-card-header>
       <md-card-content>
         <md-tabs @md-changed="onTabChanged">
@@ -29,6 +33,9 @@
                 <md-table-cell><img class="arena-trophy-img" :src="`/static/imgs/trophy/${t.add}.png`" :title="t.name" v-for="t in loc.trophies" :key="t.add" /></md-table-cell>
               </md-table-row>
             </md-table>
+            <md-content>
+              <i style="color: #fff;">獎牌最後結算時間:  {{trophyLastDate}}</i>
+            </md-content>
           </md-tab>
 
           <md-tab id="tab-live" md-label="戰場" >
@@ -44,7 +51,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex';
-import { ACT_GET_TROPHY, ACT_GET_PEOPLE_DATA } from '../store/enum';
+import { ACT_GET_TROPHY, ACT_WELFARE_CONFIG_SETTING } from '../store/enum';
 import LiveBattle from './panels/LiveBattle';
 import ChatBox from './interactive/ChatBox';
 
@@ -67,7 +74,7 @@ export default {
   },
   computed: {
     ...mapState(['user', 'global']),
-    // ...mapGetters(['mapHouseAbility']),
+    ...mapGetters(['isLoveOpen', 'trophyLastDate']),
     showResult() {
       const loc = JSON.parse(JSON.stringify(this.global.houses));
       loc.sort((a,b) => {
@@ -81,6 +88,14 @@ export default {
       });
       return loc;
     },
+    isOpenLove: {
+      get() {
+        return this.isLoveOpen;
+      },
+      set(val) {
+        this.$store.dispatch('wsEmitMessage', {act: ACT_WELFARE_CONFIG_SETTING, payload: {name: 'love', open: val}});
+      },
+    }
   },
   methods: {
     sendMessage(evt) {
@@ -112,7 +127,7 @@ export default {
       } else {
         this.openLive = false;
       }
-    }
+    },
   }
 };
 </script>

@@ -337,6 +337,17 @@ const globalData = {
         isLoveOpen: (state, getters) => {
             return !!(getters.LoveConfig.status == 1);
         },
+        trophyLastDate: (state) => {
+            let lastTime = 0;
+            state.trophy.map(t => {
+                const _date = new Date(t.updatedAt);
+                const _time = _date ? _date.getTime() : 0;
+                if (_time > 0 && _time > lastTime) {
+                    lastTime = _time;
+                }
+            });
+            return new Date(lastTime);
+        },
     }
 };
 

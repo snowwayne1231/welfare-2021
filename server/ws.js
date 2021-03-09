@@ -216,7 +216,7 @@ function onMessage(socket) {
             }
             case enums.ACT_GET_TROPHY:
                 return models.Trophy.findAll({
-                    attributes: ['name', 'ownerHouseId', 'add']
+                    attributes: ['name', 'ownerHouseId', 'add', 'updatedAt']
                 }).then(t => {
                     socket.emit('MESSAGE', {act: enums.ACT_GET_TROPHY, payload: t});
                 }).catch(err => console.log(err));
@@ -322,6 +322,19 @@ function onMessage(socket) {
                             }});
                         })
                     }
+                }).catch(err => console.log(err));
+            }
+            case enums.ACT_WELFARE_CONFIG_SETTING: {
+                if (userinfo.intLv != 'W') { return }
+                let name = payload.name;
+                let status = payload.open ? 1 : 0;
+                // let setting = payload.setting || 0;
+                let configIdx = configs.findIndex(e => e.name == name);
+                let config = configs[configIdx];
+                return config && models.Config.update({status}, {where: {name}}).then(c => {
+                    configs[configIdx].status = status;
+                    // configs[configIdx].setting = setting;
+                    broadcast({act: enums.ACT_GET_CONFIG, payload: configs});
                 }).catch(err => console.log(err));
             }
             default:
