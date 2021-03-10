@@ -28,7 +28,9 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id'
       }
     },
-    round: DataTypes.INTEGER
+    round: DataTypes.INTEGER,
+    num: DataTypes.INTEGER,
+    target: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Prediction',

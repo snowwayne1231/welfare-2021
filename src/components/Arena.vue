@@ -13,6 +13,7 @@
         <div class="welfare-controller" v-if="user.intLv == 'W'">
           <!-- <md-input v-model="loveNumber" type="number"></md-input> -->
           <md-switch v-model="isOpenLove">愛心開關</md-switch>
+          <md-switch v-model="isOpenPrediction" class="md-primary">預測開關</md-switch>
         </div>
       </md-card-header>
       <md-card-content>
@@ -27,7 +28,11 @@
                 <md-table-head>獎牌</md-table-head>
               </md-table-row>
               <md-table-row v-for="(loc, idx) in showResult" :key="loc.id">
-                <md-table-cell>{{rerenderRank(idx)}}</md-table-cell>
+                <md-table-cell>
+                  <button v-if="openPredictionAndCanPredict" class="prediction-btn" @click="onClickPrediction(loc.id)">預測</button>
+                  <md-progress-bar v-else-if="isOpenPrediction" class="md-accent" md-mode="buffer" :md-value="getSupportedByHouseId(loc.id)" title="支持率"></md-progress-bar>
+                  <span>{{rerenderRank(idx)}}</span>
+                </md-table-cell>
                 <md-table-cell><img class="arena-house-img" :src="renderHouseImage(loc)" />{{rerenderHouseName(loc)}}</md-table-cell>
                 <md-table-cell>{{loc.score}}</md-table-cell>
                 <md-table-cell><img class="arena-trophy-img" :src="`/static/imgs/trophy/${t.add}.png`" :title="t.name" v-for="t in loc.trophies" :key="t.add" /></md-table-cell>
@@ -51,7 +56,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex';
-import { ACT_GET_TROPHY, ACT_WELFARE_CONFIG_SETTING } from '../store/enum';
+import { ACT_GET_TROPHY, ACT_WELFARE_CONFIG_SETTING, ACT_SEND_PREDICTION, ACT_GET_PREDICTIONS } from '../store/enum';
 import LiveBattle from './panels/LiveBattle';
 import ChatBox from './interactive/ChatBox';
 
@@ -64,17 +69,19 @@ export default {
   data() {
     return {
       openLive: false,
+      noPredicted: true,
     };
   },
   mounted() {
     // console.log(this);
     if (this.global.trophy.length == 0) {
         this.$store.dispatch('wsEmitMessage', {act: ACT_GET_TROPHY});
+        this.$store.dispatch('wsEmitMessage', {act: ACT_GET_PREDICTIONS});
     }
   },
   computed: {
     ...mapState(['user', 'global']),
-    ...mapGetters(['isLoveOpen', 'trophyLastDate']),
+    ...mapGetters(['isLoveOpen', 'trophyLastDate', 'isPredictionOpen']),
     showResult() {
       const loc = JSON.parse(JSON.stringify(this.global.houses));
       loc.sort((a,b) => {
@@ -95,12 +102,25 @@ export default {
       set(val) {
         this.$store.dispatch('wsEmitMessage', {act: ACT_WELFARE_CONFIG_SETTING, payload: {name: 'love', open: val}});
       },
-    }
+    },
+    isOpenPrediction: {
+      get() {
+        return this.isPredictionOpen;
+      },
+      set(val) {
+        this.$store.dispatch('wsEmitMessage', {act: ACT_WELFARE_CONFIG_SETTING, payload: {name: 'prediction', open: val}});
+      },
+    },
+    openPredictionAndCanPredict: {
+      get() {
+        return (this.noPredicted && (this.global.predictions.findIndex(p => p.userId == this.user.id) < 0)) && this.isPredictionOpen && this.global.trophy.length > 0;
+      },
+      set(val) {
+        this.noPredicted = val;
+      },
+    },
   },
   methods: {
-    sendMessage(evt) {
-      // this.$store.dispatch('wsEmitAuthorize', this.$cookies.get('logintimestamp'));
-    },
     rerenderRank(idx) {
       const ary = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
       return ary[idx];
@@ -127,6 +147,15 @@ export default {
       } else {
         this.openLive = false;
       }
+    },
+    onClickPrediction(house) {
+      console.log('house: ', house);
+      this.openPredictionAndCanPredict = false;
+      this.$store.dispatch('wsEmitMessage', {act: ACT_SEND_PREDICTION, payload: {house}});
+    },
+    getSupportedByHouseId(id) {
+      const predictions = this.global.predictions;
+      return ((predictions.filter(p => p.houseId == id) || []).length / predictions.length) * 100;
     },
   }
 };

@@ -32,6 +32,21 @@
 
     .md-table-cell-container {
         padding: 2px;
+
+        .md-progress-bar {
+            // background-color: #964342;
+            position: absolute;
+            top: 0px;
+            width: 100%;
+            .md-progress-bar-fill {
+                background-color: #daa300;
+                border-top-right-radius: 2px;
+                border-bottom-right-radius: 2px;
+            }
+            .md-progress-bar-buffer {
+                border-color: rgba(255, 210, 25, 0.1);
+            }
+        }
     }
 
     .arena-house-img {
@@ -61,6 +76,22 @@
         input {
             display: block;
             margin: 5px auto;
+        }
+    }
+    .prediction-btn {
+        display: block;
+        float: left;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border-color: #fbff48;
+        background-color: #841b1b;
+        color: #fff700;
+        font-size: 14px;
+        line-height: 14px;
+        cursor: pointer;
+        &:hover {
+            background-color: #611414;
         }
     }
 }

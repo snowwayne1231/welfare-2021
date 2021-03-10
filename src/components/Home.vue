@@ -87,50 +87,61 @@
                     <li>B. 每面獎牌都有其相應的積分，只有在當年度結束活動總決算時才會計算</li>
                     <li>C. 同時獲得"工作不養閒人"與"團隊不養懶人"的獎牌時額外+100分</li>
                     <li>
-                      <md-table class="news-table">
+                      <md-table class="news-table" style="display: block;">
                         <md-table-row>
                           <md-table-head style="width: 25%">獎牌名稱</md-table-head>
                           <md-table-head>積分</md-table-head>
+                          <md-table-head style="width: 25%"></md-table-head>
                         </md-table-row>
                         <md-table-row>
                           <md-table-cell>獨孤求敗</md-table-cell>
                           <md-table-cell>10</md-table-cell>
+                          <md-table-cell><img class="arena-house-img" :src="`/static/imgs/trophy/10.png`" /></md-table-cell>
                         </md-table-row>
                         <md-table-row>
                           <md-table-cell>工作不養閒人</md-table-cell>
                           <md-table-cell>20</md-table-cell>
+                          <md-table-cell><img class="arena-house-img" :src="`/static/imgs/trophy/20.png`" /></md-table-cell>
                         </md-table-row>
                         <md-table-row>
                           <md-table-cell>團隊不養懶人</md-table-cell>
                           <md-table-cell>30</md-table-cell>
+                          <md-table-cell><img class="arena-house-img" :src="`/static/imgs/trophy/30.png`" /></md-table-cell>
                         </md-table-row>
                         <md-table-row>
                           <md-table-cell>寸草春暉</md-table-cell>
                           <md-table-cell>40</md-table-cell>
+                          <md-table-cell><img class="arena-house-img" :src="`/static/imgs/trophy/40.png`" /></md-table-cell>
                         </md-table-row>
                         <md-table-row>
                           <md-table-cell>情投意合</md-table-cell>
                           <md-table-cell>50</md-table-cell>
+                          <md-table-cell><img class="arena-house-img" :src="`/static/imgs/trophy/50.png`" /></md-table-cell>
                         </md-table-row>
                         <md-table-row>
                           <md-table-cell>九淺一深</md-table-cell>
                           <md-table-cell>60</md-table-cell>
+                          <md-table-cell><img class="arena-house-img" :src="`/static/imgs/trophy/60.png`" /></md-table-cell>
                         </md-table-row>
                         <md-table-row>
                           <md-table-cell>如夢似幻</md-table-cell>
                           <md-table-cell>70</md-table-cell>
+                          <md-table-cell><img class="arena-house-img" :src="`/static/imgs/trophy/70.png`" /></md-table-cell>
                         </md-table-row>
                         <md-table-row>
                           <md-table-cell>含辛茹苦</md-table-cell>
                           <md-table-cell>80</md-table-cell>
+                          <md-table-cell><img class="arena-house-img" :src="`/static/imgs/trophy/80.png`" /></md-table-cell>
                         </md-table-row>
                         <md-table-row>
                           <md-table-cell>阿姨我不想努力了</md-table-cell>
                           <md-table-cell>90</md-table-cell>
+                          <md-table-cell><img class="arena-house-img" :src="`/static/imgs/trophy/90.png`" /></md-table-cell>
                         </md-table-row>
                         <md-table-row>
                           <md-table-cell>魚知水恩乃幸福之源</md-table-cell>
                           <md-table-cell>100</md-table-cell>
+                          <md-table-cell><img class="arena-house-img" :src="`/static/imgs/trophy/100.png`" /></md-table-cell>
                         </md-table-row>
                       </md-table>
                     </li>
@@ -546,9 +557,7 @@ export default {
   //   ...mapState(['user'])
   // },
   methods: {
-    sendMessage(evt) {
-      // this.$store.dispatch('wsEmitMessage', {act: 123, payload: {}});
-    }
+    
   }
 }
 </script>

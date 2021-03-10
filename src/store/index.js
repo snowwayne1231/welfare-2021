@@ -6,7 +6,7 @@ import {
     ACT_GET_HOUSES_DATA, ACT_GET_FAMILY_DATA, ACT_GET_PEOPLE_DATA, ACT_UPDATE_SKILL, 
     ACT_JOIN_CHAT_ROOM, ACT_LEAVE_CHAT_ROOM, ACT_MOVE_CHAT_ROOM, ACT_SAY_CHAT_ROOM,
     ACT_GET_ADMIN_DATASET, ACT_GET_COUNTRYSIDE_DATA, ACT_GET_TROPHY, ACT_GET_CONFIG,
-    ACT_SEND_LOVE, ACT_GET_LOVE, ACT_GET_SELF_VOTE,
+    ACT_GET_LOVE, ACT_GET_SELF_VOTE, ACT_GET_PREDICTIONS,
 } from './enum';
 console.log('process.env: ', process.env);
 const wsLocation = process.env.WS_LOCATION;
@@ -233,6 +233,7 @@ const globalData = {
         countryBorder: [],
         trophy: [],
         configs: [],
+        predictions: [],
     },
     mutations: {
         wsOnMessage: (state, message) => {
@@ -268,6 +269,10 @@ const globalData = {
                 case ACT_GET_CONFIG: {
                     state.configs = payload;
                     return;
+                }
+                case ACT_GET_PREDICTIONS: {
+                    state.predictions = payload;
+                    return console.log('Global Predictions: ', payload);
                 }
                 default:
             }

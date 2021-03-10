@@ -4,16 +4,22 @@ const { Op } = require("sequelize");
 const fs = require('fs');
 const models = require('./models');
 const enums = require('../src/store/enum');
+const { config } = require("shelljs");
 
 const ROOM_CHATTING_BAR = 'roomchattingbar';
 
 const inners = {};
 const bar_tables = [];
 const bar_house_people = [];
+let predictions = [];
+let predictionRound= 0;
+let predictionNum = 0;
+
 let country_border = [];
 let configs = [];
 let loves = {};
 let nowLoveRound = 0;
+
 refreshBasicData();
 
 
@@ -59,12 +65,23 @@ function refreshBasicData(callback) {
                 loves[gameNum] = 0;
             }
         }
+        const configPrediction = configs.find(e => e.name == 'prediction');
+        if (configPrediction) {
+            let round = Math.floor(configPrediction.setting / 1000) || 0;
+            let num = configPrediction.setting % 1000 || 0;
+            predictionRound = round;
+            predictionNum = num;
+            models.Prediction.findAll({attributes: ['houseId', 'userId', 'num'], where: {round, num}}).then(p => {
+                predictions = p.map(e => e.toJSON());
+            }).catch(err => console.log(err));
+        }
         return configs;
     });
+    
     promises.push(promise1);
     promises.push(promise2);
     if (callback) {
-        Promise.all(promises).then(callback);
+        Promise.all(promises).then(callback).catch(err => console.log(err));
     }
 }
 
@@ -336,6 +353,17 @@ function onMessage(socket) {
                     // configs[configIdx].setting = setting;
                     broadcast({act: enums.ACT_GET_CONFIG, payload: configs});
                 }).catch(err => console.log(err));
+            }
+            case enums.ACT_GET_PREDICTIONS: {
+                return socket.emit('MESSAGE', {act: enums.ACT_GET_PREDICTIONS, payload: predictions});
+            }
+            case enums.ACT_SEND_PREDICTION: {
+                let user_id = userinfo.id;
+                if (predictions.findIndex(e => e.userId == user_id) >= 0) { return }
+                let dataset = {userId: user_id, houseId: payload.house, num: predictionNum};
+                predictions.push(dataset);
+                models.Prediction.create({...dataset, round: predictionRound});
+                return broadcast({act: enums.ACT_GET_PREDICTIONS, payload: predictions});
             }
             default:
                 console.log("Not Found Act: ", msg);
