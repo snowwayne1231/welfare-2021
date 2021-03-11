@@ -22,20 +22,26 @@
           <md-tab id="tab-ranking" md-label="排名" exact>
             <md-table class="arena-table">
               <md-table-row>
-                <md-table-head>名次</md-table-head>
+                <md-table-head style="width: 50px;">名次</md-table-head>
                 <md-table-head>家族</md-table-head>
-                <md-table-head>家族積分</md-table-head>
-                <md-table-head>獎牌</md-table-head>
+                <md-table-head v-if="notOpenPrediction">家族積分</md-table-head>
+                <md-table-head v-if="notOpenPrediction">獎牌</md-table-head>
+                <md-table-head v-if="isOpenPrediction" ><div style="width: 20vw;">預測</div></md-table-head>
               </md-table-row>
               <md-table-row v-for="(loc, idx) in showResult" :key="loc.id">
                 <md-table-cell>
-                  <button v-if="openPredictionAndCanPredict" class="prediction-btn" @click="onClickPrediction(loc.id)">預測</button>
-                  <md-progress-bar v-else-if="isOpenPrediction" class="md-accent" md-mode="buffer" :md-value="getSupportedByHouseId(loc.id)" title="支持率"></md-progress-bar>
                   <span>{{rerenderRank(idx)}}</span>
                 </md-table-cell>
                 <md-table-cell><img class="arena-house-img" :src="renderHouseImage(loc)" />{{rerenderHouseName(loc)}}</md-table-cell>
-                <md-table-cell>{{loc.score}}</md-table-cell>
-                <md-table-cell><img class="arena-trophy-img" :src="`/static/imgs/trophy/${t.add}.png`" :title="t.name" v-for="t in loc.trophies" :key="t.add" /></md-table-cell>
+                <md-table-cell v-if="notOpenPrediction">{{loc.score}}</md-table-cell>
+                <md-table-cell v-if="notOpenPrediction"><img class="arena-trophy-img" :src="`/static/imgs/trophy/${t.add}.png`" :title="t.name" v-for="t in loc.trophies" :key="t.add" /></md-table-cell>
+                <md-table-cell v-if="isOpenPrediction">
+                  <button v-if="openPredictionAndCanPredict" class="prediction-btn" @click="onClickPrediction(loc.id)">預測</button>
+                  <div v-else-if="isOpenPrediction" class="prediction-results" :class="loc.en">
+                    <div class="md-progress-bar"><div class="md-progress-bar-fill" :style="{width: `${loc.supportRate}%`}"></div></div>
+                    <i class="suport-rate" :style="{paddingLeft: `${loc.supportRate}%`}">{{loc.supportRate}} %</i>
+                  </div>
+                </md-table-cell>
               </md-table-row>
             </md-table>
             <md-content>
@@ -92,6 +98,7 @@ export default {
       loc.map(e => {
         const trophies = this.global.trophy.filter(t => t.ownerHouseId == e.id);
         e.trophies = trophies || [];
+        e.supportRate = Math.floor(this.getSupportedByHouseId(e.id));
       });
       return loc;
     },
@@ -110,6 +117,9 @@ export default {
       set(val) {
         this.$store.dispatch('wsEmitMessage', {act: ACT_WELFARE_CONFIG_SETTING, payload: {name: 'prediction', open: val}});
       },
+    },
+    notOpenPrediction() {
+      return !this.isOpenPrediction;
     },
     openPredictionAndCanPredict: {
       get() {

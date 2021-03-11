@@ -33,18 +33,60 @@
     .md-table-cell-container {
         padding: 2px;
 
-        .md-progress-bar {
-            // background-color: #964342;
+        .prediction-results {
             position: absolute;
             top: 0px;
             width: 100%;
+            &.lannister .md-progress-bar .md-progress-bar-fill { background-color: #e80000; }
+            &.targaryen .md-progress-bar .md-progress-bar-fill { background-color: #000000; }
+            &.tully .md-progress-bar .md-progress-bar-fill { background-color: #ff36af; }
+            &.eyrie .md-progress-bar .md-progress-bar-fill { background-color: #0024bd; }
+            &.stark .md-progress-bar .md-progress-bar-fill { background-color: #9e9e9d; }
+            &.baratheon .md-progress-bar .md-progress-bar-fill { background-color: #bdbc07; }
+            &.tyrell .md-progress-bar .md-progress-bar-fill { background-color: #1ebd07; }
+            &.martell .md-progress-bar .md-progress-bar-fill { background-color: #e0851e; }
+            .suport-rate {
+                position: absolute;
+                display: block;
+                width: 100%;
+                text-align: left;
+                white-space: nowrap;
+                color: #d4b929;
+                top: 50%;
+            }
+        }
+
+        .md-progress-bar {
+            // background-color: #964342;
+            height: 15px;
+            margin-top: 20px;
+            
+
             .md-progress-bar-fill {
-                background-color: #daa300;
-                border-top-right-radius: 2px;
-                border-bottom-right-radius: 2px;
+                position: relative;
+                z-index: 2;
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+                // width: 70% !important;
+                
+                &:after {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    animation: animate-stripes 3s linear infinite;
+                    background-repeat: repeat-x;
+                    background-size: 50px;
+                    background-image: linear-gradient(
+                        135deg,
+                        transparent 20px,
+                        rgba(255, 255, 255, .15) 20px,
+                        rgba(255, 255, 255, .15) 30px,
+                        transparent 30px,
+                    );
+                }
             }
             .md-progress-bar-buffer {
-                border-color: rgba(255, 210, 25, 0.1);
+                border-color: rgba(120, 100, 25, 0.2);
             }
         }
     }
@@ -79,8 +121,8 @@
         }
     }
     .prediction-btn {
-        display: block;
-        float: left;
+        // display: block;
+        // float: left;
         width: 40px;
         height: 40px;
         border-radius: 50%;
@@ -125,5 +167,16 @@
             height: 480px;
             
         }
+    }
+}
+
+
+@keyframes animate-stripes {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 300px 0;
     }
 }
