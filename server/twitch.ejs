@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <style>
+      html, body {
+        overflow: hidden;
+        margin: 0px;
+        padding: 0px;
+        background-color: #000;
+      }
+      #twitch-embed {
+        width: 100%;
+        height: 480px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Add a placeholder for the Twitch embed -->
+    <div id="twitch-embed"></div>
+
+    <!-- Load the Twitch embed script -->
+    <script src="https://embed.twitch.tv/embed/v1.js"></script>
+
+    <!-- Create a Twitch.Embed object that will render within the "twitch-embed" root element. -->
+    <script type="text/javascript">
+      var embed = new Twitch.Embed("twitch-embed", {
+        width: window.innerWidth,
+        height: 480,
+        channel: "snowwayne123169",
+        layout: "video",
+        autoplay: false,
+        
+        // parent: ["172.16.20.73", "127.0.0.1"]
+      });
+      embed.addEventListener(Twitch.Embed.VIDEO_READY, function() {
+        var player = embed.getPlayer();
+        player.play();
+        
+      });
+      embed.addEventListener(Twitch.Embed.VIDEO_PLAY, function() {
+        var player = embed.getPlayer();
+        // var ss = player.getQualities();
+        // var lastQuality = ss.slice(-1)[0];
+        // console.log('lastQuality: ', lastQuality);
+        // player.setQuality(lastQuality.name);
+      });
+    </script>
+  </body>
+</html>

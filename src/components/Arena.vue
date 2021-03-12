@@ -14,6 +14,7 @@
           <!-- <md-input v-model="loveNumber" type="number"></md-input> -->
           <md-switch v-model="isOpenLove">愛心開關</md-switch>
           <md-switch v-model="isOpenPrediction" class="md-primary">預測開關</md-switch>
+          <md-switch v-model="isLiveTwitch" class="md-accent">TWITCH</md-switch>
         </div>
       </md-card-header>
       <md-card-content>
@@ -50,7 +51,7 @@
           </md-tab>
 
           <md-tab id="tab-live" md-label="戰場" >
-            <LiveBattle v-if="openLive" />
+            <LiveBattle v-if="openLive" :isTwitch="isLiveTwitch" />
             <ChatBox v-if="openLive"/>
           </md-tab>
 
@@ -116,6 +117,14 @@ export default {
       },
       set(val) {
         this.$store.dispatch('wsEmitMessage', {act: ACT_WELFARE_CONFIG_SETTING, payload: {name: 'prediction', open: val}});
+      },
+    },
+    isLiveTwitch: {
+      get() {
+        return (this.global.configs.find(e => e.name == 'twitch') || {}).status == 1;
+      },
+      set(val) {
+        this.$store.dispatch('wsEmitMessage', {act: ACT_WELFARE_CONFIG_SETTING, payload: {name: 'twitch', open: val}});
       },
     },
     notOpenPrediction() {

@@ -9,6 +9,7 @@
     .md-tab {
         min-height: 520px;
     }
+    
     .md-table {
         background-color: rgba(15, 15, 15, 0.5);
         .md-table-row:nth-child(2),
@@ -115,6 +116,7 @@
     }
 
     .welfare-controller {
+        max-width: 180px;
         input {
             display: block;
             margin: 5px auto;

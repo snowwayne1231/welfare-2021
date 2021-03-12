@@ -11,6 +11,7 @@ module.exports = {
       { name: 'vote', status: 0, setting: 0, createdAt: new Date(), updatedAt: new Date() },
       { name: 'countryside', status: 0, setting: 0, createdAt: new Date(), updatedAt: new Date() },
       { name: 'love', status: 0, setting: 0, createdAt: new Date(), updatedAt: new Date() },
+      { name: 'twitch', status: 0, setting: 0, createdAt: new Date(), updatedAt: new Date() },
     ];
 
     return queryInterface.bulkInsert('Configs', insertData);

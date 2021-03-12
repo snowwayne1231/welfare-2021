@@ -21,7 +21,7 @@ import { mapState, mapGetters } from 'vuex';
 export default {
   name: 'LiveBattle',
   props: {
-    
+    isTwitch: Boolean,
   },
   data() {
     return {
@@ -34,7 +34,11 @@ export default {
     ...mapState(['global', 'chat']),
     ...mapGetters(['isLoveOpen']),
     iframeSrc() {
-      return this.host ? `${this.host}/WebRTCAppEE/play.html?name=${this.keyid}` : '';
+      if (this.isTwitch) {
+        return this.host ? `/twitch` : '';
+      } else {
+        return this.host ? `${this.host}/WebRTCAppEE/play.html?name=${this.keyid}` : '';
+      }
     },
   },
   mounted() {

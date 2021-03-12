@@ -75,6 +75,7 @@ http.listen(port, () => {
 const _index = path.join(__dirname, '..', 'dist', 'index.ejs');
 const _login = path.join(__dirname, 'login.ejs');
 const _register = path.join(__dirname, 'register.ejs');
+const _twitch = path.join(__dirname, 'twitch.ejs');
 
 function renderURI(req, res, uris) {
     const userinfo = req.session.userinfo || {};
@@ -93,6 +94,10 @@ function renderURI(req, res, uris) {
         } else {
             return res.status(404).send('Not Found.');
         }
+    }
+
+    if (uris[0] == 'twitch') {
+        return res.render(_twitch);
     }
     
     if (req.method=='POST') {
@@ -750,7 +755,6 @@ function refreshFamilyScore(res) { // not finished
             } else {
                 trophies[key] = loc.house ? loc.house.name : loc.name;
             }
-            
         });
         res.json({houses, trophies, trophyMap});
     }).catch(err => {
