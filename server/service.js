@@ -512,15 +512,64 @@ function refreshUserScore(res) {
 
 
 function refreshFamilyScore(res) { // not finished
-    models.User.findAll({
-        attributes: {
-            include: ['id', 'houseId', 'rv', 'strLv', 'dexLv', 'conLv', 'wisLv', 'chaLv', 'thankTimes', 'gender', 'partake', 'mvp', 'departmentName'],
-        },
-        where: {
-            status: 1,
-        },
-    }).then(users => {
+    const promise_users = models.User.findAll({
+        attributes: ['id', 'houseId', 'rv', 'code', 'strLv', 'dexLv', 'conLv', 'wisLv', 'chaLv', 'thankTimes', 'gender', 'partake', 'mvp', 'departmentName'],
+        where: { status: 1, intLv: '-' },
+    });
+    const promise_houses = models.House.findAll();
+    const promise_results = models.Result.findAll();
+    const promise_matches = models.Match.findAll({
+        attributes: ['userId', 'round'],
+        where: { add: {[Op.gt]: 0}}
+    });
+    const mapLvNum = {'S': 5, 'A': 4, 'B': 3, 'C': 2, 'D':1};
+    const getLvToNum = (user) => {
+        return {
+            str: mapLvNum[user.strLv] || 0,
+            dex: mapLvNum[user.devLv] || 0,
+            con: mapLvNum[user.conLv] || 0,
+            wis: mapLvNum[user.wisLv] || 0,
+            cha: mapLvNum[user.chaLv] || 0,
+        }
+    }
+
+    Promise.all([promise_users, promise_houses, promise_results, promise_matches]).then(([users, houses, results, matches]) => {
         var houseUserMap = {};
+        var maxRvUsers = [{rv: 0}]; // trophy (1)
+        var maxRvUserHouses = [];
+        var maxPartakeHouses = [{totalPartake: 0}]; // trophy (2)
+        var maxConWisLevelSHouses = [{cw: 0}]; // trophy (3)
+        var mapDepartmentUser = {}; // trophy (4)
+        var maxDepartments = [{rate: 0}];
+        var closestAbility = [{gap: 1000}]; // trophy (5)
+        var maxLady = {ladies: 0}; // trophy (7)
+        var maxWorkCode = {num: 0, round: 0, house: {}}; // trophy (8)
+        var mapUserMatches = {};
+        var mapMatchTotalCode = {};
+        var maxChas = [{len: 0}]; // trophy (9)
+        var maxThanks = [{times: 0}];
+        var maxChangeRanks = [{change: 0}]; // trophy (6)
+        var mapReusltChanges = {};
+        
+        results.map(r => {
+            var ranking = JSON.parse(r.ranking);
+            ranking.map((hid, rank) => {
+                if (mapReusltChanges[hid]) {
+                    mapReusltChanges[hid].change += Math.abs(mapReusltChanges[hid].ranks.slice(-1)[0] - rank);
+                    mapReusltChanges[hid].ranks.push(rank);
+                } else {
+                    mapReusltChanges[hid] = {ranks: [rank], change: 0};
+                }
+            });
+        });
+        matches.map(m => {
+            if (mapUserMatches[m.userId]) {
+                mapUserMatches[m.userId].push(m.round);
+            } else {
+                mapUserMatches[m.userId] = [m.round];
+            }
+        });
+
         users.map(user => {
             var hid = user.houseId;
             if (hid && hid > 0) {
@@ -530,27 +579,182 @@ function refreshFamilyScore(res) { // not finished
                     houseUserMap[hid] = [user];
                 }
             }
+            if (user.rv > maxRvUsers[0].rv) {
+                maxRvUsers = [user];
+            } else if (user.rv == maxRvUsers[0].rv) {
+                maxRvUsers.push(user);
+            }
+            if (mapDepartmentUser[user.departmentName]) {
+                mapDepartmentUser[user.departmentName].push(user);
+            } else {
+                mapDepartmentUser[user.departmentName] = [user];
+            }
         });
+        houses.map(house => {
+            var id = house.id;
+            var usersInHouse = houseUserMap[id];
+            if (usersInHouse && usersInHouse.length > 0) {
+                var scorePersonal = 0;
+                var rankMove = 0;
+                var leaderMatchFamily = 0;
+                var sameDepartment = 0;
+                var totalFamilyAbility = 0;
+                var totalPartake = 0;
 
-        models.House.findAll().then((houses) => {
-            houses.map(house => {
-                var id = house.id;
-                var usersInHouse = houseUserMap[id];
-                if (usersInHouse && usersInHouse.length > 0) {
-                    var new_land = 0;
-                    var new_scorePersonal = 0;
-                    var new_scoreTrophy = 0;
-                    var new_rank = 0;
-                    var new_rankMove = 0;
-                    var new_leaderMatchFamily = 0;
-                    var new_sameDepartment = 0;
-                    var new_totalPartake = 0;
+                // 
+                var lengthConWis = 0;
+                var sumThanks = 0;
+                usersInHouse.map(user => {
+                    scorePersonal += user.rv;
+                    if (user.conLv == 'S' || user.wisLv == 'S') { lengthConWis+=1; } // trophy (3)
+                    sumThanks += user.thankTimes; // trophy (10)
+                    totalPartake += user.partake;
+                    if (maxRvUsers.findIndex(u => u.id == user.id)>=0) {
+                        maxRvUserHouses.push({house, user});
+                    }
+                    if (mapUserMatches[user.id]) { //trophy (8)
+                        var rounds = mapUserMatches[user.id];
+                        var numUserCode = parseInt(user.code.replace(/[A-Z]+/i, ''), 10) || 0;
+                        rounds.map(r => {
+                            if (mapMatchTotalCode[r]) {
+                                if (mapMatchTotalCode[r][user.houseId]) {
+                                    mapMatchTotalCode[r][user.houseId] += numUserCode;
+                                } else {
+                                    mapMatchTotalCode[r][user.houseId] = numUserCode;
+                                }
+                            } else {
+                                mapMatchTotalCode[r] = {[user.houseId]: numUserCode};
+                            }
+                        });
+                    }
+                });
+                if (lengthConWis > maxConWisLevelSHouses[0].cw) {
+                    maxConWisLevelSHouses = [{house, cw: lengthConWis}];
+                } else if (lengthConWis == maxConWisLevelSHouses[0].cw) {
+                    maxConWisLevelSHouses.push({house, cw: lengthConWis});
                 }
-            });
-            res.json(houses);
+                if (sumThanks > maxThanks[0].times) { // trophy (10)
+                    maxThanks = [{times: sumThanks, house}];
+                } else if (sumThanks == maxThanks[0].times) {
+                    maxThanks.push({times: sumThanks, house});
+                }
+
+                //
+                var leader = users.find(u => u.id == house.leaderId);
+                if (leader) {
+                    // trophy (4)
+                    var department = mapDepartmentUser[leader.departmentName];
+                    var usersInSameDepartment = usersInHouse.filter(u => u.departmentName == leader.departmentName);
+                    var rate = usersInSameDepartment.length / department.length;
+                    if (rate > maxDepartments[0].rate) {
+                        maxDepartments = [{rate, house, usersInSameDepartment}];
+                    } else if (rate == maxDepartments[0].rate) {
+                        maxDepartments.push({rate, house, usersInSameDepartment});
+                    }
+                    sameDepartment = usersInSameDepartment.length;
+                    // trophy (5)
+                    var leaderAbility = getLvToNum(leader);
+                    var leaderGap = 0;
+                    usersInHouse.map(user => {
+                        var userAbility = getLvToNum(user);
+                        ['str', 'dex', 'con', 'wis', 'cha'].map(loc => {
+                            var gap = Math.abs(leaderAbility[loc] - userAbility[loc]);
+                            leaderGap += gap;
+                            totalFamilyAbility += userAbility[loc];
+                        });
+                    });
+                    if (leaderGap < closestAbility[0].gap) {
+                        closestAbility = [{gap: leaderGap, house}];
+                    } else if (leaderGap == closestAbility[0].gap) {
+                        closestAbility.push({gap: leaderGap, house});
+                    }
+                    leaderMatchFamily = leaderGap;
+                    //trophy (6)
+                    var changeRank = mapReusltChanges[house.id] || {change: 0};
+                    if (changeRank.change > maxChangeRanks[0].change) {
+                        maxChangeRanks = [{change: changeRank.change, house}];
+                    } else if (changeRank.change == maxChangeRanks[0].change) {
+                        maxChangeRanks.push({change: changeRank.change, house});
+                    }
+                    
+                    // trophy (7)
+                    var ladies = usersInHouse.filter(u => u.gender == 2).length;
+                    if (ladies > maxLady.ladies) {
+                        maxLady = {ladies, house};
+                    }
+                    // trophy (8)
+                    // trophy (9)
+                    var chaLvS = usersInHouse.filter(u => u.chaLv == 'S').length;
+                    if (chaLvS > maxChas[0].len) {
+                        maxChas = [{len: chaLvS, house}];
+                    } else if (chaLvS == maxChas[0].len) {
+                        maxChas.push({len: chaLvS, house});
+                    }
+                }
+
+                // update houses
+                
+                [scorePersonal,leaderMatchFamily,sameDepartment,totalFamilyAbility,totalPartake].map(loc => {
+                    if (isNaN(loc)) {
+                        throw `${house.name} has NaN number. [${scorePersonal}, ${leaderMatchFamily}, ${sameDepartment}, ${totalFamilyAbility}, ${totalPartake}]`; 
+                    }
+                });
+                house.update({
+                    scorePersonal,
+                    leaderMatchFamily,
+                    sameDepartment,
+                    totalFamilyAbility,
+                    totalPartake,
+                });
+            }
         });
         
+        houses.map(house => {
+            if (house.totalPartake > maxPartakeHouses[0].totalPartake) {
+                maxPartakeHouses = [{house}];
+            } else if (house.totalPartake == maxPartakeHouses[0].totalPartake) {
+                maxPartakeHouses.push({house});
+            }
+        });
+
+        Object.keys(mapMatchTotalCode).map(keyRound => {
+            var loc = mapMatchTotalCode[keyRound];
+            Object.keys(loc).map(hid => {
+                var _number = loc[hid];
+                if (_number > maxWorkCode.num) {
+                    maxWorkCode.num = _number
+                    maxWorkCode.round = keyRound;
+                    maxWorkCode.house = houses.find(h => h.id == hid);
+                }
+            });
+        });
+
+
+        var trophyMap = {
+            '10': maxRvUserHouses,
+            '20': maxPartakeHouses,
+            '30': maxConWisLevelSHouses,
+            '40': maxDepartments,
+            '50': closestAbility,
+            '60': maxChangeRanks,
+            '70': maxLady,
+            '80': maxWorkCode,
+            '90': maxChas,
+            '100': maxThanks,
+        }
+        var trophies = {};
+        Object.keys(trophyMap).map(key => {
+            var loc = trophyMap[key];
+            if (Array.isArray(loc)) {
+                trophies[key] = loc.map(e => e.house ? e.house.name : e.name);
+            } else {
+                trophies[key] = loc.house ? loc.house.name : loc.name;
+            }
+            
+        });
+        res.json({houses, trophies, trophyMap});
     }).catch(err => {
+        console.log(err);
         res.json({'error': err});
     });
 }
