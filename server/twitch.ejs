@@ -15,34 +15,44 @@
   </head>
   <body>
     <!-- Add a placeholder for the Twitch embed -->
-    <div id="twitch-embed"></div>
+    <div id="twitch-embed">
+      <!-- <iframe src="https://embed.twitch.tv?autoplay=false&channel=snowwayne123169&height=480&layout=video&migration=true&parent=127.0.0.1&referrer=http%3A%2F%2F127.0.0.1%3A9898%2Ftwitch&width=861" height="480" width="622"></iframe> -->
+    </div>
 
     <!-- Load the Twitch embed script -->
     <script src="https://embed.twitch.tv/embed/v1.js"></script>
 
     <!-- Create a Twitch.Embed object that will render within the "twitch-embed" root element. -->
     <script type="text/javascript">
-      var embed = new Twitch.Embed("twitch-embed", {
-        width: window.innerWidth,
-        height: 480,
-        channel: "snowwayne123169",
-        layout: "video",
-        autoplay: false,
+      // var embed = new Twitch.Embed("twitch-embed", {
+      //   width: window.innerWidth,
+      //   height: 480,
+      //   channel: "snowwayne123169",
+      //   layout: "video",
+      //   autoplay: false,
         
-        // parent: ["172.16.20.73", "127.0.0.1"]
-      });
-      embed.addEventListener(Twitch.Embed.VIDEO_READY, function() {
-        var player = embed.getPlayer();
-        player.play();
+      //   parent: ["127.0.0.1", "rv88.tw"],
+      // });
+      // embed.addEventListener(Twitch.Embed.VIDEO_READY, function() {
+      //   var player = embed.getPlayer();
+      //   player.play();
         
-      });
-      embed.addEventListener(Twitch.Embed.VIDEO_PLAY, function() {
-        var player = embed.getPlayer();
-        // var ss = player.getQualities();
-        // var lastQuality = ss.slice(-1)[0];
-        // console.log('lastQuality: ', lastQuality);
-        // player.setQuality(lastQuality.name);
-      });
+      // });
+      // embed.addEventListener(Twitch.Embed.VIDEO_PLAY, function() {
+      //   var player = embed.getPlayer();
+      //   // var ss = player.getQualities();
+      //   // var lastQuality = ss.slice(-1)[0];
+      //   // console.log('lastQuality: ', lastQuality);
+      //   // player.setQuality(lastQuality.name);
+      // }); 
+      var width = window.innerWidth;
+      var height = 480;
+      var _src = `https://embed.twitch.tv?autoplay=false&channel=snowwayne123169&height=${height}&layout=video&migration=true&parent=127.0.0.1&referrer=http%3A%2F%2F127.0.0.1%3A9898%2Ftwitch&width=${width}`;
+      var iframe = document.createElement('iframe');
+      iframe.src=  _src;
+      iframe.height = height;
+      iframe.width = width;
+      document.getElementById('twitch-embed').appendChild(iframe);
     </script>
   </body>
 </html>
