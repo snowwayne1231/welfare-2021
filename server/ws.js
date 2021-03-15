@@ -365,6 +365,32 @@ function onMessage(socket) {
                 models.Prediction.create({...dataset, round: predictionRound});
                 return broadcast({act: enums.ACT_GET_PREDICTIONS, payload: predictions});
             }
+            case enums.ACT_GET_GAMES: {
+                let roundId = payload;
+                return models.Game.findAll({
+                    attributes: ['id', 'name', 'video', 'gameRound', 'gameNum', 'createdAt'],
+                    where: {
+                        gameRound: roundId
+                    }
+                }).then(g => {
+                    if (g) { socket.emit('MESSAGE', {act: enums.ACT_GET_GAMES, payload: g.map(game => game.toJSON())}); }
+                }).catch(err => console.log(err));
+            }
+            case enums.ACT_GET_GAME_RESULTS: {
+                return models.Result.findAll({
+                    attributes: ['json', 'ranking', 'game'],
+                }).then(r => {
+                    socket.emit('MESSAGE', {act: enums.ACT_GET_GAME_RESULTS, payload: r.map(result => result.toJSON())});
+                }).catch(err => console.log(err));
+            }
+            case enums.ACT_GET_GAME_MATCHES: {
+                return models.Match.findAll({
+                    attributes: ['success', 'add', 'minus', 'activity', 'shift', 'mvp', 'userId', 'game'],
+                    where: { game: payload },
+                }).then(matches => {
+                    socket.emit('MESSAGE', {act: enums.ACT_GET_GAME_MATCHES, payload: matches.map(m => m.toJSON())});
+                }).catch(err => console.log(err));
+            }
             default:
                 console.log("Not Found Act: ", msg);
         }

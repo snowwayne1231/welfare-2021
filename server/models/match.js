@@ -34,6 +34,7 @@ module.exports = (sequelize, DataTypes) => {
     shift: DataTypes.INTEGER,
     activity: DataTypes.INTEGER,
     add: DataTypes.INTEGER,
+    minus: DataTypes.INTEGER,
     success: DataTypes.INTEGER
   }, {
     sequelize,

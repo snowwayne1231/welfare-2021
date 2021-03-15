@@ -84,7 +84,7 @@ export default {
       }
       window.clearTimeout(this.timer); this.timer = 0;
       this.table_1_data = JSON.parse(JSON.stringify(this.global.users)).map(u => {
-        u.add = 3;
+        u.add = u.houseId > 0 ? 3 : 0;
         u.activity = 1;
         u.success = false;
         u.houseIdNow = u.houseId == 0 ? u.houseIdTmp : u.houseId;
@@ -93,7 +93,7 @@ export default {
     },
     onSelect(selectedArray) {
       this.selectedArray = selectedArray;
-      // console.log(selectedArray);
+      console.log(selectedArray);
     },
     onClickSend(evt) {
       this.$store.dispatch('wsEmitMessage', {act: ACT_ADMIN_CREATE_GAME, payload: {

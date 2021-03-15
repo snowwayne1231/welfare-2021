@@ -192,7 +192,9 @@
       border: 3px outset #b5a867;
       color: #b8b9b3;
       .md-dialog-content {
-
+        max-height: 72vh;
+        overflow-y: auto;
+        
         .md-field, .md-count, .md-input {
           color: #b8b9b3;
         }

@@ -6,7 +6,9 @@ import {
     ACT_GET_HOUSES_DATA, ACT_GET_FAMILY_DATA, ACT_GET_PEOPLE_DATA, ACT_UPDATE_SKILL, 
     ACT_JOIN_CHAT_ROOM, ACT_LEAVE_CHAT_ROOM, ACT_MOVE_CHAT_ROOM, ACT_SAY_CHAT_ROOM,
     ACT_GET_ADMIN_DATASET, ACT_GET_COUNTRYSIDE_DATA, ACT_GET_TROPHY, ACT_GET_CONFIG,
-    ACT_GET_LOVE, ACT_GET_SELF_VOTE, ACT_GET_PREDICTIONS,
+    ACT_GET_LOVE, ACT_GET_SELF_VOTE, ACT_GET_PREDICTIONS, ACT_GET_GAMES, ACT_GET_GAME_RESULTS,
+    ACT_GET_GAME_MATCHES,
+    
 } from './enum';
 console.log('process.env: ', process.env);
 const wsLocation = process.env.WS_LOCATION;
@@ -417,7 +419,37 @@ const moduleChatRoom = {
 }
 
 const moduleGame = {
-
+    state: {
+        results: [],
+        list: [],
+        matches: [],
+    },
+    mutations: {
+        wsOnMessage: (state, message) => {
+            const payload = message.payload;
+            switch (message.act) {
+                case ACT_GET_GAMES:
+                    state.list = payload;
+                    return;
+                case ACT_GET_GAME_RESULTS: {
+                    try {
+                        state.results = payload.map(loc => {
+                            loc.json = JSON.parse(loc.json);
+                            loc.ranking = JSON.parse(loc.ranking);
+                            return loc;
+                        }).filter(e => !!e.json.round);
+                    } catch (err) {
+                        console.log(err);
+                    }
+                }
+                case ACT_GET_GAME_MATCHES: {
+                    state.matches = state.matches.concat(payload);
+                    state.matches.sort((a,b) => a.game - b.game);
+                }
+                default:
+            }
+        },
+    },
 }
 
 export default new Vuex.Store({
@@ -425,6 +457,7 @@ export default new Vuex.Store({
       'user': moduleUser,
       'chat': moduleChatRoom,
       'global': globalData,
+      'game': moduleGame,
     },
     plugins: [socketPlugin]
 });

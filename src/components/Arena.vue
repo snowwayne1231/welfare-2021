@@ -55,6 +55,10 @@
             <ChatBox v-if="openLive"/>
           </md-tab>
 
+          <md-tab id="tab-record" md-label="戰功" >
+            <Record v-if="openRecord" />
+          </md-tab>
+
         </md-tabs>
       </md-card-content>
     </md-card>
@@ -66,16 +70,19 @@ import { mapState, mapGetters } from 'vuex';
 import { ACT_GET_TROPHY, ACT_WELFARE_CONFIG_SETTING, ACT_SEND_PREDICTION, ACT_GET_PREDICTIONS } from '../store/enum';
 import LiveBattle from './panels/LiveBattle';
 import ChatBox from './interactive/ChatBox';
+import Record from './panels/Record';
 
 export default {
   name: 'Arena',
   components: {
     LiveBattle,
-    ChatBox
+    ChatBox,
+    Record
   },
   data() {
     return {
       openLive: false,
+      openRecord: false,
       noPredicted: true,
     };
   },
@@ -165,6 +172,11 @@ export default {
         this.openLive = true;
       } else {
         this.openLive = false;
+      }
+      if (tabId == 'tab-record') {
+        this.openRecord = true;
+      } else {
+        this.openRecord = false;
       }
     },
     onClickPrediction(house) {
