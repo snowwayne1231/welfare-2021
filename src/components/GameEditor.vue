@@ -66,7 +66,7 @@ export default {
     };
   },
   mounted() {
-    if (this.user.rv > 0 && this.user.rv < 90) {
+    if (this.user.intLv != 'W') {
       window.location.href = '/logout';
     }
     this.$store.dispatch('wsEmitMessage', {act: ACT_GET_PEOPLE_DATA, payload: {more: true}});

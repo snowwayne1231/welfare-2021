@@ -293,7 +293,7 @@
 
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">local_fire_department</span>
-              <span class="md-list-item-text">2021-03-15 【 NEWS 】 睿訊之國的闖關者時間表 與 預測功能開放</span>
+              <span class="md-list-item-text">2021-03-15 【 NEWS 】 睿訊之國的闖關者時間表&門檻 與 預測功能開放</span>
               <md-list slot="md-expand">
                 <md-content>
                   <img src="/static/imgs/timetable.jpg" >
@@ -468,6 +468,39 @@
                     <md-table-cell>銅鬚布萊恩</md-table-cell>
                   </md-table-row>
                 </md-table>
+                <md-table class="news-table smaller-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">睿訊之國的闖關者 各花色遊戲門檻</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 12%"></md-table-head>
+                    <md-table-head>黑桃</md-table-head>
+                    <md-table-head>方塊</md-table-head>
+                    <md-table-head>紅心</md-table-head>
+                    <md-table-head>梅花</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>Level - 1</md-table-cell>
+                    <md-table-cell>持續為隊友加油</md-table-cell>
+                    <md-table-cell>有作答正確思路</md-table-cell>
+                    <md-table-cell>描述時使多數人開口笑</md-table-cell>
+                    <md-table-cell>存活</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>Level - 2</md-table-cell>
+                    <md-table-cell>兩次連勝</md-table-cell>
+                    <md-table-cell>14分內答對</md-table-cell>
+                    <md-table-cell>2場都勝利</md-table-cell>
+                    <md-table-cell>10分內完成任務+存活</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>Level - 3</md-table-cell>
+                    <md-table-cell>三次連勝</md-table-cell>
+                    <md-table-cell>7分內答對</md-table-cell>
+                    <md-table-cell>擔任白板猜出答案</md-table-cell>
+                    <md-table-cell>5分鐘內完成+存活</md-table-cell>
+                  </md-table-row>
+                </md-table>  
                 
                 <md-content>
                   <h1>預測功能開放中</h1>
