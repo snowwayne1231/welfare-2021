@@ -289,9 +289,196 @@
               </md-list>
             </md-list-item>
 
-            
+
+
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">local_fire_department</span>
+              <span class="md-list-item-text">2021-03-15 【 NEWS 】 睿訊之國的闖關者時間表 與 預測功能開放</span>
+              <md-list slot="md-expand">
+                <md-content>
+                  <img src="/static/imgs/timetable.jpg" >
+                </md-content>
+                <md-table class="news-table smaller-table">
+                  <md-table-row>
+                    <md-table-head style="width: 12%">時刻</md-table-head>
+                    <md-table-head>馬泰爾</md-table-head>
+                    <md-table-head>艾林</md-table-head>
+                    <md-table-head>蘭尼斯特</md-table-head>
+                    <md-table-head>史塔克</md-table-head>
+                    <md-table-head>提利爾</md-table-head>
+                    <md-table-head>拜拉席恩</md-table-head>
+                    <md-table-head>坦格利安</md-table-head>
+                    <md-table-head>徒利</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>03/15 - 12:30</md-table-cell>
+                    <md-table-cell>🚀握不住的他🚀</md-table-cell>
+                    <md-table-cell>貂</md-table-cell>
+                    <md-table-cell>HSU</md-table-cell>
+                    <md-table-cell>源辣讚讚</md-table-cell>
+                    <md-table-cell>珂珂</md-table-cell>
+                    <md-table-cell>艾利森</md-table-cell>
+                    <md-table-cell>瑞塔</md-table-cell>
+                    <md-table-cell>肥宅</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>03/15 - 15:30</md-table-cell>
+                    <md-table-cell>海獅會害怕</md-table-cell><md-table-cell>誰比我會喝飲料</md-table-cell><md-table-cell>牛年大吉,牛轉乾坤</md-table-cell><md-table-cell>↗統神端火鍋↙</md-table-cell><md-table-cell>深有牛奶糖</md-table-cell><md-table-cell>姜太公今天不想釣魚</md-table-cell><md-table-cell>薇薇安</md-table-cell><md-table-cell>公主道車神</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>03/16 - 8:30</md-table-cell>
+                    <md-table-cell>寶可夢大師</md-table-cell><md-table-cell>我阿姨也癢</md-table-cell><md-table-cell>涅法雷姆</md-table-cell><md-table-cell>神聖平板不容侵犯</md-table-cell><md-table-cell>薄荷草莓廢柴</md-table-cell><md-table-cell>㊣上班只為吃便當㊣</md-table-cell><md-table-cell>脾氣最好的姐姐 ◉‿◉</md-table-cell><md-table-cell>二姐</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>03/16 - 12:30</md-table-cell>
+                    <md-table-cell>妳好漂亮</md-table-cell><md-table-cell>貂</md-table-cell><md-table-cell>我心已打烊</md-table-cell><md-table-cell>乂☆煞氣a丁尼☆乂</md-table-cell><md-table-cell>沒收功就罵髒話</md-table-cell><md-table-cell>貓在鋼琴上睡著了</md-table-cell><md-table-cell>悲傷滷肉飯</md-table-cell><md-table-cell>肥宅</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>03/17 - 12:30</md-table-cell>
+                    <md-table-cell>貨拉拉拉不拉拉不拉多</md-table-cell><md-table-cell>異世界轉生的中二生活</md-table-cell><md-table-cell>Super Hero</md-table-cell><md-table-cell>傳話仔</md-table-cell><md-table-cell>我不是LUKE鴨</md-table-cell><md-table-cell>㊣上班只為交朋友㊣</md-table-cell><md-table-cell>系統管理員</md-table-cell><md-table-cell>洲子街大地主</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>03/17 - 15:30</md-table-cell>
+                    <md-table-cell>吉米花</md-table-cell><md-table-cell>誰比我會喝飲料</md-table-cell><md-table-cell>肖恩</md-table-cell><md-table-cell>走位有如霍金般風騷</md-table-cell><md-table-cell>睿訊五條悟</md-table-cell><md-table-cell>OSUTTE</md-table-cell><md-table-cell>吃肥褲撐破</md-table-cell><md-table-cell>11111</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>03/18 - 8:30</md-table-cell>
+                    <md-table-cell>Bbrr</md-table-cell><md-table-cell>八拉崩巴</md-table-cell><md-table-cell>賈德</md-table-cell><md-table-cell>佛度有緣人</md-table-cell><md-table-cell>超越時空的傳奇</md-table-cell><md-table-cell>㊣上班只為等放飯㊣</md-table-cell><md-table-cell>污辱米糕</md-table-cell><md-table-cell>天竺鼠阿比</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>03/18 - 12:30</md-table-cell>
+                    <md-table-cell>熱血旋轉花花愛心破壞者</md-table-cell><md-table-cell>異世界轉生的中二生活</md-table-cell><md-table-cell>HSU</md-table-cell><md-table-cell>HAWK</md-table-cell><md-table-cell>我不是LUKE鴨</md-table-cell><md-table-cell>🖕上班滑起來📱</md-table-cell><md-table-cell>阿強</md-table-cell><md-table-cell>水晶女皇</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>03/19 - 12:30</md-table-cell>
+                    <md-table-cell>給我一杯酒</md-table-cell><md-table-cell>我阿姨也癢</md-table-cell><md-table-cell>楊伯麟</md-table-cell><md-table-cell>傳話仔</md-table-cell><md-table-cell>深海大巨鰻♥想不想嘗嘗</md-table-cell><md-table-cell>來治星星的我</md-table-cell><md-table-cell>天虎令</md-table-cell><md-table-cell>包子入侵</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>03/19 - 15:30</md-table-cell>
+                    <md-table-cell>阿龍</md-table-cell><md-table-cell>還敢下來阿冰鳥</md-table-cell><md-table-cell>哇</md-table-cell><md-table-cell>此用戶暱稱被屏蔽</md-table-cell><md-table-cell>霸霸</md-table-cell><md-table-cell>㊣上班來潛水餵魚的㊣</md-table-cell><md-table-cell>小小電磁小象幫幫</md-table-cell><md-table-cell>銅鬚布萊恩</md-table-cell>
+                  </md-table-row>
+                </md-table>
+
+                <md-table class="news-table smaller-table">
+                  <md-table-row>
+                    <md-table-head style="width: 12%">時刻</md-table-head>
+                    <md-table-head>馬泰爾</md-table-head>
+                    <md-table-head>艾林</md-table-head>
+                    <md-table-head>蘭尼斯特</md-table-head>
+                    <md-table-head>史塔克</md-table-head>
+                    <md-table-head>提利爾</md-table-head>
+                    <md-table-head>拜拉席恩</md-table-head>
+                    <md-table-head>坦格利安</md-table-head>
+                    <md-table-head>徒利</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>03/22 - 12:30</md-table-cell>
+                    <md-table-cell>龜龜</md-table-cell><md-table-cell>Acacia_Power</md-table-cell><md-table-cell>賈德</md-table-cell><md-table-cell>源辣讚讚</md-table-cell><md-table-cell>超越時空的傳奇</md-table-cell><md-table-cell>艾利森</md-table-cell><md-table-cell>給你500</md-table-cell><md-table-cell>HA↗HA↘HA↗HA↘</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>03/22 - 15:30</md-table-cell>
+                    <md-table-cell>都是1</md-table-cell><md-table-cell>多喝水沒事</md-table-cell><md-table-cell>哇</md-table-cell><md-table-cell>生氣買個包＄</md-table-cell><md-table-cell>山裡阿巴</md-table-cell><md-table-cell>㊣上班來潛水餵魚的㊣</md-table-cell><md-table-cell>李阿莫</md-table-cell><md-table-cell>平民</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>03/23 - 8:30</md-table-cell>
+                    <md-table-cell>寶可夢大師</md-table-cell>
+                    <md-table-cell>奶油綜合菇</md-table-cell>
+                    <md-table-cell>睿恩</md-table-cell>
+                    <md-table-cell>佛度有緣人</md-table-cell>
+                    <md-table-cell>瘋狂小傑森</md-table-cell>
+                    <md-table-cell>㊣上班只為吃便當㊣</md-table-cell>
+                    <md-table-cell>狼皮羊</md-table-cell>
+                    <md-table-cell>包子入侵</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>03/23 - 12:30</md-table-cell>
+                    <md-table-cell>龜龜</md-table-cell>
+                    <md-table-cell>野人男子漢</md-table-cell>
+                    <md-table-cell>油炸包龍星</md-table-cell>
+                    <md-table-cell>神聖平板不容侵犯</md-table-cell>
+                    <md-table-cell>睿訊伏黑惠</md-table-cell>
+                    <md-table-cell>🖕上班滑起來📱</md-table-cell>
+                    <md-table-cell>熱血沸騰洗廁所殺手</md-table-cell>
+                    <md-table-cell>HA↗HA↘HA↗HA↘</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>03/24 - 12:30</md-table-cell>
+                    <md-table-cell>給我一杯酒</md-table-cell>
+                    <md-table-cell>野人男子漢</md-table-cell>
+                    <md-table-cell>油炸包龍星</md-table-cell>
+                    <md-table-cell>乂☆煞氣a丁尼☆乂</md-table-cell>
+                    <md-table-cell>深海大巨鰻♥想不想嘗嘗</md-table-cell>
+                    <md-table-cell>貓在鋼琴上睡著了</md-table-cell>
+                    <md-table-cell>系統管理員</md-table-cell>
+                    <md-table-cell>洲子街大地主</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>03/24 - 15:30</md-table-cell>
+                    <md-table-cell>秋芭比母捏牛</md-table-cell>
+                    <md-table-cell>鞋鞋你愛我</md-table-cell>
+                    <md-table-cell>街友</md-table-cell>
+                    <md-table-cell>西米拉拉非</md-table-cell>
+                    <md-table-cell>一級弓箭手</md-table-cell>
+                    <md-table-cell>姜太公今天不想釣魚</md-table-cell>
+                    <md-table-cell>吃肥褲撐破</md-table-cell>
+                    <md-table-cell>聲林之王</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>03/15 - 8:30</md-table-cell>
+                    <md-table-cell>TRXC🚀🌕</md-table-cell>
+                    <md-table-cell>安度因烏瑞恩</md-table-cell>
+                    <md-table-cell>膨風的眼鏡犬</md-table-cell>
+                    <md-table-cell>雞排要切不要辣</md-table-cell>
+                    <md-table-cell>薄荷草莓廢柴</md-table-cell>
+                    <md-table-cell>㊣上班只為等放飯㊣</md-table-cell>
+                    <md-table-cell>脾氣最好的姐姐◉‿◉</md-table-cell>
+                    <md-table-cell>二姐</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>03/25 - 12:30</md-table-cell>
+                    <md-table-cell>本機使用者</md-table-cell>
+                    <md-table-cell>卓耿</md-table-cell>
+                    <md-table-cell>Super Hero</md-table-cell>
+                    <md-table-cell>走位有如霍金般風騷</md-table-cell>
+                    <md-table-cell>珂珂</md-table-cell>
+                    <md-table-cell>來治星星的我</md-table-cell>
+                    <md-table-cell>阿強</md-table-cell>
+                    <md-table-cell>傑西</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>03/26 - 12:30</md-table-cell>
+                    <md-table-cell>龜龜</md-table-cell>
+                    <md-table-cell>忍者龜頭痛</md-table-cell>
+                    <md-table-cell>愛你</md-table-cell>
+                    <md-table-cell>↗統神端火鍋↙</md-table-cell>
+                    <md-table-cell>沒收功就罵髒話</md-table-cell>
+                    <md-table-cell>㊣上班只為交朋友㊣</md-table-cell>
+                    <md-table-cell>侯統癢</md-table-cell>
+                    <md-table-cell>水晶女皇</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>03/26 - 15:30</md-table-cell>
+                    <md-table-cell>海獅會害怕</md-table-cell>
+                    <md-table-cell>奶油綜合菇</md-table-cell>
+                    <md-table-cell>牛年大吉,牛轉乾坤</md-table-cell>
+                    <md-table-cell>史塔克潮靈</md-table-cell>
+                    <md-table-cell>意修尼</md-table-cell>
+                    <md-table-cell>OSUTTE</md-table-cell>
+                    <md-table-cell>阿強</md-table-cell>
+                    <md-table-cell>銅鬚布萊恩</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                
+                <md-content>
+                  <h1>預測功能開放中</h1>
+                  <p>1. 可至 『競技場』中預測每個月的活動哪一家族會得到冠軍</p>
+                  <p>2. 每季預測全中的玩家將會獲得紀念造型</p>
+                </md-content>
+              </md-list>
+            </md-list-item>
+            
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px"></span>
               <span class="md-list-item-text">2021-03-09 【 NEWS 】 睿訊之國的闖關者 與 獎牌結算公告</span>
               <md-list slot="md-expand">
                 <md-table class="news-table">
