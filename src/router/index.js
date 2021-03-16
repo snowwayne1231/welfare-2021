@@ -8,6 +8,7 @@ import Bar from '@/components/Bar';
 import Maintain from '@/components/Maintain';
 import AdminFront from '@/components/AdminFront';
 import GameEditor from '@/components/GameEditor';
+import GameVideo from '@/components/GameVideo';
 
 Vue.use(Router);
 
@@ -49,6 +50,11 @@ export default new Router({
       path: '/adminfront',
       name: 'AdminFront',
       component: AdminFront,
+    },
+    {
+      path: '/gamevideo/:vid',
+      name: 'GameVideo',
+      component: GameVideo,
     }
   ],
 });
