@@ -106,6 +106,7 @@ export default {
             add: e.add,
             activity: e.activity,
             success: e.success,
+            houseIdNow: e.houseIdNow,
           };
           return user;
         }),

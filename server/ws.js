@@ -251,6 +251,7 @@ function onMessage(socket) {
                 let name = payload.name;
                 let gameRound = payload.round;
                 let gameNum = payload.num;
+                if (!name) { return }
                 let bulkMatchs = (users, gid) => {
                     const matches = users.map(u => {
                         return {
@@ -261,6 +262,7 @@ function onMessage(socket) {
                             mvp: 0,
                             round: gameRound,
                             userId: u.id,
+                            houseIdNow: u.houseIdNow,
                             game: gid,
                             success: u.success ? 1 : 0,
                         }
