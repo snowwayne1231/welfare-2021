@@ -385,7 +385,7 @@ function onMessage(socket) {
             }
             case enums.ACT_GET_GAME_MATCHES: {
                 return models.Match.findAll({
-                    attributes: ['success', 'add', 'minus', 'activity', 'shift', 'mvp', 'userId', 'game'],
+                    attributes: ['success', 'add', 'minus', 'activity', 'shift', 'mvp', 'userId', 'game', 'houseIdNow'],
                     where: { game: payload },
                 }).then(matches => {
                     socket.emit('MESSAGE', {act: enums.ACT_GET_GAME_MATCHES, payload: matches.map(m => m.toJSON())});

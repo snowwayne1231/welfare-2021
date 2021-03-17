@@ -28,6 +28,13 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id'
       }
     },
+    houseIdNow: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Houses',
+        key: 'id'
+      }
+    },
     round: DataTypes.INTEGER,
     name: DataTypes.STRING,
     mvp: DataTypes.INTEGER,

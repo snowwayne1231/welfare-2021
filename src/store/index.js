@@ -241,9 +241,25 @@ const globalData = {
         wsOnMessage: (state, message) => {
             const payload = message.payload;
             switch (message.act) {
-                case ACT_GET_HOUSES_DATA:
+                case ACT_GET_HOUSES_DATA: {
+                    const HouseImages = {
+                        'stark': 'wolf.png',
+                        'eyrie': 'bird.png',
+                        'tully': 'fish.png',
+                        'lannister': 'lion.png',
+                        'tyrell': 'rose.png',
+                        'baratheon': 'deer.png',
+                        'targaryen': 'dragon.png',
+                        'martell': 'sun.png',
+                    };
+                    //   const house_en = this.myHouse.en;
+                    payload.houses.map(house => {
+                        const img =  '/static/imgs/' + HouseImages[house.en];
+                        house.img = img;
+                    });
                     state.houses = payload.houses;
-                    return console.log('Global Data Houses: ', payload);
+                    return console.log('Global Data Houses: ', payload.houses);
+                }
                 case ACT_GET_PEOPLE_DATA:
                     state.users = payload.users.map(u => {
                         u.json = JSON.parse(u.json);
@@ -430,6 +446,9 @@ const moduleGame = {
             switch (message.act) {
                 case ACT_GET_GAMES:
                     state.list = payload;
+                    state.list.sort((a,b) => {
+                        return b.gameNum - a.gameNum;
+                    });
                     return;
                 case ACT_GET_GAME_RESULTS: {
                     try {

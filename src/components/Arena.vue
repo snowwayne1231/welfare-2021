@@ -50,12 +50,12 @@
             </md-content>
           </md-tab>
 
-          <md-tab id="tab-live" md-label="戰場" >
+          <!-- <md-tab id="tab-live" md-label="戰場" >
             <LiveBattle v-if="openLive" :isTwitch="isLiveTwitch" />
             <ChatBox v-if="openLive"/>
-          </md-tab>
+          </md-tab> -->
 
-          <md-tab id="tab-record" md-label="戰功" >
+          <md-tab id="tab-record" md-label="戰報" >
             <Record v-if="openRecord" />
           </md-tab>
 
@@ -155,17 +155,7 @@ export default {
       return house.name;
     },
     renderHouseImage(house) {
-      const mapImages = {
-        'stark': 'wolf.png',
-        'eyrie': 'bird.png',
-        'tully': 'fish.png',
-        'lannister': 'lion.png',
-        'tyrell': 'rose.png',
-        'baratheon': 'deer.png',
-        'targaryen': 'dragon.png',
-        'martell': 'sun.png',
-      }
-      return `/static/imgs/${mapImages[house.en]}`;
+      return house.img;
     },
     onTabChanged(tabId) {
       if (tabId == 'tab-live') {

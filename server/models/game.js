@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     gameNum: DataTypes.INTEGER,
     gameRound: DataTypes.INTEGER,
     video: DataTypes.STRING,
+    VideoLink: DataTypes.TEXT,
     json: {
       type: DataTypes.TEXT,
       // get: function() {

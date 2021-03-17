@@ -102,18 +102,7 @@ export default {
       return this.VoteConfig.setting;
     },
     myHouseLogo() {
-      const HouseImages = {
-        'stark': 'wolf.png',
-        'eyrie': 'bird.png',
-        'tully': 'fish.png',
-        'lannister': 'lion.png',
-        'tyrell': 'rose.png',
-        'baratheon': 'deer.png',
-        'targaryen': 'dragon.png',
-        'martell': 'sun.png',
-      }
-      const house_en = this.myHouse.en;
-      return '/static/imgs/' + HouseImages[house_en];
+      return this.myHouse.img;
     },
     family() {
       return JSON.parse(JSON.stringify(this.user.family));

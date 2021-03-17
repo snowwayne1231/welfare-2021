@@ -5,11 +5,13 @@
         <md-table-row>
           <md-table-head style="width: 50px;">場次</md-table-head>
           <md-table-head>遊戲</md-table-head>
+          <!-- <md-table-head>積分</md-table-head> -->
           <md-table-head>詳細</md-table-head>
         </md-table-row>
         <md-table-row v-for="(result) in game.results" :key="result.json.round">
           <md-table-cell>{{result.json.round}}</md-table-cell>
           <md-table-cell>{{result.game}}</md-table-cell>
+          <!-- <md-table-cell><button @click="onClcikShowScore(result)">查看</button></md-table-cell> -->
           <md-table-cell><button @click="onClcikShowDialog(result)">打開詳細</button></md-table-cell>
         </md-table-row>
       </md-table>
@@ -24,11 +26,11 @@
             <md-table-row>
               <md-table-head style="width: 120px;">遊戲</md-table-head>
               <md-table-head>影片</md-table-head>
-              <md-table-head style="width: 400px;">詳細賽果</md-table-head>
+              <md-table-head style="width: 480px;">詳細賽果</md-table-head>
             </md-table-row>
             <md-table-row v-for="(g) in game.list" :key="g.id">
               <md-table-cell>{{g.name}}</md-table-cell>
-              <md-table-cell>{{g.video}}</md-table-cell>
+              <md-table-cell><router-link v-if="g.video" :to="'/gamevideo/'+g.id" target="_blank">連結</router-link></md-table-cell>
               <md-table-cell>
                 <div v-if="alreadyShowMatch(g)">
                   <md-table class="record-game-match-table">
@@ -38,7 +40,7 @@
                       <md-table-cell>團體扣分</md-table-cell>
                     </md-table-row>
                     <md-table-row v-for="match in getMatches(g)" :key="match.id" :class="{success: match.success==1}">
-                      <md-table-cell>{{match.user.nickname}}</md-table-cell>
+                      <md-table-cell><img :src="match.houseImg" style="width: 40px;" />{{match.user.nickname}}</md-table-cell>
                       <md-table-cell>{{match.level}}</md-table-cell>
                       <md-table-cell>{{match.minus}}</md-table-cell>
                     </md-table-row>
@@ -72,15 +74,16 @@ export default {
       const $this = this;
       const ary = [];
       const levelMap = {
-        1: 'None',
-        2: 'LV-1',
-        3: 'LV-2',
-        4: 'LV-3'
+        1: '一般',
+        2: '白金 (lv1)',
+        3: '鑽石 (lv2)',
+        4: '大師 (lv3)'
       }
       let tmp = 0;
       
       $this.game.matches.map(m => {
-        const mObj = {...m, user: $this.global.users.find(u => u.id == m.userId) || {}, level: levelMap[m.activity] || 'None'};
+        const mObj = {...m, user: $this.global.users.find(u => u.id == m.userId) || {}, level: levelMap[m.activity] || '一般'};
+        mObj.houseImg = $this.getHouseImgByHouseId(m.houseIdNow);
         if (tmp != m.game) {
           ary.push({gameId: m.game, matches: [mObj]});
           tmp = m.game;
@@ -127,6 +130,9 @@ export default {
       const matches = this.expandedMatches.find(e => e.gameId == game.id).matches;
       return matches;
     },
+    getHouseImgByHouseId(houseId) {
+      return (this.global.houses.find(h => h.id == houseId) || {}).img;
+    },
     onClcikShowDialog(result) {
       this.showDialog = true;
       this.dialogTitle = result.game;
@@ -137,6 +143,9 @@ export default {
     onClcikShowMatch(game) {
       this.$store.dispatch('wsEmitMessage', {act: ACT_GET_GAME_MATCHES, payload: game.id});
     },
+    onClcikShowScore(game) {
+      console.log(game.matchesdata);
+    }
   }
 };
 </script>

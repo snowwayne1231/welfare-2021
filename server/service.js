@@ -256,6 +256,7 @@ function handleAdminSnow(req, res, uris) {
             case 'refreshuserscore': return refreshUserScore(res);
             case 'freshfamilyscore': return refreshFamilyScore(res);
             case 'update': return updateAdminDB(req, res);
+            case 'freshgameresult': return freshGameResult(req, res);
             default:
         }
     }
@@ -790,4 +791,62 @@ function updateAdminDB(req, res) {
     }
     _model.update(updateData, {where: {id: parameter.id}});
     res.json({'msg': 'ok'});
+}
+
+
+function freshGameResult(req, res) {
+    const all_promise = [];
+    all_promise.push(models.Result.findAll());
+    all_promise.push(models.Match.findAll({
+        attributes: ['id', 'success', 'userId', 'houseIdNow', 'add', 'minus', 'shift', 'round']
+    }));
+
+    Promise.all(all_promise).then(([results, matches]) => {
+        results.map(e => {
+            e._json = JSON.parse(e.json);
+            e._ranking = JSON.parse(e.ranking);
+        });
+        
+        const matchMap = {};
+        const datasetMap = {};
+        matches.map(match => {
+            let hid = match.houseIdNow;
+            let round = match.round;
+            if (!datasetMap[round]) {
+                datasetMap[round] = {};
+            }
+            if (!datasetMap[round][hid]) {
+                datasetMap[round][hid] = {
+                    total: {add: 0, minus: 0, shift: 0, success: 0},
+                    matches: []
+                };
+            }
+            datasetMap[round][hid].total.add+= match.add;
+            datasetMap[round][hid].total.minus+= match.minus;
+            datasetMap[round][hid].total.shift+= match.shift;
+            datasetMap[round][hid].total.success+= match.success || 0;
+            datasetMap[round][hid].matches.push(match);
+        });
+        results.map(result => {
+            const data = datasetMap[result._json.round];
+            if (!data) return;
+            const matchesdata = Object.keys(data).map(houseId => {
+                return {houseId: parseInt(houseId), ...data[houseId].total}
+            }).filter(e => e.houseId > 0);
+            matchesdata.sort((a,b) => {
+                const gap = b.success - a.success;
+                return gap == 0 ? b.add - a.add : gap;
+            })
+            const nextJson = {...result._json, matchesdata};
+            const nextRanking = matchesdata.map(e => e.houseId);
+            
+            result.update({
+                json: JSON.stringify(nextJson),
+                ranking: JSON.stringify(nextRanking),
+            });
+        });
+
+        res.json(results);
+
+    }).catch(err => console.log(err));
 }

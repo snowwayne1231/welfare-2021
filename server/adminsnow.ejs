@@ -114,6 +114,7 @@
         <button id="resettinglv">Resetting-Init-LV</button>
         <button id="freshuserscore">Refresh-User-Score</button>
         <button id="freshfamilyscore">Refresh-Family-Score</button>
+        <button id="freshgameresult">Refresh-Game-Result</button>
         
       </div>
 
@@ -195,6 +196,10 @@
 
       document.getElementById('freshuserscore').addEventListener('click', (evt) => {
         window.open('/adminsnow/refreshuserscore', "_blank");
+      });
+
+      document.getElementById('freshgameresult').addEventListener('click', (evt) => {
+        window.open('/adminsnow/freshgameresult', "_blank");
       });
 
       dom_tbody.addEventListener('change', (evt) => {
