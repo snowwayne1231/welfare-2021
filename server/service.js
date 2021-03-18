@@ -44,7 +44,7 @@ app.set('trust proxy', 1);
 const session_middleware = ex_session({
     secret: 'rv88tw',
     name: 'rvtls', 
-    cookie: { maxAge: 30 * 60 * 1000 }, // ms
+    cookie: { maxAge: 8 * 60 * 60 * 1000 }, // ms
     resave: false,
     saveUninitialized: true,
 });

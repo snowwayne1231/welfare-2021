@@ -95,7 +95,7 @@ export default {
   },
   computed: {
     ...mapState(['user', 'global']),
-    ...mapGetters(['isLoveOpen', 'trophyLastDate', 'isPredictionOpen']),
+    ...mapGetters(['isLoveOpen', 'trophyLastDate', 'isPredictionOpen', 'isPredictionAllowed']),
     showResult() {
       const loc = JSON.parse(JSON.stringify(this.global.houses));
       loc.sort((a,b) => {
@@ -139,7 +139,7 @@ export default {
     },
     openPredictionAndCanPredict: {
       get() {
-        return (this.noPredicted && (this.global.predictions.findIndex(p => p.userId == this.user.id) < 0)) && this.isPredictionOpen && this.global.trophy.length > 0;
+        return (this.noPredicted && (this.global.predictions.findIndex(p => p.userId == this.user.id) < 0)) && this.isPredictionAllowed && this.global.trophy.length > 0;
       },
       set(val) {
         this.noPredicted = val;

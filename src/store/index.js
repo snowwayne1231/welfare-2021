@@ -346,6 +346,9 @@ const globalData = {
         LoveConfig: (state) => {
             return state.configs.find(e => e.name=='love') || {};
         },
+        PredictionConfg: (state) => {
+            return state.configs.find(e => e.name=='prediction') || {};
+        },
         isCountrysideOpen: (state) => {
             const found = state.configs.find(e => e.name=='countryside' && e.status == 1);
             return !!found;
@@ -353,9 +356,11 @@ const globalData = {
         isVoteOpen: (state, getters) => {
             return !!(getters.VoteConfig.status == 1);
         },
-        isPredictionOpen: (state) => {
-            const found = state.configs.find(e => e.name=='prediction' && e.status == 1);
-            return !!found;
+        isPredictionOpen: (state, getters) => {
+            return getters.PredictionConfg.status > 0;
+        },
+        isPredictionAllowed: (state, getters) => {
+            return getters.PredictionConfg.status == 1;
         },
         isLoveOpen: (state, getters) => {
             return !!(getters.LoveConfig.status == 1);

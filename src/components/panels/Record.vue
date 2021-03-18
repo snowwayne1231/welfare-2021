@@ -93,7 +93,10 @@ export default {
       });
       
       ary.map(a => {
-        a.matches.sort((a,b) => b.activity - a.activity);
+        a.matches.sort((a,b) => {
+          let gap = b.activity - a.activity;
+          return gap == 0 ? b.success - a.success : gap;
+        });
       })
       return ary;
     },
