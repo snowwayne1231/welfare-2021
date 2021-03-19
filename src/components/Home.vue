@@ -383,8 +383,8 @@
                     <md-table-cell>03/23 - 8:30</md-table-cell>
                     <md-table-cell>寶可夢大師</md-table-cell>
                     <md-table-cell>奶油綜合菇</md-table-cell>
-                    <md-table-cell>睿恩</md-table-cell>
-                    <md-table-cell>佛度有緣人</md-table-cell>
+                    <md-table-cell>油炸包龍星</md-table-cell>
+                    <md-table-cell>雞排要切不要辣</md-table-cell>
                     <md-table-cell>瘋狂小傑森</md-table-cell>
                     <md-table-cell>㊣上班只為吃便當㊣</md-table-cell>
                     <md-table-cell>狼皮羊</md-table-cell>
@@ -405,7 +405,7 @@
                     <md-table-cell>03/24 - 12:30</md-table-cell>
                     <md-table-cell>給我一杯酒</md-table-cell>
                     <md-table-cell>野人男子漢</md-table-cell>
-                    <md-table-cell>油炸包龍星</md-table-cell>
+                    <md-table-cell>睿恩</md-table-cell>
                     <md-table-cell>乂☆煞氣a丁尼☆乂</md-table-cell>
                     <md-table-cell>深海大巨鰻♥想不想嘗嘗</md-table-cell>
                     <md-table-cell>貓在鋼琴上睡著了</md-table-cell>
@@ -424,11 +424,11 @@
                     <md-table-cell>聲林之王</md-table-cell>
                   </md-table-row>
                   <md-table-row>
-                    <md-table-cell>03/15 - 8:30</md-table-cell>
+                    <md-table-cell>03/25 - 8:30</md-table-cell>
                     <md-table-cell>TRXC🚀🌕</md-table-cell>
                     <md-table-cell>安度因烏瑞恩</md-table-cell>
                     <md-table-cell>膨風的眼鏡犬</md-table-cell>
-                    <md-table-cell>雞排要切不要辣</md-table-cell>
+                    <md-table-cell>佛度有緣人</md-table-cell>
                     <md-table-cell>薄荷草莓廢柴</md-table-cell>
                     <md-table-cell>㊣上班只為等放飯㊣</md-table-cell>
                     <md-table-cell>脾氣最好的姐姐◉‿◉</md-table-cell>
