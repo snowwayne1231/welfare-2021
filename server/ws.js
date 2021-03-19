@@ -368,12 +368,18 @@ function onMessage(socket) {
                 return broadcast({act: enums.ACT_GET_PREDICTIONS, payload: predictions});
             }
             case enums.ACT_GET_GAMES: {
-                let roundId = payload;
+                let roundId = payload.round;
+                let numId = payload.num;
+                let whereObject = {};
+                if (roundId > 0) {
+                    whereObject.gameRound = roundId;
+                }
+                if (numId > 0) {
+                    whereObject.gameNum = numId;
+                }
                 return models.Game.findAll({
                     attributes: ['id', 'name', 'video', 'gameRound', 'gameNum', 'createdAt'],
-                    where: {
-                        gameRound: roundId
-                    }
+                    where: whereObject
                 }).then(g => {
                     if (g) { socket.emit('MESSAGE', {act: enums.ACT_GET_GAMES, payload: g.map(game => game.toJSON())}); }
                 }).catch(err => console.log(err));
@@ -391,6 +397,15 @@ function onMessage(socket) {
                     where: { game: payload },
                 }).then(matches => {
                     socket.emit('MESSAGE', {act: enums.ACT_GET_GAME_MATCHES, payload: matches.map(m => m.toJSON())});
+                }).catch(err => console.log(err));
+            }
+            case enums.ACT_GET_GAME_VIDEO: {
+                let id = payload.id || 0;
+                return id > 0 && models.Game.findOne({
+                    attributes: ['id', 'video', 'VideoLink'],
+                    where: {id},
+                }).then(g => {
+                    if (g) { socket.emit('MESSAGE', {act: enums.ACT_GET_GAME_VIDEO, payload: g.toJSON()}); }
                 }).catch(err => console.log(err));
             }
             default:

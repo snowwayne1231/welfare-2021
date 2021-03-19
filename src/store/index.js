@@ -7,7 +7,7 @@ import {
     ACT_JOIN_CHAT_ROOM, ACT_LEAVE_CHAT_ROOM, ACT_MOVE_CHAT_ROOM, ACT_SAY_CHAT_ROOM,
     ACT_GET_ADMIN_DATASET, ACT_GET_COUNTRYSIDE_DATA, ACT_GET_TROPHY, ACT_GET_CONFIG,
     ACT_GET_LOVE, ACT_GET_SELF_VOTE, ACT_GET_PREDICTIONS, ACT_GET_GAMES, ACT_GET_GAME_RESULTS,
-    ACT_GET_GAME_MATCHES,
+    ACT_GET_GAME_MATCHES, ACT_GET_GAME_VIDEO,
     
 } from './enum';
 console.log('process.env: ', process.env);
@@ -444,6 +444,7 @@ const moduleGame = {
         results: [],
         list: [],
         matches: [],
+        videoLink: false,
     },
     mutations: {
         wsOnMessage: (state, message) => {
@@ -454,7 +455,7 @@ const moduleGame = {
                     state.list.sort((a,b) => {
                         return b.gameNum - a.gameNum;
                     });
-                    return;
+                    break;
                 case ACT_GET_GAME_RESULTS: {
                     try {
                         state.results = payload.map(loc => {
@@ -465,10 +466,16 @@ const moduleGame = {
                     } catch (err) {
                         console.log(err);
                     }
+                    break;
                 }
                 case ACT_GET_GAME_MATCHES: {
                     state.matches = state.matches.concat(payload);
                     state.matches.sort((a,b) => a.game - b.game);
+                    break;
+                }
+                case ACT_GET_GAME_VIDEO: {
+                    state.videoLink = payload.VideoLink;
+                    break;
                 }
                 default:
             }

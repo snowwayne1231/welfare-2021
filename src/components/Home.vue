@@ -290,7 +290,35 @@
             </md-list-item>
 
 
-
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px">local_fire_department</span>
+              <span class="md-list-item-text">2021-03-19 【 NEWS 】 睿訊之國的闖關者MVP票選開跑</span>
+              <md-list slot="md-expand">
+                <md-table class="news-table smaller-table">
+                  <md-table-row>
+                    <md-table-head style="width: 25%">時刻</md-table-head>
+                    <md-table-head>投票</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021年03月19號 18:00</md-table-cell>
+                    <md-table-cell>開始各家族組內人員進行MVP投票 (最多三票)</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021年03月26號 16:00 </md-table-cell>
+                    <md-table-cell>關閉投票通道並統計</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021年03月29號 15:00 </md-table-cell>
+                    <md-table-cell>公佈獲得MVP人員</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <p>期間內對自己所在家族人員進行投票，選出你心中最能CARRY家族的人員吧！</p>
+                  <p>* 每人最多3票 在期間內都可以任意配置/修改投票的人選 (家族成員右上方的盾牌標記就是選中的記號)</p>
+                </md-content>
+              </md-list>
+            </md-list-item>
+            
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">local_fire_department</span>
               <span class="md-list-item-text">2021-03-15 【 NEWS 】 睿訊之國的闖關者時間表&門檻 與 預測功能開放</span>

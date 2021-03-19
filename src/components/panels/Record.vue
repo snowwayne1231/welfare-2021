@@ -140,7 +140,7 @@ export default {
       this.showDialog = true;
       this.dialogTitle = result.game;
       if (this.showDialog) {
-        this.$store.dispatch('wsEmitMessage', {act: ACT_GET_GAMES, payload: result.json.round});
+        this.$store.dispatch('wsEmitMessage', {act: ACT_GET_GAMES, payload: {round: result.json.round}});
       }
     },
     onClcikShowMatch(game) {
