@@ -5,13 +5,13 @@
         <md-table-row>
           <md-table-head style="width: 50px;">場次</md-table-head>
           <md-table-head>遊戲</md-table-head>
-          <!-- <md-table-head>積分</md-table-head> -->
+          <md-table-head>即時排名</md-table-head>
           <md-table-head>詳細</md-table-head>
         </md-table-row>
         <md-table-row v-for="(result) in game.results" :key="result.json.round">
           <md-table-cell>{{result.json.round}}</md-table-cell>
           <md-table-cell>{{result.game}}</md-table-cell>
-          <!-- <md-table-cell><button @click="onClcikShowScore(result)">查看</button></md-table-cell> -->
+          <md-table-cell><button @click="onClcikShowScore(result)">查看</button></md-table-cell>
           <md-table-cell><button @click="onClcikShowDialog(result)">打開詳細</button></md-table-cell>
         </md-table-row>
       </md-table>
@@ -52,6 +52,25 @@
           </md-table>
         </md-content>
       </md-dialog>
+
+      <md-dialog :md-active.sync="showDialog2">
+        <md-dialog-title>
+          <span>即時排名</span>
+          <span class="last-update">最後更新:  {{lastResultUpdatedTime}}</span>
+        </md-dialog-title>
+        <md-content style="width: 800px; min-height: 360px;" class="md-dialog-content">
+          <md-table>
+            <md-table-row>
+              <md-table-head>家族</md-table-head>
+              <md-table-head>勝場分</md-table-head>
+            </md-table-row>
+            <md-table-row v-for="(rhouse, idx) in rankingResults" :key="idx">
+              <md-table-cell><img :src="rhouse.house.img" style="max-height: 40px;" />{{rhouse.house.name}}</md-table-cell>
+              <md-table-cell>{{rhouse.success}}</md-table-cell>
+            </md-table-row>
+          </md-table>
+        </md-content>
+      </md-dialog>
     </div>
   </div>
 </template>
@@ -65,7 +84,10 @@ export default {
   data() {
     return {
       showDialog: false,
+      showDialog2: false,
       dialogTitle: '',
+      lastResultUpdatedTime: '',
+      rankingResults: [],
     };
   },
   computed: {
@@ -147,7 +169,24 @@ export default {
       this.$store.dispatch('wsEmitMessage', {act: ACT_GET_GAME_MATCHES, payload: game.id});
     },
     onClcikShowScore(game) {
-      console.log(game.matchesdata);
+      console.log(game.json);
+      const map = {};
+      if (game.json && game.json.matchesdata) {
+        let matchesdata = game.json.matchesdata;
+
+        this.rankingResults = matchesdata.map(m => {
+          return {
+            house: this.global.houses.find(h => h.id == m.houseId) || {},
+            success: m.success,
+            add: m.add,
+          }
+        });
+        this.lastResultUpdatedTime = new Date(game.updatedAt);
+        this.showDialog2 = true;
+      } else {
+        this.lastResultUpdatedTime = '';
+        this.rankingResults = [];
+      }
     }
   }
 };

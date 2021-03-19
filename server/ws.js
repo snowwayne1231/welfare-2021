@@ -386,7 +386,7 @@ function onMessage(socket) {
             }
             case enums.ACT_GET_GAME_RESULTS: {
                 return models.Result.findAll({
-                    attributes: ['json', 'ranking', 'game'],
+                    attributes: ['json', 'ranking', 'game', 'updatedAt'],
                 }).then(r => {
                     socket.emit('MESSAGE', {act: enums.ACT_GET_GAME_RESULTS, payload: r.map(result => result.toJSON())});
                 }).catch(err => console.log(err));
