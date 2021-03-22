@@ -50,13 +50,13 @@
             </md-content>
           </md-tab>
 
-          <!-- <md-tab id="tab-live" md-label="戰場" >
-            <LiveBattle v-if="openLive" :isTwitch="isLiveTwitch" />
-            <ChatBox v-if="openLive"/>
-          </md-tab> -->
-
           <md-tab id="tab-record" md-label="戰報" >
             <Record v-if="openRecord" />
+          </md-tab>
+
+          <md-tab id="tab-live" md-label="戰場" >
+            <LiveBattle v-if="openLive" :isTwitch="isLiveTwitch" />
+            <ChatBox v-if="openLive"/>
           </md-tab>
 
         </md-tabs>
