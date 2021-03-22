@@ -54,10 +54,10 @@
             <Record v-if="openRecord" />
           </md-tab>
 
-          <md-tab id="tab-live" md-label="戰場" >
+          <!-- <md-tab id="tab-live" md-label="戰場" >
             <LiveBattle v-if="openLive" :isTwitch="isLiveTwitch" />
             <ChatBox v-if="openLive"/>
-          </md-tab>
+          </md-tab> -->
 
         </md-tabs>
       </md-card-content>
