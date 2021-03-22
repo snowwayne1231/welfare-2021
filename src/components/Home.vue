@@ -300,8 +300,8 @@
                     <md-table-head>投票</md-table-head>
                   </md-table-row>
                   <md-table-row>
-                    <md-table-cell>2021年03月19號 18:00</md-table-cell>
-                    <md-table-cell>開始各家族組內人員進行MVP投票 (最多三票)</md-table-cell>
+                    <md-table-cell>2021年03月22號 12:00</md-table-cell>
+                    <md-table-cell>開始各家族組內人員進行MVP投票 (每人最多三票)</md-table-cell>
                   </md-table-row>
                   <md-table-row>
                     <md-table-cell>2021年03月26號 16:00 </md-table-cell>
