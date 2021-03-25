@@ -408,6 +408,15 @@ function onMessage(socket) {
                     if (g) { socket.emit('MESSAGE', {act: enums.ACT_GET_GAME_VIDEO, payload: g.toJSON()}); }
                 }).catch(err => console.log(err));
             }
+            case enums.ACT_GET_USER_MATCHES: {
+                let id = payload.id || 0;
+                return id > 0 && models.Match.findAll({
+                    attributes: ['id', 'name', 'round', 'add', 'mvp', 'shift', 'minus', 'success'],
+                    where: {userId: id},
+                }).then(matches => {
+                    if (matches) { socket.emit('MESSAGE', {act: enums.ACT_GET_USER_MATCHES, payload: matches.map(m => m.toJSON())}); }
+                }).catch(err => console.log(err));
+            }
             default:
                 console.log("Not Found Act: ", msg);
         }

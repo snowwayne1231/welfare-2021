@@ -5,7 +5,7 @@
         <md-table-row>
           <md-table-head style="width: 50px;">場次</md-table-head>
           <md-table-head>遊戲</md-table-head>
-          <md-table-head>即時排名</md-table-head>
+          <md-table-head>即時活動排名</md-table-head>
           <md-table-head>詳細</md-table-head>
         </md-table-row>
         <md-table-row v-for="(result) in game.results" :key="result.json.round">
@@ -62,11 +62,19 @@
           <md-table>
             <md-table-row>
               <md-table-head>家族</md-table-head>
-              <md-table-head>勝場分</md-table-head>
+              <md-table-head>勝場值</md-table-head>
+              <md-table-head>成員參與加分</md-table-head>
+              <md-table-head>違規扣分</md-table-head>
+              <md-table-head>排名加分</md-table-head>
+              <md-table-head>活動總加分</md-table-head>
             </md-table-row>
             <md-table-row v-for="(rhouse, idx) in rankingResults" :key="idx">
               <md-table-cell><img :src="rhouse.house.img" style="max-height: 40px;" />{{rhouse.house.name}}</md-table-cell>
-              <md-table-cell>{{rhouse.success}}</md-table-cell>
+              <md-table-cell class="result-success">{{rhouse.success}}</md-table-cell>
+              <md-table-cell>{{rhouse.add}}</md-table-cell>
+              <md-table-cell>{{rhouse.minus == 0 ? '' : ('- '+rhouse.minus)}}</md-table-cell>
+              <md-table-cell>{{rhouse.rankScore}}</md-table-cell>
+              <md-table-cell class="result-total">{{rhouse.rankScore + rhouse.add - rhouse.minus}}</md-table-cell>
             </md-table-row>
           </md-table>
         </md-content>
@@ -174,11 +182,14 @@ export default {
       if (game.json && game.json.matchesdata) {
         let matchesdata = game.json.matchesdata;
 
-        this.rankingResults = matchesdata.map(m => {
+        this.rankingResults = matchesdata.map((m, idx) => {
           return {
             house: this.global.houses.find(h => h.id == m.houseId) || {},
             success: m.success,
             add: m.add,
+            minus: m.minus,
+            shift: m.shift,
+            rankScore: Math.max(30 - (idx * 6), 6),
           }
         });
         this.lastResultUpdatedTime = new Date(game.updatedAt);

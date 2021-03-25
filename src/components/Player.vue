@@ -41,6 +41,13 @@
                 </md-table-cell>
               </md-table-row>
               <md-table-row>
+                <md-table-head><Helper title="在活動中有機會取得增加單項能力的點數" />POINT 點數</md-table-head>
+                <md-table-cell>
+                  <span class="point">{{ user.skillPointJson.now }}</span>
+                  <button class="btn" @click="onClickSubmit">確定</button>
+                </md-table-cell>
+              </md-table-row>
+              <md-table-row>
                 <md-table-head><Helper title="影響地圖板塊玩法的攻擊力" />STR 力量</md-table-head>
                 <md-table-cell class="border-wraped">
                   <i class="circle minus" v-if="checkMinusShow(0)" @click="onClickMinus('str')"><md-icon>remove_circle</md-icon></i>
@@ -81,10 +88,9 @@
                 </md-table-cell>
               </md-table-row>
               <md-table-row>
-                <md-table-head><Helper title="在活動中有機會取得增加單項能力的點數" />POINT 點數</md-table-head>
+                <md-table-head><Helper title="查詢經歷過的戰役" />戰績</md-table-head>
                 <md-table-cell>
-                  <span class="point">{{ user.skillPointJson.now }}</span>
-                  <button class="btn" @click="onClickSubmit">確定</button>
+                  <button class="btn" @click="onClcikShowDialog">查詢</button>
                 </md-table-cell>
               </md-table-row>
             </md-table>
@@ -103,13 +109,37 @@
         </div>
       </md-card-content>
     </md-card>
+
+    <md-dialog :md-active.sync="showDialog">
+      <md-dialog-title>
+        <span>個人戰績</span>
+      </md-dialog-title>
+      <md-content style="width: 800px; min-height: 360px;" class="md-dialog-content">
+        <md-table class="record-table player-record-table">
+          <md-table-row>
+            <md-table-head style="width: 220px;">遊戲</md-table-head>
+            <md-table-head>勝利</md-table-head>
+            <md-table-head>MVP</md-table-head>
+            <md-table-head>值班</md-table-head>
+            <md-table-head>扣分</md-table-head>
+          </md-table-row>
+          <md-table-row v-for="(match) in user.matches" :key="match.id">
+            <md-table-cell class="first-cell">{{match.name}}</md-table-cell>
+            <md-table-cell>{{match.success > 0 ? 'WIN': '--'}}</md-table-cell>
+            <md-table-cell>{{match.mvp}}</md-table-cell>
+            <md-table-cell>{{match.shift}}</md-table-cell>
+            <md-table-cell>{{match.minus}}</md-table-cell>
+          </md-table-row>
+        </md-table>
+      </md-content>
+    </md-dialog>
   </div>
 </template>
 
 <script>
 import { mapState, mapGetters } from 'vuex'
 import RadarChart from './chart/radar'
-import { ACT_UPDATE_SKILL } from '../store/enum';
+import { ACT_UPDATE_SKILL, ACT_GET_USER_MATCHES } from '../store/enum';
 import Helper from './panels/Helper';
 
 export default {
@@ -150,6 +180,7 @@ export default {
           },
         },
       },
+      showDialog: false,
     }
   },
   mounted() {
@@ -225,6 +256,10 @@ export default {
         this.$store.dispatch('wsEmitMessage', {act: ACT_UPDATE_SKILL, payload: {id: this.user.id, json: this.user.skillPointJson}});
         
       }
+    },
+    onClcikShowDialog() {
+      this.$store.dispatch('wsEmitMessage', {act: ACT_GET_USER_MATCHES, payload: {id: this.user.id}});
+      this.showDialog = true;
     },
   }
 }

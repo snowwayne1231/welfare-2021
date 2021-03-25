@@ -458,13 +458,12 @@ function refreshUserScore(res) {
         var matchUidScoreMap = {};
         matches.map(m => {
             var uid = m.userId;
-            var mobj = {mvp: m.mvp, shift: m.shift, activity: m.activity, add: m.add};
+            var mobj = m.toJSON();
             if (matchUidScoreMap[uid]) {
                 matchUidScoreMap[uid].dataset.push(mobj);
-                matchUidScoreMap[uid].total += (mobj.mvp + mobj.shift + mobj.activity + mobj.add);
             } else {
                 matchUidScoreMap[uid] = {
-                    total: (mobj.mvp + mobj.shift + mobj.activity + mobj.add),
+                    totalSelf: 0,
                     dataset: [mobj],
                 };
             }
@@ -490,16 +489,41 @@ function refreshUserScore(res) {
             var myMatches = matchUidScoreMap[id];
             var myOrders = orderUidSpendMap[id];
             var myJson = JSON.parse(user.json);
+            var additionalMvp = 0;
+            var partake = 0;
             var res = {};
-            res.matchScore = myMatches ? myMatches.total : 0;
+            res.matchScore = 0;
             res.orderSpend = myOrders ? myOrders.total : 0;
             res.basic = myJson.before_mvp_score + myJson.ability_score;
-            res.additionalMvp = myMatches ? myMatches.dataset.filter(m => m.mvp > 0).length : 0;
+            if (myMatches && myMatches.dataset.length > 0) {
+                var dataset = myMatches.dataset;
+                additionalMvp = dataset.filter(m => m.mvp > 0).length;
+                var matchRoundMap = {};
+                dataset.map(match => {
+                    var beforeMatch = matchRoundMap[match.round];
+                    if (beforeMatch) {
+                        if (match.add > beforeMatch.add) { beforeMatch.add = match.add; }
+                        if (match.activity > beforeMatch.activity) { beforeMatch.activity = match.activity; }
+                        if (match.shift > beforeMatch.shift) { beforeMatch.shift = match.shift; }
+                        if (match.mvp > beforeMatch.mvp) { beforeMatch.mvp = match.mvp; }
+                    } else {
+                        matchRoundMap[match.round] = {add: match.add, activity: match.activity, shift: match.shift, mvp: match.mvp};
+                    }
+                });
+                Object.keys(matchRoundMap).map(round => {
+                    var bestRecord = matchRoundMap[round];
+                    res.matchScore += (bestRecord.mvp + bestRecord.activity);
+                    partake += 1;
+                });
+
+            } else {
+                
+            }
             
             var userNextData = {
-                mvp: (myJson.before_mvp_score > 0 ? 1:0) + res.additionalMvp,
+                mvp: (myJson.before_mvp_score > 0 ? 1:0) + additionalMvp,
                 rv: res.basic + res.matchScore - res.orderSpend,
-                partake: myMatches ? myMatches.dataset.length : 0,
+                partake,
             }
             res.userNextData = userNextData;
             if (user.rv <= userNextData.rv) {
@@ -517,7 +541,7 @@ function refreshUserScore(res) {
 }
 
 
-function refreshFamilyScore(res) { // not finished
+function refreshFamilyScore(res) {
     const promise_users = models.User.findAll({
         attributes: ['id', 'houseId', 'rv', 'code', 'strLv', 'dexLv', 'conLv', 'wisLv', 'chaLv', 'thankTimes', 'gender', 'partake', 'mvp', 'departmentName'],
         where: { status: 1, intLv: '-' },
@@ -682,6 +706,7 @@ function refreshFamilyScore(res) { // not finished
                     } else if (changeRank.change == maxChangeRanks[0].change) {
                         maxChangeRanks.push({change: changeRank.change, house});
                     }
+                    rankMove = changeRank.change;
                     
                     // trophy (7)
                     var ladies = usersInHouse.filter(u => u.gender == 2).length;
@@ -700,7 +725,7 @@ function refreshFamilyScore(res) { // not finished
 
                 // update houses
                 
-                [scorePersonal,leaderMatchFamily,sameDepartment,totalFamilyAbility,totalPartake].map(loc => {
+                [scorePersonal,leaderMatchFamily,sameDepartment,totalFamilyAbility,totalPartake,rankMove].map(loc => {
                     if (isNaN(loc)) {
                         throw `${house.name} has NaN number. [${scorePersonal}, ${leaderMatchFamily}, ${sameDepartment}, ${totalFamilyAbility}, ${totalPartake}]`; 
                     }
@@ -711,6 +736,7 @@ function refreshFamilyScore(res) { // not finished
                     sameDepartment,
                     totalFamilyAbility,
                     totalPartake,
+                    rankMove,
                 });
             }
         });
@@ -796,9 +822,12 @@ function updateAdminDB(req, res) {
 
 function freshGameResult(req, res) {
     const all_promise = [];
-    all_promise.push(models.Result.findAll());
+    all_promise.push(models.Result.findAll({
+        limit: 1,
+        order: [['createdAt', 'DESC']],
+    }));
     all_promise.push(models.Match.findAll({
-        attributes: ['id', 'success', 'userId', 'houseIdNow', 'add', 'minus', 'shift', 'round']
+        attributes: ['id', 'success', 'userId', 'houseIdNow', 'add', 'minus', 'shift', 'round', 'activity']
     }));
 
     Promise.all(all_promise).then(([results, matches]) => {
@@ -817,15 +846,18 @@ function freshGameResult(req, res) {
             }
             if (!datasetMap[round][hid]) {
                 datasetMap[round][hid] = {
-                    total: {add: 0, minus: 0, shift: 0, success: 0},
+                    total: {add: 0, minus: 0, shift: 0, success: 0, activity: 0},
                     matches: []
                 };
             }
+            
             datasetMap[round][hid].total.add+= match.add;
             datasetMap[round][hid].total.minus+= match.minus;
             datasetMap[round][hid].total.shift+= match.shift;
+            datasetMap[round][hid].total.activity+= match.activity;
             datasetMap[round][hid].total.success+= match.success || 0;
             datasetMap[round][hid].matches.push(match);
+            
         });
         results.map(result => {
             const data = datasetMap[result._json.round];
@@ -835,7 +867,7 @@ function freshGameResult(req, res) {
             }).filter(e => e.houseId > 0);
             matchesdata.sort((a,b) => {
                 const gap = b.success - a.success;
-                return gap == 0 ? b.add - a.add : gap;
+                return gap == 0 ? b.activity - a.activity : gap;
             })
             const nextJson = {...result._json, matchesdata};
             const nextRanking = matchesdata.map(e => e.houseId);

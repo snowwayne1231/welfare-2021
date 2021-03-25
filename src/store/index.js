@@ -7,7 +7,7 @@ import {
     ACT_JOIN_CHAT_ROOM, ACT_LEAVE_CHAT_ROOM, ACT_MOVE_CHAT_ROOM, ACT_SAY_CHAT_ROOM,
     ACT_GET_ADMIN_DATASET, ACT_GET_COUNTRYSIDE_DATA, ACT_GET_TROPHY, ACT_GET_CONFIG,
     ACT_GET_LOVE, ACT_GET_SELF_VOTE, ACT_GET_PREDICTIONS, ACT_GET_GAMES, ACT_GET_GAME_RESULTS,
-    ACT_GET_GAME_MATCHES, ACT_GET_GAME_VIDEO,
+    ACT_GET_GAME_MATCHES, ACT_GET_GAME_VIDEO, ACT_GET_USER_MATCHES,
     
 } from './enum';
 console.log('process.env: ', process.env);
@@ -104,6 +104,7 @@ const userInitState = {
     skillSpended: -1,
     skillSDCWC: [0,0,0,0,0],
     voter: {},
+    matches: [],
 };
 
 const moduleUser = {
@@ -170,7 +171,11 @@ const moduleUser = {
                             voteThree: 0,
                         }
                     }
-                    break
+                    break;
+                case ACT_GET_USER_MATCHES: {
+                    state.matches = payload;
+                    break;
+                }
                 default:
             }
         },

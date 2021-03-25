@@ -67,7 +67,14 @@
             .md-theme-default {
                 background-color: transparent;
             }
+            .md-table-cell-container {
+                padding: 2px 26px 4px 20px;
+            }
+            .md-table-head-container {
+                height: 52px;
+            }
         }
+        
         .player-able-area {
             margin: 0px 0px;
             .able-block {
@@ -146,10 +153,21 @@
             font-size: 32px !important;
             height: 32px !important;
         }
+
     }
 
     .helper {
         left: 0px;
         top: 0px;
+    }
+}
+
+.player-record-table {
+    
+    .md-table-cell, .md-table-head {
+        text-align: center;
+        &.first-cell {
+            text-align: left;
+        }
     }
 }

@@ -186,8 +186,8 @@
             color: #fff;
             font-size: 15px;
         }
-
     }
+    
 }
 
 .md-dialog {
@@ -204,6 +204,16 @@
     .last-update {
         font-size: 12px;
         color: #fff;
+    }
+    .result-success {
+        font-size: 18px;
+        color: #004b8c;
+        border-right: 1px solid #e0e0e0;
+    }
+    .result-total {
+        border-left: 1px solid #e0e0e0;
+        color: #a26900;
+        font-size: 18px;
     }
 }
 
