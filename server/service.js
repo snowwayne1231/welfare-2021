@@ -847,17 +847,45 @@ function freshGameResult(req, res) {
             if (!datasetMap[round][hid]) {
                 datasetMap[round][hid] = {
                     total: {add: 0, minus: 0, shift: 0, success: 0, activity: 0},
-                    matches: []
+                    matchesMap: {},
                 };
             }
-            
-            datasetMap[round][hid].total.add+= match.add;
+
+
+            if (datasetMap[round][hid].matchesMap[match.userId]) {
+                const _user_matches = datasetMap[round][hid].matchesMap[match.userId];
+                let max = {
+                    add: 0,
+                    shift: 0,
+                    activity: 0,
+                };
+                
+                _user_matches.map(_m => {
+                    if (_m.add > max.add) { max.add = _m.add; }
+                    if (_m.shift > max.shift) { max.shift = _m.shift; }
+                    if (_m.activity > max.activity) { max.activity = _m.activity; }
+                });
+                
+                if (match.add > max.add) {
+                    console.log('match.add - max.add: ', match.add - max.add);
+                    datasetMap[round][hid].total.add += (match.add - max.add);
+                }
+                if (match.shift > max.shift) {
+                    datasetMap[round][hid].total.shift += (match.shift - max.shift);
+                }
+                if (match.activity > max.activity) {
+                    datasetMap[round][hid].total.activity += (match.activity - max.activity);
+                }
+                datasetMap[round][hid].matchesMap[match.userId].push(match);
+            } else {
+                datasetMap[round][hid].total.add+= match.add;
+                datasetMap[round][hid].total.shift+= match.shift;
+                datasetMap[round][hid].total.activity+= match.activity;
+                datasetMap[round][hid].matchesMap[match.userId] = [match];
+            }
+
             datasetMap[round][hid].total.minus+= match.minus;
-            datasetMap[round][hid].total.shift+= match.shift;
-            datasetMap[round][hid].total.activity+= match.activity;
-            datasetMap[round][hid].total.success+= match.success || 0;
-            datasetMap[round][hid].matches.push(match);
-            
+            datasetMap[round][hid].total.success+= (match.success || 0);
         });
         results.map(result => {
             const data = datasetMap[result._json.round];
