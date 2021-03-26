@@ -290,6 +290,34 @@
           tbody.appendChild(tr);
         });
       }
+
+
+      function getPredictionMap() {
+        var map = {};
+        results.map(r => {
+          var round = r.round;
+          var house = r.houseId;
+          if (!map[round]) { map[round] = {}; }
+          if (!map[round][house]) { map[round][house] = []; }
+          map[round][house].push(r.userId);
+        });
+        return map;
+      }
+
+      function getUsers(ids) {
+        var users = results.filter(r => {
+          return ids.includes(r.id);
+        });
+        users.sort((a,b) => {
+          var ahid = a.houseId || a.houseIdTmp;
+          var bhid = b.houseId || b.houseIdTmp;
+          return ahid - bhid;
+        });
+        return {
+          names: users.map(u => u.nickname),
+          users,
+        }
+      }
       
     </script>
 

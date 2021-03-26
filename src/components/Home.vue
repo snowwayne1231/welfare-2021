@@ -18,7 +18,7 @@
 
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">vertical_align_top</span>
-              <span class="md-list-item-text">2021-03-03 【 遊戲結局與積分細則 】</span>
+              <span class="md-list-item-text">2021-03-27 【 遊戲結局與積分細則 】</span>
               <md-list slot="md-expand">
                 <md-table class="news-table">
                   <md-table-toolbar>
@@ -81,6 +81,7 @@
                     <li>B. 每一次遊戲活動會依照名次 + [30 / 24 / 18 / 12 / 6 / 6 / 6 / 6] 分  (第三季*2)</li>
                     <li>C. (特殊加成) 值班人員一整年有一次機會，在因值班不能參與活動(戶外)時為團隊 +5分</li>
                     <li>D. (特殊加成) 家族成員一整年有兩次機會，參與戶外活動戶外額外 +2分</li>
+                    <li>E. (特殊加成) 每一次活動預測冠軍成功的玩家會為團體積分 +1分</li>
                   </ul></br>
                   <ul>(獎牌積分)
                     <li>A. 有十張獎牌各自擁有固定的隱藏規則</li>
@@ -182,6 +183,18 @@
                     <md-table-cell>季度</md-table-cell>
                     <md-table-cell>團體積分 + 該次戶外活動的參與分</md-table-cell>
                     <md-table-cell>在該季外出的活動中當前排名最後兩名的家族可能會有不好的活動體驗</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-table class="news-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">4. 預測功能</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-cell>* 可至 『競技場』中預測每個月的活動哪一家族會得到冠軍</md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>* 每季預測全中的玩家將會獲得額外1點能力值點數 (謙虛加成: 每一評等D能力再多加1點)</md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>* 每一次預測中的玩家會為團體增加一點積分</md-table-cell>
                   </md-table-row>
                 </md-table>
 
@@ -292,6 +305,256 @@
 
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">local_fire_department</span>
+              <span class="md-list-item-text">2021-03-27 【 四月 】 城市尋寶</span>
+              <md-list slot="md-expand">
+                <md-table class="news-table smaller-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">城市尋寶 流程表</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 12%">時間</md-table-head>
+                    <md-table-head>進程</md-table-head>
+                    <md-table-head>備註</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>8:30</md-table-cell>
+                    <md-table-cell>工作人員 Stand By</md-table-cell>
+                    <md-table-cell></md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>8:45 - 9:00</md-table-cell>
+                    <md-table-cell>集合時間 (正常人原9:00算遲到、夜班人員延長到9:15)</md-table-cell>
+                    <md-table-cell>家族可以先進行安裝APP與輸入序號事宜</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>9:00 - 9:20</md-table-cell>
+                    <md-table-cell>出發時間 (原則上等家族人員到齊才能出發、最晚等到9:20分)</md-table-cell>
+                    <md-table-cell>遲到條款會再之後說明</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>9:20 - 13:45</md-table-cell>
+                    <md-table-cell>解謎時間</md-table-cell>
+                    <md-table-cell>如無法在時間內完成將暫停遊戲並前往終點集合</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>13:45 - 14:00</md-table-cell>
+                    <md-table-cell>集合 x 拍照 x 發放午班值班人員餐盒</md-table-cell>
+                    <md-table-cell></md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>14:00 - 15:00</md-table-cell>
+                    <md-table-cell>前往餐廳 "小魏川菜館" 輕鬆用餐</md-table-cell>
+                    <md-table-cell></md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>15:00</md-table-cell>
+                    <md-table-cell>快樂解散</md-table-cell>
+                    <md-table-cell></md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-table class="news-table smaller-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">各家族 小天使分配表</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 30%">家族</md-table-head>
+                    <md-table-head>小天使</md-table-head>
+                    <md-table-head>家族成員人數 / 參加分</md-table-head>
+                    <md-table-head>季獎勵結算分</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>徒利</md-table-cell>
+                    <md-table-cell>Vic Lee</md-table-cell>
+                    <md-table-cell>5 / 25</md-table-cell>
+                    <md-table-cell>59 + 25 = 84</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>Dada</md-table-cell>
+                    <md-table-cell>6 / 30</md-table-cell>
+                    <md-table-cell>13 + 30 = 43</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>提利爾</md-table-cell>
+                    <md-table-cell>Castle</md-table-cell>
+                    <md-table-cell>7 / 35</md-table-cell>
+                    <md-table-cell>26 + 35 = 61</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>史塔克</md-table-cell>
+                    <md-table-cell>Mickey</md-table-cell>
+                    <md-table-cell>3 / 15</md-table-cell>
+                    <md-table-cell>3 + 15 = 18</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>馬泰爾</md-table-cell>
+                    <md-table-cell>Yusi</md-table-cell>
+                    <md-table-cell>6 / 30</md-table-cell>
+                    <md-table-cell>12 + 30 = 42</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>Bella</md-table-cell>
+                    <md-table-cell>5 / 25</md-table-cell>
+                    <md-table-cell>2 + 25 = 27</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell>Snow</md-table-cell>
+                    <md-table-cell>5 / 25</md-table-cell>
+                    <md-table-cell>0 + 25 = 25</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>艾林</md-table-cell>
+                    <md-table-cell>Jack</md-table-cell>
+                    <md-table-cell>4 / 20</md-table-cell>
+                    <md-table-cell>-2 + 20 = 18</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <p>季獎勵與懲罰:</p>
+                  <p>*. 依上述表格顯示第一季活動能享受較佳活動體驗的家族為: 徒利、提利爾 家族</p>
+                  <p>*. 第一季活動可能會體驗到較不好活動體驗的家族為: 史塔克、艾林 家族</p>
+                </md-content>
+                <md-content>
+                  <p>特別條款:</p>
+                  <p>1. 發生作弊行為並經查實，比照官網通則「在活動過程惡意違反規則」</p>
+                  <p>2. 活動當日遲到者，綁定參與尾牙表演 (最後所在家族)</p>
+                  <p>3. 已報名卻未到者扣除所在家族團體積分5分並加上遲到的條款</p>
+                </md-content>
+              </md-list>
+            </md-list-item>
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px">local_fire_department</span>
+              <span class="md-list-item-text">2021-03-27 【 三月戰報 】睿訊之國的闖關者</span>
+              <md-list slot="md-expand">
+                <md-table class="news-table smaller-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">睿訊之國的闖關者 賽後排名總結</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head>家族</md-table-head>
+                    <md-table-head>活動前總分</md-table-head>
+                    <md-table-head>活動加分</md-table-head>
+                    <md-table-head>預測加分</md-table-head>
+                    <md-table-head>總結</md-table-head>
+                    <md-table-head style="width: 8%">總結排名</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>徒利</md-table-cell>
+                    <md-table-cell>-5</md-table-cell>
+                    <md-table-cell>+54</md-table-cell>
+                    <md-table-cell>+10</md-table-cell>
+                    <md-table-cell>59</md-table-cell>
+                    <md-table-cell>I</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>-34</md-table-cell>
+                    <md-table-cell>+47</md-table-cell>
+                    <md-table-cell>+0</md-table-cell>
+                    <md-table-cell>13</md-table-cell>
+                    <md-table-cell>III</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>提利爾</md-table-cell>
+                    <md-table-cell>-17</md-table-cell>
+                    <md-table-cell>+42</md-table-cell>
+                    <md-table-cell>+1</md-table-cell>
+                    <md-table-cell>26</md-table-cell>
+                    <md-table-cell>II</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>史塔克</md-table-cell>
+                    <md-table-cell>-34</md-table-cell>
+                    <md-table-cell>+36</md-table-cell>
+                    <md-table-cell>+1</md-table-cell>
+                    <md-table-cell>3</md-table-cell>
+                    <md-table-cell>V</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>馬泰爾</md-table-cell>
+                    <md-table-cell>-19</md-table-cell>
+                    <md-table-cell>+30</md-table-cell>
+                    <md-table-cell>+1</md-table-cell>
+                    <md-table-cell>12</md-table-cell>
+                    <md-table-cell>IV</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>-30</md-table-cell>
+                    <md-table-cell>+30</md-table-cell>
+                    <md-table-cell>+2</md-table-cell>
+                    <md-table-cell>2</md-table-cell>
+                    <md-table-cell>VI</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell>-31</md-table-cell>
+                    <md-table-cell>+30</md-table-cell>
+                    <md-table-cell>+1</md-table-cell>
+                    <md-table-cell>0</md-table-cell>
+                    <md-table-cell>VII</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>艾林</md-table-cell>
+                    <md-table-cell>-35</md-table-cell>
+                    <md-table-cell>+30</md-table-cell>
+                    <md-table-cell>+3</md-table-cell>
+                    <md-table-cell>-2</md-table-cell>
+                    <md-table-cell>VIII</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <p>活動優勝家族為: 徒利家族 !! </p>
+                  <p>*** 特別修改預測單季全中獎勵由 "送造型"改為送"能力點數" ***</p>
+                  <p>(因為福委懶得加功能了, 最新訊息請查閱最新修改後的"遊戲結局與積分細則")</p>
+                  <p>預測成功名單：</p>
+                </md-content>
+                <md-table>
+                  <md-table-row>
+                    <md-table-head>家族</md-table-head>
+                    <md-table-head>預測人</md-table-head>
+                    <md-table-head>家族</md-table-head>
+                    <md-table-head>預測人</md-table-head>
+                    <md-table-head>家族</md-table-head>
+                    <md-table-head>預測人</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-head>史塔克</md-table-head><md-table-cell>生氣買個包＄</md-table-cell>
+                    <md-table-head>艾林</md-table-head><md-table-cell>卓耿</md-table-cell>
+                    <md-table-head>艾林</md-table-head><md-table-cell>八拉崩巴</md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-head>艾林</md-table-head><md-table-cell>還敢下來阿冰鳥</md-table-cell>
+                    <md-table-head>徒利</md-table-head><md-table-cell>HA↗HA↘HA↗HA↘</md-table-cell>
+                    <md-table-head>徒利</md-table-head><md-table-cell>傑西</md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-head>徒利</md-table-head><md-table-cell>洲子街大地主</md-table-cell>
+                    <md-table-head>徒利</md-table-head><md-table-cell>公主道車神</md-table-cell>
+                    <md-table-head>徒利</md-table-head><md-table-cell>天竺鼠阿比</md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-head>徒利</md-table-head><md-table-cell>11111</md-table-cell>
+                    <md-table-head>徒利</md-table-head><md-table-cell>二姐</md-table-cell>
+                    <md-table-head>徒利</md-table-head><md-table-cell>包子入侵</md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-head>徒利</md-table-head><md-table-cell>肥宅</md-table-cell>
+                    <md-table-head>徒利</md-table-head><md-table-cell>平民</md-table-cell>
+                    <md-table-head>蘭尼斯特</md-table-head><md-table-cell>楊伯麟</md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-head>蘭尼斯特</md-table-head><md-table-cell>街友</md-table-cell>
+                    <md-table-head>提利爾</md-table-head><md-table-cell>睿訊五條悟</md-table-cell>
+                    <md-table-head>拜拉席恩</md-table-head><md-table-cell>㊣上班只為交朋友㊣</md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-head>馬泰爾</md-table-head><md-table-cell>吉米花</md-table-cell>
+                    <md-table-cell></md-table-cell><md-table-cell></md-table-cell>
+                    <md-table-cell></md-table-cell><md-table-cell></md-table-cell>
+                  </md-table-row>
+                </md-table>
+              </md-list>
+            </md-list-item>
+
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px">local_fire_department</span>
               <span class="md-list-item-text">2021-03-19 【 NEWS 】 睿訊之國的闖關者MVP票選開跑</span>
               <md-list slot="md-expand">
                 <md-table class="news-table smaller-table">
@@ -322,7 +585,7 @@
             </md-list-item>
             
             <md-list-item md-expand>
-              <span class="material-icons mr-6-px">local_fire_department</span>
+              <span class="material-icons mr-6-px"></span>
               <span class="md-list-item-text">2021-03-15 【 NEWS 】 睿訊之國的闖關者時間表&門檻 與 預測功能開放</span>
               <md-list slot="md-expand">
                 <md-content>
@@ -535,7 +798,7 @@
                 <md-content>
                   <h1>預測功能開放中</h1>
                   <p>1. 可至 『競技場』中預測每個月的活動哪一家族會得到冠軍</p>
-                  <p>2. 每季預測全中的玩家將會獲得紀念造型</p>
+                  <p>2. 每季預測全中的玩家將會獲得額外1點能力值點數 (謙虛加成: 每一評等D能力再多加1點)</p>
                   <p>3. 每一次預測中的玩家會為團體增加一點積分</p>
                 </md-content>
               </md-list>
@@ -615,7 +878,7 @@
                   各身份 TIPS:</br>
                   1. 睿訊同仁(非封臣): 各位在一年的活動中沒有任何負擔 請享受活動帶來的樂趣遊玩</br></br>
                   2. 管理職與封臣:  雖然有承擔著上台表演的可能性，但請勿使用職權命令他人服從，因為其他同仁並沒有義務幫助你們，請將心比心將同仁視為朋友、夥伴或家人</br>
-                  如真有必須抗拒表演之因素，請用仁德之心與平等的心態 請求夥伴們的協助</br>
+                  如真有必須抗拒表演之因素，請用平等的心態 請求夥伴們的協助</br>
                 </md-content>
               </md-list>
             </md-list-item>
