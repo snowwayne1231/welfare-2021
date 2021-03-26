@@ -118,17 +118,17 @@
         <md-table class="record-table player-record-table">
           <md-table-row>
             <md-table-head style="width: 220px;">遊戲</md-table-head>
-            <md-table-head>勝利</md-table-head>
+            <md-table-head>勝利分</md-table-head>
             <md-table-head>MVP</md-table-head>
             <md-table-head>值班</md-table-head>
             <md-table-head>扣分</md-table-head>
           </md-table-row>
-          <md-table-row v-for="(match) in user.matches" :key="match.id">
-            <md-table-cell class="first-cell">{{match.name}}</md-table-cell>
-            <md-table-cell>{{match.success > 0 ? 'WIN': '--'}}</md-table-cell>
-            <md-table-cell>{{match.mvp}}</md-table-cell>
-            <md-table-cell>{{match.shift}}</md-table-cell>
-            <md-table-cell>{{match.minus}}</md-table-cell>
+          <md-table-row v-for="(matches, idx) in roundMatches" :key="idx">
+            <md-table-cell class="first-cell"><p v-for="match in matches" :key="match.id">{{match.name}}</p></md-table-cell>
+            <md-table-cell><p v-for="match in matches" :key="match.id">{{match.success}}</p></md-table-cell>
+            <md-table-cell><md-icon v-if="matches[0].mvp > 0">star</md-icon></md-table-cell>
+            <md-table-cell>{{matches[0].shift}}</md-table-cell>
+            <md-table-cell>{{matches[0].minus}}</md-table-cell>
           </md-table-row>
         </md-table>
       </md-content>
@@ -235,6 +235,33 @@ export default {
         ]
       }
     },
+    roundMatches() {
+      const matches = this.user.matches;
+      const map = {};
+      matches.map(match => {
+        let round = match.round;
+        if (map[round]) {
+          map[round].push(match);
+          if (match.success > 0) {
+            map[round][0].success = match.success;
+          }
+          if (match.mvp > 0) {
+            map[round][0].mvp = match.mvp;
+          }
+          if (match.shift > 0) {
+            map[round][0].shift = match.shift;
+          }
+          if (match.minus > 0) {
+            map[round][0].minus += match.minus;
+          }
+        } else {
+          map[round] = [match];
+        }
+      });
+      const result = Object.values(map);
+      result.sort((a,b) => a.round - b.round);
+      return result;
+    }
   },
   methods: {
     checkMinusShow(idx) {
