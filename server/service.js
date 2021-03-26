@@ -257,6 +257,7 @@ function handleAdminSnow(req, res, uris) {
             case 'freshfamilyscore': return refreshFamilyScore(res);
             case 'update': return updateAdminDB(req, res);
             case 'freshgameresult': return freshGameResult(req, res);
+            case 'getvoteresult': return getVoteResult(req, res);
             default:
         }
     }
@@ -867,7 +868,6 @@ function freshGameResult(req, res) {
                 });
                 
                 if (match.add > max.add) {
-                    console.log('match.add - max.add: ', match.add - max.add);
                     datasetMap[round][hid].total.add += (match.add - max.add);
                 }
                 if (match.shift > max.shift) {
@@ -908,5 +908,74 @@ function freshGameResult(req, res) {
 
         res.json(results);
 
+    }).catch(err => console.log(err));
+}
+
+function getVoteResult(req, res) {
+    const promise_1 = models.User.findAll({
+        attributes: ['id', 'name', 'nickname', 'mvp', 'houseIdTmp', 'houseId'],
+        where: {status: 1},
+    });
+    const promise_2 = models.Voter.findAll({
+        attributes: ['round', 'vote', 'voteTwo', 'voteThree', 'userId'],
+    });
+    Promise.all([promise_1, promise_2]).then(([users, voters]) => {
+        const userMap = {};
+        const roundUserVotedMap = {};
+        const doneVoteMap = {};
+        users.map(user => {
+            userMap[user.id] = user;
+        });
+
+        voters.map(voter => {
+            let round = voter.round;
+            let uid = voter.userId;
+            let voteTo = [voter.vote, voter.voteTwo, voter.voteThree];
+            if (!roundUserVotedMap[round]) {
+                roundUserVotedMap[round] = {};
+                doneVoteMap[round] = [];
+            }
+            doneVoteMap[round].push(uid);
+
+            voteTo.map(votedId => {
+                if (votedId && votedId > 0) {
+                    if (!roundUserVotedMap[round][votedId]) {
+                        let user = userMap[uid];
+                        roundUserVotedMap[round][votedId] = {id: votedId, voted: 0, house: user.houseId || user.houseIdTmp};
+                    }
+                    roundUserVotedMap[round][votedId].voted += 1;
+                }
+            });
+        });
+
+        const notVoteUsers = Object.keys(doneVoteMap).map(round => {
+            const _result = {round};
+            const _ary = doneVoteMap[round];
+            _result.users = users.filter(user => !(_ary.includes(user.id) || (user.houseIdTmp == 0 && user.houseId == 0))).map(user => user.name);
+            return _result;
+        });
+        const voteResultList = Object.keys(roundUserVotedMap).map(round => {
+            const list = Object.values(roundUserVotedMap[round]).filter(e => e.house>0);
+            list.sort((a,b) => {
+                return a.house == b.house ? b.voted - a.voted : a.house - b.house;
+            });
+            return {round, list};
+        });
+        const top = voteResultList.map(result => {
+            const resultMap = {};
+            const list = result.list.map(e => {
+                if (!resultMap[e.house]) {
+                    let user = userMap[e.id];
+                    resultMap[e.house] = {...e, username: user.name, nickname: user.nickname};
+                }
+            });
+            return {round: result.round, resultMap};
+        });
+
+        res.json({
+            notVoteUsers,
+            voteResultList,
+            top,
+        });
     }).catch(err => console.log(err));
 }

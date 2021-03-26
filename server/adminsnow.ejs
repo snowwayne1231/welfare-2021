@@ -111,10 +111,11 @@
       </form>
 
       <div id="refresh-data">
-        <button id="resettinglv">Resetting-Init-LV</button>
+        <!-- <button id="resettinglv">Resetting-Init-LV</button> -->
         <button id="freshuserscore">Refresh-User-Score</button>
         <button id="freshfamilyscore">Refresh-Family-Score</button>
         <button id="freshgameresult">Refresh-Game-Result</button>
+        <button id="getvoteresult">Get-MVP-voter</button>
         
       </div>
 
@@ -186,9 +187,9 @@
         
       });
 
-      document.getElementById('resettinglv').addEventListener('click', (evt) => {
-        window.open('/adminsnow/resettinglv', "_blank");
-      });
+      // document.getElementById('resettinglv').addEventListener('click', (evt) => {
+      //   window.open('/adminsnow/resettinglv', "_blank");
+      // });
 
       document.getElementById('freshfamilyscore').addEventListener('click', (evt) => {
         window.open('/adminsnow/freshfamilyscore', "_blank");
@@ -201,6 +202,11 @@
       document.getElementById('freshgameresult').addEventListener('click', (evt) => {
         window.open('/adminsnow/freshgameresult', "_blank");
       });
+
+      document.getElementById('getvoteresult').addEventListener('click', (evt) => {
+        window.open('/adminsnow/getvoteresult', "_blank");
+      });
+      
 
       dom_tbody.addEventListener('change', (evt) => {
         // console.log('change: ', evt);
