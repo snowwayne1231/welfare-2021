@@ -305,7 +305,7 @@
 
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">local_fire_department</span>
-              <span class="md-list-item-text">2021-03-27 【 四月 】 城市尋寶</span>
+              <span class="md-list-item-text">2021-03-29 【 四月 】 城市尋寶</span>
               <md-list slot="md-expand">
                 <md-table class="news-table smaller-table">
                   <md-table-toolbar>
@@ -426,7 +426,7 @@
             </md-list-item>
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">local_fire_department</span>
-              <span class="md-list-item-text">2021-03-27 【 三月戰報 】睿訊之國的闖關者</span>
+              <span class="md-list-item-text">2021-03-29 【 三月戰報 】睿訊之國的闖關者</span>
               <md-list slot="md-expand">
                 <md-table class="news-table smaller-table">
                   <md-table-toolbar>
@@ -548,6 +548,65 @@
                     <md-table-head>馬泰爾</md-table-head><md-table-cell>吉米花</md-table-cell>
                     <md-table-cell></md-table-cell><md-table-cell></md-table-cell>
                     <md-table-cell></md-table-cell><md-table-cell></md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-table>
+                  <md-table-toolbar>
+                    <h1 class="md-title">睿訊之國的闖關者 家族內部 票選MVP人員</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head>家族</md-table-head>
+                    <md-table-head>MVP</md-table-head>
+                    <md-table-head>最佳門檻</md-table-head>
+                    <md-table-head>最佳場次</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>史塔克</md-table-cell>
+                    <md-table-cell>佛度有緣人</md-table-cell>
+                    <md-table-cell>白金</md-table-cell>
+                    <md-table-cell>睿訊之國的闖關者(方塊)</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>艾林</md-table-cell>
+                    <md-table-cell>誰比我會喝飲料</md-table-cell>
+                    <md-table-cell>大師</md-table-cell>
+                    <md-table-cell>睿訊之國的闖關者(梅花)</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>徒利</md-table-cell>
+                    <md-table-cell>銅鬚布萊恩</md-table-cell>
+                    <md-table-cell>大師</md-table-cell>
+                    <md-table-cell>睿訊之國的闖關者(黑桃)</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>賈德</md-table-cell>
+                    <md-table-cell>白金</md-table-cell>
+                    <md-table-cell>睿訊之國的闖關者(方塊)</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>提利爾</md-table-cell>
+                    <md-table-cell>睿訊五條悟</md-table-cell>
+                    <md-table-cell>大師</md-table-cell>
+                    <md-table-cell>睿訊之國的闖關者(紅心)</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell>㊣上班只為吃便當㊣</md-table-cell>
+                    <md-table-cell>大師</md-table-cell>
+                    <md-table-cell>睿訊之國的闖關者(黑桃)</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>阿強</md-table-cell>
+                    <md-table-cell>大師</md-table-cell>
+                    <md-table-cell>睿訊之國的闖關者(梅花)</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>馬泰爾</md-table-cell>
+                    <md-table-cell>🚀握不住的他🚀</md-table-cell>
+                    <md-table-cell>大師</md-table-cell>
+                    <md-table-cell>睿訊之國的闖關者(黑桃)</md-table-cell>
                   </md-table-row>
                 </md-table>
               </md-list>

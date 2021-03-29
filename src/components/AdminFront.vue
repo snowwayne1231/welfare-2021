@@ -14,7 +14,7 @@
             </tr>
             <tr>
               <th>Where</th>
-              <td><textarea v-model="whereInput" placeholder="key = value"> </textarea><button @click="onClickBtn">Submit</button></td>
+              <td><textarea v-model="whereInput" placeholder="key = value"> </textarea><button @click="onClickBtn">Submit</button><input v-model="checkEdit" type="checkbox" /></td>
             </tr>
             <tr>
               <th>Attr</th>
@@ -46,7 +46,7 @@
         <md-table v-model="global.dataset" md-sort="id" md-sort-order="asc" class="admin-table">
           <md-table-row slot="md-table-row" slot-scope="{ item }">
             <md-table-cell v-for="k in datasetKeys" :key="k" :md-label="k" :md-sort-by="k">
-              <span v-if="isNaN(item[k]) || typeof item[k] == 'boolean'">{{ item[k] }}</span>
+              <span v-if="isSpan(item[k])">{{ item[k] }}</span>
               <input v-else type="text" :value="item[k]" @change="onChangeNumber(k, item, $event)"/>
             </md-table-cell>
           </md-table-row>
@@ -78,6 +78,7 @@ export default {
         'Voter',
         'Prediction',
       ],
+      checkEdit: false,
     };
   },
   mounted() {
@@ -129,6 +130,9 @@ export default {
         where,
         data
       }});
+    },
+    isSpan(item) {
+      return !this.checkEdit || isNaN(item) || typeof item == 'boolean';
     }
   }
 }
