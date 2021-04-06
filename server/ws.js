@@ -258,7 +258,7 @@ function onMessage(socket) {
                             name,
                             add: u.add,
                             activity: u.activity,
-                            shift: 0,
+                            shift: u.shift || 0,
                             mvp: 0,
                             round: gameRound,
                             userId: u.id,

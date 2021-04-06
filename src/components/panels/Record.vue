@@ -71,10 +71,10 @@
             <md-table-row v-for="(rhouse, idx) in rankingResults" :key="idx">
               <md-table-cell><img :src="rhouse.house.img" style="max-height: 40px;" />{{rhouse.house.name}}</md-table-cell>
               <md-table-cell class="result-success">{{rhouse.success}}</md-table-cell>
-              <md-table-cell>{{rhouse.add}}</md-table-cell>
+              <md-table-cell>{{rhouse.add}} <span v-if="rhouse.shift>0"> + {{rhouse.shift}}</span></md-table-cell>
               <md-table-cell>{{rhouse.minus == 0 ? '' : ('- '+rhouse.minus)}}</md-table-cell>
               <md-table-cell>{{rhouse.rankScore}}</md-table-cell>
-              <md-table-cell class="result-total">{{rhouse.rankScore + rhouse.add - rhouse.minus}}</md-table-cell>
+              <md-table-cell class="result-total">{{rhouse.rankScore + rhouse.add + rhouse.shift - rhouse.minus}}</md-table-cell>
             </md-table-row>
           </md-table>
         </md-content>

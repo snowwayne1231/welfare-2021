@@ -19,7 +19,7 @@
               </tr>
               <tr>
                 <td>(個人) MVP+3, 門檻 +2/3/4, 無+1 |</td>
-                <td>| (團體) 參加+3 (第一次再+2), 名次[30/24/18/12/6],  值班+5</td>
+                <td>| (團體) 參加+3 (第一次再+2)<input v-model="isOuting" type="checkbox"/>,  值班+5</td>
               </tr>
             </tbody>
           </table>
@@ -43,6 +43,7 @@
             <md-table-cell md-label="團體積分增加" md-sort-by="add"><input type="number" v-model="item.add" @click.stop @click="item.add = item.add == 3 ? 5 : (item.add == 5 ? 0 : 3)" readonly style="width: 52px;" :class="{good: item.add==5, normal: item.add==3}" /></md-table-cell>
             <md-table-cell md-label="門檻" md-sort-by="activity"><input type="number" v-model="item.activity" @click.stop @click="item.activity = item.activity >= 4 ? 0 : item.activity+1" readonly :class="{excellent: item.activity==4, good: item.activity==3, normal: item.activity==2}" /></md-table-cell>
             <md-table-cell md-label="Success"><input type="checkbox" v-model="item.success" @click.stop /></md-table-cell>
+            <md-table-cell md-label="值班"><input type="checkbox" v-model="item.shift" @click.stop /></md-table-cell>
           </md-table-row>
         </md-table>
         
@@ -63,6 +64,7 @@ export default {
       round: 1,
       num: 1,
       table_1_data: [],
+      isOuting: false,
     };
   },
   mounted() {
@@ -87,13 +89,21 @@ export default {
         u.add = u.houseId > 0 ? 3 : 0;
         u.activity = 1;
         u.success = false;
+        u.shift = false;
         u.houseIdNow = u.houseId == 0 ? u.houseIdTmp : u.houseId;
         return u;
       });
     },
     onSelect(selectedArray) {
-      this.selectedArray = selectedArray;
-      console.log(selectedArray);
+      if (selectedArray && selectedArray.length > 0) {
+        this.selectedArray = selectedArray;
+        const lastPick = selectedArray[selectedArray.length-1];
+        const thedata = this.table_1_data.find(e => e.id == lastPick.id);
+        if (thedata && this.isOuting && thedata.add > 0) {
+          thedata.add = 5;
+        }
+        console.log(selectedArray);
+      }
     },
     onClickSend(evt) {
       this.$store.dispatch('wsEmitMessage', {act: ACT_ADMIN_CREATE_GAME, payload: {
@@ -106,6 +116,7 @@ export default {
             add: e.add,
             activity: e.activity,
             success: e.success,
+            shift: e.shift ? 5 : 0,
             houseIdNow: e.houseIdNow,
           };
           return user;
