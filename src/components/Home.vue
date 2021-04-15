@@ -9,7 +9,11 @@
           <div class="md-subhead">
             <span>bulletin of the kingdom</span>
           </div>
-          <div class="note"></div>
+          <div class="note" style="width:100%;">
+            <md-button class="md-icon-button history" to="/olderinfo" title="歷史公告">
+              <md-icon>history</md-icon>
+            </md-button>
+          </div>
         </md-card-header-text>
       </md-card-header>
       <md-card-content>
@@ -198,6 +202,38 @@
                   </md-table-row>
                 </md-table>
 
+              </md-list>
+            </md-list-item>
+
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px">vertical_align_top</span>
+              <span class="md-list-item-text">2021-03-03 【 活動通則 】</span>
+              <md-list slot="md-expand">
+                <md-table class="news-table">
+                  
+                  <md-table-row>
+                    <md-table-head style="width: 20%">條款</md-table-head>
+                    <md-table-head>違反結果</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>§ 在活動過程中沒有確實以暱稱稱呼彼此</md-table-cell>
+                    <md-table-cell>-1 團體積分</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>§ 在活動過程中將答案洩漏給非同家族的成員</br>§ 在活動過程惡意違反規則、不遵從柔性勸導</md-table-cell>
+                    <md-table-cell>第一次就範:</br>將涉及家族 團體分數歸零、個人RV全數歸零 且該場次活動不計分，八大家族一起勝利的條件也取消</br>第二次就範:</br>涉及的家族全數直接尾牙表演，且不能享有任何福委獎勵</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>§ 在活動中針對特定人進行欺壓、惡意攻擊、或是違反自主意願行為</br>§ 在活動中以職權令人屈服、妥協或者辱罵他人</br>(可舉報、經由福委查實)</md-table-cell>
+                    <md-table-cell>該家族族長與施加者直接尾牙表演、且更換族長帶領家族</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  各身份 TIPS:</br>
+                  1. 睿訊同仁(非封臣): 各位在一年的活動中沒有任何負擔 請享受活動帶來的樂趣遊玩</br></br>
+                  2. 管理職與封臣:  雖然有承擔著上台表演的可能性，但請勿使用職權命令他人服從，因為其他同仁並沒有義務幫助你們，請將心比心將同仁視為朋友、夥伴或家人</br>
+                  如真有必須抗拒表演之因素，請用平等的心態 請求夥伴們的協助</br>
+                </md-content>
               </md-list>
             </md-list-item>
 
@@ -424,6 +460,7 @@
                 </md-content>
               </md-list>
             </md-list-item>
+
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">local_fire_department</span>
               <span class="md-list-item-text">2021-03-29 【 三月戰報 】睿訊之國的闖關者</span>
@@ -612,443 +649,6 @@
               </md-list>
             </md-list-item>
 
-            <md-list-item md-expand>
-              <span class="material-icons mr-6-px">local_fire_department</span>
-              <span class="md-list-item-text">2021-03-19 【 NEWS 】 睿訊之國的闖關者MVP票選開跑</span>
-              <md-list slot="md-expand">
-                <md-table class="news-table smaller-table">
-                  <md-table-row>
-                    <md-table-head style="width: 25%">時刻</md-table-head>
-                    <md-table-head>投票</md-table-head>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>2021年03月22號 12:00</md-table-cell>
-                    <md-table-cell>開始各家族組內人員進行MVP投票 (每人最多三票)</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>2021年03月26號 16:00 </md-table-cell>
-                    <md-table-cell>關閉投票通道並統計</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>2021年03月29號 15:00 </md-table-cell>
-                    <md-table-cell>公佈獲得MVP人員</md-table-cell>
-                  </md-table-row>
-                </md-table>
-                <md-content>
-                  <p>期間內對自己所在家族人員進行投票，選出你心中最能CARRY家族的人員吧！</p>
-                  <p>* 每人最多3票 在期間內都可以任意配置/修改投票的人選 (家族成員右上方的盾牌標記就是選中的記號)</p>
-                  <p>* 各家族MVP只會產生一位得票數最高者，該成員會獲得3點RV值獎勵</p>
-                  <p>* 票數相當時以家族族長直接裁定誰為MVP</p>
-                </md-content>
-              </md-list>
-            </md-list-item>
-            
-            <md-list-item md-expand>
-              <span class="material-icons mr-6-px"></span>
-              <span class="md-list-item-text">2021-03-15 【 NEWS 】 睿訊之國的闖關者時間表&門檻 與 預測功能開放</span>
-              <md-list slot="md-expand">
-                <md-content>
-                  <img src="/static/imgs/timetable.jpg" >
-                </md-content>
-                <md-table class="news-table smaller-table">
-                  <md-table-row>
-                    <md-table-head style="width: 12%">時刻</md-table-head>
-                    <md-table-head>馬泰爾</md-table-head>
-                    <md-table-head>艾林</md-table-head>
-                    <md-table-head>蘭尼斯特</md-table-head>
-                    <md-table-head>史塔克</md-table-head>
-                    <md-table-head>提利爾</md-table-head>
-                    <md-table-head>拜拉席恩</md-table-head>
-                    <md-table-head>坦格利安</md-table-head>
-                    <md-table-head>徒利</md-table-head>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>03/15 - 12:30</md-table-cell>
-                    <md-table-cell>🚀握不住的他🚀</md-table-cell>
-                    <md-table-cell>貂</md-table-cell>
-                    <md-table-cell>HSU</md-table-cell>
-                    <md-table-cell>源辣讚讚</md-table-cell>
-                    <md-table-cell>珂珂</md-table-cell>
-                    <md-table-cell>艾利森</md-table-cell>
-                    <md-table-cell>瑞塔</md-table-cell>
-                    <md-table-cell>肥宅</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>03/15 - 15:30</md-table-cell>
-                    <md-table-cell>海獅會害怕</md-table-cell><md-table-cell>誰比我會喝飲料</md-table-cell><md-table-cell>牛年大吉,牛轉乾坤</md-table-cell><md-table-cell>↗統神端火鍋↙</md-table-cell><md-table-cell>深有牛奶糖</md-table-cell><md-table-cell>姜太公今天不想釣魚</md-table-cell><md-table-cell>薇薇安</md-table-cell><md-table-cell>公主道車神</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>03/16 - 8:30</md-table-cell>
-                    <md-table-cell>寶可夢大師</md-table-cell><md-table-cell>我阿姨也癢</md-table-cell><md-table-cell>涅法雷姆</md-table-cell><md-table-cell>神聖平板不容侵犯</md-table-cell><md-table-cell>薄荷草莓廢柴</md-table-cell><md-table-cell>㊣上班只為吃便當㊣</md-table-cell><md-table-cell>脾氣最好的姐姐 ◉‿◉</md-table-cell><md-table-cell>二姐</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>03/16 - 12:30</md-table-cell>
-                    <md-table-cell>妳好漂亮</md-table-cell><md-table-cell>貂</md-table-cell><md-table-cell>我心已打烊</md-table-cell><md-table-cell>乂☆煞氣a丁尼☆乂</md-table-cell><md-table-cell>沒收功就罵髒話</md-table-cell><md-table-cell>貓在鋼琴上睡著了</md-table-cell><md-table-cell>悲傷滷肉飯</md-table-cell><md-table-cell>肥宅</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>03/17 - 12:30</md-table-cell>
-                    <md-table-cell>貨拉拉拉不拉拉不拉多</md-table-cell><md-table-cell>異世界轉生的中二生活</md-table-cell><md-table-cell>Super Hero</md-table-cell><md-table-cell>傳話仔</md-table-cell><md-table-cell>我不是LUKE鴨</md-table-cell><md-table-cell>㊣上班只為交朋友㊣</md-table-cell><md-table-cell>系統管理員</md-table-cell><md-table-cell>洲子街大地主</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>03/17 - 15:30</md-table-cell>
-                    <md-table-cell>吉米花</md-table-cell><md-table-cell>誰比我會喝飲料</md-table-cell><md-table-cell>肖恩</md-table-cell><md-table-cell>走位有如霍金般風騷</md-table-cell><md-table-cell>睿訊五條悟</md-table-cell><md-table-cell>OSUTTE</md-table-cell><md-table-cell>吃肥褲撐破</md-table-cell><md-table-cell>11111</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>03/18 - 8:30</md-table-cell>
-                    <md-table-cell>Bbrr</md-table-cell><md-table-cell>八拉崩巴</md-table-cell><md-table-cell>賈德</md-table-cell><md-table-cell>佛度有緣人</md-table-cell><md-table-cell>超越時空的傳奇</md-table-cell><md-table-cell>㊣上班只為等放飯㊣</md-table-cell><md-table-cell>污辱米糕</md-table-cell><md-table-cell>天竺鼠阿比</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>03/18 - 12:30</md-table-cell>
-                    <md-table-cell>熱血旋轉花花愛心破壞者</md-table-cell><md-table-cell>異世界轉生的中二生活</md-table-cell><md-table-cell>HSU</md-table-cell><md-table-cell>HAWK</md-table-cell><md-table-cell>我不是LUKE鴨</md-table-cell><md-table-cell>🖕上班滑起來📱</md-table-cell><md-table-cell>阿強</md-table-cell><md-table-cell>水晶女皇</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>03/19 - 12:30</md-table-cell>
-                    <md-table-cell>給我一杯酒</md-table-cell><md-table-cell>我阿姨也癢</md-table-cell><md-table-cell>楊伯麟</md-table-cell><md-table-cell>傳話仔</md-table-cell><md-table-cell>深海大巨鰻♥想不想嘗嘗</md-table-cell><md-table-cell>來治星星的我</md-table-cell><md-table-cell>天虎令</md-table-cell><md-table-cell>包子入侵</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>03/19 - 15:30</md-table-cell>
-                    <md-table-cell>阿龍</md-table-cell><md-table-cell>還敢下來阿冰鳥</md-table-cell><md-table-cell>哇</md-table-cell><md-table-cell>此用戶暱稱被屏蔽</md-table-cell><md-table-cell>霸霸</md-table-cell><md-table-cell>㊣上班來潛水餵魚的㊣</md-table-cell><md-table-cell>小小電磁小象幫幫</md-table-cell><md-table-cell>銅鬚布萊恩</md-table-cell>
-                  </md-table-row>
-                </md-table>
-
-                <md-table class="news-table smaller-table">
-                  <md-table-row>
-                    <md-table-head style="width: 12%">時刻</md-table-head>
-                    <md-table-head>馬泰爾</md-table-head>
-                    <md-table-head>艾林</md-table-head>
-                    <md-table-head>蘭尼斯特</md-table-head>
-                    <md-table-head>史塔克</md-table-head>
-                    <md-table-head>提利爾</md-table-head>
-                    <md-table-head>拜拉席恩</md-table-head>
-                    <md-table-head>坦格利安</md-table-head>
-                    <md-table-head>徒利</md-table-head>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>03/22 - 12:30</md-table-cell>
-                    <md-table-cell>龜龜</md-table-cell><md-table-cell>Acacia_Power</md-table-cell><md-table-cell>賈德</md-table-cell><md-table-cell>源辣讚讚</md-table-cell><md-table-cell>超越時空的傳奇</md-table-cell><md-table-cell>艾利森</md-table-cell><md-table-cell>給你500</md-table-cell><md-table-cell>HA↗HA↘HA↗HA↘</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>03/22 - 15:30</md-table-cell>
-                    <md-table-cell>都是1</md-table-cell><md-table-cell>多喝水沒事</md-table-cell><md-table-cell>哇</md-table-cell><md-table-cell>生氣買個包＄</md-table-cell><md-table-cell>山裡阿巴</md-table-cell><md-table-cell>㊣上班來潛水餵魚的㊣</md-table-cell><md-table-cell>李阿莫</md-table-cell><md-table-cell>平民</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>03/23 - 8:30</md-table-cell>
-                    <md-table-cell>寶可夢大師</md-table-cell>
-                    <md-table-cell>奶油綜合菇</md-table-cell>
-                    <md-table-cell>油炸包龍星</md-table-cell>
-                    <md-table-cell>雞排要切不要辣</md-table-cell>
-                    <md-table-cell>瘋狂小傑森</md-table-cell>
-                    <md-table-cell>㊣上班只為吃便當㊣</md-table-cell>
-                    <md-table-cell>狼皮羊</md-table-cell>
-                    <md-table-cell>包子入侵</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>03/23 - 12:30</md-table-cell>
-                    <md-table-cell>龜龜</md-table-cell>
-                    <md-table-cell>野人男子漢</md-table-cell>
-                    <md-table-cell>油炸包龍星</md-table-cell>
-                    <md-table-cell>神聖平板不容侵犯</md-table-cell>
-                    <md-table-cell>睿訊伏黑惠</md-table-cell>
-                    <md-table-cell>🖕上班滑起來📱</md-table-cell>
-                    <md-table-cell>熱血沸騰洗廁所殺手</md-table-cell>
-                    <md-table-cell>HA↗HA↘HA↗HA↘</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>03/24 - 12:30</md-table-cell>
-                    <md-table-cell>給我一杯酒</md-table-cell>
-                    <md-table-cell>野人男子漢</md-table-cell>
-                    <md-table-cell>睿恩</md-table-cell>
-                    <md-table-cell>乂☆煞氣a丁尼☆乂</md-table-cell>
-                    <md-table-cell>深海大巨鰻♥想不想嘗嘗</md-table-cell>
-                    <md-table-cell>貓在鋼琴上睡著了</md-table-cell>
-                    <md-table-cell>系統管理員</md-table-cell>
-                    <md-table-cell>洲子街大地主</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>03/24 - 15:30</md-table-cell>
-                    <md-table-cell>秋芭比母捏牛</md-table-cell>
-                    <md-table-cell>鞋鞋你愛我</md-table-cell>
-                    <md-table-cell>街友</md-table-cell>
-                    <md-table-cell>西米拉拉非</md-table-cell>
-                    <md-table-cell>一級弓箭手</md-table-cell>
-                    <md-table-cell>姜太公今天不想釣魚</md-table-cell>
-                    <md-table-cell>吃肥褲撐破</md-table-cell>
-                    <md-table-cell>聲林之王</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>03/25 - 8:30</md-table-cell>
-                    <md-table-cell>TRXC🚀🌕</md-table-cell>
-                    <md-table-cell>安度因烏瑞恩</md-table-cell>
-                    <md-table-cell>膨風的眼鏡犬</md-table-cell>
-                    <md-table-cell>佛度有緣人</md-table-cell>
-                    <md-table-cell>薄荷草莓廢柴</md-table-cell>
-                    <md-table-cell>㊣上班只為等放飯㊣</md-table-cell>
-                    <md-table-cell>脾氣最好的姐姐◉‿◉</md-table-cell>
-                    <md-table-cell>二姐</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>03/25 - 12:30</md-table-cell>
-                    <md-table-cell>本機使用者</md-table-cell>
-                    <md-table-cell>卓耿</md-table-cell>
-                    <md-table-cell>Super Hero</md-table-cell>
-                    <md-table-cell>走位有如霍金般風騷</md-table-cell>
-                    <md-table-cell>珂珂</md-table-cell>
-                    <md-table-cell>來治星星的我</md-table-cell>
-                    <md-table-cell>阿強</md-table-cell>
-                    <md-table-cell>傑西</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>03/26 - 12:30</md-table-cell>
-                    <md-table-cell>龜龜</md-table-cell>
-                    <md-table-cell>忍者龜頭痛</md-table-cell>
-                    <md-table-cell>愛你</md-table-cell>
-                    <md-table-cell>↗統神端火鍋↙</md-table-cell>
-                    <md-table-cell>沒收功就罵髒話</md-table-cell>
-                    <md-table-cell>㊣上班只為交朋友㊣</md-table-cell>
-                    <md-table-cell>侯統癢</md-table-cell>
-                    <md-table-cell>水晶女皇</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>03/26 - 15:30</md-table-cell>
-                    <md-table-cell>海獅會害怕</md-table-cell>
-                    <md-table-cell>奶油綜合菇</md-table-cell>
-                    <md-table-cell>牛年大吉,牛轉乾坤</md-table-cell>
-                    <md-table-cell>史塔克潮靈</md-table-cell>
-                    <md-table-cell>意修尼</md-table-cell>
-                    <md-table-cell>OSUTTE</md-table-cell>
-                    <md-table-cell>阿強</md-table-cell>
-                    <md-table-cell>銅鬚布萊恩</md-table-cell>
-                  </md-table-row>
-                </md-table>
-                <md-table class="news-table smaller-table">
-                  <md-table-toolbar>
-                    <h1 class="md-title">睿訊之國的闖關者 各花色遊戲門檻</h1>
-                  </md-table-toolbar>
-                  <md-table-row>
-                    <md-table-head style="width: 12%"></md-table-head>
-                    <md-table-head>黑桃</md-table-head>
-                    <md-table-head>方塊</md-table-head>
-                    <md-table-head>紅心</md-table-head>
-                    <md-table-head>梅花</md-table-head>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>Level - 1</md-table-cell>
-                    <md-table-cell>持續為隊友加油</md-table-cell>
-                    <md-table-cell>有作答正確思路</md-table-cell>
-                    <md-table-cell>描述時使多數人開口笑</md-table-cell>
-                    <md-table-cell>存活</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>Level - 2</md-table-cell>
-                    <md-table-cell>兩次連勝</md-table-cell>
-                    <md-table-cell>14分內答對</md-table-cell>
-                    <md-table-cell>2場都勝利</md-table-cell>
-                    <md-table-cell>10分內完成任務+存活</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>Level - 3</md-table-cell>
-                    <md-table-cell>三次連勝</md-table-cell>
-                    <md-table-cell>7分內答對</md-table-cell>
-                    <md-table-cell>擔任白板猜出答案</md-table-cell>
-                    <md-table-cell>5分鐘內完成+存活</md-table-cell>
-                  </md-table-row>
-                </md-table>  
-                
-                <md-content>
-                  <h1>預測功能開放中</h1>
-                  <p>1. 可至 『競技場』中預測每個月的活動哪一家族會得到冠軍</p>
-                  <p>2. 每季預測全中的玩家將會獲得額外1點能力值點數 (謙虛加成: 每一評等D能力再多加1點)</p>
-                  <p>3. 每一次預測中的玩家會為團體增加一點積分</p>
-                </md-content>
-              </md-list>
-            </md-list-item>
-            
-            <md-list-item md-expand>
-              <span class="material-icons mr-6-px"></span>
-              <span class="md-list-item-text">2021-03-09 【 NEWS 】 睿訊之國的闖關者 與 獎牌結算公告</span>
-              <md-list slot="md-expand">
-                <md-table class="news-table">
-                  <md-table-toolbar>
-                    <h1 class="md-title">睿訊之國的闖關者 排名方式</h1>
-                  </md-table-toolbar>
-                  <md-table-row>
-                    <md-table-head style="width: 20%"></md-table-head>
-                    <md-table-head>關卡獲勝次數</md-table-head>
-                    <md-table-head>名次</md-table-head>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>家族A</md-table-cell>
-                    <md-table-cell>18</md-table-cell>
-                    <md-table-cell>1</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>家族C</md-table-cell>
-                    <md-table-cell>15</md-table-cell>
-                    <md-table-cell>2</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>家族B</md-table-cell>
-                    <md-table-cell>10</md-table-cell>
-                    <md-table-cell>3</md-table-cell>
-                  </md-table-row>
-                </md-table>
-                <md-content>
-                  1. 依照各家族在20場關卡活動中獲勝的總數排序名次</br>
-                  2. 獲勝次數相等時依照參賽者全體的"達成門檻率"為第二排序</br>
-                  3. 兩者皆相同時由福委擲硬幣決定</br>
-                </md-content>
-                <md-table class="news-table">
-                  <md-table-toolbar>
-                    <h1 class="md-title">獎牌結算</h1>
-                  </md-table-toolbar>
-                </md-table>
-                <md-content>
-                  1. 每次活動過後1~2周時間內會做一次結算，並且執行"發出"or"移動" 獎牌</br>
-                  2. 每次更新後會在"競技場"下方公示獎牌結算的時間，不會再另行公告獎牌的異動</br>
-                </md-content>
-              </md-list>
-            </md-list-item>
-
-
-            <md-list-item md-expand>
-              <span class="material-icons mr-6-px"></span>
-              <span class="md-list-item-text">2021-03-03 【 活動通則 】</span>
-              <md-list slot="md-expand">
-                <md-table class="news-table">
-                  
-                  <md-table-row>
-                    <md-table-head style="width: 20%">條款</md-table-head>
-                    <md-table-head>違反結果</md-table-head>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>§ 在活動過程中沒有確實以暱稱稱呼彼此</md-table-cell>
-                    <md-table-cell>-1 團體積分</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>§ 在活動過程中將答案洩漏給非同家族的成員</br>§ 在活動過程惡意違反規則、不遵從柔性勸導</md-table-cell>
-                    <md-table-cell>第一次就範:</br>將涉及家族 團體分數歸零、個人RV全數歸零 且該場次活動不計分，八大家族一起勝利的條件也取消</br>第二次就範:</br>涉及的家族全數直接尾牙表演，且不能享有任何福委獎勵</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>§ 在活動中針對特定人進行欺壓、惡意攻擊、或是違反自主意願行為</br>§ 在活動中以職權令人屈服、妥協或者辱罵他人</br>(可舉報、經由福委查實)</md-table-cell>
-                    <md-table-cell>該家族族長與施加者直接尾牙表演、且更換族長帶領家族</md-table-cell>
-                  </md-table-row>
-                </md-table>
-                <md-content>
-                  各身份 TIPS:</br>
-                  1. 睿訊同仁(非封臣): 各位在一年的活動中沒有任何負擔 請享受活動帶來的樂趣遊玩</br></br>
-                  2. 管理職與封臣:  雖然有承擔著上台表演的可能性，但請勿使用職權命令他人服從，因為其他同仁並沒有義務幫助你們，請將心比心將同仁視為朋友、夥伴或家人</br>
-                  如真有必須抗拒表演之因素，請用平等的心態 請求夥伴們的協助</br>
-                </md-content>
-              </md-list>
-            </md-list-item>
-
-            <md-list-item md-expand>
-              <span class="material-icons mr-6-px"></span>
-              <span class="md-list-item-text">2021-02-24 【2021 Game of REVOVISION 各家族族長】</span>
-              <md-list slot="md-expand">
-                <img src="/static/imgs/news_2021022401.png" alt="Skyscraper">
-              </md-list>
-            </md-list-item>
-
-
-            <md-list-item md-expand>
-              <span class="material-icons mr-6-px"></span>
-              <span class="md-list-item-text"
-                >2021-02-22 【2020 REVOVISION 年度 Team Building 活動票選 MVP人員】</span
-              >
-              <md-list slot="md-expand">
-                <md-table class="news-table">
-                  <md-table-toolbar>
-                    <h1 class="md-title">2020 Team Building MVP</h1>
-                  </md-table-toolbar>
-                  <md-table-row>
-                    <md-table-head>Department</md-table-head>
-                    <md-table-head>Name</md-table-head>
-                    <md-table-head>Name(EN)</md-table-head>
-                  </md-table-row>
-                  <md-table-row v-for="(v, idx) in mvp2020" :key="idx">
-                    <md-table-cell>{{ v[0] }}</md-table-cell>
-                    <md-table-cell>{{ v[2] }}</md-table-cell>
-                    <md-table-cell>{{ v[3] }}</md-table-cell>
-                  </md-table-row>
-                </md-table>
-              </md-list>
-            </md-list-item>
-
-
-            <md-list-item md-expand>
-              <span class="material-icons mr-6-px"></span
-              ><span class="md-list-item-text"
-                >2021-02-10 【2021 Game of REVOVISION 年度活動時間表】</span
-              >
-              <md-list slot="md-expand">
-                <div>
-                  <md-table class="news-table">
-                    <md-table-row>
-                      <md-table-head style="width: 25%">Season 1</md-table-head>
-                      <md-table-head>S1 Events</md-table-head>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>02月 (26日 週五)</md-table-cell>
-                      <md-table-cell>元宵賞燈選人才</md-table-cell>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>03月 (整月)</md-table-cell>
-                      <md-table-cell>睿訊之國的闖關者</md-table-cell>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>04月 (17日 週六)</md-table-cell>
-                      <md-table-cell>城市尋寶</md-table-cell>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-head>Season 2</md-table-head>
-                      <md-table-head>S2 Events</md-table-head>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>05月 (07日 週五)</md-table-cell>
-                      <md-table-cell>讓媽媽看見你</md-table-cell>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>05月 (整月)</md-table-cell>
-                      <md-table-cell>趣味運動月</md-table-cell>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>06月 (11日 週五)</md-table-cell>
-                      <md-table-cell>舌尖上的屈原</md-table-cell>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>07月 (31日 週六)</md-table-cell>
-                      <md-table-cell>逆流而上 向陽而生 </md-table-cell>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-head>Season 3</md-table-head>
-                      <md-table-head>S3 Events</md-table-head>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>08月 (06日 週五)</md-table-cell>
-                      <md-table-cell>爸爸在找你</md-table-cell>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>09月 (整月)</md-table-cell>
-                      <md-table-cell>至尊桌遊月</md-table-cell>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>10月 (1日 週五)</md-table-cell>
-                      <md-table-cell>全明星運動會</md-table-cell>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>11月 (整月)</md-table-cell>
-                      <md-table-cell>統神電競月</md-table-cell>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>12月 (8日 週六)</md-table-cell>
-                      <md-table-cell>溫泉之旅</md-table-cell>
-                    </md-table-row>
-                  </md-table>
-                </div>
-              </md-list>
-            </md-list-item>
-            
           </md-list>
         </div>
       </md-card-content>
