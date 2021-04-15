@@ -151,7 +151,7 @@ function onMessage(socket) {
                 }
                 return models.User.findAll({
                     attributes,
-                    where: [{status: 1}],
+                    // where: [{status: 1}],
                 }).then(users => {
                     socket.emit('MESSAGE', {act: enums.ACT_GET_PEOPLE_DATA, payload: {users}});
                 }).catch(err => {
