@@ -514,7 +514,7 @@ function refreshUserScore(res) {
                 Object.keys(matchRoundMap).map(round => {
                     var bestRecord = matchRoundMap[round];
                     res.matchScore += (bestRecord.mvp + bestRecord.activity);
-                    partake += 1;
+                    partake += bestRecord.add > 0 ? 1 : 0;
                 });
 
             } else {
@@ -544,7 +544,7 @@ function refreshUserScore(res) {
 
 function refreshFamilyScore(res) {
     const promise_users = models.User.findAll({
-        attributes: ['id', 'houseId', 'rv', 'code', 'strLv', 'dexLv', 'conLv', 'wisLv', 'chaLv', 'thankTimes', 'gender', 'partake', 'mvp', 'departmentName'],
+        attributes: ['id', 'houseId', 'rv', 'code', 'strLv', 'dexLv', 'conLv', 'wisLv', 'chaLv', 'thankTimes', 'gender', 'partake', 'mvp', 'departmentName', 'nickname'],
         where: { status: 1, intLv: '-' },
     });
     const promise_houses = models.House.findAll();
@@ -637,7 +637,8 @@ function refreshFamilyScore(res) {
                 var sumThanks = 0;
                 usersInHouse.map(user => {
                     scorePersonal += user.rv;
-                    if (user.conLv == 'S' || user.wisLv == 'S') { lengthConWis+=1; } // trophy (3)
+                    if (user.conLv == 'S') { lengthConWis+=1; } // trophy (3)
+                    if (user.wisLv == 'S') { lengthConWis+=1; } // trophy (3)
                     sumThanks += user.thankTimes; // trophy (10)
                     totalPartake += user.partake;
                     if (maxRvUsers.findIndex(u => u.id == user.id)>=0) {
@@ -680,7 +681,7 @@ function refreshFamilyScore(res) {
                     if (rate > maxDepartments[0].rate) {
                         maxDepartments = [{rate, house, usersInSameDepartment}];
                     } else if (rate == maxDepartments[0].rate) {
-                        maxDepartments.push({rate, house, usersInSameDepartment});
+                        maxDepartments.push({rate, house, usersInSameDepartment, department});
                     }
                     sameDepartment = usersInSameDepartment.length;
                     // trophy (5)
@@ -744,9 +745,9 @@ function refreshFamilyScore(res) {
         
         houses.map(house => {
             if (house.totalPartake > maxPartakeHouses[0].totalPartake) {
-                maxPartakeHouses = [{house}];
+                maxPartakeHouses = [house];
             } else if (house.totalPartake == maxPartakeHouses[0].totalPartake) {
-                maxPartakeHouses.push({house});
+                maxPartakeHouses.push(house);
             }
         });
 

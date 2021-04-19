@@ -341,6 +341,110 @@
 
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">local_fire_department</span>
+              <span class="md-list-item-text">2021-04-19 【 四月戰報 】城市尋寶 - 天璇之密</span>
+              <md-list slot="md-expand">
+                <md-table class="news-table smaller-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">一、天璇之密 賽後排名總結</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head>家族</md-table-head>
+                    <md-table-head>活動前總分</md-table-head>
+                    <md-table-head>活動加分</md-table-head>
+                    <md-table-head>預測加分</md-table-head>
+                    <md-table-head>總結</md-table-head>
+                    <md-table-head style="width: 8%">總結排名</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>馬泰爾</md-table-cell>
+                    <md-table-cell>+12</md-table-cell>
+                    <md-table-cell>+65</md-table-cell>
+                    <md-table-cell>+1</md-table-cell>
+                    <md-table-cell>78</md-table-cell>
+                    <md-table-cell>III</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>提利爾</md-table-cell>
+                    <md-table-cell>+26</md-table-cell>
+                    <md-table-cell>+59</md-table-cell>
+                    <md-table-cell>+0</md-table-cell>
+                    <md-table-cell>85</md-table-cell>
+                    <md-table-cell>II</md-table-cell>
+                  </md-table-row>
+                  
+                  <md-table-row>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>+13</md-table-cell>
+                    <md-table-cell>+48</md-table-cell>
+                    <md-table-cell>+0</md-table-cell>
+                    <md-table-cell>61</md-table-cell>
+                    <md-table-cell>IV</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell>0</md-table-cell>
+                    <md-table-cell>+52</md-table-cell>
+                    <md-table-cell>+0</md-table-cell>
+                    <md-table-cell>52</md-table-cell>
+                    <md-table-cell>V</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>史塔克</md-table-cell>
+                    <md-table-cell>+3</md-table-cell>
+                    <md-table-cell>+36</md-table-cell>
+                    <md-table-cell>+0</md-table-cell>
+                    <md-table-cell>39</md-table-cell>
+                    <md-table-cell>VII</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>艾林</md-table-cell>
+                    <md-table-cell>-2</md-table-cell>
+                    <md-table-cell>+31</md-table-cell>
+                    <md-table-cell>+0</md-table-cell>
+                    <md-table-cell>29</md-table-cell>
+                    <md-table-cell>VIII</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>徒利</md-table-cell>
+                    <md-table-cell>+59</md-table-cell>
+                    <md-table-cell>+46</md-table-cell>
+                    <md-table-cell>+0</md-table-cell>
+                    <md-table-cell>105</md-table-cell>
+                    <md-table-cell>I</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>+2</md-table-cell>
+                    <md-table-cell>+41</md-table-cell>
+                    <md-table-cell>+0</md-table-cell>
+                    <md-table-cell>43</md-table-cell>
+                    <md-table-cell>VI</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <p>活動優勝家族為: 馬泰爾 !! </p>
+                  <p>二、預測成功名單：</p>
+                </md-content>
+                <md-table>
+                  <md-table-row>
+                    <md-table-head>家族</md-table-head>
+                    <md-table-head>預測人</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>馬泰爾</md-table-cell><md-table-cell>海獅會害怕</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <p>三、天璇之密 MVP 票選開跑嚕~~ </p>
+                  <p> 1. MVP請於各家族 "HOUSE家族" 面板點選您心屬的家族成員 (最多3人) 於2021/04/23 下午6:00 關閉投票通道</p>
+                  <p> 2. 2021/04/23 會將MVP票選名單公布於此公告頁面中</p>
+                </md-content>
+              </md-list>
+            </md-list-item>
+
+
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px">local_fire_department</span>
               <span class="md-list-item-text">2021-03-29 【 四月 】 城市尋寶</span>
               <md-list slot="md-expand">
                 <md-table class="news-table smaller-table">
@@ -462,7 +566,7 @@
             </md-list-item>
 
             <md-list-item md-expand>
-              <span class="material-icons mr-6-px">local_fire_department</span>
+              <span class="material-icons mr-6-px"></span>
               <span class="md-list-item-text">2021-03-29 【 三月戰報 】睿訊之國的闖關者</span>
               <md-list slot="md-expand">
                 <md-table class="news-table smaller-table">

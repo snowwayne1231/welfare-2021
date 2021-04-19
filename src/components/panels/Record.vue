@@ -31,6 +31,7 @@
             <md-table-row v-for="(g) in game.list" :key="g.id">
               <md-table-cell>{{g.name}}</md-table-cell>
               <md-table-cell><router-link v-if="g.video" :to="'/gamevideo/'+g.id" target="_blank">連結</router-link></md-table-cell>
+              <!-- <md-table-cell><a v-if="g.video" :href="g.video" target="_blank">連結</a></md-table-cell> -->
               <md-table-cell>
                 <div v-if="alreadyShowMatch(g)">
                   <md-table class="record-game-match-table">

@@ -10,7 +10,7 @@
       </md-card-header>
       <md-card-content>
         <div>
-          <video v-if="videoLink" id="video-game" width="680" height="460" controls>
+          <video v-if="videoLink" id="video-game" width="960" height="540" controls>
             <source :src="videoLink" />
           </video>
         </div>
