@@ -54,7 +54,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import { ACT_GET_PEOPLE_DATA, ACT_ADMIN_CREATE_GAME } from '../store/enum';
+import { ACT_GET_PEOPLE_DATA, ACT_ADMIN_CREATE_GAME, ACT_GET_MATCHES } from '../store/enum';
 
 export default {
   name: 'GameEditor',
@@ -70,8 +70,10 @@ export default {
   mounted() {
     if (this.user.intLv != 'W') {
       window.location.href = '/logout';
+    } else {
+      this.$store.dispatch('wsEmitMessage', {act: ACT_GET_PEOPLE_DATA, payload: {more: true}});
+      this.$store.dispatch('wsEmitMessage', {act: ACT_GET_MATCHES, payload: {}});
     }
-    this.$store.dispatch('wsEmitMessage', {act: ACT_GET_PEOPLE_DATA, payload: {more: true}});
     this.timeHandler();
   },
   computed: {
@@ -101,7 +103,9 @@ export default {
         const thedata = this.table_1_data.find(e => e.id == lastPick.id);
         if (thedata && this.isOuting && thedata.add > 0) {
           thedata.add = 5;
+          
         }
+        console.log('matchesMap: ', this.global.matchesMap[thedata.id]);
         console.log(selectedArray);
       }
     },

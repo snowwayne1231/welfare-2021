@@ -416,7 +416,7 @@
                       <md-table-cell>統神電競月</md-table-cell>
                     </md-table-row>
                     <md-table-row>
-                      <md-table-cell>12月 (8日 週六)</md-table-cell>
+                      <md-table-cell>12月 (18日 週六)</md-table-cell>
                       <md-table-cell>溫泉之旅</md-table-cell>
                     </md-table-row>
                   </md-table>

@@ -417,6 +417,13 @@ function onMessage(socket) {
                     if (matches) { socket.emit('MESSAGE', {act: enums.ACT_GET_USER_MATCHES, payload: matches.map(m => m.toJSON())}); }
                 }).catch(err => console.log(err));
             }
+            case enums.ACT_GET_MATCHES: {
+                return models.Match.findAll({
+                    attributes: ['round', 'add', 'shift', 'mvp', 'userId'],
+                }).then(matches => {
+                    if (matches) { socket.emit('MESSAGE', {act: enums.ACT_GET_MATCHES, payload: matches.map(m => m.toJSON())}); }
+                }).catch(err => console.log(err));
+            }
             default:
                 console.log("Not Found Act: ", msg);
         }

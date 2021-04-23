@@ -1,8 +1,8 @@
 <template>
   <div class="bg-img" id="rv-admin">
     <md-card class="home-card">
-      <md-card-header>
-        <md-card-header-text>
+      <md-card-header style="padding: 0px;">
+        <md-card-header-text style="height: auto;">
           <table class="md-subhead">
             <tr>
               <th>Model</th>
@@ -37,6 +37,10 @@
             <tr>
               <td>AGAIN</td>
               <td v-for="house in showHouseAbility" :key="house.id">{{house.ability.moveAgain}}</td>
+            </tr>
+            <tr>
+              <td>LAND</td>
+              <td v-for="house in showHouseAbility" :key="house.id">{{house.land}} / {{Math.floor((house.ability.totalRV || 0) / 10)}}</td>
             </tr>
           </table>
         </md-card-header-text>

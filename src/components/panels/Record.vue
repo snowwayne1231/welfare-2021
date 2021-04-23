@@ -40,7 +40,7 @@
                       <md-table-cell>門檻達成</md-table-cell>
                       <md-table-cell>團體扣分</md-table-cell>
                     </md-table-row>
-                    <md-table-row v-for="match in getMatches(g)" :key="match.id" :class="{success: match.success==1}">
+                    <md-table-row v-for="match in getMatches(g)" :key="match.id" :class="{success: match.success > 0}">
                       <md-table-cell><img :src="match.houseImg" style="width: 40px;" />{{match.user.nickname}}</md-table-cell>
                       <md-table-cell>{{match.level}}</md-table-cell>
                       <md-table-cell>{{match.minus}}</md-table-cell>
@@ -105,6 +105,7 @@ export default {
       const $this = this;
       const ary = [];
       const levelMap = {
+        0: '無',
         1: '一般',
         2: '白金 (lv1)',
         3: '鑽石 (lv2)',
@@ -113,7 +114,7 @@ export default {
       let tmp = 0;
       
       $this.game.matches.map(m => {
-        const mObj = {...m, user: $this.global.users.find(u => u.id == m.userId) || {}, level: levelMap[m.activity] || '一般'};
+        const mObj = {...m, user: $this.global.users.find(u => u.id == m.userId) || {}, level: levelMap[m.activity] || '傳奇'};
         mObj.houseImg = $this.getHouseImgByHouseId(m.houseIdNow);
         if (tmp != m.game) {
           ary.push({gameId: m.game, matches: [mObj]});

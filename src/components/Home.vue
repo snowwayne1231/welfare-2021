@@ -434,11 +434,56 @@
                     <md-table-cell>馬泰爾</md-table-cell><md-table-cell>海獅會害怕</md-table-cell>
                   </md-table-row>
                 </md-table>
-                <md-content>
-                  <p>三、天璇之密 MVP 票選開跑嚕~~ </p>
-                  <p> 1. MVP請於各家族 "HOUSE家族" 面板點選您心屬的家族成員 (最多3人) 於2021/04/23 下午6:00 關閉投票通道</p>
-                  <p> 2. 2021/04/23 會將MVP票選名單公布於此公告頁面中</p>
-                </md-content>
+                <md-table>
+                  <md-table-toolbar>
+                    <h1 class="md-title">三、天璇之密 家族內部 票選MVP人員</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head>家族</md-table-head>
+                    <md-table-head>MVP</md-table-head>
+                    <md-table-head>最佳門檻</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>史塔克</md-table-cell>
+                    <md-table-cell>佛度有緣人</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>艾林</md-table-cell>
+                    <md-table-cell>異世界轉生的中二生活</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>徒利</md-table-cell>
+                    <md-table-cell>銅鬚布萊恩</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>肖恩</md-table-cell>
+                    <md-table-cell>一般</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>提利爾</md-table-cell>
+                    <md-table-cell>睿訊伏黑惠</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell>來治星星的我</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>阿強</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>馬泰爾</md-table-cell>
+                    <md-table-cell>阿龍</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                </md-table>
               </md-list>
             </md-list-item>
 

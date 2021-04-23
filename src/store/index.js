@@ -7,7 +7,7 @@ import {
     ACT_JOIN_CHAT_ROOM, ACT_LEAVE_CHAT_ROOM, ACT_MOVE_CHAT_ROOM, ACT_SAY_CHAT_ROOM,
     ACT_GET_ADMIN_DATASET, ACT_GET_COUNTRYSIDE_DATA, ACT_GET_TROPHY, ACT_GET_CONFIG,
     ACT_GET_LOVE, ACT_GET_SELF_VOTE, ACT_GET_PREDICTIONS, ACT_GET_GAMES, ACT_GET_GAME_RESULTS,
-    ACT_GET_GAME_MATCHES, ACT_GET_GAME_VIDEO, ACT_GET_USER_MATCHES,
+    ACT_GET_GAME_MATCHES, ACT_GET_GAME_VIDEO, ACT_GET_USER_MATCHES, ACT_GET_MATCHES
     
 } from './enum';
 console.log('process.env: ', process.env);
@@ -241,6 +241,7 @@ const globalData = {
         trophy: [],
         configs: [],
         predictions: [],
+        matchesMap: {},
     },
     mutations: {
         wsOnMessage: (state, message) => {
@@ -296,6 +297,19 @@ const globalData = {
                 case ACT_GET_PREDICTIONS: {
                     state.predictions = payload;
                     return console.log('Global Predictions: ', payload);
+                }
+                case ACT_GET_MATCHES: {
+                    const map = {};
+                    payload.map(m => {
+                        let uid = m.userId;
+                        if (map[uid]) {
+                            map[uid].push(m);
+                        } else {
+                            map[uid] = [m];
+                        }
+                    });
+                    state.matchesMap = map;
+                    return console.log('Global Matches: ', map);
                 }
                 default:
             }
