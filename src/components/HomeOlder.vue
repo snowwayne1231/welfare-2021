@@ -4,7 +4,7 @@
       <md-card-header>
         <md-card-header-text>
           <div class="md-title">
-            <span>王國公告</span>
+            <span>王國公告(歷史)</span>
           </div>
           <div class="md-subhead">
             <span>bulletin of the kingdom</span>
@@ -385,7 +385,7 @@
                     </md-table-row>
                     <md-table-row>
                       <md-table-cell>05月 (整月)</md-table-cell>
-                      <md-table-cell>趣味運動月</md-table-cell>
+                      <md-table-cell>趣味運動競技月</md-table-cell>
                     </md-table-row>
                     <md-table-row>
                       <md-table-cell>06月 (11日 週五)</md-table-cell>

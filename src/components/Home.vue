@@ -22,6 +22,141 @@
 
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">vertical_align_top</span>
+              <span class="md-list-item-text">2021-04-28 【 Game Of Revovision 地圖玩法 】</span>
+              <md-list slot="md-expand">
+                <md-table class="news-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">1. 地圖板塊</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 65%">種類</md-table-head>
+                    <md-table-head>數量</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>單通路 (直線)</md-table-cell>
+                    <md-table-cell>100張</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>單通路 (轉彎)</md-table-cell>
+                    <md-table-cell>100張</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>三叉路</md-table-cell>
+                    <md-table-cell>100張</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>草原</md-table-cell>
+                    <md-table-cell>100張</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>十字路</md-table-cell>
+                    <md-table-cell>70張</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>舊神之樹(死路)</md-table-cell>
+                    <md-table-cell>18張</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>港口(臨海、死路)</md-table-cell>
+                    <md-table-cell>12張</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>合計</md-table-cell>
+                    <md-table-cell>500張</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <p>* 每次表定活動結束時皆會統計各家族的總RV值 (全家族成員 RV值加總)</p>
+                  <p>* 各家族地圖板塊數量 = 總RV值 / 10</p>
+                  <p>* 活動結束後會有地圖板塊放置回合，各家族派人前往遊戲室隨機抽取若干版塊，依照合理的接續方式，放置在地圖上</p>
+                  <p>* 所有家族的地圖板塊可以互相連接</p>
+                  <p>* 若發生不能放置版塊的情況，可重新抽取新版塊</p>
+                </md-content>
+
+                <md-table class="news-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">2. 族長行動</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 20%">動作</md-table-head>
+                    <md-table-head>詳細</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>移動</md-table-cell>
+                    <md-table-cell>每個族長指示物在每個行動回合能在格子上進行移動來觸發各種事件，移動力 = 5 + (家族內成員 S級敏捷人數)</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>攻擊</md-table-cell>
+                    <md-table-cell>
+                      <p>當移動確定停留時，可對身邊1格內進行攻擊，可攻擊目標為</p>
+                      <p>1. 白鬼:  若發起攻擊的族長 同時擁有 5位含以上的封臣 以及 5位含以上的S級力量家族成員，則可以消滅白鬼</p>
+                      <p>2. 封地:  若發起攻擊，首先判斷被攻擊封地擁有者距離該封地的距離，若大於5格則直接佔領成功；反之以下一次遊戲的排名高低決定佔領成功/失敗</p>
+                      <p>*  封地佔領成功:  獲得對方最高RV值成員的團體積分，對方則會損失相同團體積分</p>
+                      <p>*  封地佔領失敗:  下一次的移動由對方為你做決定</p>
+                    </md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>港口乘船</md-table-cell>
+                    <md-table-cell>當移動在港口上時，可以立即指定任何一個其他港口位移，並依照家族成員 S級體力人數 可以進行再動</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>回合結算</md-table-cell>
+                    <md-table-cell>
+                      <p>當所有動作執行完後，該回合最後停留的位置將會觸發以下對應事件: </p>
+                      <p>1. 封地:  若該封地屬無人佔領，則判斷封臣數量是否大於封地數，若是，則可以將此封地佔領並享有下一次選秀 免費1人的特權 (君臨效果*2)</p>
+                      <p>*  在三次選秀皆完畢後，改為直接增加團體積分 積分 = 家族成員內最高RV值</p>
+                      <p>2. 舊神之樹:  停留在此樹可以選擇以下四種獎勵擇一:</p>
+                      <p>*  A. 宣誓:  額外選擇一位家族成員成為封臣並給予所有封臣1點能力點</p>
+                      <p>*  B. 祈禱:  直接增加團體積分10點</p>
+                      <p>*  C. 預視:  下一輪遊戲 活動門檻降低一級</p>
+                      <p>*  D. 搖視:  下一輪放置地圖板塊時可以任意選擇地圖板塊放置</p>
+                    </md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <p>* 封地受到他人佔領的族長，會遭受團體積分損失，若家族成員內擁有S級精神成員 可降低損失為 = 最高RV成員值 / S級精神成員數</p>
+                </md-content>
+
+                <md-table class="news-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">3. 白鬼行動</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 40%">條件</md-table-head>
+                    <md-table-head>移動模式</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>移動3格距離可以碰觸(鄰近1格)到族長時</md-table-cell>
+                    <md-table-cell>直接移動到該族長身邊並抓住</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>一般情況</md-table-cell>
+                    <md-table-cell>往最接近的族長移動1格</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <p>* 白鬼按照固定的移動模式，由北境長城出發</p>
+                  <p>* 被白鬼碰觸到的族長，無法動作</p>
+                  <p>* 白鬼無視地形，且優先待在非道路上</p>
+                </md-content>
+                <md-table class="news-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">4. (事件)封印夜王</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head>條件</md-table-head>
+                    <md-table-head>獎勵</md-table-head>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>10面獎牌同時放到北境長城上</md-table-cell>
+                    <md-table-cell>尾牙表演由福委3人(Snow, Dada, Jack) 各自強制選7位同仁一同表演</md-table-cell>
+                  </md-table-row>
+                </md-table>
+
+              </md-list>
+            </md-list-item>
+
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px">vertical_align_top</span>
               <span class="md-list-item-text">2021-03-27 【 遊戲結局與積分細則 】</span>
               <md-list slot="md-expand">
                 <md-table class="news-table">
