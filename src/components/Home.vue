@@ -476,6 +476,40 @@
 
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">local_fire_department</span>
+              <span class="md-list-item-text">2021-04-28 【 五月 】 選秀 Season 2 (讓媽媽看見你)</span>
+              <md-list slot="md-expand">
+                <md-table class="news-table smaller-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">選秀 Season 2 事前準備流程</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 25%">日期時間</md-table-head>
+                    <md-table-head>準備階段</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021 / 04 / 28</md-table-cell>
+                    <md-table-cell>各國國民重新尋找明君</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021 / 04 / 29</md-table-cell>
+                    <md-table-cell>公布第二季選秀名單於 : BAR(酒吧) > 懸賞單</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021 / 05 / 05</md-table-cell>
+                    <md-table-cell>各家族族長提交願望清單</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <p> *  如發現自己自動離開家族請別驚慌，自由國民們可以在S2重新選擇族長</p>
+                  <p> *  請在選賞單上的S2選秀人員務必於當日到場，如不克參加請找代理人協助</p>
+                  <p> *  更詳細的資訊會在 Email 公告</p>
+                </md-content>
+                
+              </md-list>
+            </md-list-item>
+
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px">local_fire_department</span>
               <span class="md-list-item-text">2021-04-28 【 四月戰報v.2 】城市尋寶 - 天璇之密</span>
               <md-list slot="md-expand">
                 <md-table class="news-table smaller-table">
@@ -624,7 +658,7 @@
 
 
             <md-list-item md-expand>
-              <span class="material-icons mr-6-px">local_fire_department</span>
+              <span class="material-icons mr-6-px"></span>
               <span class="md-list-item-text">2021-03-29 【 四月 】 城市尋寶</span>
               <md-list slot="md-expand">
                 <md-table class="news-table smaller-table">
