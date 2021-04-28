@@ -43,7 +43,7 @@
             <md-table-cell md-label="團體積分增加" md-sort-by="add"><input type="number" v-model="item.add" @click.stop @click="item.add = item.add == 3 ? 5 : (item.add == 5 ? 0 : 3)" readonly style="width: 52px;" :class="{good: item.add==5, normal: item.add==3}" /></md-table-cell>
             <md-table-cell md-label="門檻" md-sort-by="activity"><input type="number" v-model="item.activity" @click.stop @click="item.activity = item.activity >= 4 ? 0 : item.activity+1" readonly :class="{excellent: item.activity==4, good: item.activity==3, normal: item.activity==2}" /></md-table-cell>
             <md-table-cell md-label="Success"><input type="checkbox" v-model="item.success" @click.stop /></md-table-cell>
-            <md-table-cell md-label="值班"><input type="checkbox" v-model="item.shift" @click.stop /></md-table-cell>
+            <md-table-cell md-label="值班"><input type="checkbox" v-if="item.shift != null" v-model="item.shift" @click.stop /></md-table-cell>
           </md-table-row>
         </md-table>
         
@@ -91,7 +91,7 @@ export default {
         u.add = u.houseId > 0 ? 3 : 0;
         u.activity = 1;
         u.success = false;
-        u.shift = false;
+        u.shift = null;
         u.houseIdNow = u.houseId == 0 ? u.houseIdTmp : u.houseId;
         return u;
       });
@@ -101,11 +101,20 @@ export default {
         this.selectedArray = selectedArray;
         const lastPick = selectedArray[selectedArray.length-1];
         const thedata = this.table_1_data.find(e => e.id == lastPick.id);
-        if (thedata && this.isOuting && thedata.add > 0) {
-          thedata.add = 5;
+        if (thedata) {
+          const myMatches = this.global.matchesMap[thedata.id] || [];
+          if (myMatches.filter(m => m.shift == 5).length > 0) {
+            thedata.shift = null;
+          } else {
+            thedata.shift = false;
+          }
           
+          if (thedata.add > 0 && this.isOuting && myMatches.filter(m => m.add == 5).length < 2) {
+            thedata.add = 5;
+          }
+          thedata.activity = 2;
         }
-        console.log('matchesMap: ', this.global.matchesMap[thedata.id]);
+        
         console.log(selectedArray);
       }
     },

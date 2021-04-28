@@ -3,6 +3,9 @@
 
     .home-card {
       min-width: 620px;
+      &.admin {
+        overflow-y: auto;
+      }
     }
 
     .mvp-voting {
@@ -165,6 +168,48 @@
       .helper {
         left: -20px;
         top: 0px;
+      }
+    }
+
+    .family-data-table {
+      background: none;
+      .md-table-content {
+        background-color: rgba(0,0,0,0.4);
+        color: #fff;
+        .md-table-cell-container {
+          padding: 2px;
+        }
+      }
+      .md-table-head {
+        color: #fff;
+        font-size: 13px;
+      }
+      .md-table-cell {
+        color: #fff;
+        border-left: 1px solid #fff;
+      }
+
+      .list {
+        padding: 0px;
+        margin: 0px;
+        list-style: none;
+        text-align: left;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border-top: 2px solid #fff;
+        min-height: 48px;
+        &.freefork {
+          >li {
+            display: inline-block;
+            width: 12%;
+            border-right: 1px solid #363636;
+            overflow: hidden;
+          }
+        }
+        >li {
+          white-space: nowrap;
+          border-top: 1px solid #363636;
+        }
       }
     }
 }

@@ -1,6 +1,54 @@
 <template>
   <div class="family bg-img">
-    <md-card class="home-card">
+    <md-card v-if="user.intLv == 'W'" class="home-card admin">
+      <md-table class="family-data-table">
+        <md-table-row slot="md-table-row">
+          <md-table-head>家族</md-table-head>
+          <md-table-cell v-for="house in global.houses" :key="house.id" :style="{backgroundColor: `${house.color}42`}">{{ house.name}}</md-table-cell>
+        </md-table-row>
+        <md-table-row slot="md-table-row">
+          <md-table-head>基本數據</md-table-head>
+          <md-table-cell v-for="house in global.houses" :key="house.id">
+            <ul class="list">
+              <li>團體分: {{house.score}}</li>
+              <li>參與次數: {{house.totalPartake}}</li>
+              <li>SUM RV: {{getSumRvByHouseId(house.id)}}</li>
+              <li>同部門: {{house.sameDepartment}}</li>
+            </ul>
+          </md-table-cell>
+        </md-table-row>
+        <md-table-row slot="md-table-row">
+          <md-table-head>家族成員</md-table-head>
+          <md-table-cell v-for="house in global.houses" :key="house.id">
+            <ul class="list family">
+              <li v-for="user in getUsersByHouseId(house.id)" :key="user.id" :style="{backgroundColor: `${house.color}42`}"><div>{{user.nickname}}</div><div>( {{user.rv}} ) - {{user.firstName}} </div></li>
+            </ul>
+          </md-table-cell>
+        </md-table-row>
+        <md-table-row slot="md-table-row">
+          <md-table-head>國民</md-table-head>
+          <md-table-cell v-for="house in global.houses" :key="house.id">
+            <ul class="list citizen">
+              <li v-for="user in getUsersByHouseId(house.id, 2)" :key="user.id"><div>{{user.nickname}}</div><div>( {{user.rv}} ) - {{user.firstName}}</div></li>
+            </ul>
+          </md-table-cell>
+        </md-table-row>
+      </md-table>
+
+      <md-table class="family-data-table">
+        <md-table-row slot="md-table-row">
+          <md-table-head>自由民</md-table-head>
+        </md-table-row>
+        <md-table-row slot="md-table-row">
+          <md-table-cell>
+            <ul class="list freefork">
+              <li v-for="user in getUsersByHouseId(0).filter(u => u.status > 0)" :key="user.id"><div>{{user.nickname}}</div><div>( {{user.rv}} ) - {{user.firstName}}</div></li>
+            </ul>
+          </md-table-cell>
+        </md-table-row>
+      </md-table>
+    </md-card>
+    <md-card v-else class="home-card">
       <md-card-header>
         <md-card-header-text>
           <img v-if="myHouse" :src="myHouseLogo" class="family-logo"/>
@@ -70,7 +118,7 @@
 <script>
 
 import { mapState, mapGetters } from 'vuex';
-import { ACT_GET_FAMILY_DATA, ACT_GET_SELF_VOTE, ACT_UPDATE_SELF_VOTE } from '../store/enum';
+import { ACT_GET_FAMILY_DATA, ACT_GET_SELF_VOTE, ACT_UPDATE_SELF_VOTE, ACT_GET_PEOPLE_DATA } from '../store/enum';
 import Man from './panels/Man';
 import Helper from './panels/Helper';
 
@@ -96,7 +144,7 @@ export default {
     this.timer && window.clearInterval(this.timer);
   },
   computed: {
-    ...mapState(['user']),
+    ...mapState(['user', 'global']),
     ...mapGetters(['myHouse', 'myHouseAbility', 'isVoteOpen', 'VoteConfig']),
     voteRound() {
       return this.VoteConfig.setting;
@@ -124,13 +172,31 @@ export default {
       loc.sort((a,b) => b.rv - a.rv);
       this.mapPeople(loc);
       return loc;
-    }
+    },
+    mapHouseUsers() {
+      const map = {0: []};
+      this.global.users.map(user => {
+        const hid = user.houseId || 0;
+        if (!map[hid]) {
+          map[hid] = [];
+        }
+        map[hid].push(user);
+      });
+      for (var k in map) {
+        map[k].sort((a,b) => b.rv - a.rv);
+      }
+      return map;
+    },
   },
   methods: {
     whileConnection() {
       if (this.user.connected) {
-        this.$store.dispatch('wsEmitMessage', {act: ACT_GET_FAMILY_DATA});
-        this.$store.dispatch('wsEmitMessage', {act: ACT_GET_SELF_VOTE});
+        if (this.user.intLv == 'W') {
+          this.$store.dispatch('wsEmitMessage', {act: ACT_GET_PEOPLE_DATA, payload: {more: true}});
+        } else {
+          this.$store.dispatch('wsEmitMessage', {act: ACT_GET_FAMILY_DATA});
+          this.$store.dispatch('wsEmitMessage', {act: ACT_GET_SELF_VOTE});
+        }
         window.clearInterval(this.timer);
       }
     },
@@ -176,7 +242,18 @@ export default {
         voteTwo,
         voteThree,
       }});
-    }
+    },
+    getUsersByHouseId(houseId, mode = 1) {
+      if (mode==1) {
+        return this.mapHouseUsers[houseId];
+      } else {
+        return this.mapHouseUsers[0].filter(e => e.houseIdTmp == houseId);
+      }
+    },
+    getSumRvByHouseId(houseId) {
+      const users = this.getUsersByHouseId(houseId);
+      return users && users.length > 0 ? users.reduce((a, b) => a + b.rv, 0) : 0;
+    },
   }
 }
 </script>

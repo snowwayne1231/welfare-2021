@@ -87,7 +87,7 @@
                     <li class="freefork" v-if="imNotInCountry"><button class="click-join" @click="onClickJoinCountry(house.id)">加入</button></li>
                   </div>
                   <div class="house-none house">
-                    <li class="freefork" v-for="hero in showNoneFamilyHeros" :key="hero[1]"><i>{{hero[3]}}</i>{{hero[2]}}</li>
+                    <li class="freefork" v-for="hero in showNoneFamilyHeros" :key="hero[1]"><i v-if="isCountrysideOpen">{{hero[3]}}</i>{{hero[2]}}</li>
                   </div>
                 </div>
                 <Hepler title="自由國民在此選擇入境，在每季選秀結束後為期一個禮拜期間可以自由移動到心屬的家族國境" />
@@ -143,14 +143,15 @@ export default {
       get() {
         if (this.wantedPeoples.length > 0) { return this.wantedPeoples; }
         const users = this.global.users;
-        const lvColors = [['gold', 24], ['purple', 16], ['blue', 10], ['green', 4], ['gray', 0]];
+        const lvColors = [['gold', 27], ['purple', 18], ['blue', 10], ['green', 4], ['gray', 0]];
+        const countrysideUserIds = [16, 114, 57, 87,96,84,52,74,56,13,64,68,99,119,82,94,88,86,33,54,55,7,29,19];
         return users.map(u => {
             let score = u.rv;
             u.lvColor = (lvColors.find(c => c[1] <= score) || ['gray'])[0];
             u.houseIdNow = u.houseId > 0 ? u.houseId : u.houseIdTmp;
             return u;
         }).filter(e => {
-          return e.houseIdNow == 0 && e.isLeader == false && e.nickname;
+          return e.houseIdNow == 0 && e.isLeader == false && e.nickname && !countrysideUserIds.includes(e.id) && e.status > 0;
         });
       },
       set(next) {

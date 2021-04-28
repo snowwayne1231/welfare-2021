@@ -341,7 +341,7 @@
 
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">local_fire_department</span>
-              <span class="md-list-item-text">2021-04-19 【 四月戰報 】城市尋寶 - 天璇之密</span>
+              <span class="md-list-item-text">2021-04-28 【 四月戰報v.2 】城市尋寶 - 天璇之密</span>
               <md-list slot="md-expand">
                 <md-table class="news-table smaller-table">
                   <md-table-toolbar>
@@ -368,8 +368,8 @@
                     <md-table-cell>+26</md-table-cell>
                     <md-table-cell>+59</md-table-cell>
                     <md-table-cell>+0</md-table-cell>
-                    <md-table-cell>85</md-table-cell>
-                    <md-table-cell>II</md-table-cell>
+                    <md-table-cell>85 <span style="color: red;">+ 10(舊神之樹)</span></md-table-cell>
+                    <md-table-cell><span style="color: red;">II</span></md-table-cell>
                   </md-table-row>
                   
                   <md-table-row>
