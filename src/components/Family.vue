@@ -42,7 +42,7 @@
         <md-table-row slot="md-table-row">
           <md-table-cell>
             <ul class="list freefork">
-              <li v-for="user in getUsersByHouseId(0).filter(u => u.status > 0)" :key="user.id"><div>{{user.nickname}}</div><div>( {{user.rv}} ) - {{user.firstName}}</div></li>
+              <li v-for="user in getUsersByHouseId(0, 0).filter(u => u.status > 0)" :key="user.id"><div>{{user.nickname}}</div><div>( {{user.rv}} ) - {{user.firstName}}</div></li>
             </ul>
           </md-table-cell>
         </md-table-row>

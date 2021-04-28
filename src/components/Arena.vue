@@ -20,7 +20,7 @@
       <md-card-content>
         <md-tabs @md-changed="onTabChanged">
 
-          <md-tab id="tab-ranking" md-label="排名" exact>
+          <md-tab id="tab-ranking" md-label="總排名" exact>
             <md-table class="arena-table">
               <md-table-row>
                 <md-table-head style="width: 50px;">名次</md-table-head>
