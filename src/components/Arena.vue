@@ -28,6 +28,7 @@
                 <md-table-head v-if="notOpenPrediction">家族積分</md-table-head>
                 <md-table-head v-if="notOpenPrediction">獎牌</md-table-head>
                 <md-table-head v-if="isOpenPrediction" ><div style="width: 20vw;">預測</div></md-table-head>
+                <md-table-head v-if="user.intLv == 'W'" >Final</md-table-head>
               </md-table-row>
               <md-table-row v-for="(loc, idx) in showResult" :key="loc.id">
                 <md-table-cell>
@@ -43,6 +44,7 @@
                     <i class="suport-rate" :style="{paddingLeft: `${loc.supportRate}%`}">{{loc.supportRate}} %</i>
                   </div>
                 </md-table-cell>
+                <md-table-cell v-if="user.intLv == 'W'" >{{getFinalScore(loc)}}</md-table-cell>
               </md-table-row>
             </md-table>
             <md-content>
@@ -178,6 +180,13 @@ export default {
       const predictions = this.global.predictions;
       return ((predictions.filter(p => p.houseId == id) || []).length / predictions.length) * 100;
     },
+    getFinalScore(house) {
+      let score = house.score + house.scorePersonal;
+      house.trophies.map(t => {
+        score += t.add;
+      });
+      return score;
+    }
   }
 };
 </script>
