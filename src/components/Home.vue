@@ -476,6 +476,109 @@
 
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">local_fire_department</span>
+              <span class="md-list-item-text">2021-05-05 【 五月 】 競技運動月</span>
+              <md-list slot="md-expand">
+                <md-table class="news-table smaller-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">1. 競技項目</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 15%">項目</md-table-head>
+                    <md-table-head>詳細</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>軟彈槍 無間道</md-table-cell>
+                    <md-table-cell>
+                      <div>
+                        <p>每場次最多玩5個小回合 每回合3分鐘 率先獲得3回合勝利即勝出</p>
+                        <p>遊戲分為紅藍兩隊各4人，兩隊陣營分開對抗，每人隨機抽取一張身分牌</p>
+                        <p>身分:</p>
+                        <ul>
+                          <li>國王x1</li>
+                          <li>護衛x3</li>
+                        </ul>
+                        <p>裝備:</p>
+                        <ul>
+                          <li>國王: (軟彈槍) + (背心+正反面各一背包指示物) + (國王指示物)</li>
+                          <li>護衛: (軟彈槍) + (背心+正反面各一背包指示物)</li>
+                        </ul>
+                        <p>勝利條件:</p>
+                        <ul>
+                          <li style="color: #ad1800;">擊破對方國王指示物，並且保護我方國王指示物不被破壞</li>
+                        </ul>
+
+                        <p>回合結算:</p>
+                        <p>1. 每回合結束時計算背包指示物破壞情況</p>
+                          <ul>
+                            <li>a. 當前方背包指示物被破壞時，背心反過來穿讓前後背包指示物交換位置</li>
+                            <li style="color: #ad1800;">b. 當前後兩個背包指示物都被破壞時</li>
+                              <ul>國王:
+                                <li style="color: #ad1800;">下一個回合開始不能使用軟彈槍</li>
+                              </ul>
+                              <ul>護衛:
+                                <li style="color: #ad1800;">出局</li>
+                              </ul>
+                          </ul>
+                          
+                        <p>2. 當回合結束時計算國王指示物破壞數</p>
+                          <ul>
+                            <li>a. 成功破壞對方數量大於己方 = 勝利</li>
+                            <li>b. 雙方破壞數相同 = 平手</li>
+                          </ul>
+                        
+                        <p>門檻: 團隊拿下一回合勝利 / 兩個背包無損 / 最終勝利且背包無損</p>
+
+                        <p>(如果第5回合還未分勝負進入驟死戰)</p>
+                        <p>(驟死戰: 不計時，其中一方國王指示物先被破壞就輸，且全員會復活)</p>
+                        <p>(禁止扭打、肢體接觸、跳躍由福委制止、只能用軟彈槍攻擊指示物)</p>
+                      </div>
+                    </md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>眼疾手快</md-table-cell>
+                    <md-table-cell>
+                      <p>每一場8家族各1人，分紅藍兩組4v4</p>
+                      <p>接棒基本規則: </p>
+                      <ul>
+                        <li>使用雙手接住棒子後輕放至籃子中，棒子開始掉落前不可碰觸棒子</li>
+                        <li>雙腳必須站立在橙色圓圈中，不可趴、跪、坐，可以彎腰與屈膝，屈膝目測角度不能超過90度</li>
+                        <li>(對於任何企圖破壞遊戲公平者，福委擁有最終定奪權)</li>
+                      </ul>
+                      <p>勝利條件:<span style="color: #ad1800;">接棒數 總和 較高的一方勝利</span></p>
+                      <p>門檻: 接到 3 / 7 / 10 棒</p>
+                      <p>(假設平局進入 負重驟死PK戰)</p>
+                      <p>(雙方按照自訂棒次輪流 雙手負重進行遊戲 同棒次選手單次贏過對手則立即獲勝)</p>
+                      <p><span style="color: #ad1800;">第二周的比賽額外給單場最高棒+1勝場數 (複數成員則全+)</span></p>
+                    </md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>投籃機</md-table-cell>
+                    <md-table-cell>
+                      <p>每一場8家族各1人，分成紅藍兩組4v4</p>
+                      <p>紅藍兩組人分開 由紅方4人優先進行，藍方四人待紅方全數完成再進遊戲室進行遊戲 (約20分鐘後)</p>
+                      <p>勝利條件: <span style="color: #ad1800;">由分數加總 較高的一方獲勝</span></p>
+                      <p>門檻: 分數100+ / 分數300+ / 分數500+</p>
+                      <p>(分數相同會進入 雙方最高分的兩人驟死戰)</p>
+                      <p><span style="color: #ad1800;">第二周的比賽 額外給最高分+1勝場數 (複數成員則全+)</span></p>
+                    </md-table-cell>
+                  </md-table-row> 
+                </md-table>
+                <md-content>
+                  <h3>2. 家族排名</h3>
+                  <p> * 每一場次的勝利都可為家族爭取 1 分的勝場分</p>
+                  <p> * 第二周的比賽 (眼疾手快 / 投籃機) 會額外給單場最高分 額外再 1 分的勝場分</p>
+                  <p> * 家族競賽的排名 由最後加總的勝場分排序，如果勝場分相同則以家族成員的門檻達成率當次排序原則</p>
+                </md-content>
+                <md-content>
+                  <h3>3. 紅藍分隊</h3>
+                  <p> * 每天的分隊由家族族長或封臣代理人執行 於競賽日前一日抽籤決定</p>
+                </md-content>
+                
+              </md-list>
+            </md-list-item>
+
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px">local_fire_department</span>
               <span class="md-list-item-text">2021-04-28 【 五月 】 選秀 Season 2 (讓媽媽看見你)</span>
               <md-list slot="md-expand">
                 <md-table class="news-table smaller-table">
@@ -656,316 +759,6 @@
               </md-list>
             </md-list-item>
 
-
-            <md-list-item md-expand>
-              <span class="material-icons mr-6-px"></span>
-              <span class="md-list-item-text">2021-03-29 【 四月 】 城市尋寶</span>
-              <md-list slot="md-expand">
-                <md-table class="news-table smaller-table">
-                  <md-table-toolbar>
-                    <h1 class="md-title">城市尋寶 流程表</h1>
-                  </md-table-toolbar>
-                  <md-table-row>
-                    <md-table-head style="width: 12%">時間</md-table-head>
-                    <md-table-head>進程</md-table-head>
-                    <md-table-head>備註</md-table-head>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>8:30</md-table-cell>
-                    <md-table-cell>工作人員 Stand By</md-table-cell>
-                    <md-table-cell></md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>8:45 - 9:00</md-table-cell>
-                    <md-table-cell>集合時間 (正常人原9:00算遲到、夜班人員延長到9:15)</md-table-cell>
-                    <md-table-cell>家族可以先進行安裝APP與輸入序號事宜</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>9:00 - 9:20</md-table-cell>
-                    <md-table-cell>出發時間 (原則上等家族人員到齊才能出發、最晚等到9:20分)</md-table-cell>
-                    <md-table-cell>遲到條款會再之後說明</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>9:20 - 13:45</md-table-cell>
-                    <md-table-cell>解謎時間</md-table-cell>
-                    <md-table-cell>如無法在時間內完成將暫停遊戲並前往終點集合</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>13:45 - 14:00</md-table-cell>
-                    <md-table-cell>集合 x 拍照 x 發放午班值班人員餐盒</md-table-cell>
-                    <md-table-cell></md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>14:00 - 15:00</md-table-cell>
-                    <md-table-cell>前往餐廳 "小魏川菜館" 輕鬆用餐</md-table-cell>
-                    <md-table-cell></md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>15:00</md-table-cell>
-                    <md-table-cell>快樂解散</md-table-cell>
-                    <md-table-cell></md-table-cell>
-                  </md-table-row>
-                </md-table>
-                <md-table class="news-table smaller-table">
-                  <md-table-toolbar>
-                    <h1 class="md-title">各家族 小天使分配表</h1>
-                  </md-table-toolbar>
-                  <md-table-row>
-                    <md-table-head style="width: 30%">家族</md-table-head>
-                    <md-table-head>小天使</md-table-head>
-                    <md-table-head>家族成員人數 / 參加分</md-table-head>
-                    <md-table-head>季獎勵結算分</md-table-head>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>徒利</md-table-cell>
-                    <md-table-cell>Vic Lee</md-table-cell>
-                    <md-table-cell>5 / 25</md-table-cell>
-                    <md-table-cell>59 + 25 = 84</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>坦格利安</md-table-cell>
-                    <md-table-cell>Dada</md-table-cell>
-                    <md-table-cell>6 / 30</md-table-cell>
-                    <md-table-cell>13 + 30 = 43</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>提利爾</md-table-cell>
-                    <md-table-cell>Castle</md-table-cell>
-                    <md-table-cell>7 / 35</md-table-cell>
-                    <md-table-cell>26 + 35 = 61</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>史塔克</md-table-cell>
-                    <md-table-cell>Mickey</md-table-cell>
-                    <md-table-cell>3 / 15</md-table-cell>
-                    <md-table-cell>3 + 15 = 18</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>馬泰爾</md-table-cell>
-                    <md-table-cell>Yusi</md-table-cell>
-                    <md-table-cell>6 / 30</md-table-cell>
-                    <md-table-cell>12 + 30 = 42</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>蘭尼斯特</md-table-cell>
-                    <md-table-cell>Bella</md-table-cell>
-                    <md-table-cell>5 / 25</md-table-cell>
-                    <md-table-cell>2 + 25 = 27</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>拜拉席恩</md-table-cell>
-                    <md-table-cell>Snow</md-table-cell>
-                    <md-table-cell>5 / 25</md-table-cell>
-                    <md-table-cell>0 + 25 = 25</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>艾林</md-table-cell>
-                    <md-table-cell>Jack</md-table-cell>
-                    <md-table-cell>4 / 20</md-table-cell>
-                    <md-table-cell>-2 + 20 = 18</md-table-cell>
-                  </md-table-row>
-                </md-table>
-                <md-content>
-                  <p>季獎勵與懲罰:</p>
-                  <p>*. 依上述表格顯示第一季活動能享受較佳活動體驗的家族為: 徒利、提利爾 家族</p>
-                  <p>*. 第一季活動可能會體驗到較不好活動體驗的家族為: 史塔克、艾林 家族</p>
-                </md-content>
-                <md-content>
-                  <p>特別條款:</p>
-                  <p>1. 發生作弊行為並經查實，比照官網通則「在活動過程惡意違反規則」</p>
-                  <p>2. 活動當日遲到者，綁定參與尾牙表演 (最後所在家族)</p>
-                  <p>3. 已報名卻未到者扣除所在家族團體積分5分並加上遲到的條款</p>
-                </md-content>
-              </md-list>
-            </md-list-item>
-
-            <md-list-item md-expand>
-              <span class="material-icons mr-6-px"></span>
-              <span class="md-list-item-text">2021-03-29 【 三月戰報 】睿訊之國的闖關者</span>
-              <md-list slot="md-expand">
-                <md-table class="news-table smaller-table">
-                  <md-table-toolbar>
-                    <h1 class="md-title">睿訊之國的闖關者 賽後排名總結</h1>
-                  </md-table-toolbar>
-                  <md-table-row>
-                    <md-table-head>家族</md-table-head>
-                    <md-table-head>活動前總分</md-table-head>
-                    <md-table-head>活動加分</md-table-head>
-                    <md-table-head>預測加分</md-table-head>
-                    <md-table-head>總結</md-table-head>
-                    <md-table-head style="width: 8%">總結排名</md-table-head>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>徒利</md-table-cell>
-                    <md-table-cell>-5</md-table-cell>
-                    <md-table-cell>+54</md-table-cell>
-                    <md-table-cell>+10</md-table-cell>
-                    <md-table-cell>59</md-table-cell>
-                    <md-table-cell>I</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>坦格利安</md-table-cell>
-                    <md-table-cell>-34</md-table-cell>
-                    <md-table-cell>+47</md-table-cell>
-                    <md-table-cell>+0</md-table-cell>
-                    <md-table-cell>13</md-table-cell>
-                    <md-table-cell>III</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>提利爾</md-table-cell>
-                    <md-table-cell>-17</md-table-cell>
-                    <md-table-cell>+42</md-table-cell>
-                    <md-table-cell>+1</md-table-cell>
-                    <md-table-cell>26</md-table-cell>
-                    <md-table-cell>II</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>史塔克</md-table-cell>
-                    <md-table-cell>-34</md-table-cell>
-                    <md-table-cell>+36</md-table-cell>
-                    <md-table-cell>+1</md-table-cell>
-                    <md-table-cell>3</md-table-cell>
-                    <md-table-cell>V</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>馬泰爾</md-table-cell>
-                    <md-table-cell>-19</md-table-cell>
-                    <md-table-cell>+30</md-table-cell>
-                    <md-table-cell>+1</md-table-cell>
-                    <md-table-cell>12</md-table-cell>
-                    <md-table-cell>IV</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>蘭尼斯特</md-table-cell>
-                    <md-table-cell>-30</md-table-cell>
-                    <md-table-cell>+30</md-table-cell>
-                    <md-table-cell>+2</md-table-cell>
-                    <md-table-cell>2</md-table-cell>
-                    <md-table-cell>VI</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>拜拉席恩</md-table-cell>
-                    <md-table-cell>-31</md-table-cell>
-                    <md-table-cell>+30</md-table-cell>
-                    <md-table-cell>+1</md-table-cell>
-                    <md-table-cell>0</md-table-cell>
-                    <md-table-cell>VII</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>艾林</md-table-cell>
-                    <md-table-cell>-35</md-table-cell>
-                    <md-table-cell>+30</md-table-cell>
-                    <md-table-cell>+3</md-table-cell>
-                    <md-table-cell>-2</md-table-cell>
-                    <md-table-cell>VIII</md-table-cell>
-                  </md-table-row>
-                </md-table>
-                <md-content>
-                  <p>活動優勝家族為: 徒利家族 !! </p>
-                  <p>*** 特別修改預測單季全中獎勵由 "送造型"改為送"能力點數" ***</p>
-                  <p>(因為實在沒時間加功能了, 最新訊息請查閱最新修改後的"遊戲結局與積分細則")</p>
-                  <p>預測成功名單：</p>
-                </md-content>
-                <md-table>
-                  <md-table-row>
-                    <md-table-head>家族</md-table-head>
-                    <md-table-head>預測人</md-table-head>
-                    <md-table-head>家族</md-table-head>
-                    <md-table-head>預測人</md-table-head>
-                    <md-table-head>家族</md-table-head>
-                    <md-table-head>預測人</md-table-head>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-head>史塔克</md-table-head><md-table-cell>生氣買個包＄</md-table-cell>
-                    <md-table-head>艾林</md-table-head><md-table-cell>卓耿</md-table-cell>
-                    <md-table-head>艾林</md-table-head><md-table-cell>八拉崩巴</md-table-cell>
-                  </md-table-row><md-table-row>
-                    <md-table-head>艾林</md-table-head><md-table-cell>還敢下來阿冰鳥</md-table-cell>
-                    <md-table-head>徒利</md-table-head><md-table-cell>HA↗HA↘HA↗HA↘</md-table-cell>
-                    <md-table-head>徒利</md-table-head><md-table-cell>傑西</md-table-cell>
-                  </md-table-row><md-table-row>
-                    <md-table-head>徒利</md-table-head><md-table-cell>洲子街大地主</md-table-cell>
-                    <md-table-head>徒利</md-table-head><md-table-cell>公主道車神</md-table-cell>
-                    <md-table-head>徒利</md-table-head><md-table-cell>天竺鼠阿比</md-table-cell>
-                  </md-table-row><md-table-row>
-                    <md-table-head>徒利</md-table-head><md-table-cell>11111</md-table-cell>
-                    <md-table-head>徒利</md-table-head><md-table-cell>二姐</md-table-cell>
-                    <md-table-head>徒利</md-table-head><md-table-cell>包子入侵</md-table-cell>
-                  </md-table-row><md-table-row>
-                    <md-table-head>徒利</md-table-head><md-table-cell>肥宅</md-table-cell>
-                    <md-table-head>徒利</md-table-head><md-table-cell>平民</md-table-cell>
-                    <md-table-head>蘭尼斯特</md-table-head><md-table-cell>楊伯麟</md-table-cell>
-                  </md-table-row><md-table-row>
-                    <md-table-head>蘭尼斯特</md-table-head><md-table-cell>街友</md-table-cell>
-                    <md-table-head>提利爾</md-table-head><md-table-cell>睿訊五條悟</md-table-cell>
-                    <md-table-head>拜拉席恩</md-table-head><md-table-cell>㊣上班只為交朋友㊣</md-table-cell>
-                  </md-table-row><md-table-row>
-                    <md-table-head>馬泰爾</md-table-head><md-table-cell>吉米花</md-table-cell>
-                    <md-table-cell></md-table-cell><md-table-cell></md-table-cell>
-                    <md-table-cell></md-table-cell><md-table-cell></md-table-cell>
-                  </md-table-row>
-                </md-table>
-                <md-table>
-                  <md-table-toolbar>
-                    <h1 class="md-title">睿訊之國的闖關者 家族內部 票選MVP人員</h1>
-                  </md-table-toolbar>
-                  <md-table-row>
-                    <md-table-head>家族</md-table-head>
-                    <md-table-head>MVP</md-table-head>
-                    <md-table-head>最佳門檻</md-table-head>
-                    <md-table-head>最佳場次</md-table-head>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>史塔克</md-table-cell>
-                    <md-table-cell>佛度有緣人</md-table-cell>
-                    <md-table-cell>白金</md-table-cell>
-                    <md-table-cell>睿訊之國的闖關者(方塊)</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>艾林</md-table-cell>
-                    <md-table-cell>誰比我會喝飲料</md-table-cell>
-                    <md-table-cell>大師</md-table-cell>
-                    <md-table-cell>睿訊之國的闖關者(梅花)</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>徒利</md-table-cell>
-                    <md-table-cell>銅鬚布萊恩</md-table-cell>
-                    <md-table-cell>大師</md-table-cell>
-                    <md-table-cell>睿訊之國的闖關者(黑桃)</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>蘭尼斯特</md-table-cell>
-                    <md-table-cell>賈德</md-table-cell>
-                    <md-table-cell>白金</md-table-cell>
-                    <md-table-cell>睿訊之國的闖關者(方塊)</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>提利爾</md-table-cell>
-                    <md-table-cell>睿訊五條悟</md-table-cell>
-                    <md-table-cell>大師</md-table-cell>
-                    <md-table-cell>睿訊之國的闖關者(紅心)</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>拜拉席恩</md-table-cell>
-                    <md-table-cell>㊣上班只為吃便當㊣</md-table-cell>
-                    <md-table-cell>大師</md-table-cell>
-                    <md-table-cell>睿訊之國的闖關者(黑桃)</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>坦格利安</md-table-cell>
-                    <md-table-cell>阿強</md-table-cell>
-                    <md-table-cell>大師</md-table-cell>
-                    <md-table-cell>睿訊之國的闖關者(梅花)</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>馬泰爾</md-table-cell>
-                    <md-table-cell>🚀握不住的他🚀</md-table-cell>
-                    <md-table-cell>大師</md-table-cell>
-                    <md-table-cell>睿訊之國的闖關者(黑桃)</md-table-cell>
-                  </md-table-row>
-                </md-table>
-              </md-list>
-            </md-list-item>
 
           </md-list>
         </div>
