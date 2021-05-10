@@ -166,6 +166,7 @@ function onMessage(socket) {
                     socket.emit('MESSAGE', {act: enums.ACT_UPDATE_SKILL});
                 }).catch(err => console.log(err));
             case enums.ACT_GET_ADMIN_DATASET:
+                if (!userinfo) { return; }
                 if (userinfo.code=='R343') {
                     let promise; 
                     try {
@@ -182,6 +183,7 @@ function onMessage(socket) {
                 }
                 return socket.emit('MESSAGE', {act: 'not promised', redirect: '/logout'});
             case enums.ACT_ADMIN_UPDATE: {
+                if (!userinfo) { return; }
                 if (userinfo.code=='R343') {
                     try {
                         return models[payload.model].update(payload.data,{
@@ -198,6 +200,7 @@ function onMessage(socket) {
             case enums.ACT_GET_COUNTRYSIDE_DATA:
                 return socket.emit('MESSAGE', {act: enums.ACT_GET_COUNTRYSIDE_DATA, payload: country_border});
             case enums.ACT_UPDATE_COUNTRYSIDE: {
+                if (!userinfo) { return; }
                 let uId = userinfo.id;
                 let country_houseid = payload.house || 0;
                 let idx = country_border.findIndex(e => e[1] == uId);

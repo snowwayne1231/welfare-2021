@@ -1,6 +1,6 @@
 <template>
   <div class="family bg-img">
-    <md-card v-if="user.intLv == 'W'" class="home-card admin">
+    <md-card v-if="user.intLv == 'W' && user.houseId == 0" class="home-card admin">
       <md-table class="family-data-table">
         <md-table-row slot="md-table-row">
           <md-table-head>家族</md-table-head>
@@ -20,7 +20,7 @@
         <md-table-row slot="md-table-row">
           <md-table-head>家族成員</md-table-head>
           <md-table-cell v-for="house in global.houses" :key="house.id">
-            <ul class="list family">
+            <ul class="list">
               <li v-for="user in getUsersByHouseId(house.id)" :key="user.id" :style="{backgroundColor: `${house.color}42`}"><div>{{user.nickname}}</div><div>( {{user.rv}} ) - {{user.firstName}} </div></li>
             </ul>
           </md-table-cell>
@@ -191,7 +191,7 @@ export default {
   methods: {
     whileConnection() {
       if (this.user.connected) {
-        if (this.user.intLv == 'W') {
+        if (this.user.intLv == 'W' && this.user.houseId == 0) {
           this.$store.dispatch('wsEmitMessage', {act: ACT_GET_PEOPLE_DATA, payload: {more: true}});
         } else {
           this.$store.dispatch('wsEmitMessage', {act: ACT_GET_FAMILY_DATA});

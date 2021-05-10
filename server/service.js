@@ -581,6 +581,18 @@ function refreshFamilyScore(res) {
         var maxThanks = [{times: 0}];
         var maxChangeRanks = [{change: 0}]; // trophy (6)
         var mapReusltChanges = {};
+        var allDataSroted = {
+            '10': [],
+            '20': [],
+            '30': [],
+            '40': [],
+            '50': [],
+            '60': [],
+            '70': [],
+            '80': [],
+            '90': [],
+            '100': [],
+        }
         
         results.map(r => {
             var ranking = JSON.parse(r.ranking);
@@ -593,9 +605,12 @@ function refreshFamilyScore(res) {
                 }
             });
         });
+        //
         matches.map(m => {
             if (mapUserMatches[m.userId]) {
-                mapUserMatches[m.userId].push(m.round);
+                if (!mapUserMatches[m.userId].includes(m.round)) {
+                    mapUserMatches[m.userId].push(m.round);
+                }
             } else {
                 mapUserMatches[m.userId] = [m.round];
             }
@@ -610,6 +625,7 @@ function refreshFamilyScore(res) {
                     houseUserMap[hid] = [user];
                 }
             }
+            // trophy (1)
             if (user.rv > maxRvUsers[0].rv) {
                 maxRvUsers = [user];
             } else if (user.rv == maxRvUsers[0].rv) {
@@ -624,6 +640,8 @@ function refreshFamilyScore(res) {
         houses.map(house => {
             var id = house.id;
             var usersInHouse = houseUserMap[id];
+            usersInHouse.sort((a,b) => b.rv - a.rv);
+            allDataSroted['10'].push({house: house.name, maxRvUser: usersInHouse[0]});
             if (usersInHouse && usersInHouse.length > 0) {
                 var scorePersonal = 0;
                 var rankMove = 0;
@@ -641,7 +659,7 @@ function refreshFamilyScore(res) {
                     if (user.wisLv == 'S') { lengthConWis+=1; } // trophy (3)
                     sumThanks += user.thankTimes; // trophy (10)
                     totalPartake += user.partake;
-                    if (maxRvUsers.findIndex(u => u.id == user.id)>=0) {
+                    if (maxRvUsers.findIndex(u => u.id == user.id)>=0) { //trophy (1)
                         maxRvUserHouses.push({house, user});
                     }
                     if (mapUserMatches[user.id]) { //trophy (8)
@@ -660,6 +678,7 @@ function refreshFamilyScore(res) {
                         });
                     }
                 });
+                // trophy (3)
                 if (lengthConWis > maxConWisLevelSHouses[0].cw) {
                     maxConWisLevelSHouses = [{house, cw: lengthConWis}];
                 } else if (lengthConWis == maxConWisLevelSHouses[0].cw) {
@@ -670,6 +689,10 @@ function refreshFamilyScore(res) {
                 } else if (sumThanks == maxThanks[0].times) {
                     maxThanks.push({times: sumThanks, house});
                 }
+                
+                allDataSroted['20'].push({house: house.name, totalPartake});
+                allDataSroted['30'].push({house: house.name, lengthConWis});
+                allDataSroted['100'].push({house: house.name, sumThanks});
 
                 //
                 var leader = users.find(u => u.id == house.leaderId);
@@ -684,6 +707,7 @@ function refreshFamilyScore(res) {
                         maxDepartments.push({rate, house, usersInSameDepartment, department});
                     }
                     sameDepartment = usersInSameDepartment.length;
+                    allDataSroted['40'].push({house: house.name, sameDepartment, max: department.length, rate});
                     // trophy (5)
                     var leaderAbility = getLvToNum(leader);
                     var leaderGap = 0;
@@ -701,6 +725,7 @@ function refreshFamilyScore(res) {
                         closestAbility.push({gap: leaderGap, house});
                     }
                     leaderMatchFamily = leaderGap;
+                    allDataSroted['50'].push({house: house.name, leaderGap});
                     //trophy (6)
                     var changeRank = mapReusltChanges[house.id] || {change: 0};
                     if (changeRank.change > maxChangeRanks[0].change) {
@@ -709,13 +734,15 @@ function refreshFamilyScore(res) {
                         maxChangeRanks.push({change: changeRank.change, house});
                     }
                     rankMove = changeRank.change;
+                    allDataSroted['60'].push({house: house.name, rankMove});
                     
                     // trophy (7)
                     var ladies = usersInHouse.filter(u => u.gender == 2).length;
                     if (ladies > maxLady.ladies) {
                         maxLady = {ladies, house};
                     }
-                    // trophy (8)
+                    allDataSroted['70'].push({house: house.name, ladies});
+                    
                     // trophy (9)
                     var chaLvS = usersInHouse.filter(u => u.chaLv == 'S').length;
                     if (chaLvS > maxChas[0].len) {
@@ -723,6 +750,7 @@ function refreshFamilyScore(res) {
                     } else if (chaLvS == maxChas[0].len) {
                         maxChas.push({len: chaLvS, house});
                     }
+                    allDataSroted['90'].push({house: house.name, chaLvS});
                 }
 
                 // update houses
@@ -742,7 +770,7 @@ function refreshFamilyScore(res) {
                 });
             }
         });
-        
+        // trophy (2)
         houses.map(house => {
             if (house.totalPartake > maxPartakeHouses[0].totalPartake) {
                 maxPartakeHouses = [house];
@@ -750,9 +778,10 @@ function refreshFamilyScore(res) {
                 maxPartakeHouses.push(house);
             }
         });
-
+        // trophy (8)
         Object.keys(mapMatchTotalCode).map(keyRound => {
             var loc = mapMatchTotalCode[keyRound];
+            var obj = {round: keyRound, codeNums: []};
             Object.keys(loc).map(hid => {
                 var _number = loc[hid];
                 if (_number > maxWorkCode.num) {
@@ -760,7 +789,9 @@ function refreshFamilyScore(res) {
                     maxWorkCode.round = keyRound;
                     maxWorkCode.house = houses.find(h => h.id == hid);
                 }
+                obj.codeNums.push({houseId: hid, num: _number});
             });
+            allDataSroted['80'].push(obj);
         });
 
 
@@ -785,7 +816,16 @@ function refreshFamilyScore(res) {
                 trophies[key] = loc.house ? loc.house.name : loc.name;
             }
         });
-        res.json({houses, trophies, trophyMap});
+        allDataSroted['10'].sort((a,b) => b.maxRvUser.rv - a.maxRvUser.rv);
+        allDataSroted['20'].sort((a,b) => b.totalPartake - a.totalPartake);
+        allDataSroted['30'].sort((a,b) => b.lengthConWis - a.lengthConWis);
+        allDataSroted['40'].sort((a,b) => b.rate - a.rate);
+        allDataSroted['50'].sort((a,b) => b.leaderGap - a.leaderGap);
+        allDataSroted['60'].sort((a,b) => b.rankMove - a.rankMove);
+        allDataSroted['70'].sort((a,b) => b.ladies - a.ladies);
+        allDataSroted['90'].sort((a,b) => b.chaLvS - a.chaLvS);
+        allDataSroted['100'].sort((a,b) => b.sumThanks - a.sumThanks);
+        res.json({houses, trophies, trophyMap, allDataSroted});
     }).catch(err => {
         console.log(err);
         res.json({'error': err});
