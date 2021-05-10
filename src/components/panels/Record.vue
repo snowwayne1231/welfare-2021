@@ -11,7 +11,7 @@
         <md-table-row v-for="(result) in game.results" :key="result.json.round">
           <md-table-cell>{{result.json.round}}</md-table-cell>
           <md-table-cell>{{result.game}}</md-table-cell>
-          <md-table-cell><button @click="onClcikShowScore(result)">查看</button></md-table-cell>
+          <md-table-cell><button v-if="result.ranking.length > 0" @click="onClcikShowScore(result)">查看</button></md-table-cell>
           <md-table-cell><button @click="onClcikShowDialog(result)">打開詳細</button></md-table-cell>
         </md-table-row>
       </md-table>
@@ -114,7 +114,7 @@ export default {
       let tmp = 0;
       
       $this.game.matches.map(m => {
-        const mObj = {...m, user: $this.global.users.find(u => u.id == m.userId) || {}, level: levelMap[m.activity] || '傳奇'};
+        const mObj = {...m, user: $this.global.users.find(u => u.id == m.userId) || {}, level: levelMap[m.activity] || ('傳奇 (+' + m.activity + ')')};
         mObj.houseImg = $this.getHouseImgByHouseId(m.houseIdNow);
         if (tmp != m.game) {
           ary.push({gameId: m.game, matches: [mObj]});

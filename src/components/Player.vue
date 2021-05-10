@@ -238,6 +238,7 @@ export default {
     roundMatches() {
       const matches = this.user.matches;
       const map = {};
+      console.log('matches: ', matches);
       matches.map(match => {
         let round = match.round;
         if (map[round]) {

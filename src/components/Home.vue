@@ -476,6 +476,118 @@
 
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">local_fire_department</span>
+              <span class="md-list-item-text">2021-05-10 【 五月 】 Season 2 選秀結果</span>
+              <md-list slot="md-expand">
+                <md-table class="news-table smaller-table">
+                  <md-table-toolbar>
+                    <h3>一、選秀後團體積分表</h3>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 15%">家族</md-table-head>
+                    <md-table-head>選秀前值</md-table-head>
+                    <md-table-head>招募消耗</md-table-head>
+                    <md-table-head>選秀後積分</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>徒利</md-table-cell>
+                    <md-table-cell>105</md-table-cell>
+                    <md-table-cell>
+                      <p style="color: blue;">(免) = 公主道車神</p>
+                      <p>(-10) =  天竺鼠阿比 </p>
+                      <p>(- 6) = 11111</p>
+                    </md-table-cell>
+                    <md-table-cell>89</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>提利爾</md-table-cell>
+                    <md-table-cell>95</md-table-cell>
+                    <md-table-cell>
+                      <p style="color: purple;">(免) = 矮人族族長</p>
+                      <p style="color: blue;">(免) =  瘋狂小傑森 </p>
+                      <p>(- 7) = 意修尼</p>
+                    </md-table-cell>
+                    <md-table-cell>88</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>61</md-table-cell>
+                    <md-table-cell>
+                      <p style="color: purple;">(免) = 小鳥胃☄☄</p>
+                      <p style="color: purple;">(免) = 🥺🥺🥺🥺🥺</p>
+                      <p style="color: blue;">(免) = 異世界轉生的中二生活</p>
+                      <p style="color: blue;">(免) = 天虎令</p>
+                      <p style="color: green;">(半)(- 5) = 乂☆煞氣a丁尼☆乂</p>
+                      <p>(離職)(+ 5) = John</p>
+                      <p>(離職)(+ 6) = Sron</p>
+                    </md-table-cell>
+                    <md-table-cell>67</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>馬泰爾</md-table-cell>
+                    <md-table-cell>78</md-table-cell>
+                    <md-table-cell>
+                      <p style="color: purple;">(免) = 精靈</p>
+                      <p>(- 7) = 寶可夢大師</p>
+                      <p style="color: green;">(半)(- 5) = 秋芭比母捏牛</p>
+                    </md-table-cell>
+                    <md-table-cell>66</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>43</md-table-cell>
+                    <md-table-cell>
+                      <p style="color: blue;">(免) = 涅法雷姆</p>
+                      <p>(- 8) = 熱血沸騰洗廁所殺手</p>
+                      <p>(- 5) = 我心已打烊</p>
+                    </md-table-cell>
+                    <md-table-cell>30</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell>52</md-table-cell>
+                    <md-table-cell>
+                      <p>(- 8) = 卓耿</p>
+                      <p>(-11) = 忍者龜頭痛</p>
+                      <p>(- 9) = 源辣讚讚</p>
+                    </md-table-cell>
+                    <md-table-cell>24</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>史塔克</md-table-cell>
+                    <md-table-cell>39</md-table-cell>
+                    <md-table-cell>
+                      <p style="color: purple;">(免) = 貓貓貓頭鷹</p>
+                      <p>(-14) = ↗統神端火鍋↙</p>
+                      <p>(- 7) = Bbrr</p>
+                    </md-table-cell>
+                    <md-table-cell>18</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>艾林</md-table-cell>
+                    <md-table-cell>29</md-table-cell>
+                    <md-table-cell>
+                      <p>(- 1) = 石少甫</p>
+                      <p style="color: green;">(半)(- 5) = 奶油綜合菇</p>
+                      <p>(- 7) = 貨拉拉拉不拉拉不拉多</p>
+                    </md-table-cell>
+                    <md-table-cell>16</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <p style="color: purple;">(免) 福委工作人員特權</p>
+                  <p style="color: blue;">(免) 佔領封地招募獎勵</p>
+                  <p style="color: green;">(半) 母親節問答五折獎勵</p>
+                  <h3>二、第二季國民入境開跑</h3>
+                  <p>時間: 2021 / 05 / 10 12:00 ~ 2021 / 05 / 14 12:00</p>
+                  <p>請各國自由民在指定期間內自由選擇家族入境</p>
+                  <p>時間到未選擇家族的自由民，將由福委發配於主觀認定之落後家族</p>
+                </md-content>
+              </md-list>
+            </md-list-item>
+
+
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px">local_fire_department</span>
               <span class="md-list-item-text">2021-05-05 【 五月 】 競技運動月</span>
               <md-list slot="md-expand">
                 <md-table class="news-table smaller-table">
@@ -490,7 +602,7 @@
                     <md-table-cell>軟彈槍 無間道</md-table-cell>
                     <md-table-cell>
                       <div>
-                        <p>每場次最多玩5個小回合 每回合3分鐘 率先獲得3回合勝利即勝出</p>
+                        <p>每場次最多玩3個小回合 每回合5分鐘 率先獲得2回合勝利即勝出</p>
                         <p>遊戲分為紅藍兩隊各4人，兩隊陣營分開對抗，每人隨機抽取一張身分牌</p>
                         <p>身分:</p>
                         <ul>
@@ -528,7 +640,7 @@
                         
                         <p>門檻: 團隊拿下一回合勝利 / 兩個背包無損 / 最終勝利且背包無損</p>
 
-                        <p>(如果第5回合還未分勝負進入驟死戰)</p>
+                        <p>(如果第3回合還未分勝負進入驟死戰)</p>
                         <p>(驟死戰: 不計時，其中一方國王指示物先被破壞就輸，且全員會復活)</p>
                         <p>(禁止扭打、肢體接觸、跳躍由福委制止、只能用軟彈槍攻擊指示物)</p>
                       </div>
@@ -541,11 +653,12 @@
                       <p>接棒基本規則: </p>
                       <ul>
                         <li>使用雙手接住棒子後輕放至籃子中，棒子開始掉落前不可碰觸棒子</li>
-                        <li>雙腳必須站立在橙色圓圈中，不可趴、跪、坐，可以彎腰與屈膝，屈膝目測角度不能超過90度</li>
-                        <li>(對於任何企圖破壞遊戲公平者，福委擁有最終定奪權)</li>
+                        <li>雙腳必須站立在橙色圓圈中，不可呈現趴、跪、坐 等姿勢，可以彎腰與屈膝</li>
+                        <li>對於上述無規範之外範疇，福委酌情判斷是否為惡意 破壞遊戲公平行為，並擁有最終定奪權</li>
                       </ul>
                       <p>勝利條件:<span style="color: #ad1800;">接棒數 總和 較高的一方勝利</span></p>
                       <p>門檻: 接到 3 / 7 / 10 棒</p>
+                      <p>(只會計算放進籃子內的棒數)</p>
                       <p>(假設平局進入 負重驟死PK戰)</p>
                       <p>(雙方按照自訂棒次輪流 雙手負重進行遊戲 同棒次選手單次贏過對手則立即獲勝)</p>
                       <p><span style="color: #ad1800;">第二周的比賽額外給單場最高棒+1勝場數 (複數成員則全+)</span></p>
@@ -555,8 +668,8 @@
                     <md-table-cell>投籃機</md-table-cell>
                     <md-table-cell>
                       <p>每一場8家族各1人，分成紅藍兩組4v4</p>
-                      <p>紅藍兩組人分開 由紅方4人優先進行，藍方四人待紅方全數完成再進遊戲室進行遊戲 (約20分鐘後)</p>
-                      <p>總成績於投籃機上分數之加總<span style="color: #ad1800;">(女性同仁條款: 最終分數+50分)</span></p>
+                      <p>紅藍兩組人分開 由紅方4人優先進行，藍方可以自由選擇是否先進場觀看，在紅方進行到第三人時，會通知藍方4人進場</p>
+                      <p>總成績於投籃機上分數之加總<span style="color: #ad1800;">(女性同仁條款: 最終分數+75分)</span></p>
                       <p>勝利條件: <span style="color: #ad1800;">由分數加總 較高的一方獲勝</span></p>
                       
                       <p>門檻: 分數100+ / 分數300+ / 分數500+</p>
@@ -580,7 +693,7 @@
             </md-list-item>
 
             <md-list-item md-expand>
-              <span class="material-icons mr-6-px">local_fire_department</span>
+              <span class="material-icons mr-6-px"></span>
               <span class="md-list-item-text">2021-04-28 【 五月 】 選秀 Season 2 (讓媽媽看見你)</span>
               <md-list slot="md-expand">
                 <md-table class="news-table smaller-table">
@@ -614,7 +727,7 @@
             </md-list-item>
 
             <md-list-item md-expand>
-              <span class="material-icons mr-6-px">local_fire_department</span>
+              <span class="material-icons mr-6-px"></span>
               <span class="md-list-item-text">2021-04-28 【 四月戰報v.2 】城市尋寶 - 天璇之密</span>
               <md-list slot="md-expand">
                 <md-table class="news-table smaller-table">

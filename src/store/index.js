@@ -482,6 +482,7 @@ const moduleGame = {
                             loc.ranking = JSON.parse(loc.ranking);
                             return loc;
                         }).filter(e => !!e.json.round);
+                        state.results.sort((a,b) => b.json.round - a.json.round);
                     } catch (err) {
                         console.log(err);
                     }
