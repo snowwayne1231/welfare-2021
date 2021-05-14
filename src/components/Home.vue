@@ -26,7 +26,8 @@
 
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">local_fire_department</span>
-              <span class="md-list-item-text">2021-05-13 【 健康舒活特別計畫 】 個資條款&獎勵辦法</span>
+              <span class="material-icons mr-6-px">build</span>
+              <span class="md-list-item-text">2021-05-14 【 健康舒活特別計畫 】【 Edition Ver.2 】 個資條款&獎勵辦法</span>
               <md-list slot="md-expand">
                 <!--  -->
                 <md-table class="news-table smaller-table">
@@ -50,6 +51,21 @@
                       <p>只要報名都能挑戰額外獎勵</p>
                       <p style="color: red;">統一由 Mavis 紀錄&計算個人成績，所有人的體重/體脂數值不對外公開</p>
                       <p>最終只會列出各家族整體加總之成積，與個人達成之門檻&排序</p>
+                    </md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>3. 身高登入方式</md-table-cell>
+                    <md-table-cell>自己輸入</md-table-cell>
+                    <md-table-cell>
+                      <p style="color: red;">統一由 Mavis 取公司歷年健康檢查之身高</p>
+                    </md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>4. 測量須知</md-table-cell>
+                    <md-table-cell>無</md-table-cell>
+                    <md-table-cell>
+                      <p>測量時 請脫去多餘衣物，只著單件上衣與單件褲子，<span style="color: red;">如果身體有特殊情況需要加著衣物，請主動告知Mavis並記錄原因</span></p>
+                      <p>測量時 請卸下所有身上所有導電物、非必要飾品、刻意加重重量之物品</p>
                     </md-table-cell>
                   </md-table-row>
                 </md-table>
