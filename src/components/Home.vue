@@ -68,7 +68,7 @@
                       <md-table-cell>原年度賽制裡 八大家族排名競賽，所獲得之團體積分與個人RV</md-table-cell>
                     </md-table-row>
                     <md-table-row>
-                      <md-table-cell>2. 型男沒女獎</md-table-cell>
+                      <md-table-cell>2. 型男美女獎</md-table-cell>
                       <md-table-cell><p>由報名家族成員中，最多符合BMI標準值的人數為第一排序</p><p>若BMI標準人數相同，第二排序為 體重/體脂 轉換之分數</p></md-table-cell>
                       <md-table-cell>
                         <p>第一名: 家族免死金牌</p>
