@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/components/Home';
 import HomeOlder from '@/components/HomeOlder';
+import HomeRules from '@/components/HomeRules';
 import Player from '@/components/Player';
 import Arena from '@/components/Arena';
 import Family from '@/components/Family';
@@ -24,6 +25,11 @@ export default new Router({
       path: '/olderinfo',
       name: 'HomeOlder',
       component: HomeOlder,
+    },
+    {
+      path: '/rules',
+      name: 'HomeRules',
+      component: HomeRules,
     },
     {
       path: '/player',
