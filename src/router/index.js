@@ -11,6 +11,7 @@ import Maintain from '@/components/Maintain';
 import AdminFront from '@/components/AdminFront';
 import GameEditor from '@/components/GameEditor';
 import GameVideo from '@/components/GameVideo';
+import DragonShip from '@/components/DragonShip';
 
 Vue.use(Router);
 
@@ -67,6 +68,11 @@ export default new Router({
       path: '/gamevideo/:vid',
       name: 'GameVideo',
       component: GameVideo,
+    },
+    {
+      path: '/dragon',
+      name: 'DragonShip',
+      component: DragonShip,
     }
   ],
 });
