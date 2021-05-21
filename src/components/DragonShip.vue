@@ -102,17 +102,18 @@ export default {
   position: relative;
   white-space: nowrap;
   text-align: center;
+  padding: 20px 0px;
 }
 
 #dragon-ship .controller .drum-zone{
   position: relative;
   display: inline-block;
-  width: 22%;
+  width: 36%;
 }
 
 #dragon-ship .controller .paddle-zone {
   position: relative;
   display: inline-block;
-  width: 36%;
+  width: 30%;
 }
 </style>
