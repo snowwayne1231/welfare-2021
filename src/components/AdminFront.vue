@@ -47,7 +47,7 @@
       </md-card-header>
 
       <md-card-content>
-        <md-table v-model="global.dataset" md-sort="id" md-sort-order="asc" class="admin-table">
+        <md-table v-model="global.dataset" md-sort="id" md-sort-order="desc" class="admin-table">
           <md-table-row slot="md-table-row" slot-scope="{ item }">
             <md-table-cell v-for="k in datasetKeys" :key="k" :md-label="k" :md-sort-by="k">
               <span v-if="isSpan(item[k])">{{ item[k] }}</span>
@@ -86,7 +86,7 @@ export default {
     };
   },
   mounted() {
-    if (this.user.rv > 0 && this.user.rv < 90) {
+    if (this.user.intLv != 'W') {
       window.location.href = '/logout';
     }
     this.$store.dispatch('wsEmitMessage', {act: ACT_GET_PEOPLE_DATA, payload: {more: true}});

@@ -172,7 +172,9 @@ function onMessage(socket) {
                     try {
                         promise = models[payload.model].findAll({
                             where: payload.where,
-                            attributes: { exclude: ['createdAt', 'updatedAt', 'pwd', 'email', 'title'] }
+                            attributes: { exclude: ['createdAt', 'updatedAt', 'pwd', 'email', 'title'] },
+                            order: [['id', 'DESC']],
+                            limit: 256,
                         }).then(dataset => {
                             socket.emit('MESSAGE', {act: enums.ACT_GET_ADMIN_DATASET, payload: {dataset}})
                         });

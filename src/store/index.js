@@ -273,8 +273,17 @@ const globalData = {
                     });
                     return console.log('Global Data Users: ', payload);
                 case ACT_GET_ADMIN_DATASET:
-                    state.dataset = payload.dataset;
-                    return console.log('Global Dataset: ', payload);
+                    const nextDataset = payload.dataset.length > 0 && payload.dataset[0].userId > 0 ?
+                        payload.dataset.map(d => {
+                            let findedUser = state.users.find(e => e.id == d.userId);
+                            if (findedUser) {
+                                d.userId = findedUser.firstName;
+                                d.userNickname = findedUser.nickname;
+                            }
+                            return d;
+                        }) : payload.dataset;
+                    state.dataset = nextDataset;
+                    return console.log('Global Dataset: ', nextDataset);
                 case ACT_GET_COUNTRYSIDE_DATA: {
                     const newBorder = payload.map(e => {
                         let id = e[1];
