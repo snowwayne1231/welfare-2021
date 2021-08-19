@@ -144,14 +144,14 @@ export default {
         if (this.wantedPeoples.length > 0) { return this.wantedPeoples; }
         const users = this.global.users;
         const lvColors = [['gold', 27], ['purple', 18], ['blue', 10], ['green', 4], ['gray', 0]];
-        const countrysideUserIds = [16, 114, 57, 87,96,84,52,74,56,13,64,68,99,119,82,94,88,86,33,54,55,7,29,19];
+        const countrysideUserIds = [16, 114, 57];
         return users.map(u => {
             let score = u.rv;
             u.lvColor = (lvColors.find(c => c[1] <= score) || ['gray'])[0];
             u.houseIdNow = u.houseId > 0 ? u.houseId : u.houseIdTmp;
             return u;
         }).filter(e => {
-          return e.houseIdNow == 0 && e.isLeader == false && e.nickname && !countrysideUserIds.includes(e.id) && e.status > 0;
+          return e.houseId == 0 && e.isLeader == false && e.nickname && e.status > 0 && !countrysideUserIds.includes(e.id);
         });
       },
       set(next) {
