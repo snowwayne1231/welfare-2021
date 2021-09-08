@@ -77,10 +77,10 @@ export default {
 <style lang="scss">
 .chat-box {
     position: relative;
-    height: 160px;
+    height: 200px;
 
     .chat-history {
-        height: 80%;
+        height: calc(100% - 28px);
         background-color: #160d07;
         border: 1px solid #805b00;
         box-sizing: border-box;
@@ -98,7 +98,7 @@ export default {
         }
     }
     .chat-tools {
-        height: 20%;
+        height: 28px;
         border: 1px solid #805b00;
         position: relative;
         box-sizing: border-box;
@@ -106,7 +106,7 @@ export default {
 
         .chat-tool-input {
             background-color: #7b746f;
-            width: calc(100% - 100px);
+            width: calc(100% - 80px);
         }
         button {
             background-color: #160d07;

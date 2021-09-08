@@ -12,9 +12,10 @@
         </md-card-header-text>
         <div class="welfare-controller" v-if="user.intLv == 'W'">
           <!-- <md-input v-model="loveNumber" type="number"></md-input> -->
-          <md-switch v-model="isOpenLove">愛心開關</md-switch>
+          <!-- <md-switch v-model="isOpenLove">愛心開關</md-switch> -->
           <md-switch v-model="isOpenPrediction" class="md-primary">預測開關</md-switch>
-          <md-switch v-model="isLiveTwitch" class="md-accent">TWITCH</md-switch>
+          <!-- <md-switch v-model="isLiveTwitch" class="md-accent">TWITCH</md-switch> -->
+          <button @click="onClickPredictionShowConsole">Console預測人</button>
         </div>
       </md-card-header>
       <md-card-content>
@@ -175,6 +176,32 @@ export default {
       console.log('house: ', house);
       this.openPredictionAndCanPredict = false;
       this.$store.dispatch('wsEmitMessage', {act: ACT_SEND_PREDICTION, payload: {house}});
+    },
+    onClickPredictionShowConsole() {
+      var predictions = this.global.predictions;
+      var users = this.global.users;
+      var houses = this.global.houses;
+      if (users.length == 0) {
+        return this.$store.dispatch('wsEmitMessage', { act: ACT_GET_PEOPLE_DATA });
+      }
+      var map = {};
+      
+      houses.map(h => {
+        map[h.name] = [];
+      });
+      predictions.map(p => {
+        var userId = p.userId;
+        var houseId = p.houseId;
+        var user = users.find(e => e.id == userId);
+        var house = houses.find(h => h.id == houseId);
+        map[house.name].push(user);
+      });
+      console.log(map);
+      var map_nickname = {};
+      for (var k in map) {
+        map_nickname[k] = map[k].map(e => e.nickname);
+      }
+      console.log(map_nickname);
     },
     getSupportedByHouseId(id) {
       const predictions = this.global.predictions;

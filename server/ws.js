@@ -9,7 +9,7 @@ const { config } = require("shelljs");
 const ROOM_CHATTING_BAR = 'roomchattingbar';
 
 const inners = {};
-const bar_tables = [];
+const bar_tables = new Array(10).fill(0).map(e => {return {color: '', histories: []}});
 const bar_house_people = [];
 let predictions = [];
 let predictionRound= 0;
@@ -83,6 +83,11 @@ function refreshBasicData(callback) {
     if (callback) {
         Promise.all(promises).then(callback).catch(err => console.log(err));
     }
+
+    bar_tables.map(b => {
+        b.color = 'qq';
+        b.histories = [];
+    });
 }
 
 
@@ -269,7 +274,7 @@ function onMessage(socket) {
                             userId: u.id,
                             houseIdNow: u.houseIdNow,
                             game: gid,
-                            success: u.success ? 1 : 0,
+                            success: Math.round(u.success) || 0,
                         }
                     });
                     models.Match.bulkCreate(matches).then(m => {

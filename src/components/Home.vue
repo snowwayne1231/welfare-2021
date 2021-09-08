@@ -23,7 +23,127 @@
         <div class="list">
           <md-list :md-expand-single="expandSingle">
 
+            
 
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px">local_fire_department</span>
+              <!-- <span class="material-icons mr-6-px">build</span> -->
+              <span class="md-list-item-text">2021-08-31 【 九月 】 桌游月-時空迴廊 </span>
+              <md-list slot="md-expand">
+                <md-table class="news-table smaller-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title"></h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 25%">項目</md-table-head>
+                    <md-table-head>詳細</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>時間</md-table-cell>
+                    <md-table-cell>2021 / 09 / 20 ~ 2021 / 09 / 30</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>地點</md-table-cell>
+                    <md-table-cell>辦公室</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>遊戲項目</md-table-cell>
+                    <md-table-cell>
+                      <p>* 五子棋 (十九世紀</p>
+                      <p>* 德州撲克 (二十世紀</p>
+                      <p>* 狼人真言 (二十一世紀</p>
+                    </md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <h2>活動辦法</h2>
+                  <ul>
+                    <li>各家族族長請於 09 / 17 中午 12:00 以前將各個場次的上場人員進行安排</li>
+                    <li>每場次各家族皆會派一人參與，依照不同遊戲將獲得不同的"勝場值"</br>
+                      <md-table class="news-table smaller-table">
+                        <md-table-toolbar>
+                          <h1 class="md-title">勝場值公式:</h1>
+                        </md-table-toolbar>
+                        <md-table-row>
+                          <md-table-cell>五子棋</md-table-cell>
+                          <md-table-cell>每場次會對弈三局, 每局獲勝獲得1分勝場值</md-table-cell>
+                        </md-table-row>
+                        <md-table-row>
+                          <md-table-cell>德州撲克</md-table-cell>
+                          <md-table-cell>每場次初始籌碼 15000 結算時【剩餘籌碼數量 / 10000 (無條件捨去)】將會轉換為勝場值</md-table-cell>
+                        </md-table-row>
+                        <md-table-row>
+                          <md-table-cell>狼人真言</md-table-cell>
+                          <md-table-cell>
+                            <p>每場次玩3局謎題，每一謎題</p>
+                            <p>* 獲勝方每人+1勝場值；</p>
+                            <p>* 狼人找到先知+1勝場值；</p>
+                            <p>* 好人猜到答案 村民&村長+1勝場值；</p>
+                            <p>** 若場內參賽人員沒猜到答案，則場外的家族成員可以做答，猜中的家族皆可以+1勝場值</p>
+                          </md-table-cell>
+                        </md-table-row>
+                      </md-table>
+                    </li>
+                    <li>詳細場次表會以雲端Excel 呈現，各家族族長皆有權限更動</li>
+                    <li>09 / 30 最後一場結束後會馬上結算勝場值，由大到小進行排名排序，第一名可得60團體積分第二名48團體積分..以此類推</li>
+                    <li>(進入第三季，各項活動的家族團體積分會相較第一、二季乘上2倍)</li>
+                    <li>(結算後於當日下午15:30至遊戲室進行地圖板塊移動)</li>
+                  </ul> 
+                  <h2>活動規則&玩法</h2>
+                  <ul>
+                    <li>
+                      <h3>五子棋</h3>
+                      <div>
+                        <p>基本:</p>
+                        <p>由黑棋先行，黑白雙方輪流落子在棋盤的交叉點。</p>
+                        <p>先在棋盤上形成橫、直、或縱的連續五個棋子者（連五）為勝</p>
+                        <p>延伸:</p>
+                        <p style="color:#dd0000">採用國際規則SWAP</p>
+                        <p>由先手者下2黑1白子，接著由後手者選擇 A.使用白子並下一白子 或 B.使用黑子直接換手</p>
+                      </div>
+                    </li>
+                    <li>
+                      <h3>德州撲克</h3>
+                      <div>
+                        <p>基本: 請參考網址 (<a href="https://zh.wikipedia.org/wiki/%E5%BE%B7%E5%B7%9E%E6%92%B2%E5%85%8B" target="_blank">德州撲克</a>)</p>
+                        <p>延伸:</p>
+                        <p style="color:#dd0000">採用彩池限注玩法</p>
+                        <p>每一輪到自己時只能執行三個以下動作 1.蓋牌(fold) 2.跟牌(call) 3.加注(raise)</p>
+                        <p>Fold : 放棄自己已經注入彩池的籌碼並棄掉手牌</p>
+                        <p>Call : 跟注將面前籌碼加到等同上一位玩家的此輪注碼</p>
+                        <p>Raise : 加注，每個人加注的籌碼數不能大於當前彩池籌碼數，且不能對自己加注的籌碼再加注</p>
+                        <p> * (Ex: 假設大盲100小盲50，初始輪第一個喊加注的人只能選擇100或150進行加注，因為初始彩池=大盲+小盲=100+50)</p>
+                        <p> * (Ex: 假設初始第一人已加注150，初始輪第二個喊加注的人可以選擇加到300，因大小盲150+上一位加注150，當前彩池應等於300)</p>
+                        <p>All-in: 與一般規則相同，當可加注金額大於自己所持有的所有籌碼時，可選擇All-in，此時會將彩池籌碼分離，並且可獲得一路到底開牌的權利</p>
+                      </div>
+                    </li>
+                    <li>
+                      <h3>狼人真言</h3>
+                      <div>
+                        <p>基本:</p>
+                        <md-table class="news-table smaller-table">
+                          <md-table-row>
+                            <md-table-cell style="width: 20%">玩家數</md-table-cell>
+                            <md-table-cell>《 8 》</md-table-cell>
+                          </md-table-row>
+                          <md-table-row>
+                            <md-table-cell>角色牌數</md-table-cell>
+                            <md-table-cell>《 9 》一張村長、一張先知、三張狼人、四張村民</md-table-cell>
+                          </md-table-row>
+                          <md-table-row>
+                            <md-table-cell>陣營</md-table-cell>
+                            <md-table-cell>
+                              <p>1. 村莊 > 想辦法念出魔法咒語，並保護先知</p>
+                              <p>2. 狼人 > 隱藏自己並阻礙村莊找到魔法咒語，或者殺掉先知</p>
+                            </md-table-cell>
+                          </md-table-row>
+                        </md-table>
+                      </div>
+                    </li>
+                  </ul>
+                </md-content>
+              </md-list>
+            </md-list-item>
 
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">local_fire_department</span>

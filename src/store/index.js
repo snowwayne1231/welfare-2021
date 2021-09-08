@@ -10,6 +10,7 @@ import {
     ACT_GET_GAME_MATCHES, ACT_GET_GAME_VIDEO, ACT_GET_USER_MATCHES, ACT_GET_MATCHES
     
 } from './enum';
+import _Firebase from '@/store/firebase-s';
 console.log('process.env: ', process.env);
 const wsLocation = process.env.WS_LOCATION;
 const socket = socketio(wsLocation);

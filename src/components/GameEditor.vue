@@ -42,7 +42,7 @@
             <md-table-cell md-label="暱稱" md-sort-by="nickname">{{ item.nickname }}</md-table-cell>
             <md-table-cell md-label="團體積分增加" md-sort-by="add"><input type="number" v-model="item.add" @click.stop @click="item.add = item.add == 3 ? 5 : (item.add == 5 ? 0 : 3)" readonly style="width: 52px;" :class="{good: item.add==5, normal: item.add==3}" /></md-table-cell>
             <md-table-cell md-label="門檻" md-sort-by="activity"><input type="number" v-model="item.activity" @click.stop @click="item.activity = item.activity >= 4 ? 0 : item.activity+1" readonly :class="{excellent: item.activity==4, good: item.activity==3, normal: item.activity==2}" /></md-table-cell>
-            <md-table-cell md-label="Success"><input type="checkbox" v-model="item.success" @click.stop /></md-table-cell>
+            <md-table-cell md-label="Success"><button :style="{backgroundColor: item.success > 0 ? '#0dfffa' : '#e0e6e6'}" @click.stop @click="item.success = item.success > 0 ? 0 : 1">V</button><input type="number" v-model="item.success" @click.stop /></md-table-cell>
             <md-table-cell md-label="值班"><input type="checkbox" v-if="item.shift != null" v-model="item.shift" @click.stop /></md-table-cell>
           </md-table-row>
         </md-table>
@@ -90,7 +90,7 @@ export default {
       this.table_1_data = JSON.parse(JSON.stringify(this.global.users)).map(u => {
         u.add = u.houseId > 0 ? 3 : 0;
         u.activity = 1;
-        u.success = false;
+        u.success = 0;
         u.shift = null;
         u.houseIdNow = u.houseId == 0 ? u.houseIdTmp : u.houseId;
         return u;
@@ -147,6 +147,9 @@ export default {
       }
       return `${count} user${plural} selected`
     },
+    onClickSuccessBtn (a) {
+      console.log(a);
+    }
   }
 }
 </script>
