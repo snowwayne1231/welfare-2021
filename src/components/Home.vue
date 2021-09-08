@@ -28,19 +28,16 @@
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">local_fire_department</span>
               <!-- <span class="material-icons mr-6-px">build</span> -->
-              <span class="md-list-item-text">2021-08-31 【 九月 】 桌游月-時空迴廊 </span>
+              <span class="md-list-item-text">2021-09-08 【 九月 】 桌游月-時空迴廊 </span>
               <md-list slot="md-expand">
                 <md-table class="news-table smaller-table">
-                  <md-table-toolbar>
-                    <h1 class="md-title"></h1>
-                  </md-table-toolbar>
                   <md-table-row>
                     <md-table-head style="width: 25%">項目</md-table-head>
                     <md-table-head>詳細</md-table-head>
                   </md-table-row>
                   <md-table-row>
                     <md-table-cell>時間</md-table-cell>
-                    <md-table-cell>2021 / 09 / 20 ~ 2021 / 09 / 30</md-table-cell>
+                    <md-table-cell>2021 / 09 / 22 ~ 2021 / 09 / 30</md-table-cell>
                   </md-table-row>
                   <md-table-row>
                     <md-table-cell>地點</md-table-cell>
@@ -66,27 +63,26 @@
                         </md-table-toolbar>
                         <md-table-row>
                           <md-table-cell>五子棋</md-table-cell>
-                          <md-table-cell>每場次會對弈三局, 每局獲勝獲得1分勝場值</md-table-cell>
+                          <md-table-cell>每場次會對弈三盤, 每盤獲勝即獲得1分勝場值</md-table-cell>
                         </md-table-row>
                         <md-table-row>
                           <md-table-cell>德州撲克</md-table-cell>
-                          <md-table-cell>每場次初始籌碼 15000 結算時【剩餘籌碼數量 / 10000 (無條件捨去)】將會轉換為勝場值</md-table-cell>
+                          <md-table-cell>每場次初始籌碼 10000 結算時【(剩餘籌碼數量 - 初始籌碼) / 5000 (無條件進位)】將會轉換為勝場值</md-table-cell>
                         </md-table-row>
                         <md-table-row>
                           <md-table-cell>狼人真言</md-table-cell>
                           <md-table-cell>
                             <p>每場次玩3局謎題，每一謎題</p>
-                            <p>* 獲勝方每人+1勝場值；</p>
-                            <p>* 狼人找到先知+1勝場值；</p>
-                            <p>* 好人猜到答案 村民&村長+1勝場值；</p>
-                            <p>** 若場內參賽人員沒猜到答案，則場外的家族成員可以做答，猜中的家族皆可以+1勝場值</p>
+                            <p>* 場內獲勝方每人+1勝場值；</p>
+                            <p>* 當場內謎題被解答時，場外可以猜誰是先知，猜對+1勝場值；</p>
+                            <p>* 當場內謎題未被解答時，場外可以猜謎題內容是甚麼，猜對+1勝場值；</p>
                           </md-table-cell>
                         </md-table-row>
                       </md-table>
                     </li>
                     <li>詳細場次表會以雲端Excel 呈現，各家族族長皆有權限更動</li>
                     <li>09 / 30 最後一場結束後會馬上結算勝場值，由大到小進行排名排序，第一名可得60團體積分第二名48團體積分..以此類推</li>
-                    <li>(進入第三季，各項活動的家族團體積分會相較第一、二季乘上2倍)</li>
+                    <li style="color: #d04740;">(進入第三季，各項活動的家族團體積分會相較第一、二季乘上2倍)</li>
                     <li>(結算後於當日下午15:30至遊戲室進行地圖板塊移動)</li>
                   </ul> 
                   <h2>活動規則&玩法</h2>
@@ -112,9 +108,9 @@
                         <p>Fold : 放棄自己已經注入彩池的籌碼並棄掉手牌</p>
                         <p>Call : 跟注將面前籌碼加到等同上一位玩家的此輪注碼</p>
                         <p>Raise : 加注，每個人加注的籌碼數不能大於當前彩池籌碼數，且不能對自己加注的籌碼再加注</p>
-                        <p> * (Ex: 假設大盲100小盲50，初始輪第一個喊加注的人只能選擇100或150進行加注，因為初始彩池=大盲+小盲=100+50)</p>
-                        <p> * (Ex: 假設初始第一人已加注150，初始輪第二個喊加注的人可以選擇加到300，因大小盲150+上一位加注150，當前彩池應等於300)</p>
-                        <p>All-in: 與一般規則相同，當可加注金額大於自己所持有的所有籌碼時，可選擇All-in，此時會將彩池籌碼分離，並且可獲得一路到底開牌的權利</p>
+                        <p> * (Ex: 假設大盲200小盲100，初始輪第一個喊加注的人只能選擇加注到300或200，因為初始彩池=大盲+小盲=200+100)</p>
+                        <p> * (Ex: 假設初始第一人已加注300，初始輪第二個喊加注的人可以選擇加到600，因大小盲300+上一位加注300，當前彩池應等於600)</p>
+                        <p>All-in: 與一般規則相同，當可加注金額大於自己所持有的所有籌碼時，可選擇All-in，此時會將彩池籌碼分離，並且可獲得到底開牌勝負的權利</p>
                       </div>
                     </li>
                     <li>
@@ -128,13 +124,26 @@
                           </md-table-row>
                           <md-table-row>
                             <md-table-cell>角色牌數</md-table-cell>
-                            <md-table-cell>《 9 》一張村長、一張先知、三張狼人、四張村民</md-table-cell>
+                            <md-table-cell>《 9 》一張村長、兩張先知、三張狼人、三張村民</md-table-cell>
                           </md-table-row>
                           <md-table-row>
                             <md-table-cell>陣營</md-table-cell>
                             <md-table-cell>
                               <p>1. 村莊 > 想辦法念出魔法咒語，並保護先知</p>
                               <p>2. 狼人 > 隱藏自己並阻礙村莊找到魔法咒語，或者殺掉先知</p>
+                            </md-table-cell>
+                          </md-table-row>
+                          <md-table-row>
+                            <md-table-cell>玩法</md-table-cell>
+                            <md-table-cell>
+                              <p>1. 每人抽取一張身分牌從9張抽走8張，抽到村長時立即翻開身分牌，並將剩下來的1張牌當成自己的真實身份；(若村長無人抽到則洗牌重抽)</p>
+                              <p>2. 村長: 負責回答所有人輪流的問答，並回答 (是、不是、很接近、無相關) 其中一項，不能其他的話</p>
+                              <p>3. 村民: 負責輪流對村長提問跟魔法咒語有關的線索，並念出魔法咒語</p>
+                              <p>4. 狼人: 負責干擾村民使他們不易知道魔法咒語，並隱藏自己</p>
+                              <p>5. 遊戲過程由村長左手邊第一位玩家開始輪流對村長發問，直到時間結束或唸出魔法咒語，才會進入第一階段結束</p>
+                              <p>6. 當第一階段結束時，有兩種情況 A. 魔法咒語被念出  B. 時間到，無法解出魔法咒語</p>
+                              <p>__6-A. 魔法咒語被念出時，村莊陣營暫時獲得勝利，但狼人有一次機會選擇一位村民刺殺，如果該村民為"先知"，則狼人最終勝利</p>
+                              <p>__6-B. 時間到時，狼人暫時獲得勝利，村民們有一次機會，選擇一位玩家指認，如果該玩家為狼人，則村莊獲得最終勝利</p>
                             </md-table-cell>
                           </md-table-row>
                         </md-table>
