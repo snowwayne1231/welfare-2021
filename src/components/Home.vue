@@ -154,6 +154,198 @@
               </md-list>
             </md-list-item>
 
+            
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px">local_fire_department</span>
+              <span class="md-list-item-text">2021-09-08 【 戰報 】趣味競技月</span>
+              <md-list slot="md-expand">
+                <md-table class="news-table smaller-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">一、趣味競技月 賽後排名總結</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head>家族</md-table-head>
+                    <md-table-head>活動前總分</md-table-head>
+                    <md-table-head>活動加分</md-table-head>
+                    <md-table-head>預測加分</md-table-head>
+                    <md-table-head>總結</md-table-head>
+                    <md-table-head style="width: 8%">總結排名</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>馬泰爾</md-table-cell>
+                    <md-table-cell>66</md-table-cell>
+                    <md-table-cell>+39</md-table-cell>
+                    <md-table-cell>+0</md-table-cell>
+                    <md-table-cell>105</md-table-cell>
+                    <md-table-cell>IV</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>提利爾</md-table-cell>
+                    <md-table-cell>98</md-table-cell>
+                    <md-table-cell>+33</md-table-cell>
+                    <md-table-cell>+1</md-table-cell>
+                    <md-table-cell>132</md-table-cell>
+                    <md-table-cell>II</md-table-cell>
+                  </md-table-row>
+                  
+                  <md-table-row>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>67</md-table-cell>
+                    <md-table-cell>+63</md-table-cell>
+                    <md-table-cell>+5</md-table-cell>
+                    <md-table-cell>135</md-table-cell>
+                    <md-table-cell>I</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell>24</md-table-cell>
+                    <md-table-cell>+39</md-table-cell>
+                    <md-table-cell>+1</md-table-cell>
+                    <md-table-cell>64</md-table-cell>
+                    <md-table-cell>VII</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>史塔克</md-table-cell>
+                    <md-table-cell>18</md-table-cell>
+                    <md-table-cell>39</md-table-cell>
+                    <md-table-cell>+0</md-table-cell>
+                    <md-table-cell>57</md-table-cell>
+                    <md-table-cell>VIII</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>艾林</md-table-cell>
+                    <md-table-cell>16</md-table-cell>
+                    <md-table-cell>+48</md-table-cell>
+                    <md-table-cell>+0</md-table-cell>
+                    <md-table-cell>64</md-table-cell>
+                    <md-table-cell>VI</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>徒利</md-table-cell>
+                    <md-table-cell>89</md-table-cell>
+                    <md-table-cell>+36</md-table-cell>
+                    <md-table-cell>+0</md-table-cell>
+                    <md-table-cell>125</md-table-cell>
+                    <md-table-cell>III</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>30</md-table-cell>
+                    <md-table-cell>+48</md-table-cell>
+                    <md-table-cell>+0</md-table-cell>
+                    <md-table-cell>78</md-table-cell>
+                    <md-table-cell>V</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <p>活動優勝家族為: 坦格利安 !! </p>
+                  <p>二、預測成功名單：</p>
+                </md-content>
+                <md-table>
+                  <md-table-row>
+                    <md-table-head>家族</md-table-head>
+                    <md-table-head>預測人</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>提利爾</md-table-cell><md-table-cell>珂珂</md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>拜拉席恩</md-table-cell><md-table-cell>🖕上班滑起來📱</md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>坦格利安</md-table-cell><md-table-cell>
+                      <p>悲傷滷肉飯</p>
+                      <p>異世界轉生的中二生活</p>
+                      <p>小鳥胃☄☄</p>
+                      <p>乂☆煞氣a丁尼☆乂</p>
+                      <p>🥺🥺🥺🥺🥺</p>
+                    </md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-table>
+                  <md-table-toolbar>
+                    <h1 class="md-title">三、家族內部 票選MVP人員</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head>家族</md-table-head>
+                    <md-table-head>MVP</md-table-head>
+                    <md-table-head>最佳門檻</md-table-head>
+                  </md-table-row>
+                  <md-table-row><md-table-cell colspan="3">等待投票中..</md-table-cell></md-table-row>
+                  <!-- <md-table-row>
+                    <md-table-cell>史塔克</md-table-cell>
+                    <md-table-cell>佛度有緣人</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>艾林</md-table-cell>
+                    <md-table-cell>異世界轉生的中二生活</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>徒利</md-table-cell>
+                    <md-table-cell>銅鬚布萊恩</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>肖恩</md-table-cell>
+                    <md-table-cell>一般</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>提利爾</md-table-cell>
+                    <md-table-cell>睿訊伏黑惠</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell>來治星星的我</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>阿強</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>馬泰爾</md-table-cell>
+                    <md-table-cell>阿龍</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row> -->
+                </md-table>
+
+                <md-table>
+                  <md-table-toolbar>
+                    <h1 class="md-title">四、新獲獎牌通知</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head>獎牌名稱</md-table-head>
+                    <md-table-head>獲得家族</md-table-head>
+                    <md-table-head>獎牌派出時間</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell><img class="arena-house-img" :src="`/static/imgs/trophy/60.png`" />九淺一深</md-table-cell>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>第二輪選秀完有符合"某條件" ( 9 ) 以上</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell><img class="arena-house-img" :src="`/static/imgs/trophy/80.png`" />含辛茹苦</md-table-cell>
+                    <md-table-cell>徒利</md-table-cell>
+                    <md-table-cell>第二輪選秀完第一個遊戲結束</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell><img class="arena-house-img" :src="`/static/imgs/trophy/90.png`" />阿姨我不想努力了</md-table-cell>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>第二輪選秀完第一個遊戲結束</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <p>所有獎牌的"派出時間"都已經過，還有一張獎牌未派出『魚知水恩乃幸福之源』,目前尚未有家族獲得，是因為還未有家族達成獲得條件</p>
+                  <p>而以上"派出時間"剛剛到的獎牌，有可能是之前已經符合條件了。</p>
+                  <p>現在，已全數獎牌都符合派出時間，請家族成員只需推理其"獲得條件"即可。</p>
+                </md-content>
+              </md-list>
+            </md-list-item>
+
+
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">local_fire_department</span>
               <!-- <span class="material-icons mr-6-px">build</span> -->
