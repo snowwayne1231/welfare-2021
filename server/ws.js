@@ -181,6 +181,11 @@ function onMessage(socket) {
                             order: [['id', 'DESC']],
                             limit: 256,
                         }).then(dataset => {
+                            dataset.map(d => {
+                                if (d['skillPointJson']) {
+                                    d.skillPointJson = JSON.parse(d.skillPointJson);
+                                }
+                            })
                             socket.emit('MESSAGE', {act: enums.ACT_GET_ADMIN_DATASET, payload: {dataset}})
                         });
                     } catch (err) {

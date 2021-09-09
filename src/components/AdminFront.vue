@@ -50,7 +50,12 @@
         <md-table v-model="global.dataset" md-sort="id" md-sort-order="desc" class="admin-table">
           <md-table-row slot="md-table-row" slot-scope="{ item }">
             <md-table-cell v-for="k in datasetKeys" :key="k" :md-label="k" :md-sort-by="k">
-              <span v-if="isSpan(item[k])">{{ item[k] }}</span>
+              <div v-if="isSkillPoint(k)">
+                <p><button @click="onClickAddPotin(item)">+</button> {{item[k].now}}  / {{item[k].origin}} <button @click="onClickDecreasePotin(item)">-</button></p>
+                <p>SDCWC:{{item[k].sdcwc}}</p>
+                
+              </div>
+              <span v-else-if="isSpan(item[k])">{{ item[k] }}</span>
               <input v-else type="text" :value="item[k]" @change="onChangeNumber(k, item, $event)"/>
             </md-table-cell>
           </md-table-row>
@@ -96,7 +101,8 @@ export default {
     ...mapGetters(['mapHouseAbility']),
     datasetKeys() {
       if (this.global.dataset.length > 0) {
-        return Object.keys(this.global.dataset[0]).filter(e => e != 'id');
+        const ary = Object.keys(this.global.dataset[0]).filter(e => e != 'id');
+        return ary;
       } else {
         return [];
       }
@@ -135,8 +141,41 @@ export default {
         data
       }});
     },
+    onClickAddPotin(item) {
+      const id = item.id;
+      const where = {id};
+      item.skillPointJson.origin += 1;
+      item.skillPointJson.now += 1;
+      const data = {skillPointJson: JSON.stringify(item.skillPointJson)};
+      this.$store.dispatch('wsEmitMessage', {act: ACT_ADMIN_UPDATE, payload: {
+        model: this.modelInput.trim(),
+        where,
+        data
+      }});
+    },
+    onClickDecreasePotin(item) {
+      const id = item.id;
+      const where = {id};
+      if (item.skillPointJson.now > 0) {
+        item.skillPointJson.origin -= 1;
+        item.skillPointJson.now -= 1;
+        const data = {skillPointJson: JSON.stringify(item.skillPointJson)};
+        this.$store.dispatch('wsEmitMessage', {act: ACT_ADMIN_UPDATE, payload: {
+          model: this.modelInput.trim(),
+          where,
+          data
+        }});
+      }
+    },
     isSpan(item) {
       return !this.checkEdit || isNaN(item) || typeof item == 'boolean';
+    },
+    isSkillPoint(key) {
+      return key == 'skillPointJson';
+    },
+    parseSkillPoint(sp) {
+      const json = JSON.parse(sp);
+      return json;
     }
   }
 }
