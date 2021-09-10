@@ -31,6 +31,9 @@
               <span class="md-list-item-text">2021-09-10 【 教學 】 能力點數詳細 </span>
               <md-list slot="md-expand">
                 <md-table class="news-table smaller-table">
+                  <md-table-toolbar>
+                    <h2>如何使用能力點數</h2>
+                  </md-table-toolbar>
                   <md-table-row>
                     <md-table-cell colspan="2"><img :src="`/static/imgs/ability.jpg`" /></md-table-cell>
                   </md-table-row>
@@ -78,13 +81,13 @@
                     <md-table-cell>獨孤求敗</md-table-cell>
                     <md-table-cell>10</md-table-cell>
                     <md-table-cell>第一次活動結算 (T2</md-table-cell>
-                    <md-table-cell>活動的門檻達成(成果)有關</md-table-cell>
+                    <md-table-cell>跟活動的門檻達成(成果)有關</md-table-cell>
                   </md-table-row>
                   <md-table-row>
                     <md-table-cell>工作不養閒人</md-table-cell>
                     <md-table-cell>20</md-table-cell>
                     <md-table-cell>第二次活動結算 (T3</md-table-cell>
-                    <md-table-cell>活動出賽人員有關</md-table-cell>
+                    <md-table-cell>跟活動出賽人員有關</md-table-cell>
                   </md-table-row>
                   <md-table-row>
                     <md-table-cell>團隊不養懶人</md-table-cell>
@@ -102,25 +105,28 @@
                     <md-table-cell>情投意合</md-table-cell>
                     <md-table-cell>50</md-table-cell>
                     <md-table-cell>第二輪選秀 (T4</md-table-cell>
-                    <md-table-cell>跟家族成員的能力值有關</md-table-cell>
+                    <md-table-cell>跟家族成員與族長的能力值有關</md-table-cell>
                   </md-table-row>
                   <md-table-row>
                     <md-table-cell>九淺一深</md-table-cell>
                     <md-table-cell>60</md-table-cell>
                     <md-table-cell>第二輪選秀 (T4</md-table-cell>
-                    <md-table-cell>跟每次活動結果有關</md-table-cell>
+                    <md-table-cell>跟每次活動排名有關</md-table-cell>
                   </md-table-row>
                   <md-table-row>
                     <md-table-cell>如夢似幻</md-table-cell>
                     <md-table-cell>70</md-table-cell>
                     <md-table-cell>第一輪選秀 (T1</md-table-cell>
-                    <md-table-cell>跟家族成員有關</md-table-cell>
+                    <md-table-cell>
+                      <p style="color: #c50101">***該獎牌應不會再異動直接公布條件***</p>
+                      <p style="color: #c50101">1. 家族的女性成員總數最多</p>
+                    </md-table-cell>
                   </md-table-row>
                   <md-table-row>
                     <md-table-cell>含辛茹苦</md-table-cell>
                     <md-table-cell>80</md-table-cell>
                     <md-table-cell>第二輪選秀完第一活動結算 (T5</md-table-cell>
-                    <md-table-cell>跟家族成員有關</md-table-cell>
+                    <md-table-cell>跟家族成員的工號有關</md-table-cell>
                   </md-table-row>
                   <md-table-row>
                     <md-table-cell>阿姨我不想努力了</md-table-cell>

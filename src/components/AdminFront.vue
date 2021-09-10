@@ -48,7 +48,7 @@
 
       <md-card-content>
         <md-table v-model="global.dataset" md-sort="id" md-sort-order="desc" class="admin-table">
-          <md-table-row slot="md-table-row" slot-scope="{ item }">
+          <md-table-row slot="md-table-row" slot-scope="{ item }" :title="item['nickname'] || item['name'] || ''">
             <md-table-cell v-for="k in datasetKeys" :key="k" :md-label="k" :md-sort-by="k">
               <div v-if="isSkillPoint(k)">
                 <p><button @click="onClickAddPotin(item)">+</button> {{item[k].now}}  / {{item[k].origin}} <button @click="onClickDecreasePotin(item)">-</button></p>
