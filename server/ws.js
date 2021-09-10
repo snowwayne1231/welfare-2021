@@ -152,7 +152,7 @@ function onMessage(socket) {
             case enums.ACT_GET_PEOPLE_DATA: {
                 let attributes = ['id', 'nickname', 'houseId', 'houseIdTmp', 'mvp', 'rv', 'isLeader', 'json', 'status', 'firstName'];
                 if (payload.more) {
-                    attributes = attributes.concat(['strLv', 'dexLv', 'conLv', 'wisLv', 'chaLv', 'code', 'int']);
+                    attributes = attributes.concat(['strLv', 'dexLv', 'conLv', 'wisLv', 'chaLv', 'code', 'int', 'skillPointJson']);
                 }
                 return models.User.findAll({
                     attributes,

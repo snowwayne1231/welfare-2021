@@ -25,10 +25,137 @@
 
             
 
+<md-list-item md-expand>
+              <span class="material-icons mr-6-px">local_fire_department</span>
+              <!-- <span class="material-icons mr-6-px">build</span> -->
+              <span class="md-list-item-text">2021-09-10 【 教學 】 能力點數詳細 </span>
+              <md-list slot="md-expand">
+                <md-table class="news-table smaller-table">
+                  <md-table-row>
+                    <md-table-cell colspan="2"><img :src="`/static/imgs/ability.jpg`" /></md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-head style="width: 20%">區域</md-table-head>
+                    <md-table-head>詳細說明</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>A</md-table-cell>
+                    <md-table-cell>當前可使用的能力點數餘額，按下確定後就無法再次更改</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>B</md-table-cell>
+                    <md-table-cell>使用+與-號來對當前能力編輯，在未按下"確定"之前都可以任意調適</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>C</md-table-cell>
+                    <md-table-cell>能力五象圖，黃色底為初始自己設定的能力值等級，藍色底色為能力點數額外加成的能力</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <h2>如何獲得能力點數</h2>
+                  <p>以目前來說，有三種可以獲得能力點數的管道</p>
+                  <p>1. 族長使用"宣誓"並讓家族成員一員成為封臣時，所有封臣皆可獲得</p>
+                  <p>2. 單季活動競賽全數預測冠軍成功，該成員可獲得</p>
+                  <p>3. 健康舒活計劃中得到相應名次</p>
+                </md-content>
+              </md-list>
+            </md-list-item>
+
+
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">local_fire_department</span>
               <!-- <span class="material-icons mr-6-px">build</span> -->
-              <span class="md-list-item-text">2021-09-08 【 九月 】 桌游月-時空迴廊 </span>
+              <span class="md-list-item-text">2021-09-10 【 獎牌提示 】 獎牌條件提示 </span>
+              <md-list slot="md-expand">
+                <md-table class="news-table smaller-table">
+                  <md-table-row>
+                    <md-table-head style="width: 20%">獎牌</md-table-head>
+                    <md-table-head>相應積分</md-table-head>
+                    <md-table-head>啟動時間</md-table-head>
+                    <md-table-head>條件提示</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>獨孤求敗</md-table-cell>
+                    <md-table-cell>10</md-table-cell>
+                    <md-table-cell>第一次活動結算 (T2</md-table-cell>
+                    <md-table-cell>活動的門檻達成(成果)有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>工作不養閒人</md-table-cell>
+                    <md-table-cell>20</md-table-cell>
+                    <md-table-cell>第二次活動結算 (T3</md-table-cell>
+                    <md-table-cell>活動出賽人員有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>團隊不養懶人</md-table-cell>
+                    <md-table-cell>30</md-table-cell>
+                    <md-table-cell>第二次活動結算 (T3</md-table-cell>
+                    <md-table-cell>跟家族成員的能力值有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>寸草春暉</md-table-cell>
+                    <md-table-cell>40</md-table-cell>
+                    <md-table-cell>第一輪選秀 (T1</md-table-cell>
+                    <md-table-cell>跟家族成員所在組別有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>情投意合</md-table-cell>
+                    <md-table-cell>50</md-table-cell>
+                    <md-table-cell>第二輪選秀 (T4</md-table-cell>
+                    <md-table-cell>跟家族成員的能力值有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>九淺一深</md-table-cell>
+                    <md-table-cell>60</md-table-cell>
+                    <md-table-cell>第二輪選秀 (T4</md-table-cell>
+                    <md-table-cell>跟每次活動結果有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>如夢似幻</md-table-cell>
+                    <md-table-cell>70</md-table-cell>
+                    <md-table-cell>第一輪選秀 (T1</md-table-cell>
+                    <md-table-cell>跟家族成員有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>含辛茹苦</md-table-cell>
+                    <md-table-cell>80</md-table-cell>
+                    <md-table-cell>第二輪選秀完第一活動結算 (T5</md-table-cell>
+                    <md-table-cell>跟家族成員有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>阿姨我不想努力了</md-table-cell>
+                    <md-table-cell>90</md-table-cell>
+                    <md-table-cell>第二輪選秀完第一活動結算 (T5</md-table-cell>
+                    <md-table-cell>跟家族成員的能力值有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>魚知水恩乃幸福之源</md-table-cell>
+                    <md-table-cell>100</md-table-cell>
+                    <md-table-cell>第一次活動結算 (T2</md-table-cell>
+                    <md-table-cell>跟心有關</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <h2>關於啟動時間</h2>
+                  <p> * 啟動時間指的是該獎牌至少符合此時間點，才會派發到符合條件的家族上</p>
+                  <h2>關於隱藏條件</h2>
+                  <p> * 每一個獎牌都有其相應的條件，這些條件都是絕對客觀、可紀錄、且可數值化、量化的</p>
+                  <p> * 符合條件後並且過了啟動時間就會派發到該家族身上，於每一次活動後結算</p>
+                  <p> * 除了符合條件外，由於條件本身是可以量化的，所以會有"最貼近"，"最符合"的家族出現時有可能發生獎牌置換</p>
+                  <h2>尚未派發獎牌之特別優惠</h2>
+                  <p><img class="arena-house-img" :src="`/static/imgs/trophy/100.png`" /> 魚知水恩乃幸福之源</p>
+                  <p> * 因應疫情，整年度的Outing活動皆以取消，原先此條件的基本數值<span style="color:red">為50次</span>，現在直接降到<span style="color:red">30次</span></p>
+                  <p> * 額外提示: 依照歷年的福委活動經驗，此條件的發生率，戶外的活動時發生率會高於辦公室內的活動</p>
+                  <p> * 額外提示2: 目前此數值領先的家族為: <span style="color:red">馬泰爾、拜拉席恩</span></p>
+                </md-content>
+              </md-list>
+            </md-list-item>
+
+
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px">local_fire_department</span>
+              <span class="material-icons mr-6-px">build</span>
+              <span class="md-list-item-text">2021-09-10 【 九月 】 桌游月-時空迴廊 Ver.2 </span>
               <md-list slot="md-expand">
                 <md-table class="news-table smaller-table">
                   <md-table-row>
@@ -137,7 +264,11 @@
                             <md-table-cell>玩法</md-table-cell>
                             <md-table-cell>
                               <p>1. 每人抽取一張身分牌從9張抽走8張，抽到村長時立即翻開身分牌，並將剩下來的1張牌當成自己的真實身份；(若村長無人抽到則洗牌重抽)</p>
-                              <p>2. 村長: 負責回答所有人輪流的問答，並回答 (是、不是、很接近、無相關) 其中一項，不能其他的話</p>
+                              <p> * 接著所有人天黑請閉眼，由村長優先起來觀看魔法咒語，此時魔法咒語會有2個，請村長從2個魔法咒語中選擇其一</p>
+                              <p> * 村長閉眼後，由狼人起來觀看村長選擇的魔法咒語</p>
+                              <p> * 狼人閉眼後，由先知起來觀看村長選擇的魔法咒語</p>
+                              <p> * 先知閉眼後，天亮請睜眼，遊戲開始</p>
+                              <p>2. 村長: 負責回答所有人輪流的問答，並回答 (是、不是、很接近、無相關) 其中一項，不能回答其他的話</p>
                               <p>3. 村民: 負責輪流對村長提問跟魔法咒語有關的線索，並念出魔法咒語</p>
                               <p>4. 狼人: 負責干擾村民使他們不易知道魔法咒語，並隱藏自己</p>
                               <p>5. 遊戲過程由村長左手邊第一位玩家開始輪流對村長發問，直到時間結束或唸出魔法咒語，才會進入第一階段結束</p>

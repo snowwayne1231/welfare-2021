@@ -29,6 +29,8 @@ const _lvNums = (s,d,c,w,ca) => {
     return {str,dex,con,wis,cha};
 }
 const _plusLv = (nums, json) => {
+    if (typeof json == 'string') { json = JSON.parse(json); }
+    if (!json.sdcwc) { json.sdcwc = [0,0,0,0,0]; }
     let str = nums.str + json.sdcwc[0];
     let dex = nums.dex + json.sdcwc[1];
     let con = nums.con + json.sdcwc[2];
@@ -363,7 +365,16 @@ const globalData = {
         mapHouseAbility: (state) => {
             const map = {};
             state.houses.map(h => {
-                const users = state.users.filter(u => u.houseId == h.id);
+                const users = state.users.filter(u => u.houseId == h.id).map(u => {
+                    const nums = _lvNums(u.strLv, u.dexLv, u.conLv, u.wisLv, u.chaLv);
+                    const plused = _plusLv(nums, u.skillPointJson);
+                    u.strLv = plused.str;
+                    u.dexLv = plused.dex;
+                    u.conLv = plused.con;
+                    u.wisLv = plused.wis;
+                    u.chaLv = plused.cha;
+                    return u;
+                });
                 const ability = _houseAbility(users);
                 map[h.en] = ability;
             });
