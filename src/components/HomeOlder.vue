@@ -20,6 +20,323 @@
         <div class="list">
           <md-list :md-expand-single="expandSingle">
 
+
+            <md-list-item md-expand>
+              <span class="md-list-item-text">2021-08-18 【 九月 】 選秀 Season 3 </span>
+              <md-list slot="md-expand">
+                <md-table class="news-table smaller-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">選秀 Season 3</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 25%">日期時間</md-table-head>
+                    <md-table-head></md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021 /09 /10  15:00</md-table-cell>
+                    <md-table-cell>
+                      <div>
+                        <p>選秀規則:</p>
+                        <p>1. 各家族首位加入的成員身分為「封臣」，其餘為一般家人</p>
+                        <p>2. 由當前團體積分落後的家族優先選擇</p>
+                        <p>3. 此次選秀各家族可輪流補充2人</p>
+                        <p>4. 若因人員離職,導致家族人數缺少,將於上述流程選完後,再給予選上相應人數</p>
+                        <p>5. 被選擇的成員需與族長進行「默契大考驗」，成功乙次即可加入，最多失敗三次</p>
+                        <p>6. 若默契大考驗失敗三次，該成員需與其他同輪次家族同時進行第二部分默契考驗以決定進入哪一家族</p>
+                      </div>
+                    </md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <p> *  如發現自己自動離開家族請別驚慌，自由國民們可以在S3重新選擇族長</p>
+                  <p> *  請S3選秀人員務必於當日到場，如不克參加請找代理人協助</p>
+                </md-content>
+              </md-list>
+            </md-list-item>
+
+
+            <md-list-item md-expand>
+              <span class="md-list-item-text">2021-05-17 【 五月 】【 Edition Ver.3 】 競技運動月 </span>
+              <md-list slot="md-expand">
+                <md-table class="news-table smaller-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">1. 競技項目</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 15%">項目</md-table-head>
+                    <md-table-head>詳細</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>軟彈槍 無間道</md-table-cell>
+                    <md-table-cell>
+                      <div>
+                        <p>每場次最多玩3個小回合 每回合5分鐘 率先獲得2回合勝利即勝出</p>
+                        <p>遊戲分為紅藍兩隊各4人，兩隊陣營分開對抗，每人隨機抽取一張身分牌</p>
+                        <p>身分:</p>
+                        <ul>
+                          <li>國王x1</li>
+                          <li>護衛x3</li>
+                        </ul>
+                        <p>裝備:</p>
+                        <ul>
+                          <li>國王: (軟彈槍) + (背心+正反面各一背包指示物) + (國王指示物)</li>
+                          <li>護衛: (軟彈槍) + (背心+正反面各一背包指示物)</li>
+                        </ul>
+                        <p>勝利條件:</p>
+                        <ul>
+                          <li style="color: #ad1800;">擊破對方國王指示物，並且保護我方國王指示物不被破壞</li>
+                        </ul>
+
+                        <p>回合結算:</p>
+                        <p>1. 每回合結束時計算背包指示物破壞情況</p>
+                          <ul>
+                            <li>a. 當前方背包指示物被破壞時，背心反過來穿讓前後背包指示物交換位置</li>
+                            <li style="color: #ad1800;">b. 當前後兩個背包指示物都被破壞時</li>
+                              <ul>國王:
+                                <li style="color: #ad1800;">下一個回合開始不能使用軟彈槍</li>
+                              </ul>
+                              <ul>護衛:
+                                <li style="color: #ad1800;">出局</li>
+                              </ul>
+                          </ul>
+                          
+                        <p>2. 當回合結束時計算國王指示物破壞數</p>
+                          <ul>
+                            <li>a. 成功破壞對方數量大於己方 = 勝利</li>
+                            <li>b. 雙方破壞數相同 = 平手</li>
+                          </ul>
+                        
+                        <p>門檻: 團隊拿下一回合勝利 / 兩個背包無損 / 最終勝利且背包無損</p>
+
+                        <p>(如果第3回合還未分勝負進入驟死戰)</p>
+                        <p>(驟死戰: 不計時，其中一方國王指示物先被破壞就輸，且全員會復活)</p>
+                        <p>(禁止扭打、肢體接觸、跳躍由福委制止、只能用軟彈槍攻擊指示物)</p>
+                      </div>
+                    </md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>眼疾手快</md-table-cell>
+                    <md-table-cell>
+                      <p>每一場8家族各1人，分紅藍兩組4v4</p>
+                      <p>接棒基本規則: </p>
+                      <ul>
+                        <li>僅能使用單、雙手接棒並投入籃中，並且最後僅計算籃子內的棒數</li>
+                        <li>棒子開始掉落前不可碰觸棒子</li>
+                        <li>雙腳必須站立在橙色圓圈中，不可呈現趴、跪、坐 等姿勢，可以彎腰與屈膝</li>
+                        <li>對於上述無規範之外範疇，福委酌情判斷是否為惡意 破壞遊戲公平行為，並擁有最終定奪權</li>
+                      </ul>
+                      <p>勝利條件:<span style="color: #ad1800;">接棒數 總和 較高的一方勝利</span></p>
+                      <p>門檻: 接到 3 / 7 / 10 棒</p>
+                      <p>(假設平局進入 負重驟死PK戰)</p>
+                      <p>(雙方按照自訂棒次輪流 雙手負重進行遊戲 同棒次選手單次贏過對手則立即獲勝)</p>
+                      <p><span style="color: #ad1800;">第二周的比賽額外給單場最高棒+1勝場數 (複數成員則全+)</span></p>
+                    </md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>投籃機</md-table-cell>
+                    <md-table-cell>
+                      <p>每一場8家族各1人，分成紅藍兩組4v4</p>
+                      <p>紅藍兩組人分開 由紅方4人優先進行，藍方可以自由選擇是否先進場觀看，在紅方進行到第三人時，會通知藍方4人進場</p>
+                      <p>總成績於投籃機上分數之加總<span style="color: #ad1800;">(女性同仁條款: 最終分數+75分)</span></p>
+                      <p>勝利條件: <span style="color: #ad1800;">由分數加總 較高的一方獲勝</span></p>
+                      
+                      <p>門檻: 分數100+ / 分數300+ / 分數500+</p>
+                      <p>(分數相同會進入 雙方最高分的兩人驟死戰)</p>
+                      <p><span style="color: #ad1800;">第二周的比賽 額外給最高分+1勝場數 (複數成員則全+)</span></p>
+                    </md-table-cell>
+                  </md-table-row> 
+                </md-table>
+                <md-content>
+                  <h3>2. 家族排名</h3>
+                  <p> * 每一場次的勝利都可為家族爭取 1 分的勝場分</p>
+                  <p> * 第二周的比賽 (眼疾手快 / 投籃機) 會額外給單場最高分 額外再 1 分的勝場分</p>
+                  <p> * 家族競賽的排名 由最後加總的勝場分排序，如果勝場分相同則以家族成員的門檻達成率當次排序原則</p>
+                </md-content>
+                <md-table class="news-table smaller-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">3. 紅藍分隊</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 15%">家族</md-table-head>
+                    <md-table-head>軟彈槍 無間道</md-table-head>
+                    <md-table-head>眼疾手快</md-table-head>
+                    <md-table-head>投籃機</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>艾林</md-table-cell>
+                    <md-table-cell><span style="color: red;">紅隊</span></md-table-cell>
+                    <md-table-cell><span style="color: blue;">藍隊</span></md-table-cell>
+                    <md-table-cell><span style="color: red;">紅隊</span></md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>馬泰爾</md-table-cell>
+                    <md-table-cell><span style="color: red;">紅隊</span></md-table-cell>
+                    <md-table-cell><span style="color: red;">紅隊</span></md-table-cell>
+                    <md-table-cell><span style="color: blue;">藍隊</span></md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell><span style="color: blue;">藍隊</span></md-table-cell>
+                    <md-table-cell><span style="color: red;">紅隊</span></md-table-cell>
+                    <md-table-cell><span style="color: red;">紅隊</span></md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>史塔克</md-table-cell>
+                    <md-table-cell><span style="color: red;">紅隊</span></md-table-cell>
+                    <md-table-cell><span style="color: blue;">藍隊</span></md-table-cell>
+                    <md-table-cell><span style="color: red;">紅隊</span></md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>提利爾</md-table-cell>
+                    <md-table-cell><span style="color: red;">紅隊</span></md-table-cell>
+                    <md-table-cell><span style="color: blue;">藍隊</span></md-table-cell>
+                    <md-table-cell><span style="color: blue;">藍隊</span></md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell><span style="color: blue;">藍隊</span></md-table-cell>
+                    <md-table-cell><span style="color: red;">紅隊</span></md-table-cell>
+                    <md-table-cell><span style="color: blue;">藍隊</span></md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell><span style="color: blue;">藍隊</span></md-table-cell>
+                    <md-table-cell><span style="color: blue;">藍隊</span></md-table-cell>
+                    <md-table-cell><span style="color: blue;">藍隊</span></md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>徒利</md-table-cell>
+                    <md-table-cell><span style="color: blue;">藍隊</span></md-table-cell>
+                    <md-table-cell><span style="color: red;">紅隊</span></md-table-cell>
+                    <md-table-cell><span style="color: red;">紅隊</span></md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-head colspan="4">陣線整理</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell style="width: 15%"></md-table-cell>
+                    <md-table-cell>
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td style="color: red;">艾林</td>
+                            <td rowspan="4" style="text-align: center;">VS</td>
+                            <td style="color: blue;">蘭尼斯特</td>
+                          </tr>
+                          <tr><td style="color: red;">馬泰爾</td><td style="color: blue;">拜拉席恩</td></tr>
+                          <tr><td style="color: red;">史塔克</td><td style="color: blue;">坦格利安</td></tr>
+                          <tr><td style="color: red;">提利爾</td><td style="color: blue;">徒利</td></tr>
+                        </tbody>
+                      </table>
+                    </md-table-cell>
+                    <md-table-cell>
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td style="color: red;">馬泰爾</td>
+                            <td rowspan="4" style="text-align: center;">VS</td>
+                            <td style="color: blue;">艾林</td>
+                          </tr>
+                          <tr><td style="color: red;">蘭尼斯特</td><td style="color: blue;">史塔克</td></tr>
+                          <tr><td style="color: red;">拜拉席恩</td><td style="color: blue;">提利爾</td></tr>
+                          <tr><td style="color: red;">徒利</td><td style="color: blue;">坦格利安</td></tr>
+                        </tbody>
+                      </table>
+                    </md-table-cell>
+                    <md-table-cell>
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td style="color: red;">艾林</td>
+                            <td rowspan="4" style="text-align: center;">VS</td>
+                            <td style="color: blue;">馬泰爾</td>
+                          </tr>
+                          <tr><td style="color: red;">蘭尼斯特</td><td style="color: blue;">提利爾</td></tr>
+                          <tr><td style="color: red;">史塔克</td><td style="color: blue;">拜拉席恩</td></tr>
+                          <tr><td style="color: red;">徒利</td><td style="color: blue;">坦格利安</td></tr>
+                        </tbody>
+                      </table>
+                    </md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-table class="news-table smaller-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">4. 時刻表</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 20%">日期</md-table-head>
+                    <md-table-head style="width: 20%">時間</md-table-head>
+                    <md-table-head>項目</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021 / 05 / 17 (一)</md-table-cell>
+                    <md-table-cell>15 : 30</md-table-cell>
+                    <md-table-cell>眼疾手快</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021 / 05 / 18 (二)</md-table-cell>
+                    <md-table-cell>08 : 30</md-table-cell>
+                    <md-table-cell>投籃機</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021 / 05 / 19 (三)</md-table-cell>
+                    <md-table-cell>15 : 30</md-table-cell>
+                    <md-table-cell>眼疾手快</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021 / 05 / 20 (四)</md-table-cell>
+                    <md-table-cell>08 : 30</md-table-cell>
+                    <md-table-cell>眼疾手快</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021 / 05 / 21 (五)</md-table-cell>
+                    <md-table-cell>15 : 30</md-table-cell>
+                    <md-table-cell>投籃機</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021 / 05 / 24 (一)</md-table-cell>
+                    <md-table-cell>12 : 30</md-table-cell>
+                    <md-table-cell>眼疾手快</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021 / 05 / 24 (一)</md-table-cell>
+                    <md-table-cell>15 : 30</md-table-cell>
+                    <md-table-cell>眼疾手快</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021 / 05 / 25 (二)</md-table-cell>
+                    <md-table-cell>08 : 30</md-table-cell>
+                    <md-table-cell>投籃機</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021 / 05 / 25 (二)</md-table-cell>
+                    <md-table-cell>12 : 30</md-table-cell>
+                    <md-table-cell>投籃機</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021 / 05 / 26 (三)</md-table-cell>
+                    <md-table-cell>08 : 30</md-table-cell>
+                    <md-table-cell>眼疾手快</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021 / 05 / 26 (三)</md-table-cell>
+                    <md-table-cell>12 : 30</md-table-cell>
+                    <md-table-cell>眼疾手快</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021 / 05 / 27 (四)</md-table-cell>
+                    <md-table-cell>12 : 30</md-table-cell>
+                    <md-table-cell>投籃機</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021 / 05 / 27 (四)</md-table-cell>
+                    <md-table-cell>15 : 30</md-table-cell>
+                    <md-table-cell>投籃機</md-table-cell>
+                  </md-table-row>
+                </md-table>
+              </md-list>
+            </md-list-item>
+
                       
             <md-list-item md-expand>
               <span class="md-list-item-text">2021-05-13 【 五月 】【 Edition Ver.2 】 Season 2 選秀結果</span>

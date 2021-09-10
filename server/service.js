@@ -700,7 +700,7 @@ function refreshFamilyScore(res) {
                     // trophy (4)
                     var department = mapDepartmentUser[leader.departmentName];
                     var usersInSameDepartment = usersInHouse.filter(u => u.departmentName == leader.departmentName);
-                    var rate = usersInSameDepartment.length / department.length;
+                    var rate = usersInSameDepartment.length > 3 ? usersInSameDepartment.length / department.length : 0;
                     if (rate > maxDepartments[0].rate) {
                         maxDepartments = [{rate, house, usersInSameDepartment}];
                     } else if (rate == maxDepartments[0].rate) {

@@ -21,7 +21,7 @@
           <md-table-head>家族成員</md-table-head>
           <md-table-cell v-for="house in global.houses" :key="house.id">
             <ul class="list">
-              <li v-for="user in getUsersByHouseId(house.id)" :key="user.id" :style="{backgroundColor: `${house.color}42`}"><div>{{user.nickname}}</div><div>( {{user.rv}} ) - {{user.firstName}} </div></li>
+              <li v-for="user in getUsersByHouseId(house.id)" :key="user.id" :style="{backgroundColor: `${house.color}42`}"><div :style="{color: user.int > 0 ? '#ffc931' : '#fff'}">{{user.nickname}}</div><div>( {{user.rv}} ) - {{user.firstName}} </div></li>
             </ul>
           </md-table-cell>
         </md-table-row>
