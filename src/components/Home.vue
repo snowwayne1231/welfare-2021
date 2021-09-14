@@ -23,6 +23,200 @@
         <div class="list">
           <md-list :md-expand-single="expandSingle">
 
+
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px">local_fire_department</span>
+              <span class="material-icons mr-6-px">build</span>
+              <span class="md-list-item-text">2021-09-14 【 九月 】【 Edition Ver.3 】 桌游月-時空迴廊 </span>
+              <md-list slot="md-expand">
+                <md-table class="news-table smaller-table">
+                  <md-table-row>
+                    <md-table-head style="width: 25%">項目</md-table-head>
+                    <md-table-head>詳細</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>時間</md-table-cell>
+                    <md-table-cell>2021 / 09 / 22 ~ 2021 / 09 / 30</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>地點</md-table-cell>
+                    <md-table-cell>辦公室</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>遊戲項目</md-table-cell>
+                    <md-table-cell>
+                      <p>* 五子棋 (十九世紀</p>
+                      <p>* 德州撲克 (二十世紀</p>
+                      <p>* 狼人真言 (二十一世紀</p>
+                    </md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <h2>活動辦法</h2>
+                  <ul>
+                    <li>各家族族長請於 09 / 17 中午 12:00 以前將各個場次的上場人員進行安排</li>
+                    <li>每場次各家族皆會派一人參與，依照不同遊戲將獲得不同的"勝場值"</br>
+                      <md-table class="news-table smaller-table">
+                        <md-table-toolbar>
+                          <h1 class="md-title">勝場值公式:</h1>
+                        </md-table-toolbar>
+                        <md-table-row>
+                          <md-table-cell>五子棋</md-table-cell>
+                          <md-table-cell>每場次會對弈三盤, 每盤獲勝即獲得1分勝場值</md-table-cell>
+                        </md-table-row>
+                        <md-table-row>
+                          <md-table-cell>德州撲克</md-table-cell>
+                          <md-table-cell>每場次初始籌碼 10000 結算時【(剩餘籌碼數量 - 初始籌碼) / 5000 (無條件進位)】將會轉換為勝場值</md-table-cell>
+                        </md-table-row>
+                        <md-table-row>
+                          <md-table-cell>狼人真言</md-table-cell>
+                          <md-table-cell>
+                            <p>每場次玩3局謎題，每一謎題</p>
+                            <p>* 場內獲勝方每人+1勝場值；</p>
+                            <p>* 當場內謎題被解答時，場外可以猜誰是先知，猜對+1勝場值；</p>
+                            <p>* 當場內謎題未被解答時，場外可以猜謎題內容是甚麼，猜對+1勝場值；</p>
+                          </md-table-cell>
+                        </md-table-row>
+                      </md-table>
+                    </li>
+                    <li>詳細場次表會以雲端Excel 呈現，各家族族長皆有權限更動</li>
+                    <li>09 / 30 最後一場結束後會馬上結算勝場值，由大到小進行排名排序，第一名可得60團體積分第二名48團體積分..以此類推</li>
+                    <li style="color: #d04740;">(進入第三季，各項活動的家族團體積分會相較第一、二季乘上2倍)</li>
+                    <li>(結算後於當日下午15:30至遊戲室進行地圖板塊移動)</li>
+                  </ul> 
+                  <h2>活動規則&玩法</h2>
+                  <ul>
+                    <li>
+                      <h3>五子棋</h3>
+                      <div>
+                        <p>基本:</p>
+                        <p>由黑棋先行，黑白雙方輪流落子在棋盤的交叉點。</p>
+                        <p>先在棋盤上形成橫、直、或縱的連續五個棋子者（連五）為勝</p>
+                        <p>延伸:</p>
+                        <p style="color:#dd0000">採用國際規則SWAP</p>
+                        <p>由先手者下2黑1白子，接著由後手者選擇 A.使用白子並下一白子 或 B.使用黑子直接換手</p>
+                        <p>賽制: (每場次)</p>
+                        <md-table>
+                          <md-table-row>
+                            <md-table-cell><img style="max-width:800px; width: 100%;" :src="`/static/imgs/rules/renju_1.jpg`" /></md-table-cell>
+                          </md-table-row>
+                          <md-table-row>
+                            <md-table-cell><img style="max-width:800px; width: 100%;" :src="`/static/imgs/rules/renju_2.jpg`" /></md-table-cell>
+                          </md-table-row>
+                          <md-table-row>
+                            <md-table-cell><img style="max-width:800px; width: 100%;" :src="`/static/imgs/rules/renju_3.jpg`" /></md-table-cell>
+                          </md-table-row>
+                          <md-table-row>
+                            <md-table-cell><img style="max-width:800px; width: 100%;" :src="`/static/imgs/rules/renju_4.jpg`" /></md-table-cell>
+                          </md-table-row>
+                        </md-table>
+                      </div>
+                      
+                    </li>
+                    <li>
+                      <h3>德州撲克</h3>
+                      <div>
+                        <p>基本: 請參考網址 (<a href="https://zh.wikipedia.org/wiki/%E5%BE%B7%E5%B7%9E%E6%92%B2%E5%85%8B" target="_blank">德州撲克</a>)</p>
+                        <p>延伸:</p>
+                        <p style="color:#6214f9">*** 採用無限注玩法 (注碼沒有任何限制，但最少下注是"大盲"金額) ***</p>
+                        <p>每一輪到自己時可執行四個以下動作 1.蓋牌(fold) 2.跟牌(call) 3.加注(raise) 4.梭哈(All-in)</p>
+                        <p>Fold : 放棄自己已經注入彩池的籌碼並棄掉手牌</p>
+                        <p>Call : 跟注將面前籌碼加到等同上一位玩家的此輪注碼</p>
+                        <p style="color:#6214f9">*** Raise : 加注，任意加到比上一位玩家更高的注碼 ***</p>
+                        <p>All-in: 下注自己所有籌碼，此時會將彩池籌碼分離，並且可獲得到底開牌勝負的權利</p>
+                        <p style="color:#6214f9">*** 每一輪有15秒時間可以思考，若時間超過15秒無法決策，先由荷官給予第一次警告提醒，再過5秒無法決策直接算棄牌 ***</p>
+                        <p>賽制: (每場次)</p>
+                        <p>八人同時上桌，從荷官左手邊開始小盲大盲注，計時20分鐘</p>
+                        <p>再以下三種情況時都會結算成績</p>
+                        <p>(1)時間結束</p>
+                        <p>(2)撲克牌全數用盡 <span style="color: #6214f9">*** (6副撲克牌) ***</span></p>
+                        <p>(3)一人獨贏全場</p>
+                      </div>
+                    </li>
+                    <li>
+                      <h3>狼人真言</h3>
+                      <div>
+                        <p>基本:</p>
+                        <md-table class="news-table smaller-table">
+                          <md-table-row>
+                            <md-table-cell style="width: 20%">玩家數</md-table-cell>
+                            <md-table-cell>《 8 》</md-table-cell>
+                          </md-table-row>
+                          <md-table-row>
+                            <md-table-cell>角色牌數</md-table-cell>
+                            <md-table-cell><span style="color: #6214f9">***《 9 》一張村長、一張先知、三張狼人、四張村民 ***</span></md-table-cell>
+                          </md-table-row>
+                          <md-table-row>
+                            <md-table-cell>陣營</md-table-cell>
+                            <md-table-cell>
+                              <p>1. 村莊 > 想辦法念出魔法咒語，並保護先知</p>
+                              <p>2. 狼人 > 隱藏自己並阻礙村莊找到魔法咒語，或者殺掉先知</p>
+                            </md-table-cell>
+                          </md-table-row>
+                          <md-table-row>
+                            <md-table-cell>玩法</md-table-cell>
+                            <md-table-cell>
+                              <p>1. 每人抽取一張身分牌從9張抽走8張，抽到村長時立即翻開身分牌，並將剩下來的1張牌當成自己的真實身份；(若村長無人抽到則洗牌重抽)</p>
+                              <p> * 接著所有人天黑請閉眼，由村長優先起來觀看魔法咒語，此時魔法咒語會有2個，請村長從2個魔法咒語中選擇其一</p>
+                              <p> * 村長閉眼後，由先知起來觀看村長選擇的魔法咒語</p>
+                              <p> * 先知閉眼後，由起來觀看村長選擇的魔法咒語</p>
+                              <p> * 狼人閉眼後，天亮請睜眼，遊戲開始</p>
+                              <p>2. 村長: 負責回答所有人輪流的問答，並回答 (是、不是、很接近、無相關) 其中一項，不能回答其他的話</p>
+                              <p>3. 村民: 負責輪流對村長提問跟魔法咒語有關的線索，並念出魔法咒語</p>
+                              <p>4. 狼人: 負責干擾村民使他們不易知道魔法咒語，並隱藏自己</p>
+                              <p>5. 遊戲過程由村長左手邊第一位玩家開始輪流對村長發問，直到時間結束或唸出魔法咒語，才會進入第一階段結束</p>
+                              <p>6. 當第一階段結束時，有兩種情況 A. 魔法咒語被念出  B. 時間到，無法解出魔法咒語</p>
+                              <p>__6-A. 魔法咒語被念出時，村莊陣營暫時獲得勝利，但狼人有一次機會選擇一位村民刺殺，如果該村民為"先知"，則狼人最終勝利</p>
+                              <p>__6-B. 時間到時，狼人暫時獲得勝利，村民們有一次機會，選擇一位玩家指認，如果該玩家為狼人，則村莊獲得最終勝利</p>
+                            </md-table-cell>
+                          </md-table-row>
+                        </md-table>
+                        <p>賽制: (每場次)</p>
+                        <p>八人同時遊玩，共三道魔法咒語，每一魔法咒語持續6分鐘</p>
+                        <p>遊戲結束時有兩種可能:</p>
+                        <p>1. 魔法咒語解開:</p>
+                        <p> * 場內狼人討論並在1分鐘內找先知，場外也同時討論提交答案誰是先知</p>
+                        <p>2. 時間結束，魔法咒語未被解開:</p>
+                        <p> * 用黑布蓋住直播，並讓現場好人觀看魔法咒語，接著場內好人討論並在1分鐘內指認狼人，場外則討論提交魔法咒語</p>
+                        <p> * (場內的玩家不能在討論時講到"魔法咒語"，如有違此規，當次活動該家族勝場值歸0且該局的場外不進行勝場值加分)</p>
+                        <p></p>
+                      </div>
+                    </li>
+                  </ul>
+                  <h2>門檻條件</h2>
+                  <md-table class="news-table smaller-table">
+                    <md-table-row>
+                      <md-table-head style="width: 20%">項目</md-table-head>
+                      <md-table-head>門檻</md-table-head>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>五子棋</md-table-cell>
+                      <md-table-cell>
+                        <p>I.對弈至少15手</p>
+                        <p>II.獲勝時使用雙四或活三沖四</p>
+                        <p>III.斷定5手之後獲勝且無須落子已成定局(宣告時請裁判檢查)</p>
+                      </md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>德州撲克</md-table-cell>
+                      <md-table-cell>
+                        <p>I. 一次跟到底開牌勝負</p>
+                        <p>II. 不開牌贏得獎池 (偷雞)</p>
+                        <p>III. 一次 ALL-IN 贏下獎池至少20000以上籌碼 (無論是否開牌)</p>
+                      </md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>狼人真言</md-table-cell>
+                      <md-table-cell>
+                        <p>I. 提一個問題使村長回答: 是</p>
+                        <p>II. 擔任好人陣營抓到狼人 / 擔任狼人並獲勝 (完成其一即可)</p>
+                        <p>III. 擔任村民念出魔法咒語 / 三局全勝 (完成其一即可)</p>
+                      </md-table-cell>
+                    </md-table-row>
+                  </md-table>
+                </md-content>
+              </md-list>
+            </md-list-item>
             
 
             <md-list-item md-expand>
@@ -289,202 +483,6 @@
                         <p>1</p>
                         <p>1</p>
                         <p>1</p>
-                      </md-table-cell>
-                    </md-table-row>
-                  </md-table>
-                </md-content>
-              </md-list>
-            </md-list-item>
-
-
-            <md-list-item md-expand>
-              <span class="material-icons mr-6-px">local_fire_department</span>
-              <span class="material-icons mr-6-px">build</span>
-              <span class="md-list-item-text">2021-09-10 【 九月 】【 Edition Ver.2 】 桌游月-時空迴廊 </span>
-              <md-list slot="md-expand">
-                <md-table class="news-table smaller-table">
-                  <md-table-row>
-                    <md-table-head style="width: 25%">項目</md-table-head>
-                    <md-table-head>詳細</md-table-head>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>時間</md-table-cell>
-                    <md-table-cell>2021 / 09 / 22 ~ 2021 / 09 / 30</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>地點</md-table-cell>
-                    <md-table-cell>辦公室</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>遊戲項目</md-table-cell>
-                    <md-table-cell>
-                      <p>* 五子棋 (十九世紀</p>
-                      <p>* 德州撲克 (二十世紀</p>
-                      <p>* 狼人真言 (二十一世紀</p>
-                    </md-table-cell>
-                  </md-table-row>
-                </md-table>
-                <md-content>
-                  <h2>活動辦法</h2>
-                  <ul>
-                    <li>各家族族長請於 09 / 17 中午 12:00 以前將各個場次的上場人員進行安排</li>
-                    <li>每場次各家族皆會派一人參與，依照不同遊戲將獲得不同的"勝場值"</br>
-                      <md-table class="news-table smaller-table">
-                        <md-table-toolbar>
-                          <h1 class="md-title">勝場值公式:</h1>
-                        </md-table-toolbar>
-                        <md-table-row>
-                          <md-table-cell>五子棋</md-table-cell>
-                          <md-table-cell>每場次會對弈三盤, 每盤獲勝即獲得1分勝場值</md-table-cell>
-                        </md-table-row>
-                        <md-table-row>
-                          <md-table-cell>德州撲克</md-table-cell>
-                          <md-table-cell>每場次初始籌碼 10000 結算時【(剩餘籌碼數量 - 初始籌碼) / 5000 (無條件進位)】將會轉換為勝場值</md-table-cell>
-                        </md-table-row>
-                        <md-table-row>
-                          <md-table-cell>狼人真言</md-table-cell>
-                          <md-table-cell>
-                            <p>每場次玩3局謎題，每一謎題</p>
-                            <p>* 場內獲勝方每人+1勝場值；</p>
-                            <p>* 當場內謎題被解答時，場外可以猜誰是先知，猜對+1勝場值；</p>
-                            <p>* 當場內謎題未被解答時，場外可以猜謎題內容是甚麼，猜對+1勝場值；</p>
-                          </md-table-cell>
-                        </md-table-row>
-                      </md-table>
-                    </li>
-                    <li>詳細場次表會以雲端Excel 呈現，各家族族長皆有權限更動</li>
-                    <li>09 / 30 最後一場結束後會馬上結算勝場值，由大到小進行排名排序，第一名可得60團體積分第二名48團體積分..以此類推</li>
-                    <li style="color: #d04740;">(進入第三季，各項活動的家族團體積分會相較第一、二季乘上2倍)</li>
-                    <li>(結算後於當日下午15:30至遊戲室進行地圖板塊移動)</li>
-                  </ul> 
-                  <h2>活動規則&玩法</h2>
-                  <ul>
-                    <li>
-                      <h3>五子棋</h3>
-                      <div>
-                        <p>基本:</p>
-                        <p>由黑棋先行，黑白雙方輪流落子在棋盤的交叉點。</p>
-                        <p>先在棋盤上形成橫、直、或縱的連續五個棋子者（連五）為勝</p>
-                        <p>延伸:</p>
-                        <p style="color:#dd0000">採用國際規則SWAP</p>
-                        <p>由先手者下2黑1白子，接著由後手者選擇 A.使用白子並下一白子 或 B.使用黑子直接換手</p>
-                        <p>賽制: (每場次)</p>
-                        <md-table>
-                          <md-table-row>
-                            <md-table-cell><img style="max-width:800px; width: 100%;" :src="`/static/imgs/rules/renju_1.jpg`" /></md-table-cell>
-                          </md-table-row>
-                          <md-table-row>
-                            <md-table-cell><img style="max-width:800px; width: 100%;" :src="`/static/imgs/rules/renju_2.jpg`" /></md-table-cell>
-                          </md-table-row>
-                          <md-table-row>
-                            <md-table-cell><img style="max-width:800px; width: 100%;" :src="`/static/imgs/rules/renju_3.jpg`" /></md-table-cell>
-                          </md-table-row>
-                          <md-table-row>
-                            <md-table-cell><img style="max-width:800px; width: 100%;" :src="`/static/imgs/rules/renju_4.jpg`" /></md-table-cell>
-                          </md-table-row>
-                        </md-table>
-                      </div>
-                      
-                    </li>
-                    <li>
-                      <h3>德州撲克</h3>
-                      <div>
-                        <p>基本: 請參考網址 (<a href="https://zh.wikipedia.org/wiki/%E5%BE%B7%E5%B7%9E%E6%92%B2%E5%85%8B" target="_blank">德州撲克</a>)</p>
-                        <p>延伸:</p>
-                        <p style="color:#dd0000">採用彩池限注玩法</p>
-                        <p>每一輪到自己時只能執行三個以下動作 1.蓋牌(fold) 2.跟牌(call) 3.加注(raise)</p>
-                        <p>Fold : 放棄自己已經注入彩池的籌碼並棄掉手牌</p>
-                        <p>Call : 跟注將面前籌碼加到等同上一位玩家的此輪注碼</p>
-                        <p>Raise : 加注，每個人加注的籌碼數不能大於當前彩池籌碼數，且不能對自己加注的籌碼再加注</p>
-                        <p> * (Ex: 假設大盲200小盲100，初始輪第一個喊加注的人只能選擇加注到300或200，因為初始彩池=大盲+小盲=200+100)</p>
-                        <p> * (Ex: 假設初始第一人已加注300，初始輪第二個喊加注的人可以選擇加到600，因大小盲300+上一位加注300，當前彩池應等於600)</p>
-                        <p>All-in: 與一般規則相同，當可加注金額大於自己所持有的所有籌碼時，可選擇All-in，此時會將彩池籌碼分離，並且可獲得到底開牌勝負的權利</p>
-                        <p>賽制: (每場次)</p>
-                        <p>八人同時上桌，從荷官左手邊開始小盲大盲注，計時20分鐘</p>
-                        <p>再以下三種情況時都會結算成績</p>
-                        <p>(1)時間結束</p>
-                        <p>(2)撲克牌全數用盡</p>
-                        <p>(3)一人獨贏全場</p>
-                      </div>
-                    </li>
-                    <li>
-                      <h3>狼人真言</h3>
-                      <div>
-                        <p>基本:</p>
-                        <md-table class="news-table smaller-table">
-                          <md-table-row>
-                            <md-table-cell style="width: 20%">玩家數</md-table-cell>
-                            <md-table-cell>《 8 》</md-table-cell>
-                          </md-table-row>
-                          <md-table-row>
-                            <md-table-cell>角色牌數</md-table-cell>
-                            <md-table-cell>《 9 》一張村長、兩張先知、三張狼人、三張村民</md-table-cell>
-                          </md-table-row>
-                          <md-table-row>
-                            <md-table-cell>陣營</md-table-cell>
-                            <md-table-cell>
-                              <p>1. 村莊 > 想辦法念出魔法咒語，並保護先知</p>
-                              <p>2. 狼人 > 隱藏自己並阻礙村莊找到魔法咒語，或者殺掉先知</p>
-                            </md-table-cell>
-                          </md-table-row>
-                          <md-table-row>
-                            <md-table-cell>玩法</md-table-cell>
-                            <md-table-cell>
-                              <p>1. 每人抽取一張身分牌從9張抽走8張，抽到村長時立即翻開身分牌，並將剩下來的1張牌當成自己的真實身份；(若村長無人抽到則洗牌重抽)</p>
-                              <p> * 接著所有人天黑請閉眼，由村長優先起來觀看魔法咒語，此時魔法咒語會有2個，請村長從2個魔法咒語中選擇其一</p>
-                              <p> * 村長閉眼後，由狼人起來觀看村長選擇的魔法咒語</p>
-                              <p> * 狼人閉眼後，由先知起來觀看村長選擇的魔法咒語</p>
-                              <p> * 先知閉眼後，天亮請睜眼，遊戲開始</p>
-                              <p>2. 村長: 負責回答所有人輪流的問答，並回答 (是、不是、很接近、無相關) 其中一項，不能回答其他的話</p>
-                              <p>3. 村民: 負責輪流對村長提問跟魔法咒語有關的線索，並念出魔法咒語</p>
-                              <p>4. 狼人: 負責干擾村民使他們不易知道魔法咒語，並隱藏自己</p>
-                              <p>5. 遊戲過程由村長左手邊第一位玩家開始輪流對村長發問，直到時間結束或唸出魔法咒語，才會進入第一階段結束</p>
-                              <p>6. 當第一階段結束時，有兩種情況 A. 魔法咒語被念出  B. 時間到，無法解出魔法咒語</p>
-                              <p>__6-A. 魔法咒語被念出時，村莊陣營暫時獲得勝利，但狼人有一次機會選擇一位村民刺殺，如果該村民為"先知"，則狼人最終勝利</p>
-                              <p>__6-B. 時間到時，狼人暫時獲得勝利，村民們有一次機會，選擇一位玩家指認，如果該玩家為狼人，則村莊獲得最終勝利</p>
-                            </md-table-cell>
-                          </md-table-row>
-                        </md-table>
-                        <p>賽制: (每場次)</p>
-                        <p>八人同時遊玩，共三道魔法咒語，每一魔法咒語持續6分鐘</p>
-                        <p>遊戲結束時有兩種可能:</p>
-                        <p>1. 魔法咒語解開:</p>
-                        <p> * 場內狼人討論並在1分鐘內找先知，場外也同時討論提交答案誰是先知</p>
-                        <p>2. 時間結束，魔法咒語未被解開:</p>
-                        <p> * 用黑布蓋住直播，並讓現場好人觀看魔法咒語，接著場內好人討論並在1分鐘內指認狼人，場外則討論提交魔法咒語</p>
-                        <p> * (場內的玩家不能在討論時講到"魔法咒語"，如有違此規，當次活動該家族勝場值歸0且該局的場外不進行勝場值加分)</p>
-                        <p></p>
-                      </div>
-                    </li>
-                  </ul>
-                  <h2>門檻條件</h2>
-                  <md-table class="news-table smaller-table">
-                    <md-table-row>
-                      <md-table-head style="width: 20%">項目</md-table-head>
-                      <md-table-head>門檻</md-table-head>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>五子棋</md-table-cell>
-                      <md-table-cell>
-                        <p>I.對弈至少15手</p>
-                        <p>II.獲勝時使用雙四或活三沖四</p>
-                        <p>III.斷定5手之後獲勝且無須落子已成定局(宣告時請裁判檢查)</p>
-                      </md-table-cell>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>德州撲克</md-table-cell>
-                      <md-table-cell>
-                        <p>I. 一次跟到底開牌勝負</p>
-                        <p>II. 不開牌贏得獎池 (偷雞)</p>
-                        <p>III. 一次 ALL-IN 贏下獎池至少20000以上籌碼 (無論是否開牌)</p>
-                      </md-table-cell>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>狼人真言</md-table-cell>
-                      <md-table-cell>
-                        <p>I. 提一個問題使村長回答: 是</p>
-                        <p>II. 擔任好人陣營抓到狼人 / 擔任狼人並獲勝 (完成其一即可)</p>
-                        <p>III. 擔任村民念出魔法咒語 / 三局全勝 (完成其一即可)</p>
                       </md-table-cell>
                     </md-table-row>
                   </md-table>

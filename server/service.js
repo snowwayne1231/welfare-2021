@@ -544,7 +544,7 @@ function refreshUserScore(res) {
 
 function refreshFamilyScore(res) {
     const promise_users = models.User.findAll({
-        attributes: ['id', 'houseId', 'rv', 'code', 'strLv', 'dexLv', 'conLv', 'wisLv', 'chaLv', 'thankTimes', 'gender', 'partake', 'mvp', 'departmentName', 'nickname'],
+        attributes: ['id', 'houseId', 'rv', 'code', 'strLv', 'dexLv', 'conLv', 'wisLv', 'chaLv', 'thankTimes', 'gender', 'partake', 'mvp', 'departmentName', 'nickname', 'skillPointJson'],
         where: { status: 1, intLv: '-' },
     });
     const promise_houses = models.House.findAll();
@@ -555,13 +555,38 @@ function refreshFamilyScore(res) {
     });
     const mapLvNum = {'S': 5, 'A': 4, 'B': 3, 'C': 2, 'D':1};
     const getLvToNum = (user) => {
-        return {
-            str: mapLvNum[user.strLv] || 0,
-            dex: mapLvNum[user.devLv] || 0,
-            con: mapLvNum[user.conLv] || 0,
-            wis: mapLvNum[user.wisLv] || 0,
-            cha: mapLvNum[user.chaLv] || 0,
+        let json = user.skillPointJson;
+        let strLv = user.strLv;
+        let devLv = user.devLv;
+        let conLv = user.conLv;
+        let wisLv = user.wisLv;
+        let chaLv = user.chaLv;
+        const result = {
+            str: mapLvNum[strLv] || 0,
+            dex: mapLvNum[devLv] || 0,
+            con: mapLvNum[conLv] || 0,
+            wis: mapLvNum[wisLv] || 0,
+            cha: mapLvNum[chaLv] || 0,
         }
+        if (json) {
+            if (typeof json == 'string') {
+                json = JSON.parse(json);
+            }
+            let sdcwc = json.sdcwc;
+            sdcwc.map((e,idx) => {
+                if (e > 0) {
+                    switch (idx) {
+                        case 0: result.str+= 1; break;
+                        case 1: result.dex+= 1; break;
+                        case 2: result.con+= 1; break;
+                        case 3: result.wis+= 1; break;
+                        case 4: result.cha+= 1; break;
+                        default:
+                    }
+                }
+            });
+        }
+        return result;
     }
 
     Promise.all([promise_users, promise_houses, promise_results, promise_matches]).then(([users, houses, results, matches]) => {
@@ -654,9 +679,10 @@ function refreshFamilyScore(res) {
                 var lengthConWis = 0;
                 var sumThanks = 0;
                 usersInHouse.map(user => {
+                    var abilities = getLvToNum(user);
                     scorePersonal += user.rv;
-                    if (user.conLv == 'S') { lengthConWis+=1; } // trophy (3)
-                    if (user.wisLv == 'S') { lengthConWis+=1; } // trophy (3)
+                    if (abilities.con >= 5) { lengthConWis+=1; } // trophy (3)
+                    if (abilities.wis >= 5) { lengthConWis+=1; } // trophy (3)
                     sumThanks += user.thankTimes; // trophy (10)
                     totalPartake += user.partake;
                     if (maxRvUsers.findIndex(u => u.id == user.id)>=0) { //trophy (1)
@@ -744,7 +770,10 @@ function refreshFamilyScore(res) {
                     allDataSroted['70'].push({house: house.name, ladies});
                     
                     // trophy (9)
-                    var chaLvS = usersInHouse.filter(u => u.chaLv == 'S').length;
+                    var chaLvS = usersInHouse.filter(u => {
+                        var userAbility = getLvToNum(u);
+                        return userAbility.cha >= 5;
+                    }).length;
                     if (chaLvS > maxChas[0].len) {
                         maxChas = [{len: chaLvS, house}];
                     } else if (chaLvS == maxChas[0].len) {
