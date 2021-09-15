@@ -27,7 +27,7 @@
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">local_fire_department</span>
               <span class="material-icons mr-6-px">build</span>
-              <span class="md-list-item-text">2021-09-14 【 九月 】【 Edition Ver.3 】 桌游月-時空迴廊 </span>
+              <span class="md-list-item-text">2021-09-15 【 九月 】【 Edition Ver.4 】 桌游月-時空迴廊 </span>
               <md-list slot="md-expand">
                 <md-table class="news-table smaller-table">
                   <md-table-row>
@@ -55,7 +55,7 @@
                   <h2>活動辦法</h2>
                   <ul>
                     <li>各家族族長請於 09 / 17 中午 12:00 以前將各個場次的上場人員進行安排</li>
-                    <li>每場次各家族皆會派一人參與，依照不同遊戲將獲得不同的"勝場值"</br>
+                    <li>每場次各家族皆會派一人參與，依照不同遊戲將獲得不同的"勝場值"
                       <md-table class="news-table smaller-table">
                         <md-table-toolbar>
                           <h1 class="md-title">勝場值公式:</h1>
@@ -159,7 +159,7 @@
                               <p>1. 每人抽取一張身分牌從9張抽走8張，抽到村長時立即翻開身分牌，並將剩下來的1張牌當成自己的真實身份；(若村長無人抽到則洗牌重抽)</p>
                               <p> * 接著所有人天黑請閉眼，由村長優先起來觀看魔法咒語，此時魔法咒語會有2個，請村長從2個魔法咒語中選擇其一</p>
                               <p> * 村長閉眼後，由先知起來觀看村長選擇的魔法咒語</p>
-                              <p> * 先知閉眼後，由起來觀看村長選擇的魔法咒語</p>
+                              <p style="color:#6214f9"> * 先知閉眼後，由狼人起來觀看村長選擇的魔法咒語</p>
                               <p> * 狼人閉眼後，天亮請睜眼，遊戲開始</p>
                               <p>2. 村長: 負責回答所有人輪流的問答，並回答 (是、不是、很接近、無相關) 其中一項，不能回答其他的話</p>
                               <p>3. 村民: 負責輪流對村長提問跟魔法咒語有關的線索，並念出魔法咒語</p>
@@ -208,9 +208,9 @@
                     <md-table-row>
                       <md-table-cell>狼人真言</md-table-cell>
                       <md-table-cell>
-                        <p>I. 提一個問題使村長回答: 是</p>
-                        <p>II. 擔任好人陣營抓到狼人 / 擔任狼人並獲勝 (完成其一即可)</p>
-                        <p>III. 擔任村民念出魔法咒語 / 三局全勝 (完成其一即可)</p>
+                        <p style="color:#6214f9">I. (1).提一個問題使村長回答:是 / (2).擔任村長</p>
+                        <p>II. (1).擔任好人陣營抓到狼人 / (2).擔任狼人並獲勝 (完成其一即可)</p>
+                        <p>III. (1).擔任村民念出魔法咒語 / (2).三局全勝 (完成其一即可)</p>
                       </md-table-cell>
                     </md-table-row>
                   </md-table>
