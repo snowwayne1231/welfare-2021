@@ -80,7 +80,7 @@
                 </md-table-cell>
               </md-table-row>
               <md-table-row>
-                <md-table-head><Helper title="影響遊戲中的某種條件" />CHA 魅力</md-table-head>
+                <md-table-head><Helper title="影響遊戲中的某種條件與獎牌的條件" />CHA 魅力</md-table-head>
                 <md-table-cell class="border-wraped">
                   <i class="circle minus" v-if="checkMinusShow(4)" @click="onClickMinus('cha')"><md-icon>remove_circle</md-icon></i>
                   <i class="circle add" v-if="displayLvNums.cha < 5" @click="onClickAdd('cha')"><md-icon>add_circle</md-icon></i>
