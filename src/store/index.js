@@ -367,7 +367,7 @@ const globalData = {
             state.houses.map(h => {
                 const users = state.users.filter(u => u.houseId == h.id).map(u => {
                     const nums = _lvNums(u.strLv, u.dexLv, u.conLv, u.wisLv, u.chaLv);
-                    const plused = _plusLv(nums, u.skillPointJson);
+                    const plused = _plusLv(nums, u.skillPointJson || {});
                     u.strLv = plused.str;
                     u.dexLv = plused.dex;
                     u.conLv = plused.con;
