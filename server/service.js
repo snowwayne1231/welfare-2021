@@ -984,7 +984,6 @@ function freshGameResult(req, res) {
 function getVoteResult(req, res) {
     const promise_1 = models.User.findAll({
         attributes: ['id', 'name', 'nickname', 'mvp', 'houseIdTmp', 'houseId'],
-        where: {status: 1},
     });
     const promise_2 = models.Voter.findAll({
         attributes: ['round', 'vote', 'voteTwo', 'voteThree', 'userId'],
