@@ -39,11 +39,13 @@
                       <md-table-cell style="40%">暱稱</md-table-cell>
                       <md-table-cell>門檻達成</md-table-cell>
                       <md-table-cell>團體扣分</md-table-cell>
+                      <md-table-cell>勝場值</md-table-cell>
                     </md-table-row>
                     <md-table-row v-for="match in getMatches(g)" :key="match.id" :class="{success: match.success > 0, successover: match.success > 1}">
                       <md-table-cell><img :src="match.houseImg" style="width: 40px;" />{{match.user.nickname}}</md-table-cell>
                       <md-table-cell>{{match.level}}</md-table-cell>
                       <md-table-cell>{{match.minus}}</md-table-cell>
+                      <md-table-cell>{{match.success}}</md-table-cell>
                     </md-table-row>
                   </md-table>
                 </div>
