@@ -193,7 +193,7 @@ export default {
             add: m.add,
             minus: m.minus,
             shift: m.shift,
-            rankScore: Math.max(30 - (idx * 6), 6),
+            rankScore: game.json.round > 5 ? Math.max(60 - (idx * 12), 12) : Math.max(30 - (idx * 6), 6),
           }
         });
         this.lastResultUpdatedTime = new Date(game.updatedAt);
