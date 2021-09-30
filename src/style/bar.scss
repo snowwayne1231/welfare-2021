@@ -335,8 +335,16 @@
                 text-align: center;
             }
         }
-        .click-join {
-            
+    }
+}
+
+#bar-tab-notice {
+    .bar-notice {
+        background-color: #0000003d;
+        li {
+            list-style: none;
+            color: #ffda55;
+            font-size: 20px;
         }
     }
 }

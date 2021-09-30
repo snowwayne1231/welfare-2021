@@ -43,6 +43,14 @@
           <div class="bar-content-open-table-btn bar-content-open" @click="onClickBarOpenBoard"><img src="/static/imgs/board.png" /></div>
           <div class="bar-content-menu" :class="{active: openMenu}" ref="menuContent">
             <md-tabs>
+              <!-- <md-tab id="bar-tab-notice" md-label="公告" md-icon="notifications">
+                <div class="bar-notice">
+                  <li>公告: 是三個字嗎 O</li>
+                  <li>公告: 是吃的嗎 X</li>
+                  <li>公告: 是吃的嗎 X</li>
+                  <li>公告: 是吃的嗎 X</li>
+                </div>
+              </md-tab> -->
               <md-tab id="bar-tab-store" md-label="商品" md-icon="store" exact md-active-tab>
                 <Hepler title="可以在此使用ＲＶ值購買商品" />
                 <div class="bar-store">
@@ -80,7 +88,7 @@
                   </div>
                 </md-dialog>
               </md-tab>
-              <md-tab id="bar-tab-join" md-label="國民入境" md-icon="directions_run">
+              <!-- <md-tab id="bar-tab-join" md-label="國民入境" md-icon="directions_run">
                 <div class="family-join">
                   <div class="house" v-for="house in global.houses" :key="house.id" :class="'house-'+house.en">
                     <li class="freefork" v-for="fork in mapHouseFreefork[house.en]" :key="fork[0]"><i>{{fork[2]}}</i>{{fork[1]}}</li>
@@ -91,7 +99,7 @@
                   </div>
                 </div>
                 <Hepler title="自由國民在此選擇入境，在每季選秀結束後為期一個禮拜期間可以自由移動到心屬的家族國境" />
-              </md-tab>
+              </md-tab> -->
               <md-tab id="bar-tab-posts" md-label="離開" md-icon="exit_to_app" @click="onClickCancelMenu"></md-tab>
             </md-tabs>
           </div>

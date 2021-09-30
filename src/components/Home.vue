@@ -25,10 +25,224 @@
 
 
 
-            
+            <md-list-item md-expand v-if="overDate('2020/10/01')">
+              <span class="material-icons mr-6-px">local_fire_department</span>
+              <!-- <span class="material-icons mr-6-px">build</span> -->
+              <span class="md-list-item-text">2021-10-01 【 十月 】睿訊微帕拉林匹克運動會</span>
+              <md-list slot="md-expand">
+                <md-table class="news-table smaller-table">
+                  <md-table-row>
+                    <md-table-head style="width: 25%">項目</md-table-head>
+                    <md-table-head>詳細</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>時間</md-table-cell>
+                    <md-table-cell>2021 / 10 / 12 ~ 2021 / 10 / 21</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>地點</md-table-cell>
+                    <md-table-cell>辦公室</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>遊戲項目</md-table-cell>
+                    <md-table-cell>
+                      <p>* 硬地滾球</p>
+                      <p>* 盲人門球</p>
+                    </md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <h2>活動辦法</h2>
+                  <ul>
+                    <li>各家族族長請於 10 / 08 中午 12:00 以前將各個場次的上場人員進行安排</li>
+                    <li>每場次各家族皆會派一人參與，依照不同遊戲將獲得不同的"勝場值"
+                      <md-table class="news-table smaller-table">
+                        <md-table-toolbar>
+                          <h1 class="md-title">勝場值公式:</h1>
+                        </md-table-toolbar>
+                        <md-table-row>
+                          <md-table-cell>五子棋</md-table-cell>
+                          <md-table-cell>每場次會對弈三盤, 每盤獲勝即獲得1分勝場值</md-table-cell>
+                        </md-table-row>
+                        <md-table-row>
+                          <md-table-cell>德州撲克</md-table-cell>
+                          <md-table-cell>每場次初始籌碼 10000 結算時【(剩餘籌碼數量 - 初始籌碼) / 5000 (無條件進位)】將會轉換為勝場值</md-table-cell>
+                        </md-table-row>
+                        <md-table-row>
+                          <md-table-cell>狼人真言</md-table-cell>
+                          <md-table-cell>
+                            <p>每場次玩3局謎題，每一謎題</p>
+                            <p>* 場內獲勝方每人+1勝場值；</p>
+                            <p>* 當場內謎題被解答時，場外可以猜誰是先知，猜對+1勝場值；</p>
+                            <p>* 當場內謎題未被解答時，場外可以猜謎題內容是甚麼，猜對+1勝場值；</p>
+                          </md-table-cell>
+                        </md-table-row>
+                      </md-table>
+                    </li>
+                    <li>詳細場次表會以雲端Excel 呈現，各家族族長皆有權限更動</li>
+                    <li>09 / 30 最後一場結束後會馬上結算勝場值，由大到小進行排名排序，第一名可得60團體積分第二名48團體積分..以此類推</li>
+                    <li style="color: #d04740;">(進入第三季，各項活動的家族團體積分會相較第一、二季乘上2倍)</li>
+                    <li>(結算後於當日下午15:30至遊戲室進行地圖板塊移動)</li>
+                  </ul> 
+                  <h2>活動規則&玩法</h2>
+                </md-content>
+              </md-list>
+            </md-list-item>
+
+
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">local_fire_department</span>
-              <span class="material-icons mr-6-px">build</span>
+              <!-- <span class="material-icons mr-6-px">build</span> -->
+              <span class="md-list-item-text">2021-09-30 【 戰報 】桌游月-時光迴廊</span>
+              <md-list slot="md-expand">
+                <md-table class="news-table smaller-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">一、桌游月-時光迴廊 賽後排名總結</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head>家族</md-table-head>
+                    <md-table-head>活動前總分</md-table-head>
+                    <md-table-head>活動加分</md-table-head>
+                    <md-table-head>預測加分</md-table-head>
+                    <md-table-head>總結</md-table-head>
+                    <md-table-head style="width: 8%">總結排名</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>74</md-table-cell>
+                    <md-table-cell>+99</md-table-cell>
+                    <md-table-cell>+6</md-table-cell>
+                    <md-table-cell>179</md-table-cell>
+                    <md-table-cell>II</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>124</md-table-cell>
+                    <md-table-cell>+87</md-table-cell>
+                    <md-table-cell>+1</md-table-cell>
+                    <md-table-cell>212</md-table-cell>
+                    <md-table-cell>I</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell>36</md-table-cell>
+                    <md-table-cell>+75</md-table-cell>
+                    <md-table-cell>+2</md-table-cell>
+                    <md-table-cell>113</md-table-cell>
+                    <md-table-cell>VI</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>艾林</md-table-cell>
+                    <md-table-cell>48</md-table-cell>
+                    <md-table-cell>+60</md-table-cell>
+                    <md-table-cell>+0</md-table-cell>
+                    <md-table-cell>108</md-table-cell>
+                    <md-table-cell>VII</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>徒利</md-table-cell>
+                    <md-table-cell>102</md-table-cell>
+                    <md-table-cell>+51</md-table-cell>
+                    <md-table-cell>+2</md-table-cell>
+                    <md-table-cell>155</md-table-cell>
+                    <md-table-cell>V</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>馬泰爾</md-table-cell>
+                    <md-table-cell>105</md-table-cell>
+                    <md-table-cell>+51</md-table-cell>
+                    <md-table-cell>+3</md-table-cell>
+                    <md-table-cell>159</md-table-cell>
+                    <md-table-cell>IV</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>提利爾</md-table-cell>
+                    <md-table-cell>133</md-table-cell>
+                    <md-table-cell>+42</md-table-cell>
+                    <md-table-cell>+0</md-table-cell>
+                    <md-table-cell>175</md-table-cell>
+                    <md-table-cell>III</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>史塔克</md-table-cell>
+                    <md-table-cell>42</md-table-cell>
+                    <md-table-cell>+48</md-table-cell>
+                    <md-table-cell>+2</md-table-cell>
+                    <md-table-cell>92</md-table-cell>
+                    <md-table-cell>VIII</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <p>活動優勝家族為: 蘭尼斯特 !! </p>
+                  <p>二、預測成功名單：</p>
+                </md-content>
+                <md-table>
+                  <md-table-row>
+                    <md-table-head>家族</md-table-head>
+                    <md-table-head>預測人</md-table-head>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>蘭尼斯特</md-table-cell><md-table-cell>
+                      <p>愛你</p>
+                      <p>街友</p>
+                      <p>牛年大吉,牛轉乾坤</p>
+                      <p>哇</p>
+                      <p>油炸包龍星</p>
+                      <p>睿恩</p>
+                    </md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>拜拉席恩</md-table-cell><md-table-cell>
+                      <p>卓耿</p>
+                      <p>艾利森</p>
+                    </md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>坦格利安</md-table-cell><md-table-cell>
+                      <p>狼皮羊</p>
+                    </md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>史塔克</md-table-cell><md-table-cell>
+                      <p>走位有如霍金般風騷</p>
+                      <p>傳話仔</p>
+                    </md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>馬泰爾</md-table-cell><md-table-cell>
+                      <p>本機使用者</p>
+                      <p>給我一杯酒</p>
+                      <p>精靈</p>
+                    </md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>徒利</md-table-cell><md-table-cell>
+                      <p>天竺鼠阿比</p>
+                      <p>聲林之王</p>
+                    </md-table-cell>
+                  </md-table-row>
+
+                  
+                </md-table>
+                <md-table>
+                  <md-table-toolbar>
+                    <h1 class="md-title">三、家族內部 票選MVP人員</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head>家族</md-table-head>
+                    <md-table-head>MVP</md-table-head>
+                    <md-table-head>最佳門檻</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell colspan="3">等待投票中..</md-table-cell>
+                  </md-table-row>
+                  <!-- <md-table-row>
+                    <md-table-cell>史塔克</md-table-cell>
+                    <md-table-cell>佛度有緣人</md-table-cell>
+                    <md-table-cell>白金</md-table-cell>
+                  </md-table-row> -->
+                </md-table>
+              </md-list>
+            </md-list-item>
+
+
+            <md-list-item md-expand>
+              <!-- <span class="material-icons mr-6-px">local_fire_department</span> -->
+              <!-- <span class="material-icons mr-6-px">build</span> -->
               <span class="md-list-item-text">2021-09-17 【 戰報 】【 新增MVP票選結果 】趣味競技月</span>
               <md-list slot="md-expand">
                 <md-table class="news-table smaller-table">
@@ -220,11 +434,9 @@
             </md-list-item>
 
 
-
-
             <md-list-item md-expand>
-              <span class="material-icons mr-6-px">local_fire_department</span>
-              <span class="material-icons mr-6-px">build</span>
+              <!-- <span class="material-icons mr-6-px">local_fire_department</span> -->
+              <!-- <span class="material-icons mr-6-px">build</span> -->
               <span class="md-list-item-text">2021-09-15 【 九月 】【 Edition Ver.4 】 桌游月-時空迴廊 </span>
               <md-list slot="md-expand">
                 <md-table class="news-table smaller-table">
@@ -418,47 +630,7 @@
             
 
             <md-list-item md-expand>
-              <span class="material-icons mr-6-px">local_fire_department</span>
-              <!-- <span class="material-icons mr-6-px">build</span> -->
-              <span class="md-list-item-text">2021-09-10 【 教學 】 能力點數詳細 </span>
-              <md-list slot="md-expand">
-                <md-table class="news-table smaller-table">
-                  <md-table-toolbar>
-                    <h2>如何使用能力點數</h2>
-                  </md-table-toolbar>
-                  <md-table-row>
-                    <md-table-cell colspan="2"><img :src="`/static/imgs/ability.jpg`" /></md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-head style="width: 20%">區域</md-table-head>
-                    <md-table-head>詳細說明</md-table-head>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>A</md-table-cell>
-                    <md-table-cell>當前可使用的能力點數餘額，按下確定後就無法再次更改</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>B</md-table-cell>
-                    <md-table-cell>使用+與-號來對當前能力編輯，在未按下"確定"之前都可以任意調適</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>C</md-table-cell>
-                    <md-table-cell>能力五象圖，黃色底為初始自己設定的能力值等級，藍色底色為能力點數額外加成的能力</md-table-cell>
-                  </md-table-row>
-                </md-table>
-                <md-content>
-                  <h2>如何獲得能力點數</h2>
-                  <p>以目前來說，有三種可以獲得能力點數的管道</p>
-                  <p>1. 族長使用"宣誓"並讓家族成員一員成為封臣時，所有封臣皆可獲得</p>
-                  <p>2. 單季活動競賽全數預測冠軍成功，該成員可獲得</p>
-                  <p>3. 健康舒活計劃中得到相應名次</p>
-                </md-content>
-              </md-list>
-            </md-list-item>
-
-
-            <md-list-item md-expand>
-              <span class="material-icons mr-6-px">local_fire_department</span>
+              <!-- <span class="material-icons mr-6-px">local_fire_department</span> -->
               <!-- <span class="material-icons mr-6-px">build</span> -->
               <span class="md-list-item-text">2021-09-10 【 獎牌提示 】 獎牌條件提示 </span>
               <md-list slot="md-expand">
@@ -546,223 +718,6 @@
                   <p> * 額外提示: 依照歷年的福委活動經驗，此條件的發生率，<span style="color:red">戶外的活動發生機率會高於辦公室內的活動</span></p>
                   <p> * 額外提示2: 目前此數值領先的家族為: <span style="color:red">馬泰爾、拜拉席恩</span></p>
                 </md-content>
-              </md-list>
-            </md-list-item>
-
-                 
-            <md-list-item md-expand>
-              <span class="material-icons mr-6-px">local_fire_department</span>
-              <span class="md-list-item-text">2021-09-10 【 選秀 】 Season 3 選秀結果</span>
-              <md-list slot="md-expand">
-                <md-table class="news-table smaller-table">
-                  <md-table-toolbar>
-                    <h3>一、選秀後團體積分表</h3>
-                  </md-table-toolbar>
-                  <md-table-row>
-                    <md-table-head style="width: 15%">家族</md-table-head>
-                    <md-table-head>選秀前值</md-table-head>
-                    <md-table-head>招募消耗</md-table-head>
-                    <md-table-head>選秀後積分</md-table-head>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>徒利</md-table-cell>
-                    <md-table-cell>125</md-table-cell>
-                    <md-table-cell>
-                      <p>(-10) = 洲子街大地主</p>
-                      <p>(-13) =  薇薇安 </p>
-                    </md-table-cell>
-                    <md-table-cell>102</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>提利爾</md-table-cell>
-                    <md-table-cell>132</md-table-cell>
-                    <md-table-cell>
-                      <p style="color: purple;">(免) = 超越時空的傳奇</p>
-                      <p style="color: blue;">(免) =  沒收功就罵髒話 </p>
-                      <p>(-10) =  深有牛奶糖 </p>
-                      <p>(- 0) = VC</p>
-                      <p>(離職)(+ 6) = 霸霸</p>
-                      <p>(離職)(+ 5) = 一級弓箭手</p>
-                    </md-table-cell>
-                    <md-table-cell>133</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>坦格利安</md-table-cell>
-                    <md-table-cell>135</md-table-cell>
-                    <md-table-cell>
-                      <p style="color: blue;">(免) = 脾氣最好的姐姐 ◉‿◉</p>
-                      <p>(-11) = 污辱米糕</p>
-                    </md-table-cell>
-                    <md-table-cell>124</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>馬泰爾</md-table-cell>
-                    <md-table-cell>105</md-table-cell>
-                    <md-table-cell>
-                      <p style="color: blue;">(免) = 給我一杯酒</p>
-                      <p style="color: blue;">(免) = HA↗HA↘HA↗HA↘</p>
-                    </md-table-cell>
-                    <md-table-cell>105</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>蘭尼斯特</md-table-cell>
-                    <md-table-cell>78</md-table-cell>
-                    <md-table-cell>
-                      <p style="color: purple;">(免) = 愛你</p>
-                      <p style="color: blue;">(免) = 哇</p>
-                      <p style="color: blue;">(免) = 牛年大吉,牛轉乾坤</p>
-                      <p>(-14) = HSU</p>
-                      <p>(-10) = 吃肥褲撐破</p>
-                      <p>(離職)(+ 5) = 我心已打烊</p>
-                      <p>(離職)(+10) = 熱血沸騰洗廁所殺手</p>
-                      <p>(離職)(+ 5) = 涅法雷姆</p>
-                    </md-table-cell>
-                    <md-table-cell>74</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>拜拉席恩</md-table-cell>
-                    <md-table-cell>64</md-table-cell>
-                    <md-table-cell>
-                      <p>(-14) = 姜太公今天不想釣魚</p>
-                      <p>(-14) = ㊣上班只為交朋友㊣</p>
-                    </md-table-cell>
-                    <md-table-cell>36</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>史塔克</md-table-cell>
-                    <md-table-cell>57</md-table-cell>
-                    <md-table-cell>
-                      <p style="color: purple;">(免) = GoToSleep</p>
-                      <p>(-15) = 走位有如霍金般風騷</p>
-                      <p>(-16) = 傳話仔</p>
-                      <p>(離職)(+16) = 貓貓貓頭鷹</p>
-                    </md-table-cell>
-                    <md-table-cell>42</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>艾林</md-table-cell>
-                    <md-table-cell>64</md-table-cell>
-                    <md-table-cell>
-                      <p style="color: blue;">(免) = 《鞋鞋你愛我》</p>
-                      <p>(-13) = 八拉崩巴</p>
-                      <p>(- 4) = 小鼠吉</p>
-                      <p>(離職)(+ 1) = 石少甫</p>
-                    </md-table-cell>
-                    <md-table-cell>48</md-table-cell>
-                  </md-table-row>
-                </md-table>
-                <md-content>
-                  <p style="color: purple;">(免) 福委工作人員特權</p>
-                  <p style="color: blue;">(免) 佔領封地招募獎勵</p>
-                  <h2>二、第二季結束預測獎勵</h2>
-                  <p>針對第二季"所有"活動皆預測冠軍正確的成員，給與能力點數獎勵，獎勵如下表:</p>
-                  
-                  <md-table>
-                    <md-table-row>
-                      <md-table-head>家族</md-table-head>
-                      <md-table-head>成員</md-table-head>
-                      <md-table-head>獎勵點數</md-table-head>
-                    </md-table-row>
-                    <md-table-row>
-                      <md-table-cell>提利爾</md-table-cell><md-table-cell>珂珂</md-table-cell><md-table-cell>1</md-table-cell>
-                    </md-table-row><md-table-row>
-                      <md-table-cell>拜拉席恩</md-table-cell><md-table-cell>🖕上班滑起來📱</md-table-cell><md-table-cell>1</md-table-cell>
-                    </md-table-row><md-table-row>
-                      <md-table-cell>坦格利安</md-table-cell><md-table-cell>
-                        <p>悲傷滷肉飯</p>
-                        <p>異世界轉生的中二生活</p>
-                        <p>小鳥胃☄☄</p>
-                        <p>乂☆煞氣a丁尼☆乂</p>
-                        <p>🥺🥺🥺🥺🥺</p>
-                      </md-table-cell>
-                      <md-table-cell>
-                        <p>1</p>
-                        <p>1</p>
-                        <p>1</p>
-                        <p>1</p>
-                        <p>1</p>
-                      </md-table-cell>
-                    </md-table-row>
-                  </md-table>
-                </md-content>
-              </md-list>
-            </md-list-item>
-
-
-            <md-list-item md-expand>
-              <span class="md-list-item-text">2021-08-17 【 八月 】 健康舒活特別計劃 第二梯隊再開! </span>
-              <md-list slot="md-expand">
-                <md-content>
-                  <h3> *** 因新冠肺炎疫情而延誤之特別計畫又再度開跑拉 ! ***</h3>
-                  <p>無論您是因為居家無法報名或是對自己原先成果不滿意，現在都將有機會再度跟著老師動吃動!</p>
-                </md-content>
-                <md-table class="news-table smaller-table">
-                  <md-table-toolbar>
-                    <h1 class="md-title"></h1>
-                  </md-table-toolbar>
-                  <md-table-row>
-                    <md-table-head style="width: 15%">項目</md-table-head>
-                    <md-table-head>詳細</md-table-head>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>活動時間</md-table-cell>
-                    <md-table-cell>
-                      延長至 2021/12/17
-                    </md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>第二梯隊報名時間</md-table-cell>
-                    <md-table-cell>
-                      2021/08/17 開始報名至 2021/09/03
-                    </md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>結算時間</md-table-cell>
-                    <md-table-cell>
-                      <div>
-                        <p>* 第一梯結算日期為 10/01 ~ 10/15</p>
-                        <p>* 第二梯結算日期為 12/06 ~ 12/17</p>
-                      </div>
-                    </md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>活動方法</md-table-cell>
-                    <md-table-cell>
-                      <div>
-                        <p>1. 報名時間內，於週一~週五之間每日下午3~4點找Mavis登記報名（夜班同仁請私訊Mavis另外約時間）</p>
-                        <p>2. 選擇挑戰項目：體重 or 體脂肪</p>
-                      </div>
-                    </md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>活動目標</md-table-cell>
-                    <md-table-cell>
-                      <div>
-                        <p>1. 增 / 減體重：以公司儀器測量計算為準，取活動報名時紀錄與活動結束時之差距數</p>
-                        <p>2. 減體脂：以公司儀器測量計算為準，取活動報名時紀錄與活動結束時之減少數值，沒有上下限。</p>
-                      </div>
-                    </md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>分數計算公式</md-table-cell>
-                    <md-table-cell>
-                      <div>
-                        <p>1. 體重：增加或減少的kg數</p>
-                        <p>2. 體脂：減少之體脂率 x 100 x 1.531</p>
-                        <p> * （女生條款：上述兩項最終分數再加乘x 1.58）</p>
-                      </div>
-                    </md-table-cell>
-                  </md-table-row>
-                  
-                </md-table>
-                <md-content>
-                  <h3>*** 獎勵 ***</h3>
-                  <p>1. 型男美女獎：家族成員中最多人符合BMI值正常範圍（18.5 – 24）</p>
-                  <p>2. 破格加碼獎：家族全員分數高於（福委3人+Mickey分數) x 3</p>
-                  <p>(獎勵內容與條件並無變動)</p>
-                </md-content>
-                
-                
               </md-list>
             </md-list-item>
 
@@ -871,7 +826,11 @@ export default {
   //   ...mapState(['user'])
   // },
   methods: {
-    
+    overDate(str) {
+      var condi = new Date(str);
+      var now = new Date();
+      return now.getTime() - condi.getTime() > 0;
+    }
   }
 }
 </script>

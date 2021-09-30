@@ -1,7 +1,13 @@
 <template>
   <div class="chat-box">
     <div class="chat-history" ref="chatHistory">
-      <ul>
+      <ul v-if="selected_channel == '家族'" class="family-history">
+        <li v-for="(history, idx) in chat.histories" :key="idx">
+          <label>{{history.nickname}}</label>
+          <span>: {{history.text}}</span>
+        </li>
+      </ul>
+      <ul v-else>
         <li v-for="(history, idx) in chat.histories" :key="idx">
           <label>{{history.nickname}}</label>
           <span>: {{history.text}}</span>
@@ -9,6 +15,7 @@
       </ul>
     </div>
     <div class="chat-tools">
+      <button @click="onClickChangeChannel" :style="{color: selected_channel == '家族' ? '#01ffdc' : 'white'}">{{selected_channel}}</button>
       <input class="chat-tool-input" type="text" v-model="chatInput" maxlength="48" v-on:keyup.enter="onInputEnter" />
       <button @click="sendMessage">送出</button>
     </div>
@@ -27,6 +34,9 @@ export default {
   data() {
     return {
       chatInput: '',
+      timeoutSecond: 3,
+      public_checked: true,
+      selected_channel: window.localStorage.getItem('channelChat') || '公開',
     };
   },
   computed: {
@@ -66,6 +76,10 @@ export default {
       }
       this.sendMessage(evt);
     },
+    onClickChangeChannel() {
+      // this.selected_channel = this.selected_channel == '公開' ? '家族' : '公開';
+      // window.localStorage.setItem('channelChat', this.selected_channel);
+    },
     timeoutHandler(evt) {
       window.clearTimeout(this.timer);
       this.timer = 0;
@@ -97,21 +111,28 @@ export default {
             list-style: none;
         }
     }
+    .family-history {
+      li {
+        color: #01ffdc;
+      }
+    }
     .chat-tools {
         height: 28px;
         border: 1px solid #805b00;
         position: relative;
         box-sizing: border-box;
         padding: 2px;
+        white-space: nowrap;
 
         .chat-tool-input {
             background-color: #7b746f;
-            width: calc(100% - 80px);
+            width: calc(100% - 120px);
         }
         button {
             background-color: #160d07;
             border-radius: 5px;
             color: #ab9e3c;
+            cursor: pointer;
         }
     }
 }
