@@ -25,7 +25,7 @@
 
 
 
-            <md-list-item md-expand v-if="overDate('2020/10/01')">
+            <md-list-item md-expand v-if="overDate('2021/10/01')">
               <span class="material-icons mr-6-px">local_fire_department</span>
               <!-- <span class="material-icons mr-6-px">build</span> -->
               <span class="md-list-item-text">2021-10-01 【 十月 】睿訊微帕拉林匹克運動會</span>
@@ -61,30 +61,91 @@
                           <h1 class="md-title">勝場值公式:</h1>
                         </md-table-toolbar>
                         <md-table-row>
-                          <md-table-cell>五子棋</md-table-cell>
-                          <md-table-cell>每場次會對弈三盤, 每盤獲勝即獲得1分勝場值</md-table-cell>
+                          <md-table-cell>硬地滾球</md-table-cell>
+                          <md-table-cell>獲勝隊伍每人+1、勝利隊伍中達成"防守"與"逆轉"的次數最多者再+1</md-table-cell>
                         </md-table-row>
                         <md-table-row>
-                          <md-table-cell>德州撲克</md-table-cell>
-                          <md-table-cell>每場次初始籌碼 10000 結算時【(剩餘籌碼數量 - 初始籌碼) / 5000 (無條件進位)】將會轉換為勝場值</md-table-cell>
-                        </md-table-row>
-                        <md-table-row>
-                          <md-table-cell>狼人真言</md-table-cell>
-                          <md-table-cell>
-                            <p>每場次玩3局謎題，每一謎題</p>
-                            <p>* 場內獲勝方每人+1勝場值；</p>
-                            <p>* 當場內謎題被解答時，場外可以猜誰是先知，猜對+1勝場值；</p>
-                            <p>* 當場內謎題未被解答時，場外可以猜謎題內容是甚麼，猜對+1勝場值；</p>
-                          </md-table-cell>
+                          <md-table-cell>盲人門球</md-table-cell>
+                          <md-table-cell>獲勝隊伍每人+1、勝利隊伍中得分最多的選手再+1</md-table-cell>
                         </md-table-row>
                       </md-table>
                     </li>
-                    <li>詳細場次表會以雲端Excel 呈現，各家族族長皆有權限更動</li>
+                    <!-- <li>詳細場次表會以雲端Excel 呈現，各家族族長皆有權限更動</li>
                     <li>09 / 30 最後一場結束後會馬上結算勝場值，由大到小進行排名排序，第一名可得60團體積分第二名48團體積分..以此類推</li>
                     <li style="color: #d04740;">(進入第三季，各項活動的家族團體積分會相較第一、二季乘上2倍)</li>
-                    <li>(結算後於當日下午15:30至遊戲室進行地圖板塊移動)</li>
+                    <li>(結算後於當日下午15:30至遊戲室進行地圖板塊移動)</li> -->
                   </ul> 
                   <h2>活動規則&玩法</h2>
+                  <ul>
+                    <li>
+                      <h3>硬地滾球</h3>
+                      <div>
+                        <p style="color: #8b4d00;">基本:</p>
+                        <p>四人一隊每人持2顆色球、隊伍自己安排進攻順序輪流投擲色球、先功方先投擲一顆目標球再接著投擲色球</p>
+                        <p>把藍色或紅色的球投向稱為目標球的旁邊</p>
+                        <p>投目標球時不可出界，否則會把投擲權給予對方</p>
+                        <p>若未能把藍球或紅球投向白球旁邊，他們要再擲直至成功為止</p>
+                        <p>不可把球投出界外，否則再擲以及失分</p>
+                        <p>靠近白色球的藍色球或紅色球的一方便可得分，接近的球愈多分數愈高；最高分者為勝方</p>
+                        <p style="color: #8b4d00;">場次&回合:</p>
+                        <p>每一場次會玩5局、每局雙方各擲8顆球+先手方投擲目標球</p>
+                        <p style="color: #8b4d00;">計分:</p>
+                        <p>單局中雙方球都投擲完畢時，計算最接近目標球的色球數量，有多少顆色球比對方最靠近的色球還近的每一球皆算一分</p>
+                        <p>5局遊戲最後加總分數來比較輸贏</p>
+                        <p style="color: #8b4d00;">限制:</p>
+                        <p>參賽者全程只能坐在滾輪椅上移動</p>
+                        <p style="color: #8b4d00;">優秀動作說明:</p>
+                        <p>1. 防守: 在自己投擲完成功靠近目標球後，並換對手擲球時，使對方1人以上連續投擲皆無法換邊</p>
+                        <p>2. 逆轉: 在自己投擲時擊中目標球，並使其目標球因移動而轉換與之最近距離為己方球</p>
+
+                      </div>
+                    </li>
+                    <li>
+                      <h3>盲人門球</h3>
+                      <div>
+                        <p style="color: #8b4d00;">基本:</p>
+                        <p>四人一隊，由三人下場比賽、一人站在場外使用聲音輔助場內隊員</p>
+                        <p>將球用滾地的方式攻入對方球門</p>
+                        <p>若犯規第一次會判對方發球、第二次直接由對方得一分</p>
+                        <p style="color: #8b4d00;">犯規:</p>
+                        <p>1. 短球﹕攻方運動員未能把球滾至對方區域</p>
+                        <p>2. 高球﹕攻方運動員在發球時把球投至半空</p>
+                        <p>3. 第三次發球﹕一位球員只能於半場中發球兩次，第三次為違規</p>
+                        <p>4. 非法防守﹕一方球員走進對方範圍，都是違規行為</p>
+                        <p>5. 觸摸眼罩﹕運動員在未經裁判同意下觸摸眼罩</p>
+                        <p style="color: #8b4d00;">場次&回合:</p>
+                        <p>全長24分鐘，分為上、下半場，每半場均長12分鐘、若24分鐘無法分出勝負，則進行3分鐘的加時賽，首先進球得分者勝</p>
+                        <p style="color: #8b4d00;">計分:</p>
+                        <p>每攻進一球得一分，較高分的一隊為勝方</p>
+                        <p style="color: #8b4d00;">限制:</p>
+                        <p>參賽者全程帶著盲人眼鏡(看不到)</p>
+                        <p>參賽者只能在一地磚的前後距離內橫向移動，超出由裁判制止並由輔導員協助回到區域中(大會議室)</p>
+                      </div>
+                    </li>
+                  </ul>
+                  <h2>門檻條件</h2>
+                  <md-table class="news-table smaller-table">
+                    <md-table-row>
+                      <md-table-head style="width: 20%">項目</md-table-head>
+                      <md-table-head>門檻</md-table-head>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>硬地滾球</md-table-cell>
+                      <md-table-cell>
+                        <p>I.無出界</p>
+                        <p>II.發生單次防守3球(含)以上</p>
+                        <p>III.發生逆轉4次(含)以上</p>
+                      </md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>盲人門球</md-table-cell>
+                      <md-table-cell>
+                        <p>I. 無犯規</p>
+                        <p>II. 單人得分超過(含)5分</p>
+                        <p>III. 單人得分超過10分</p>
+                      </md-table-cell>
+                    </md-table-row>
+                  </md-table>
                 </md-content>
               </md-list>
             </md-list-item>
@@ -235,6 +296,84 @@
                     <md-table-cell>佛度有緣人</md-table-cell>
                     <md-table-cell>白金</md-table-cell>
                   </md-table-row> -->
+                </md-table>
+
+                <md-table class="news-table smaller-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">四、獎牌異動與提示</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 20%">獎牌</md-table-head>
+                    <md-table-head>相應積分</md-table-head>
+                    <md-table-head>當前獲得家族</md-table-head>
+                    <md-table-head>條件提示</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>獨孤求敗</md-table-cell>
+                    <md-table-cell>10</md-table-cell>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>跟活動的門檻達成(成果)有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>工作不養閒人</md-table-cell>
+                    <md-table-cell>20</md-table-cell>
+                    <md-table-cell>馬泰爾</md-table-cell>
+                    <md-table-cell>跟活動出賽人員有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>團隊不養懶人</md-table-cell>
+                    <md-table-cell>30</md-table-cell>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>跟家族成員的能力值有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>寸草春暉</md-table-cell>
+                    <md-table-cell>40</md-table-cell>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>跟家族成員所在組別有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>情投意合</md-table-cell>
+                    <md-table-cell>50</md-table-cell>
+                    <md-table-cell>提利爾</md-table-cell>
+                    <md-table-cell>跟家族成員與族長的能力值有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>九淺一深</md-table-cell>
+                    <md-table-cell>60</md-table-cell>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>跟每次活動排名有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>如夢似幻</md-table-cell>
+                    <md-table-cell>70</md-table-cell>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell>
+                      <p style="color: #c50101">***該獎牌應不會再異動直接公布條件***</p>
+                      <p style="color: #c50101">1. 家族的女性成員總數最多</p>
+                    </md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>含辛茹苦</md-table-cell>
+                    <md-table-cell>80</md-table-cell>
+                    <md-table-cell>徒利</md-table-cell>
+                    <md-table-cell>
+                      <p style="color: #c50101">***該獎牌應不會再異動直接公布條件***</p>
+                      <p style="color: #c50101">1. 任何一次參與遊戲時 戰隊成員+傭顧成員的加總工號數最高</p>
+                    </md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>阿姨我不想努力了</md-table-cell>
+                    <md-table-cell>90</md-table-cell>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>跟家族成員的能力值有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>魚知水恩乃幸福之源</md-table-cell>
+                    <md-table-cell>100</md-table-cell>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>跟心有關</md-table-cell>
+                  </md-table-row>
                 </md-table>
               </md-list>
             </md-list-item>
