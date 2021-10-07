@@ -470,14 +470,49 @@
                     <md-table-head>MVP</md-table-head>
                     <md-table-head>最佳門檻</md-table-head>
                   </md-table-row>
-                  <md-table-row>
-                    <md-table-cell colspan="3">等待投票中..</md-table-cell>
-                  </md-table-row>
                   <!-- <md-table-row>
-                    <md-table-cell>史塔克</md-table-cell>
-                    <md-table-cell>佛度有緣人</md-table-cell>
-                    <md-table-cell>白金</md-table-cell>
+                    <md-table-cell colspan="3">等待投票中..</md-table-cell>
                   </md-table-row> -->
+                  <md-table-row>
+                    <md-table-cell>史塔克</md-table-cell>
+                    <md-table-cell>走位有如霍金般風騷</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>牛年大吉,牛轉乾坤</md-table-cell>
+                    <md-table-cell>大師</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>提利爾</md-table-cell>
+                    <md-table-cell>我不是LUKE鴨</md-table-cell>
+                    <md-table-cell>白金</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell>㊣上班只為交朋友㊣</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>徒利</md-table-cell>
+                    <md-table-cell>薇薇安</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>艾林</md-table-cell>
+                    <md-table-cell>野人男子漢</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>系統管理員</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>馬泰爾</md-table-cell>
+                    <md-table-cell>海獅會害怕</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
                 </md-table>
 
                 <md-table class="news-table smaller-table">
