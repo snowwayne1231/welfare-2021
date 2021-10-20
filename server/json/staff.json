@@ -1,4 +1,20 @@
-[{
+[
+{
+    "code": "R370",
+    "name": "林育弘",
+    "name_en": "Ivan Lin",
+    "gender": 1,
+    "department": "值班技術二組",
+    "mvp": 0
+},
+{
+    "code": "R369",
+    "name": "陳仕家",
+    "name_en": "David Chen",
+    "gender": 1,
+    "department": "風險管理處",
+    "mvp": 0
+},{
     "code": "R367",
     "name": "林夢祖",
     "name_en": "Joanne Lin",

@@ -27,9 +27,10 @@
                 <md-table-head style="width: 50px;">名次</md-table-head>
                 <md-table-head>家族</md-table-head>
                 <md-table-head v-if="notOpenPrediction">家族積分</md-table-head>
+                <md-table-head v-if="notOpenPrediction">家族RV總和</md-table-head>
                 <md-table-head v-if="notOpenPrediction">獎牌</md-table-head>
                 <md-table-head v-if="isOpenPrediction" ><div style="width: 20vw;">預測</div></md-table-head>
-                <md-table-head v-if="user.intLv == 'W'" >Final</md-table-head>
+                <md-table-head>最終得分</md-table-head>
               </md-table-row>
               <md-table-row v-for="(loc, idx) in showResult" :key="loc.id">
                 <md-table-cell>
@@ -37,6 +38,7 @@
                 </md-table-cell>
                 <md-table-cell><img class="arena-house-img" :src="renderHouseImage(loc)" />{{rerenderHouseName(loc)}}</md-table-cell>
                 <md-table-cell v-if="notOpenPrediction">{{loc.score}}</md-table-cell>
+                <md-table-cell v-if="notOpenPrediction">{{getTotalRvScore(loc)}}</md-table-cell>
                 <md-table-cell v-if="notOpenPrediction"><img class="arena-trophy-img" :src="`/static/imgs/trophy/${t.add}.png`" :title="t.name" v-for="t in loc.trophies" :key="t.add" /></md-table-cell>
                 <md-table-cell v-if="isOpenPrediction">
                   <button v-if="openPredictionAndCanPredict" class="prediction-btn" @click="onClickPrediction(loc.id)">預測</button>
@@ -45,7 +47,7 @@
                     <i class="suport-rate" :style="{paddingLeft: `${loc.supportRate}%`}">{{loc.supportRate}} %</i>
                   </div>
                 </md-table-cell>
-                <md-table-cell v-if="user.intLv == 'W'" >{{getFinalScore(loc)}}</md-table-cell>
+                <md-table-cell>{{getFinalScore(loc)}}</md-table-cell>
               </md-table-row>
             </md-table>
             <md-content>
@@ -72,14 +74,14 @@
 import { mapState, mapGetters } from 'vuex';
 import { ACT_GET_TROPHY, ACT_WELFARE_CONFIG_SETTING, ACT_SEND_PREDICTION, ACT_GET_PREDICTIONS } from '../store/enum';
 import LiveBattle from './panels/LiveBattle';
-import ChatBox from './interactive/ChatBox';
+// import ChatBox from './interactive/ChatBox';
 import Record from './panels/Record';
 
 export default {
   name: 'Arena',
   components: {
     LiveBattle,
-    ChatBox,
+    // ChatBox,
     Record
   },
   data() {
@@ -101,15 +103,18 @@ export default {
     ...mapGetters(['isLoveOpen', 'trophyLastDate', 'isPredictionOpen', 'isPredictionAllowed']),
     showResult() {
       const loc = JSON.parse(JSON.stringify(this.global.houses));
-      loc.sort((a,b) => {
-        const gap = b.score - a.score;
-        const leaderChaGap = b.leader && a.leader ? b.leader.cha - a.leader.cha : 0;
-        return gap == 0 ? leaderChaGap : gap;
-      });
+      const $this = this;
       loc.map(e => {
         const trophies = this.global.trophy.filter(t => t.ownerHouseId == e.id);
         e.trophies = trophies || [];
         e.supportRate = Math.floor(this.getSupportedByHouseId(e.id));
+      });
+      loc.sort((a,b) => {
+        const bs = $this.getFinalScore(b);
+        const as = $this.getFinalScore(a);
+        const gap = bs - as;
+        const leaderChaGap = b.leader && a.leader ? b.leader.cha - a.leader.cha : 0;
+        return gap == 0 ? leaderChaGap : gap;
       });
       return loc;
     },
@@ -213,7 +218,10 @@ export default {
         score += t.add;
       });
       return score;
-    }
+    },
+    getTotalRvScore(house) {
+      return house.scorePersonal;
+    },
   }
 };
 </script>

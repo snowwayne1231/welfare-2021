@@ -21,6 +21,397 @@
           <md-list :md-expand-single="expandSingle">
 
 
+
+            
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px">local_fire_department</span>
+              <span class="material-icons mr-6-px">build</span>
+              <span class="md-list-item-text">2021-10-06 【 十月 】睿訊微帕拉林匹克運動會</span>
+              <md-list slot="md-expand">
+                <md-table class="news-table smaller-table">
+                  <md-table-row>
+                    <md-table-head style="width: 25%">項目</md-table-head>
+                    <md-table-head>詳細</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>時間</md-table-cell>
+                    <md-table-cell>2021 / 10 / 12 ~ 2021 / 10 / 21</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>地點</md-table-cell>
+                    <md-table-cell>辦公室</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>遊戲項目</md-table-cell>
+                    <md-table-cell>
+                      <p>* 硬地滾球</p>
+                      <p>* 盲人門球</p>
+                    </md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <h2>活動辦法</h2>
+                  <ul>
+                    <li>各家族族長請於 10 / 08 中午 12:00 以前將各個場次的上場人員進行安排</li>
+                    <li>每場次各家族皆會派一人參與，依照不同遊戲將獲得不同的"勝場值"
+                      <md-table class="news-table smaller-table">
+                        <md-table-toolbar>
+                          <h1 class="md-title">勝場值公式:</h1>
+                        </md-table-toolbar>
+                        <md-table-row>
+                          <md-table-cell>硬地滾球</md-table-cell>
+                          <md-table-cell>獲勝隊伍每人+1、勝利隊伍中達成"防守"與"逆轉"的次數最多者再+1</md-table-cell>
+                        </md-table-row>
+                        <md-table-row>
+                          <md-table-cell>盲人門球</md-table-cell>
+                          <md-table-cell>獲勝隊伍每人+1、勝利隊伍中得分最多的選手再+1</md-table-cell>
+                        </md-table-row>
+                      </md-table>
+                    </li>
+                    <!-- <li>詳細場次表會以雲端Excel 呈現，各家族族長皆有權限更動</li>
+                    <li>09 / 30 最後一場結束後會馬上結算勝場值，由大到小進行排名排序，第一名可得60團體積分第二名48團體積分..以此類推</li>
+                    <li style="color: #d04740;">(進入第三季，各項活動的家族團體積分會相較第一、二季乘上2倍)</li>
+                    <li>(結算後於當日下午15:30至遊戲室進行地圖板塊移動)</li> -->
+                  </ul> 
+                  <h2>活動規則&玩法</h2>
+                  <ul>
+                    <li>
+                      <h3>硬地滾球</h3>
+                      <div>
+                        <p style="color: #8b4d00;">基本:</p>
+                        <p>四人一隊每人持2顆色球、隊伍自己安排進攻順序輪流投擲色球、先功方先投擲一顆目標球再接著投擲色球</p>
+                        <p>把藍色或紅色的球投向稱為目標球的旁邊</p>
+                        <p>投目標球時不可出界，否則會把投擲權給予對方</p>
+                        <p>若未能把藍球或紅球投向白球旁邊，他們要再擲直至成功為止</p>
+                        <p>不可把球投出界外，否則再擲以及失分</p>
+                        <p>靠近白色球的藍色球或紅色球的一方便可得分，接近的球愈多分數愈高；最高分者為勝方</p>
+                        <p style="color: #8b4d00;">場次&回合:</p>
+                        <p>每一場次會玩5局、每局雙方各擲8顆球+先手方投擲目標球</p>
+                        <p style="color: #8b4d00;">計分:</p>
+                        <p>單局中雙方球都投擲完畢時，計算最接近目標球的色球數量，有多少顆色球比對方最靠近的色球還近的每一球皆算一分</p>
+                        <p>5局遊戲最後加總分數來比較輸贏</p>
+                        <p style="color: #8b4d00;">限制:</p>
+                        <p>參賽者全程只能坐在滾輪椅上移動</p>
+                        <p style="color: #8b4d00;">優秀動作說明:</p>
+                        <p>1. 防守: 在自己投擲完成功靠近目標球後，並換對手擲球時，使對方1人以上連續投擲皆無法換邊</p>
+                        <p>2. 逆轉: 在自己投擲時擊中目標球，並使其目標球因移動而轉換與之最近距離為己方球</p>
+
+                      </div>
+                    </li>
+                    <li>
+                      <h3>盲人門球</h3>
+                      <div>
+                        <p style="color: #8b4d00;">基本:</p>
+                        <p>四人一隊，由三人下場比賽、一人站在場外使用聲音輔助場內隊員</p>
+                        <p>將球用滾地的方式攻入對方球門</p>
+                        <p>若犯規第一次會判對方發球、第二次之後直接由對方得一分</p>
+                        <p style="color: #8b4d00;">犯規:</p>
+                        <p>1. 短球﹕攻方運動員未能把球滾至對方區域</p>
+                        <p>2. 高球﹕攻方運動員在發球時把球投至半空</p>
+                        <p>3. 第三次發球﹕一位球員只能於半場中發球兩次，第三次為違規</p>
+                        <p>4. 非法防守﹕一方球員走進對方範圍，都是違規行為</p>
+                        <p>5. 觸摸眼罩﹕運動員在未經裁判同意下觸摸眼罩</p>
+                        <p style="color: purple">6. 非法防守(RV版)﹕一方球員離開腳下初始範圍(範圍用膠帶區分)</p>
+                        <p style="color: #8b4d00;">場次&回合:</p>
+                        <p>全長24分鐘，分為上、下半場，每半場均長12分鐘、若24分鐘無法分出勝負，則進行3分鐘的加時賽，首先進球得分者勝</p>
+                        <p style="color: #8b4d00;">計分:</p>
+                        <p>每攻進一球得一分，較高分的一隊為勝方</p>
+                        <p style="color: #8b4d00;">限制:</p>
+                        <p>參賽者全程帶著盲人眼鏡(看不到)<span style="color: purple">；女性球員會帶弱視眼鏡(可微透光看到人形)</span></p>
+                      </div>
+                    </li>
+                  </ul>
+                  <h2>門檻條件</h2>
+                  <md-table class="news-table smaller-table">
+                    <md-table-row>
+                      <md-table-head style="width: 20%">項目</md-table-head>
+                      <md-table-head>門檻</md-table-head>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>硬地滾球</md-table-cell>
+                      <md-table-cell>
+                        <p>I.無出界</p>
+                        <p>II.發生防守3球(含)以上</p>
+                        <p>III.發生逆轉5次(含)以上</p>
+                      </md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>盲人門球</md-table-cell>
+                      <md-table-cell>
+                        <p>I. 無犯規</p>
+                        <p>II. 單人得分超過(含)5分</p>
+                        <p>III. 單人得分超過10分</p>
+                      </md-table-cell>
+                    </md-table-row>
+                  </md-table>
+                </md-content>
+              </md-list>
+            </md-list-item>
+
+
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px">local_fire_department</span>
+              <span class="material-icons mr-6-px">build</span>
+              <span class="md-list-item-text">2021-10-06 【 戰報 】桌游月-時光迴廊</span>
+              <md-list slot="md-expand">
+                <md-table class="news-table smaller-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">一、桌游月-時光迴廊 賽後排名總結</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head>家族</md-table-head>
+                    <md-table-head>活動前總分</md-table-head>
+                    <md-table-head>活動加分</md-table-head>
+                    <md-table-head>預測加分</md-table-head>
+                    <md-table-head>總結</md-table-head>
+                    <md-table-head style="width: 8%">總結排名</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>74</md-table-cell>
+                    <md-table-cell>+99</md-table-cell>
+                    <md-table-cell>+6</md-table-cell>
+                    <md-table-cell>179</md-table-cell>
+                    <md-table-cell><span style="color: red">III</span></md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>124</md-table-cell>
+                    <md-table-cell>+87</md-table-cell>
+                    <md-table-cell>+1</md-table-cell>
+                    <md-table-cell>212</md-table-cell>
+                    <md-table-cell>I</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell>36</md-table-cell>
+                    <md-table-cell>+75</md-table-cell>
+                    <md-table-cell>+2</md-table-cell>
+                    <md-table-cell>113</md-table-cell>
+                    <md-table-cell>VI</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>艾林</md-table-cell>
+                    <md-table-cell>48</md-table-cell>
+                    <md-table-cell>+60</md-table-cell>
+                    <md-table-cell>+0</md-table-cell>
+                    <md-table-cell>108</md-table-cell>
+                    <md-table-cell>VII</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>徒利</md-table-cell>
+                    <md-table-cell>102</md-table-cell>
+                    <md-table-cell>+51</md-table-cell>
+                    <md-table-cell>+2</md-table-cell>
+                    <md-table-cell>155</md-table-cell>
+                    <md-table-cell>V</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>馬泰爾</md-table-cell>
+                    <md-table-cell>105</md-table-cell>
+                    <md-table-cell>+51</md-table-cell>
+                    <md-table-cell>+3</md-table-cell>
+                    <md-table-cell>159 <span style="color: red">+ 20 (綠古城)</span></md-table-cell>
+                    <md-table-cell><span style="color: red">II</span></md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>提利爾</md-table-cell>
+                    <md-table-cell>133</md-table-cell>
+                    <md-table-cell>+42</md-table-cell>
+                    <md-table-cell>+0</md-table-cell>
+                    <md-table-cell>175</md-table-cell>
+                    <md-table-cell><span style="color: red">IV</span></md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>史塔克</md-table-cell>
+                    <md-table-cell>42</md-table-cell>
+                    <md-table-cell>+48</md-table-cell>
+                    <md-table-cell>+2</md-table-cell>
+                    <md-table-cell>92</md-table-cell>
+                    <md-table-cell>VIII</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <p>活動優勝家族為: 蘭尼斯特 !! </p>
+                  <p>二、預測成功名單：</p>
+                </md-content>
+                <md-table>
+                  <md-table-row>
+                    <md-table-head>家族</md-table-head>
+                    <md-table-head>預測人</md-table-head>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>蘭尼斯特</md-table-cell><md-table-cell>
+                      <p>愛你</p>
+                      <p>街友</p>
+                      <p>牛年大吉,牛轉乾坤</p>
+                      <p>哇</p>
+                      <p>油炸包龍星</p>
+                      <p>睿恩</p>
+                    </md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>拜拉席恩</md-table-cell><md-table-cell>
+                      <p>卓耿</p>
+                      <p>艾利森</p>
+                    </md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>坦格利安</md-table-cell><md-table-cell>
+                      <p>狼皮羊</p>
+                    </md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>史塔克</md-table-cell><md-table-cell>
+                      <p>走位有如霍金般風騷</p>
+                      <p>傳話仔</p>
+                    </md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>馬泰爾</md-table-cell><md-table-cell>
+                      <p>本機使用者</p>
+                      <p>給我一杯酒</p>
+                      <p>精靈</p>
+                    </md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>徒利</md-table-cell><md-table-cell>
+                      <p>天竺鼠阿比</p>
+                      <p>聲林之王</p>
+                    </md-table-cell>
+                  </md-table-row>
+
+                  
+                </md-table>
+                <md-table>
+                  <md-table-toolbar>
+                    <h1 class="md-title">三、家族內部 票選MVP人員</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head>家族</md-table-head>
+                    <md-table-head>MVP</md-table-head>
+                    <md-table-head>最佳門檻</md-table-head>
+                  </md-table-row>
+                  <!-- <md-table-row>
+                    <md-table-cell colspan="3">等待投票中..</md-table-cell>
+                  </md-table-row> -->
+                  <md-table-row>
+                    <md-table-cell>史塔克</md-table-cell>
+                    <md-table-cell>走位有如霍金般風騷</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>牛年大吉,牛轉乾坤</md-table-cell>
+                    <md-table-cell>大師</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>提利爾</md-table-cell>
+                    <md-table-cell>我不是LUKE鴨</md-table-cell>
+                    <md-table-cell>白金</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell>㊣上班只為交朋友㊣</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>徒利</md-table-cell>
+                    <md-table-cell>薇薇安</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>艾林</md-table-cell>
+                    <md-table-cell>野人男子漢</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>系統管理員</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>馬泰爾</md-table-cell>
+                    <md-table-cell>海獅會害怕</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                </md-table>
+
+                <md-table class="news-table smaller-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">四、獎牌異動與提示</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 20%">獎牌</md-table-head>
+                    <md-table-head>相應積分</md-table-head>
+                    <md-table-head>當前獲得家族</md-table-head>
+                    <md-table-head>條件提示</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>獨孤求敗</md-table-cell>
+                    <md-table-cell>10</md-table-cell>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>跟活動的門檻達成(成果)有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>工作不養閒人</md-table-cell>
+                    <md-table-cell>20</md-table-cell>
+                    <md-table-cell>馬泰爾</md-table-cell>
+                    <md-table-cell>跟活動出賽人員有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>團隊不養懶人</md-table-cell>
+                    <md-table-cell>30</md-table-cell>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>跟家族成員的能力值有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>寸草春暉</md-table-cell>
+                    <md-table-cell>40</md-table-cell>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>跟家族成員所在組別有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>情投意合</md-table-cell>
+                    <md-table-cell>50</md-table-cell>
+                    <md-table-cell>提利爾</md-table-cell>
+                    <md-table-cell>跟家族成員與族長的能力值有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>九淺一深</md-table-cell>
+                    <md-table-cell>60</md-table-cell>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>跟每次活動排名有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>如夢似幻</md-table-cell>
+                    <md-table-cell>70</md-table-cell>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell>
+                      <p style="color: #c50101">***該獎牌應不會再異動直接公布條件***</p>
+                      <p style="color: #c50101">1. 家族的女性成員總數最多</p>
+                    </md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>含辛茹苦</md-table-cell>
+                    <md-table-cell>80</md-table-cell>
+                    <md-table-cell>徒利</md-table-cell>
+                    <md-table-cell>
+                      <p style="color: #c50101">***該獎牌應不會再異動直接公布條件***</p>
+                      <p style="color: #c50101">1. 任何一次參與遊戲時 戰隊成員+傭顧成員的加總工號數最高</p>
+                    </md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>阿姨我不想努力了</md-table-cell>
+                    <md-table-cell>90</md-table-cell>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>跟家族成員的能力值有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>魚知水恩乃幸福之源</md-table-cell>
+                    <md-table-cell>100</md-table-cell>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>跟心有關</md-table-cell>
+                  </md-table-row>
+                </md-table>
+              </md-list>
+            </md-list-item>
+
+
             <md-list-item md-expand>
               <!-- <span class="material-icons mr-6-px">local_fire_department</span> -->
               <!-- <span class="material-icons mr-6-px">build</span> -->
@@ -403,6 +794,99 @@
                       </md-table-cell>
                     </md-table-row>
                   </md-table>
+                </md-content>
+              </md-list>
+            </md-list-item>
+
+
+            <md-list-item md-expand>
+              <!-- <span class="material-icons mr-6-px">local_fire_department</span> -->
+              <!-- <span class="material-icons mr-6-px">build</span> -->
+              <span class="md-list-item-text">2021-09-10 【 獎牌提示 】 獎牌條件提示 </span>
+              <md-list slot="md-expand">
+                <md-table class="news-table smaller-table">
+                  <md-table-row>
+                    <md-table-head style="width: 20%">獎牌</md-table-head>
+                    <md-table-head>相應積分</md-table-head>
+                    <md-table-head>啟動時間</md-table-head>
+                    <md-table-head>條件提示</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>獨孤求敗</md-table-cell>
+                    <md-table-cell>10</md-table-cell>
+                    <md-table-cell>第一次活動結算 (T2</md-table-cell>
+                    <md-table-cell>跟活動的門檻達成(成果)有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>工作不養閒人</md-table-cell>
+                    <md-table-cell>20</md-table-cell>
+                    <md-table-cell>第二次活動結算 (T3</md-table-cell>
+                    <md-table-cell>跟活動出賽人員有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>團隊不養懶人</md-table-cell>
+                    <md-table-cell>30</md-table-cell>
+                    <md-table-cell>第二次活動結算 (T3</md-table-cell>
+                    <md-table-cell>跟家族成員的能力值有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>寸草春暉</md-table-cell>
+                    <md-table-cell>40</md-table-cell>
+                    <md-table-cell>第一輪選秀 (T1</md-table-cell>
+                    <md-table-cell>跟家族成員所在組別有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>情投意合</md-table-cell>
+                    <md-table-cell>50</md-table-cell>
+                    <md-table-cell>第二輪選秀 (T4</md-table-cell>
+                    <md-table-cell>跟家族成員與族長的能力值有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>九淺一深</md-table-cell>
+                    <md-table-cell>60</md-table-cell>
+                    <md-table-cell>第二輪選秀 (T4</md-table-cell>
+                    <md-table-cell>跟每次活動排名有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>如夢似幻</md-table-cell>
+                    <md-table-cell>70</md-table-cell>
+                    <md-table-cell>第一輪選秀 (T1</md-table-cell>
+                    <md-table-cell>
+                      <p style="color: #c50101">***該獎牌應不會再異動直接公布條件***</p>
+                      <p style="color: #c50101">1. 家族的女性成員總數最多</p>
+                    </md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>含辛茹苦</md-table-cell>
+                    <md-table-cell>80</md-table-cell>
+                    <md-table-cell>第二輪選秀完第一活動結算 (T5</md-table-cell>
+                    <md-table-cell>跟家族成員的工號有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>阿姨我不想努力了</md-table-cell>
+                    <md-table-cell>90</md-table-cell>
+                    <md-table-cell>第二輪選秀完第一活動結算 (T5</md-table-cell>
+                    <md-table-cell>跟家族成員的能力值有關</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>魚知水恩乃幸福之源</md-table-cell>
+                    <md-table-cell>100</md-table-cell>
+                    <md-table-cell>第一次活動結算 (T2</md-table-cell>
+                    <md-table-cell>跟心有關</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <h2>關於啟動時間</h2>
+                  <p> * 啟動時間指的是該獎牌至少符合此時間點，才會派發到符合條件的家族上</p>
+                  <h2>關於隱藏條件</h2>
+                  <p> * 每一個獎牌都有其相應的條件，這些條件都是絕對客觀、可紀錄、且可數值化、量化的</p>
+                  <p> * 符合條件後並且過了啟動時間就會派發到該家族身上，於每一次活動後結算</p>
+                  <p> * 除了符合條件外，由於條件本身是可以量化的，所以會有"最貼近"，"最符合"的家族出現時有可能發生獎牌置換</p>
+                  <h2>尚未派發獎牌之特別優惠</h2>
+                  <p><img class="arena-house-img" :src="`/static/imgs/trophy/100.png`" /> 魚知水恩乃幸福之源</p>
+                  <p> * 因應疫情，整年度的Outing活動皆以取消，原先此獎牌條件的基本數值<span style="color:red">為50次</span>，現在直接<span style="color:red">降到30次</span></p>
+                  <p> * 額外提示: 依照歷年的福委活動經驗，此條件的發生率，<span style="color:red">戶外的活動發生機率會高於辦公室內的活動</span></p>
+                  <p> * 額外提示2: 目前此數值領先的家族為: <span style="color:red">馬泰爾、拜拉席恩</span></p>
                 </md-content>
               </md-list>
             </md-list-item>
