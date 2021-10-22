@@ -10,5 +10,7 @@ RUN npm install -g shelljs
 
 RUN npm run build
 
+EXPOSE 9898
+
 CMD ["npm", "run", "service"]
 

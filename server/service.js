@@ -557,13 +557,13 @@ function refreshFamilyScore(res) {
     const getLvToNum = (user) => {
         let json = user.skillPointJson;
         let strLv = user.strLv;
-        let devLv = user.devLv;
+        let dexLv = user.dexLv;
         let conLv = user.conLv;
         let wisLv = user.wisLv;
         let chaLv = user.chaLv;
         const result = {
             str: mapLvNum[strLv] || 0,
-            dex: mapLvNum[devLv] || 0,
+            dex: mapLvNum[dexLv] || 0,
             con: mapLvNum[conLv] || 0,
             wis: mapLvNum[wisLv] || 0,
             cha: mapLvNum[chaLv] || 0,
@@ -619,6 +619,7 @@ function refreshFamilyScore(res) {
             '100': [],
         }
         
+        results.sort((a,b) => a.id - b.id);
         results.map(r => {
             var ranking = JSON.parse(r.ranking);
             ranking.map((hid, rank) => {
@@ -737,13 +738,16 @@ function refreshFamilyScore(res) {
                     // trophy (5)
                     var leaderAbility = getLvToNum(leader);
                     var leaderGap = 0;
+                    var familyAbilites = [];
                     usersInHouse.map(user => {
                         var userAbility = getLvToNum(user);
+                        var userGap = 0;
                         ['str', 'dex', 'con', 'wis', 'cha'].map(loc => {
-                            var gap = Math.abs(leaderAbility[loc] - userAbility[loc]);
-                            leaderGap += gap;
+                            userGap += Math.abs(leaderAbility[loc] - userAbility[loc]);
                             totalFamilyAbility += userAbility[loc];
                         });
+                        leaderGap += userGap;
+                        familyAbilites.push({name: user.nickname, userAbility, userGap});
                     });
                     if (leaderGap < closestAbility[0].gap) {
                         closestAbility = [{gap: leaderGap, house}];
@@ -751,7 +755,7 @@ function refreshFamilyScore(res) {
                         closestAbility.push({gap: leaderGap, house});
                     }
                     leaderMatchFamily = leaderGap;
-                    allDataSroted['50'].push({house: house.name, leaderGap});
+                    allDataSroted['50'].push({house: house.name, leaderGap, usersInHouse, familyAbilites});
                     //trophy (6)
                     var changeRank = mapReusltChanges[house.id] || {change: 0};
                     if (changeRank.change > maxChangeRanks[0].change) {
@@ -760,7 +764,7 @@ function refreshFamilyScore(res) {
                         maxChangeRanks.push({change: changeRank.change, house});
                     }
                     rankMove = changeRank.change;
-                    allDataSroted['60'].push({house: house.name, rankMove});
+                    allDataSroted['60'].push({house: house.name, rankMove, changeRank});
                     
                     // trophy (7)
                     var ladies = usersInHouse.filter(u => u.gender == 2).length;

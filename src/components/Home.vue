@@ -26,7 +26,7 @@
 
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">local_fire_department</span><span class="material-icons mr-6-px">vertical_align_top</span>
-              <span class="md-list-item-text">2021-10-12 【 福委夥伴鎖定 】 提前暫定福委表演夥伴</span>
+              <span class="md-list-item-text">2021-10-22 【 福委夥伴鎖定 】 提前暫定福委表演夥伴</span>
               <md-list slot="md-expand">
                 <md-table class="news-table">
                   <md-table-toolbar>
@@ -34,7 +34,7 @@
                   </md-table-toolbar>
                   <md-table-row>
                     <md-table-head style="width: 35%">福委</md-table-head>
-                    <md-table-head>人選</md-table-head>
+                    <md-table-head>部門/人選</md-table-head>
                   </md-table-row>
                   <md-table-row>
                     <md-table-cell>Snow</md-table-cell>
@@ -51,11 +51,12 @@
                   <md-table-row>
                     <md-table-cell>Dada</md-table-cell>
                     <md-table-cell>
-                      <p>CS01  -  Rita</p>
-                      <p>IT02  -  Ryan</p>
-                      <p>CS02  -  Ken</p>
-                      <p>CHAT  -  Crystal</p>
-                      <p>任何抗拒表演的人都有可能 * 3</p>
+                      <p>CS01     -  Rita</p>
+                      <p>IT02     -  Ryan</p>
+                      <p>運維中心  -  Luke</p>
+                      <p>CS02     -  Jenny</p>
+                      <p>CS02     -  Lora</p>
+                      <p>任何抗拒表演or沒表演過的人都有可能 * 2</p>
                     </md-table-cell>
                   </md-table-row>
                   <md-table-row>
@@ -81,7 +82,7 @@
 
             <md-list-item md-expand v-if="overDate('2021/10/22')">
               <span class="material-icons mr-6-px">local_fire_department</span>
-              <span class="md-list-item-text">2021-10-21 【 十一月 】 READY PLAYER ONE</span>
+              <span class="md-list-item-text">2021-10-22 【 十一月 】 READY PLAYER ONE</span>
               <md-list slot="md-expand">
                 <md-table class="news-table smaller-table">
                   <md-table-row>
@@ -109,10 +110,10 @@
                 <md-content>
                   <h2>活動辦法</h2>
                   <ul>
-                    <li>各家族族長請於 10 / 21 中午 15:30 地圖板塊執行時抽籤分組，每兩家族一組，共四組</li>
+                    <li>各家族族長請於 10 / 21 下午 15:30 地圖板塊執行時抽籤分組，每兩家族一組，共四組</li>
                     <li>
                       <p>每款遊戲中，人員不可重複參加同款遊戲，若重複參加同款遊戲第一次扣2分勝場值，第二次之後每次扣3勝場值</p>
-                      <p style="color: #bd0000">*** 除了此兩條件不會扣分 ： 一、任何晉級賽的第五場 二、遊戲為激鬥峽谷  ***</p>
+                      <p style="color: #bd0000">*** 除了此兩情況不會扣分 ： 一、任何晉級賽的第五場 二、遊戲為激鬥峽谷  ***</p>
                     </li>
                     <li>
                       <md-table class="news-table smaller-table">
@@ -130,8 +131,8 @@
                           <md-table-cell>單場2v2v2v2</md-table-cell>
                           <md-table-cell>
                             <p>參考遊戲網站： <a href="https://www.smashbros.com/TC/" target="_blank">任天堂明星大亂鬥</a></p>
-                            <p style="color: #dd0000">共執行 4 場次，每一場次 4 組各派2人</p>
-                            <p>遊戲模式：大亂鬥模式 (三條命、限時6分鐘)</p>
+                            <p style="color: #dd0000">共執行 4 場次，每一場次 4 組參賽，各組派2人</p>
+                            <p>遊戲模式：大亂鬥模式 (三條命、限時6分鐘、場地完全隨機)</p>
                             <p>每場次進行兩回合遊戲，排名以團隊存活的順序排名</p>
                             <p>整個賽季同組人員於大亂鬥角色不能選相同</p>
                             <p>(建議每組至少練習16+角色池、彼此溝通不重複選角)</p>
@@ -151,8 +152,8 @@
                           <md-table-cell>4v4晉級賽</md-table-cell>
                           <md-table-cell>
                             <p>參考遊戲網站： <a href="https://www.nintendo.tw/switch/1-2-switch/" target="_blank">1-2 switch</a></p>
-                            <p style="color: #dd0000">共執行 5 場次，每一場次 2 組各派 4 人 (依晉級賽路程決定哪兩組對戰)</p>
-                            <p>遊戲模式： 派對模式 (類似大富翁每一小遊戲可以擲一骰子，先到終點勝)</p>
+                            <p style="color: #dd0000">共執行 5 場次，每一場次 2 組參賽，各組派 4 人 (依晉級賽路程決定哪兩組對戰)</p>
+                            <p>遊戲模式： 派對模式 (類似大富翁每一小遊戲獲勝可以擲一骰子，先到終點勝)</p>
                             <p>每一小遊戲對戰時，第一棒雙方各自自選派一人對戰</p>
                             <p>接著從第二棒開始由上一棒輸的一方決定自己出戰的人與指定對方應戰的人</p>
                             <p>出戰限制: 同一組人中、最高出賽回數與最低出賽回數的人不能差距到3回</p>
@@ -167,6 +168,7 @@
                               <li>第三名+10</li>
                               <li>第四名+6</li>
                             </ul>
+                            <p style="color:#dd0000">總排名為五場次結束才會確定</p>
                           </md-table-cell>
                         </md-table-row>
                         <md-table-row>
@@ -174,10 +176,10 @@
                           <md-table-cell>4v4晉級賽</md-table-cell>
                           <md-table-cell>
                             <p>參考遊戲網站： <a href="https://www.team17.com/games/overcooked/" target="_blank">Overcooked</a></p>
-                            <p style="color: #dd0000">共執行 5 場次，每一場次 2 組各派 4 人 (依晉級賽路程決定哪兩組對戰)</p>
-                            <p>遊戲模式： 指定相同關卡，取遊戲內分數總和較高勝</p>
-                            <p>每場次進行兩回合遊戲</p>
-                            <p>每回合開賽前有兩分鐘時間練習，並給予兩分鐘時間進行討論</p>
+                            <p style="color: #dd0000">共執行 5 場次，每一場次 2 組參賽，各組派 4 人 (依晉級賽路程決定哪兩組對戰)</p>
+                            <p>遊戲模式： 指定相同關卡，取遊戲內分數總和較高方勝</p>
+                            <p>每場次共進行兩回合遊戲</p>
+                            <p>每回合開賽前會有兩分鐘時間練習，並給予兩分鐘時間進行討論</p>
                           </md-table-cell>
                           <md-table-cell>
                             <p>晉級賽總排名</p>
@@ -187,6 +189,7 @@
                               <li>第三名+10</li>
                               <li>第四名+6</li>
                             </ul>
+                            <p style="color:#dd0000">總排名為五場次結束才會確定</p>
                           </md-table-cell>
                         </md-table-row>
                         <md-table-row>
@@ -194,10 +197,10 @@
                           <md-table-cell>4v4晉級賽</md-table-cell>
                           <md-table-cell>
                             <p>參考遊戲網站： <a href="https://wildrift.leagueoflegends.com/zh-tw/news/" target="_blank">英雄聯盟:激鬥峽谷</a></p>
-                            <p style="color: #dd0000">共執行 5 場次，每一場次 2 組各派 4 人 (依晉級賽路程決定哪兩組對戰)</p>
-                            <p>遊戲模式： 標準</p>
+                            <p style="color: #dd0000">共執行 5 場次，每一場次 2 組參賽，各組派 4 人 (依晉級賽路程決定哪兩組對戰)</p>
+                            <p>遊戲模式： 標準(招喚峽谷)、自由選角(無BP)</p>
                             <p>選手自備手機及帳號，一局決勝</p>
-                            <p>若比賽超過30分鐘，則使用破塔數量=>人頭擊殺=>吃兵數，進行勝負判定</p>
+                            <p>若比賽超過30分鐘，則使用破塔數量 > 人頭擊殺 > 吃兵數，進行勝負判定</p>
                           </md-table-cell>
                           <md-table-cell>
                             <p>晉級賽總排名</p>
@@ -207,24 +210,63 @@
                               <li>第三名+10</li>
                               <li>第四名+6</li>
                             </ul>
+                            <p style="color:#dd0000">總排名為五場次結束才會確定</p>
                           </md-table-cell>
                         </md-table-row>
                       </md-table>
                     </li>
-                    <li>詳細場次表會以雲端Excel 呈現，各家族族長皆有權限更動</li>
-                    <li>09 / 30 最後一場結束後會馬上結算勝場值，由大到小進行排名排序，第一名可得60團體積分第二名48團體積分..以此類推</li>
-                    <li style="color: #d04740;">(進入第三季，各項活動的家族團體積分會相較第一、二季乘上2倍)</li>
-                    <li>(結算後於當日下午15:30至遊戲室進行地圖板塊移動)</li>
+                    <li>詳細賽程與場次表會以雲端Excel呈現，會陸續與各家族族長一起安排競賽的班表</li>
                   </ul>
                 </md-content>
-
+                <md-content>
+                  <h2>活動各遊戲門檻 (11月17號遊戲開始前公開)</h2>
+                  <md-table class="news-table smaller-table">
+                    <md-table-row>
+                      <md-table-head style="width: 25%">遊戲項目</md-table-head>
+                      <md-table-head>門檻條件</md-table-head>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>全明星大亂鬥</md-table-cell>
+                      <md-table-cell>
+                        <p>I. </p>
+                        <p>II. </p>
+                        <p>III. </p>
+                      </md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>1-2 Switch</md-table-cell>
+                      <md-table-cell>
+                        <p>I. </p>
+                        <p>II. </p>
+                        <p>III. </p>
+                      </md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>Overcooked</md-table-cell>
+                      <md-table-cell>
+                        <p>I. </p>
+                        <p>II. </p>
+                        <p>III. </p>
+                      </md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>激鬥峽谷</md-table-cell>
+                      <md-table-cell>
+                        <p>I. </p>
+                        <p>II. </p>
+                        <p>III. </p>
+                      </md-table-cell>
+                    </md-table-row>
+                  </md-table>
+                </md-content>
+                
               </md-list>
             </md-list-item>
 
             
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">local_fire_department</span>
-              <!-- <span class="material-icons mr-6-px">build</span> -->
+              <span class="material-icons mr-6-px">build</span>
               <span class="md-list-item-text">2021-10-20 【 戰報 】睿訊微帕拉林匹克運動會</span>
               <md-list slot="md-expand">
                 <md-table class="news-table smaller-table">
@@ -269,7 +311,7 @@
                     <md-table-cell>245 <span style="color: red">+19 (離職人員RV值)</span></md-table-cell>
                     <md-table-cell>264 + 183 + 0</md-table-cell>
                     <md-table-cell>447</md-table-cell>
-                    <md-table-cell>V</md-table-cell>
+                    <md-table-cell>IV</md-table-cell>
                   </md-table-row>
                   <md-table-row>
                     <md-table-cell>史塔克</md-table-cell>
@@ -299,7 +341,7 @@
                     <md-table-cell>234</md-table-cell>
                     <md-table-cell>234 + 202 + 0</md-table-cell>
                     <md-table-cell>436</md-table-cell>
-                    <md-table-cell>VI</md-table-cell>
+                    <md-table-cell>V</md-table-cell>
                   </md-table-row>
                   <md-table-row>
                     <md-table-cell>提利爾</md-table-cell>
@@ -307,9 +349,9 @@
                     <md-table-cell>+45</md-table-cell>
                     <md-table-cell>+0</md-table-cell>
                     <md-table-cell>220 <span style="color: red">+25 (離職人員RV值)</span></md-table-cell>
-                    <md-table-cell>245 + 186 + 60</md-table-cell>
-                    <md-table-cell>491</md-table-cell>
-                    <md-table-cell>III</md-table-cell>
+                    <md-table-cell>245 + 186 + 0</md-table-cell>
+                    <md-table-cell>431</md-table-cell>
+                    <md-table-cell>VI</md-table-cell>
                   </md-table-row>
                   <md-table-row>
                     <md-table-cell>拜拉席恩</md-table-cell>
@@ -317,9 +359,9 @@
                     <md-table-cell>+45</md-table-cell>
                     <md-table-cell>+0</md-table-cell>
                     <md-table-cell>158</md-table-cell>
-                    <md-table-cell>158 + 208 + 70 + 20</md-table-cell>
-                    <md-table-cell>456</md-table-cell>
-                    <md-table-cell>IV</md-table-cell>
+                    <md-table-cell>158 + 208 + 70 + 60 + 20</md-table-cell>
+                    <md-table-cell>516</md-table-cell>
+                    <md-table-cell>III</md-table-cell>
                   </md-table-row>
                 </md-table>
                 <md-content>
@@ -465,8 +507,12 @@
                     <md-table-cell>九淺一深</md-table-cell>
                     <md-table-cell>60</md-table-cell>
                     <md-table-cell>蘭尼斯特</md-table-cell>
-                    <md-table-cell>提利爾</md-table-cell>
-                    <md-table-cell>條件排序異動</md-table-cell>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell>
+                      <p style="color: #c50101">***該獎牌此次登錄第一次有手誤、直接公布條件避免爭議***</p>
+                      <p style="color: #c50101">1. 家族累計的名次變動數最高</p>
+                      <p style="color: #c50101">2. 變動數大於等於 9</p>
+                    </md-table-cell>
                   </md-table-row>
                   <md-table-row>
                     <md-table-cell>如夢似幻</md-table-cell>
