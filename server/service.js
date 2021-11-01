@@ -514,7 +514,7 @@ function refreshUserScore(res) {
                 Object.keys(matchRoundMap).map(round => {
                     var bestRecord = matchRoundMap[round];
                     res.matchScore += (bestRecord.mvp + bestRecord.activity);
-                    partake += bestRecord.add+bestRecord.activity > 0 ? 1 : 0;
+                    partake += bestRecord.shift == 0 ? 1 : 0;
                 });
 
             } else {

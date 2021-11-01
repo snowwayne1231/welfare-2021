@@ -185,15 +185,21 @@ export default {
       const map = {};
       if (game.json && game.json.matchesdata) {
         let matchesdata = game.json.matchesdata;
+        let notStarted = matchesdata[0] && matchesdata[0].success == 0;
 
         this.rankingResults = matchesdata.map((m, idx) => {
+          let rankScore = notStarted ?
+            0 :
+            game.json.round > 5 ? 
+              Math.max(60 - (idx * 12), 12) : 
+              Math.max(30 - (idx * 6), 6);
           return {
             house: this.global.houses.find(h => h.id == m.houseId) || {},
             success: m.success,
             add: m.add,
             minus: m.minus,
             shift: m.shift,
-            rankScore: game.json.round > 5 ? Math.max(60 - (idx * 12), 12) : Math.max(30 - (idx * 6), 6),
+            rankScore,
           }
         });
         this.lastResultUpdatedTime = new Date(game.updatedAt);
