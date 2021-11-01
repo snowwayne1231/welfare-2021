@@ -214,9 +214,16 @@ export default {
     },
     getFinalScore(house) {
       let score = house.score + house.scorePersonal;
+      let hasMickeysFavior = 0;
       house.trophies.map(t => {
         score += t.add;
+        if (t.add == 20 || t.add == 30) {
+          hasMickeysFavior += 1;
+        }
       });
+      if (hasMickeysFavior >= 2) {
+        score += 100;
+      }
       return score;
     },
     getTotalRvScore(house) {
