@@ -80,7 +80,7 @@
             </md-list-item>
 
 
-            <md-list-item md-expand v-if="overDate('2021/10/22')">
+            <md-list-item md-expand>
               <span class="material-icons mr-6-px">local_fire_department</span>
               <span class="md-list-item-text">2021-10-22 【 十一月 】 READY PLAYER ONE</span>
               <md-list slot="md-expand">
@@ -132,7 +132,7 @@
                           <md-table-cell>
                             <p>參考遊戲網站： <a href="https://www.smashbros.com/TC/" target="_blank">任天堂明星大亂鬥</a></p>
                             <p style="color: #dd0000">共執行 4 場次，每一場次 4 組參賽，各組派2人</p>
-                            <p>遊戲模式：大亂鬥模式 (三條命、限時6分鐘、場地完全隨機)</p>
+                            <p>遊戲模式：大亂鬥模式 (三條命、限時6分鐘、地圖ALL隨機、道具全開、角色全開不包含DLC)</p>
                             <p>每場次進行兩回合遊戲，排名以團隊存活的順序排名</p>
                             <p>整個賽季同組人員於大亂鬥角色不能選相同</p>
                             <p>(建議每組至少練習16+角色池、彼此溝通不重複選角)</p>
@@ -194,10 +194,10 @@
                         </md-table-row>
                         <md-table-row>
                           <md-table-cell>激鬥峽谷</md-table-cell>
-                          <md-table-cell>4v4晉級賽</md-table-cell>
+                          <md-table-cell>5v5晉級賽</md-table-cell>
                           <md-table-cell>
                             <p>參考遊戲網站： <a href="https://wildrift.leagueoflegends.com/zh-tw/news/" target="_blank">英雄聯盟:激鬥峽谷</a></p>
-                            <p style="color: #dd0000">共執行 5 場次，每一場次 2 組參賽，各組派 4 人 (依晉級賽路程決定哪兩組對戰)</p>
+                            <p style="color: #dd0000">共執行 5 場次，每一場次 2 組參賽，各組派 5 人 (依晉級賽路程決定哪兩組對戰)</p>
                             <p>遊戲模式： 標準(招喚峽谷)、自由選角(無BP)</p>
                             <p>選手自備手機及帳號，一局決勝</p>
                             <p>若比賽超過30分鐘，則使用破塔數量 > 人頭擊殺 > 吃兵數，進行勝負判定</p>
@@ -218,8 +218,9 @@
                     <li>詳細賽程與場次表會以雲端Excel呈現，會陸續與各家族族長一起安排競賽的班表</li>
                   </ul>
                 </md-content>
+
                 <md-content>
-                  <h2>活動各遊戲門檻 (11月17號遊戲開始前公開)</h2>
+                  <h2>活動各遊戲門檻</h2>
                   <md-table class="news-table smaller-table">
                     <md-table-row>
                       <md-table-head style="width: 25%">遊戲項目</md-table-head>
@@ -228,36 +229,82 @@
                     <md-table-row>
                       <md-table-cell>全明星大亂鬥</md-table-cell>
                       <md-table-cell>
-                        <p>I. </p>
-                        <p>II. </p>
-                        <p>III. </p>
+                        <p>I. 有造成擊飛他人</p>
+                        <p>II. 擊飛數 > 死亡數</p>
+                        <p>III. 擊飛數高於第二名 5 以上(含) / 擊飛數 9 人以上</p>
+                        <p style="color: #9c7f52">(以上條件都是計算單一回合內)</p>
                       </md-table-cell>
                     </md-table-row>
                     <md-table-row>
                       <md-table-cell>1-2 Switch</md-table-cell>
                       <md-table-cell>
-                        <p>I. </p>
-                        <p>II. </p>
-                        <p>III. </p>
+                        <p>I. 任一小遊戲獲得勝利</p>
+                        <p>II. 連續勝利</p>
+                        <p>III. 全勝並且取得3勝以上(含)</p>
                       </md-table-cell>
                     </md-table-row>
                     <md-table-row>
                       <md-table-cell>Overcooked</md-table-cell>
                       <md-table-cell>
-                        <p>I. </p>
-                        <p>II. </p>
-                        <p>III. </p>
+                        <p>I. 兩回合皆有過關</p>
+                        <p>II. 兩回合共得到五顆星以上(含)</p>
+                        <p>III. 有一回合分數 > 福委試玩分數</p>
+                        <p style="color: #9c7f52">(福委試玩分數於比賽當下公佈)</p>
                       </md-table-cell>
                     </md-table-row>
                     <md-table-row>
                       <md-table-cell>激鬥峽谷</md-table-cell>
                       <md-table-cell>
-                        <p>I. </p>
-                        <p>II. </p>
-                        <p>III. </p>
+                        <p>I. 有成功擊殺 / 助攻 / 敵方倒下兩座防禦塔</p>
+                        <p>II. KDA >= 3.5</p>
+                        <p>III. 達成 Legendary(8殺不死) / 達成 Panta Kill(5連殺)</p>
                       </md-table-cell>
                     </md-table-row>
                   </md-table>
+                </md-content>
+
+                <md-content>
+                  <h2>電競明星 *** Super Star ***</h2>
+                  <md-table class="news-table smaller-table">
+                    <md-table-row>
+                      <md-table-head style="width: 25%">遊戲項目</md-table-head>
+                      <md-table-head>條件&獎勵</md-table-head>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>全明星大亂鬥</md-table-cell>
+                      <md-table-cell>
+                        <p>1. 單一回合擊飛數最高者+1勝場值</p>
+                        <p>2. 兩回合加總擊飛最多對手的玩家再+2勝場值</p>
+                        <p style="color: #9c7f52">(複數玩家擊飛數相同時則不加分)</p>
+                      </md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>1-2 Switch</md-table-cell>
+                      <md-table-cell>
+                        <p>1. 每一場次擊敗對手最多的玩家+2勝場值</p>
+                        <p>2. 綜觀所有場次中，某一單場擊敗最多對手的玩家再+2勝場值</p>
+                        <p style="color: #9c7f52">(擊敗數相等時以勝率為第二排序原則)</p>
+                      </md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>Overcooked</md-table-cell>
+                      <md-table-cell>
+                        <p>1.綜觀所有場次中，某一單回合的"突破百分率"最高的一組隊伍，每人+1勝場值</p>
+                        <p style="color: #9c7f52">(突破百分率 = 關卡獲得分數 / 關卡三顆星分數要求)</p>
+                        <p style="color: #9c7f52">(例: 某關卡三星分數要求為480，該組玩家過關分數為550分時，突破百分率 = 550 / 480 = 114.58%)</p>
+                        <p style="color: #9c7f52">(若突破百分率相同，則加賽比拚)</p>
+                      </md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>激鬥峽谷</md-table-cell>
+                      <md-table-cell>
+                        <p>1. 每一場次英雄擊殺數最多的玩家+2勝場值</p>
+                        <p>2. 綜觀所有場次中，某一單場英雄擊殺數最多的玩家再+2勝場值</p>
+                        <p style="color: #9c7f52">(若同擊殺數，則以助攻數當第二排序原則，死亡數當第三排序原則)</p>
+                      </md-table-cell>
+                    </md-table-row>
+                  </md-table>
+                  <p>***(以上比較條件若仍無法判定時,則 後者條件符合者 覆蓋 前者條件符合者)***</p>
                 </md-content>
                 
               </md-list>
