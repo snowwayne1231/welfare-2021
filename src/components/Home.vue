@@ -314,7 +314,7 @@
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">local_fire_department</span>
               <span class="material-icons mr-6-px">build</span>
-              <span class="md-list-item-text">2021-10-20 【 戰報 】睿訊微帕拉林匹克運動會</span>
+              <span class="md-list-item-text">2021-10-29 【 戰報 】睿訊微帕拉林匹克運動會</span>
               <md-list slot="md-expand">
                 <md-table class="news-table smaller-table">
                   <md-table-toolbar>
@@ -454,49 +454,49 @@
                     <md-table-head>MVP</md-table-head>
                     <md-table-head>最佳門檻</md-table-head>
                   </md-table-row>
-                  <md-table-row>
-                    <md-table-cell colspan="3">等待投票中..</md-table-cell>
-                  </md-table-row>
                   <!-- <md-table-row>
-                    <md-table-cell>史塔克</md-table-cell>
-                    <md-table-cell>走位有如霍金般風騷</md-table-cell>
-                    <md-table-cell>鑽石</md-table-cell>
-                  </md-table-row>
+                    <md-table-cell colspan="3">等待投票中..</md-table-cell>
+                  </md-table-row> -->
                   <md-table-row>
-                    <md-table-cell>蘭尼斯特</md-table-cell>
-                    <md-table-cell>牛年大吉,牛轉乾坤</md-table-cell>
-                    <md-table-cell>大師</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>提利爾</md-table-cell>
-                    <md-table-cell>我不是LUKE鴨</md-table-cell>
-                    <md-table-cell>白金</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>拜拉席恩</md-table-cell>
-                    <md-table-cell>㊣上班只為交朋友㊣</md-table-cell>
+                    <md-table-cell>艾林</md-table-cell>
+                    <md-table-cell>誰比我會喝飲料</md-table-cell>
                     <md-table-cell>鑽石</md-table-cell>
                   </md-table-row>
                   <md-table-row>
                     <md-table-cell>徒利</md-table-cell>
-                    <md-table-cell>薇薇安</md-table-cell>
-                    <md-table-cell>鑽石</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>艾林</md-table-cell>
-                    <md-table-cell>野人男子漢</md-table-cell>
-                    <md-table-cell>鑽石</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>坦格利安</md-table-cell>
-                    <md-table-cell>系統管理員</md-table-cell>
+                    <md-table-cell>洲子街大地主</md-table-cell>
                     <md-table-cell>鑽石</md-table-cell>
                   </md-table-row>
                   <md-table-row>
                     <md-table-cell>馬泰爾</md-table-cell>
-                    <md-table-cell>海獅會害怕</md-table-cell>
+                    <md-table-cell>阿龍</md-table-cell>
                     <md-table-cell>鑽石</md-table-cell>
-                  </md-table-row> -->
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>史塔克</md-table-cell>
+                    <md-table-cell>傳話仔</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>李阿莫</md-table-cell>
+                    <md-table-cell>一般</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>牛年大吉,牛轉乾坤</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>提利爾</md-table-cell>
+                    <md-table-cell>矮人族族長</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell>艾利森</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
                 </md-table>
 
                 <md-table class="news-table smaller-table">
@@ -680,139 +680,6 @@
                   <p>*** 此次更新後，於"競技場"頁面將家族團體積分、個人Rv值總和、獎牌積分小記同時都納入當前排序</p>
                   <p>*** 注意！當前排序不等於最後結果，尤其獎牌每次活動都有可能因為條件符合情況而異動</p>
                 </md-content>
-              </md-list>
-            </md-list-item>
-
-
-            <md-list-item md-expand>
-              <span class="material-icons mr-6-px">local_fire_department</span>
-              <!-- <span class="material-icons mr-6-px">build</span> -->
-              <span class="md-list-item-text">2021-10-08 【 萬聖節 】 透抽遊戲</span>
-              <md-list slot="md-expand">
-                <md-table class="news-table">
-                  <md-table-toolbar>
-                    <h1 class="md-title">一、活動詳情</h1>
-                  </md-table-toolbar>
-                  <md-table-row>
-                    <md-table-head style="width: 20%"></md-table-head>
-                    <md-table-head>詳情</md-table-head>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>時間</md-table-cell>
-                    <md-table-cell>2021 / 10 / 29 12:30 ~ 16:00</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>地點</md-table-cell>
-                    <md-table-cell>辦公區&大會議室</md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>活動</md-table-cell>
-                    <md-table-cell>
-                      <p>活動當天有裝扮者可以參加"透抽遊戲"</p>
-                      <p>(預設主題為"魷魚遊戲"，若有家族想改裝扮主題可以提前告知福委)</p>
-                      <p>活動當天分別於12:30與15:30會有特定遊戲啟動</p>
-                      <p>限時30分鐘內達到指定過關人數，即可全體獲得獎勵</p>
-                      <p style="color:purple">(12:30場通關人數需達31人、15:30場通關人數需達56人)</p>
-                      <p> * 特別優待 : 選擇裝扮"學生運動服"或"福委主觀認定精心裝扮者"在參與透抽遊戲時會獲得2次生命</p>
-                      <p> * 特別優待2: 生命用完還想繼續挑戰者，可找福委抽"拍照任務"完成即可得到1次生命</p>
-                    </md-table-cell>
-                  </md-table-row>
-                </md-table>
-                <md-table>
-                  <md-table-toolbar>
-                    <h1 class="md-title">二、活動流程</h1>
-                  </md-table-toolbar>
-                  <md-table-row>
-                    <md-table-head style="width: 20%">時間</md-table-head>
-                    <md-table-head>詳細</md-table-head>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>12:00</md-table-cell>
-                    <md-table-cell>
-                      <p>請各家族先集合好裝扮者一起找福委登記生命值才可以參加12:30場次的遊戲</p>
-                      
-                    </md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>12:30</md-table-cell>
-                    <md-table-cell>
-                      <p>1. 第一關遊戲開始，請參賽者依當下指示分批進行遊戲</p>
-                      <p>2. 遊戲中請遵照福委的判定，如失敗減去生命值請原地坐下、或立即離開遊戲區域</p>
-                      <p> * (如有爭議請該場遊戲結束後與福委反應，調錄影紀錄回看)</p>
-                    </md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>13:00</md-table-cell>
-                    <md-table-cell>
-                      <p>第一關結束，可以在下一個關卡來之前找福委抽取"拍照任務"</p>
-                      <p>完成拍照任務並回報&上傳照片至RV-ALL可以獲得1生命值 來應對下午的關卡</p>
-                    </md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>15:00</md-table-cell>
-                    <md-table-cell>
-                      <p>請各家族集合好上午未報到的裝扮者一起登記領取生命值才可以參加15:30場次的遊戲</p>
-                    </md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>15:30</md-table-cell>
-                    <md-table-cell>
-                      <p>第二關遊戲開始，請參賽者依當下指令進行遊戲</p>
-                    </md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>16:00</md-table-cell>
-                    <md-table-cell>
-                      <p>活動結束，結算並執行獎勵辦法</p>
-                    </md-table-cell>
-                  </md-table-row>
-                </md-table>
-                <md-table>
-                  <md-table-toolbar>
-                    <h1 class="md-title">三、獎勵</h1>
-                  </md-table-toolbar>
-                  <md-table-row>
-                    <md-table-head style="width: 20%">項目</md-table-head>
-                    <md-table-head>詳細</md-table-head>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>獎勵條件</md-table-cell>
-                    <md-table-cell>
-                      <p style="color:purple">1. 於12:30達成31人通關遊戲可獲乙次</p>
-                      <p style="color:purple">2. 於15:30達成56人通關遊戲可再獲乙次</p>
-                    </md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>獎勵內容</md-table-cell>
-                    <md-table-cell>
-                      <p>1. 有機率增加免表演排名的名次</p>
-                      <p>2. 如果兩場透抽遊戲都有過關，且兩次數字都落在無效區(0,1,3,6)的話，11月電競月活動排名第一家族可獲得免死金牌</p>
-                    </md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>獎勵方法</md-table-cell>
-                    <md-table-cell>
-                      <p>各家族派遣1人在畫板寫一數字 1~9，抽籤決定其中一人的數字抽出來當"乘數"，</p>
-                      <p>再把其餘7個數字相加後乘此乘數 接著餘除 8 會得到一數字 0~7</p>
-                      <p>此數字即是新增的可以免去表演的排名名次</p>
-                      <p>假設 此數字為0, 1, 3, 6 則為無效；數字為2, 4, 5, 7才會有效新增獎勵</p>
-                    </md-table-cell>
-                  </md-table-row>
-                  <md-table-row>
-                    <md-table-cell>獎勵方法舉例</md-table-cell>
-                    <md-table-cell>
-                      <p>1. 原先免表演名次為1 , 3 , 6</p>
-                      <p><img src="/static/imgs/hallowe/ex1.jpg" /></p>
-                      <p>2. 假設遊戲兩場都達過關人數，且產生兩數字 4 與 7</p>
-                      <p><img src="/static/imgs/hallowe/ex2.jpg" /></p>
-                      <p>3. (假設)結果賽季最終1,3,4,6,7排名的家族都可以免去表演，只由2,5,8名表演</p>
-                    </md-table-cell>
-                  </md-table-row>
-                </md-table>
-                <md-content>
-                  
-                </md-content>
-                
               </md-list>
             </md-list-item>
 
