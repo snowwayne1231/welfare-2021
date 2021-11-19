@@ -21,6 +21,296 @@
           <md-list :md-expand-single="expandSingle">
 
 
+ 
+            <md-list-item md-expand>
+              <span class="material-icons mr-6-px">local_fire_department</span>
+              <span class="material-icons mr-6-px">build</span>
+              <span class="md-list-item-text">2021-10-29 【 戰報 】睿訊微帕拉林匹克運動會</span>
+              <md-list slot="md-expand">
+                <md-table class="news-table smaller-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">一、睿訊微帕拉林匹克運動會 賽後排名總結</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head>家族</md-table-head>
+                    <md-table-head>活動前總分</md-table-head>
+                    <md-table-head>活動加分</md-table-head>
+                    <md-table-head>預測加分</md-table-head>
+                    <md-table-head>總結團體積分</md-table-head>
+                    <md-table-head>團體積分 + RV值 + 獎牌積分</md-table-head>
+                    <md-table-head>總結</md-table-head>
+                    <md-table-head style="width: 8%">總結排名</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>艾林</md-table-cell>
+                    <md-table-cell>108</md-table-cell>
+                    <md-table-cell>+96</md-table-cell>
+                    <md-table-cell>+5</md-table-cell>
+                    <md-table-cell>209 <span style="color: red">+10 (離職人員RV值)</span></md-table-cell>
+                    <md-table-cell>219 + 185 + 0</md-table-cell>
+                    <md-table-cell>404</md-table-cell>
+                    <md-table-cell>VII</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>徒利</md-table-cell>
+                    <md-table-cell>155</md-table-cell>
+                    <md-table-cell>+78</md-table-cell>
+                    <md-table-cell>+0</md-table-cell>
+                    <md-table-cell>233</md-table-cell>
+                    <md-table-cell>233 + 200 + 40 + 80</md-table-cell>
+                    <md-table-cell>553</md-table-cell>
+                    <md-table-cell>II</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>馬泰爾</md-table-cell>
+                    <md-table-cell>179</md-table-cell>
+                    <md-table-cell>+66</md-table-cell>
+                    <md-table-cell>+0</md-table-cell>
+                    <md-table-cell>245 <span style="color: red">+19 (離職人員RV值)</span></md-table-cell>
+                    <md-table-cell>264 + 183 + 0</md-table-cell>
+                    <md-table-cell>447</md-table-cell>
+                    <md-table-cell>IV</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>史塔克</md-table-cell>
+                    <md-table-cell>92</md-table-cell>
+                    <md-table-cell>+57</md-table-cell>
+                    <md-table-cell>+0</md-table-cell>
+                    <md-table-cell>149</md-table-cell>
+                    <md-table-cell>149 + 202 + 50</md-table-cell>
+                    <md-table-cell>401</md-table-cell>
+                    <md-table-cell>VIII</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>212</md-table-cell>
+                    <md-table-cell>+48</md-table-cell>
+                    <md-table-cell>+3</md-table-cell>
+                    <md-table-cell>263</md-table-cell>
+                    <md-table-cell>263 + 232 + 100 + 90 + 30 + 10</md-table-cell>
+                    <md-table-cell>725</md-table-cell>
+                    <md-table-cell>I</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>179</md-table-cell>
+                    <md-table-cell>+48</md-table-cell>
+                    <md-table-cell>+7</md-table-cell>
+                    <md-table-cell>234</md-table-cell>
+                    <md-table-cell>234 + 202 + 0</md-table-cell>
+                    <md-table-cell>436</md-table-cell>
+                    <md-table-cell>V</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>提利爾</md-table-cell>
+                    <md-table-cell>175</md-table-cell>
+                    <md-table-cell>+45</md-table-cell>
+                    <md-table-cell>+0</md-table-cell>
+                    <md-table-cell>220 <span style="color: red">+25 (離職人員RV值)</span></md-table-cell>
+                    <md-table-cell>245 + 186 + 0</md-table-cell>
+                    <md-table-cell>431</md-table-cell>
+                    <md-table-cell>VI</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell>113</md-table-cell>
+                    <md-table-cell>+45</md-table-cell>
+                    <md-table-cell>+0</md-table-cell>
+                    <md-table-cell>158</md-table-cell>
+                    <md-table-cell>158 + 208 + 70 + 60 + 20</md-table-cell>
+                    <md-table-cell>516</md-table-cell>
+                    <md-table-cell>III</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <p>活動優勝家族為: 艾林 !! </p>
+                  <p>二、預測成功名單：</p>
+                </md-content>
+                <md-table>
+                  <md-table-row>
+                    <md-table-head>家族</md-table-head>
+                    <md-table-head>預測人</md-table-head>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>蘭尼斯特</md-table-cell><md-table-cell>
+                      <p>賈德</p>
+                      <p>膨風的眼鏡犬</p>
+                      <p>肖恩</p>
+                      <p>愛你</p>
+                      <p>街友</p>
+                      <p>哇</p>
+                      <p>HSU</p>
+                    </md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>坦格利安</md-table-cell><md-table-cell>
+                      <p>瑞塔</p>
+                      <p>乂☆煞氣a丁尼☆乂</p>
+                      <p>小鳥胃☄☄</p>
+                    </md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>艾林</md-table-cell><md-table-cell>
+                      <p>誰比我會喝飲料</p>
+                      <p>八拉崩巴</p>
+                      <p>貂</p>
+                      <p>小鼠吉</p>
+                      <p>多喝水沒事</p>
+                    </md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-table>
+                  <md-table-toolbar>
+                    <h1 class="md-title">三、家族內部 票選MVP人員</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head>家族</md-table-head>
+                    <md-table-head>MVP</md-table-head>
+                    <md-table-head>最佳門檻</md-table-head>
+                  </md-table-row>
+                  <!-- <md-table-row>
+                    <md-table-cell colspan="3">等待投票中..</md-table-cell>
+                  </md-table-row> -->
+                  <md-table-row>
+                    <md-table-cell>艾林</md-table-cell>
+                    <md-table-cell>誰比我會喝飲料</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>徒利</md-table-cell>
+                    <md-table-cell>洲子街大地主</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>馬泰爾</md-table-cell>
+                    <md-table-cell>阿龍</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>史塔克</md-table-cell>
+                    <md-table-cell>傳話仔</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>李阿莫</md-table-cell>
+                    <md-table-cell>一般</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>牛年大吉,牛轉乾坤</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>提利爾</md-table-cell>
+                    <md-table-cell>矮人族族長</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell>艾利森</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                </md-table>
+
+                <md-table class="news-table smaller-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">四、獎牌異動與提示</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 20%">獎牌</md-table-head>
+                    <md-table-head>相應積分</md-table-head>
+                    <md-table-head>異動前家族</md-table-head>
+                    <md-table-head>當前獲得家族</md-table-head>
+                    <md-table-head>備註</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>獨孤求敗</md-table-cell>
+                    <md-table-cell>10</md-table-cell>
+                    <md-table-cell>--</md-table-cell>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>--</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>工作不養閒人</md-table-cell>
+                    <md-table-cell>20</md-table-cell>
+                    <md-table-cell>馬泰爾</md-table-cell>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell>因"精靈"離職原擁有者馬泰爾家族數值降低</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>團隊不養懶人</md-table-cell>
+                    <md-table-cell>30</md-table-cell>
+                    <md-table-cell>--</md-table-cell>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>--</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>寸草春暉</md-table-cell>
+                    <md-table-cell>40</md-table-cell>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>徒利</md-table-cell>
+                    <md-table-cell>
+                      <p>蘭尼斯特與徒利本都是100%同單位，因IT2新人加入艾林家族只剩徒利家族符合100%同單位家人</p>
+                      <p style="color: #c50101">***該獎牌應不會再異動直接公布條件***</p>
+                      <p style="color: #c50101">1. 與家族族長同單位工作 之成員的數量比例最高</p>
+                      <p style="color: #c50101">2. 同單位成員數大於等於三人</p>
+                    </md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>情投意合</md-table-cell>
+                    <md-table-cell>50</md-table-cell>
+                    <md-table-cell>提利爾</md-table-cell>
+                    <md-table-cell>史塔克</md-table-cell>
+                    <md-table-cell>因提利爾家族"瘋狂小傑森&睿訊伏黑惠"離職與新加入家人的能力值而降低</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>九淺一深</md-table-cell>
+                    <md-table-cell>60</md-table-cell>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell>
+                      <p style="color: #c50101">***該獎牌此次登錄第一次有手誤、直接公布條件避免爭議***</p>
+                      <p style="color: #c50101">1. 家族累計的名次變動數最高</p>
+                      <p style="color: #c50101">2. 變動數大於等於 9</p>
+                    </md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>如夢似幻</md-table-cell>
+                    <md-table-cell>70</md-table-cell>
+                    <md-table-cell>--</md-table-cell>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell>
+                      <p style="color: #c50101">***該獎牌應不會再異動直接公布條件***</p>
+                      <p style="color: #c50101">1. 家族的女性成員總數最多</p>
+                    </md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>含辛茹苦</md-table-cell>
+                    <md-table-cell>80</md-table-cell>
+                    <md-table-cell>--</md-table-cell>
+                    <md-table-cell>徒利</md-table-cell>
+                    <md-table-cell>
+                      <p style="color: #c50101">***該獎牌應不會再異動直接公布條件***</p>
+                      <p style="color: #c50101">1. 任何一次參與遊戲時 戰隊成員+傭顧成員的加總工號數最高</p>
+                    </md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>阿姨我不想努力了</md-table-cell>
+                    <md-table-cell>90</md-table-cell>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>條件排序異動</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>魚知水恩乃幸福之源</md-table-cell>
+                    <md-table-cell>100</md-table-cell>
+                    <md-table-cell>--</md-table-cell>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>--</md-table-cell>
+                  </md-table-row>
+                </md-table>
+              </md-list>
+            </md-list-item>
+
+
             <md-list-item md-expand>
               <span class="material-icons mr-6-px">local_fire_department</span>
               <!-- <span class="material-icons mr-6-px">build</span> -->
