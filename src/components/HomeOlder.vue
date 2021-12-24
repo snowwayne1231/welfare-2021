@@ -21,10 +21,633 @@
           <md-list :md-expand-single="expandSingle">
 
 
- 
             <md-list-item md-expand>
-              <span class="material-icons mr-6-px">local_fire_department</span>
-              <span class="material-icons mr-6-px">build</span>
+              <span class="md-list-item-text">2021-12-17 【 戰報 】READY PLAYER ONE</span>
+              <md-list slot="md-expand">
+                <md-table class="news-table smaller-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">一、賽後排名總結</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head>家族</md-table-head>
+                    <md-table-head>活動前總分</md-table-head>
+                    <md-table-head>活動加分</md-table-head>
+                    <md-table-head>預測加分</md-table-head>
+                    <md-table-head>總結團體積分</md-table-head>
+                    <md-table-head>團體積分 + RV值 + 獎牌積分</md-table-head>
+                    <md-table-head>總結</md-table-head>
+                    <md-table-head style="width: 5%">總結排名</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>263</md-table-cell>
+                    <md-table-cell>+96</md-table-cell>
+                    <md-table-cell>+11</md-table-cell>
+                    <md-table-cell>370</md-table-cell>
+                    <md-table-cell>370 + 270 + 100 + 90 + 30 + 20 + 10 <span style="color: #e31c1c">+100</span></md-table-cell>
+                    <md-table-cell>990</md-table-cell>
+                    <md-table-cell>I</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>徒利</md-table-cell>
+                    <md-table-cell>233</md-table-cell>
+                    <md-table-cell>+81</md-table-cell>
+                    <md-table-cell>+0</md-table-cell>
+                    <md-table-cell>314</md-table-cell>
+                    <md-table-cell>314 + 234 + 40 + 80</md-table-cell>
+                    <md-table-cell>668</md-table-cell>
+                    <md-table-cell>II</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>艾林</md-table-cell>
+                    <md-table-cell>219</md-table-cell>
+                    <md-table-cell>+57</md-table-cell>
+                    <md-table-cell>+3</md-table-cell>
+                    <md-table-cell>279</md-table-cell>
+                    <md-table-cell>279 + 211</md-table-cell>
+                    <md-table-cell>490</md-table-cell>
+                    <md-table-cell>VII</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>234</md-table-cell>
+                    <md-table-cell>+51</md-table-cell>
+                    <md-table-cell>+6</md-table-cell>
+                    <md-table-cell>291</md-table-cell>
+                    <md-table-cell>291 + 231</md-table-cell>
+                    <md-table-cell>522</md-table-cell>
+                    <md-table-cell>V</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell>158</md-table-cell>
+                    <md-table-cell>+45</md-table-cell>
+                    <md-table-cell>+0</md-table-cell>
+                    <md-table-cell>203</md-table-cell>
+                    <md-table-cell>203 + 240 + 70 + 60</md-table-cell>
+                    <md-table-cell>573</md-table-cell>
+                    <md-table-cell>III</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>史塔克</md-table-cell>
+                    <md-table-cell>149</md-table-cell>
+                    <md-table-cell>+33</md-table-cell>
+                    <md-table-cell>+2</md-table-cell>
+                    <md-table-cell>184</md-table-cell>
+                    <md-table-cell>184 + 230 + 50</md-table-cell>
+                    <md-table-cell>464</md-table-cell>
+                    <md-table-cell>VIII</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>馬泰爾</md-table-cell>
+                    <md-table-cell>264</md-table-cell>
+                    <md-table-cell>+45</md-table-cell>
+                    <md-table-cell>+1</md-table-cell>
+                    <md-table-cell>310</md-table-cell>
+                    <md-table-cell>310 + 213</md-table-cell>
+                    <md-table-cell>523</md-table-cell>
+                    <md-table-cell>IV</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>提利爾</md-table-cell>
+                    <md-table-cell>245</md-table-cell>
+                    <md-table-cell>+45</md-table-cell>
+                    <md-table-cell>+2</md-table-cell>
+                    <md-table-cell>292</md-table-cell>
+                    <md-table-cell>292 + 211</md-table-cell>
+                    <md-table-cell>503</md-table-cell>
+                    <md-table-cell>VI</md-table-cell>
+                  </md-table-row>
+                  
+                </md-table>
+                <md-content>
+                  <p>活動優勝家族為: 坦格利安 !! </p>
+                  <p>二、預測成功名單：</p>
+                </md-content>
+                <md-table>
+                  <md-table-row>
+                    <md-table-head>家族</md-table-head>
+                    <md-table-head>預測人</md-table-head>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>坦格利安</md-table-cell><md-table-cell>
+                      <p>悲傷滷肉飯</p>
+                      <p>狼皮羊</p>
+                      <p>阿強</p>
+                      <p>系統管理員</p>
+                      <p>瑞塔</p>
+                      <p>🥺🥺🥺🥺🥺</p>
+                      <p>脾氣最好的姐姐 ◉‿◉</p>
+                      <p>天虎令</p>
+                      <p>污辱米糕</p>
+                      <p>李阿莫</p>
+                      <p>異世界轉生的中二生活</p>
+                    </md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>蘭尼斯特</md-table-cell><md-table-cell>
+                      <p>Super hero</p>
+                      <p>肖恩</p>
+                      <p>牛年大吉,牛轉乾坤</p>
+                      <p>賈德</p>
+                      <p>吃肥褲撐破</p>
+                      <p>HSU</p>
+                    </md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>艾林</md-table-cell><md-table-cell>
+                      <p>貂</p>
+                      <p>Acacia_Power</p>
+                      <p>多喝水沒事</p>
+                    </md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>史塔克</md-table-cell><md-table-cell>
+                      <p>西米拉拉非</p>
+                      <p>雞排要切不要辣</p>
+                    </md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>提利爾</md-table-cell><md-table-cell>
+                      <p>我不是LUKE鴨</p>
+                      <p>珂珂</p>
+                    </md-table-cell>
+                  </md-table-row><md-table-row>
+                    <md-table-cell>馬爾泰</md-table-cell><md-table-cell>
+                      <p>龜龜</p>
+                    </md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-table>
+                  <md-table-toolbar>
+                    <h1 class="md-title">三、家族內部 票選MVP人員</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head>家族</md-table-head>
+                    <md-table-head>MVP</md-table-head>
+                    <md-table-head>最佳門檻</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>悲傷滷肉飯</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>徒利</md-table-cell>
+                    <md-table-cell>天竺鼠阿比</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>艾林</md-table-cell>
+                    <md-table-cell>小鼠吉</md-table-cell>
+                    <md-table-cell>大師</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>蘭尼斯特</md-table-cell>
+                    <md-table-cell>哇</md-table-cell>
+                    <md-table-cell>大師</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell>㊣上班只為吃便當㊣</md-table-cell>
+                    <md-table-cell>一般</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>史塔克</md-table-cell>
+                    <md-table-cell>走位有如霍金般風騷</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>馬泰爾</md-table-cell>
+                    <md-table-cell>龜龜</md-table-cell>
+                    <md-table-cell>鑽石</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>提利爾</md-table-cell>
+                    <md-table-cell>矮人族族長</md-table-cell>
+                    <md-table-cell>白金</md-table-cell>
+                  </md-table-row>
+                </md-table>
+
+                <md-table class="news-table smaller-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">四、獎牌異動</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 20%">獎牌</md-table-head>
+                    <md-table-head>相應積分</md-table-head>
+                    <md-table-head>異動前家族</md-table-head>
+                    <md-table-head>當前獲得家族</md-table-head>
+                    <md-table-head>備註</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>工作不養閒人</md-table-cell>
+                    <md-table-cell>20</md-table-cell>
+                    <md-table-cell>拜拉席恩</md-table-cell>
+                    <md-table-cell>坦格利安</md-table-cell>
+                    <md-table-cell>--</md-table-cell>
+                  </md-table-row>
+                </md-table>
+              </md-list>
+            </md-list-item>
+
+
+
+            <md-list-item md-expand>
+              <span class="md-list-item-text">2021-11-19 【 NEWS 】 年末活動計劃</span>
+              <md-list slot="md-expand">
+                <md-table class="news-table">
+                  <md-table-toolbar>
+                    <h1 class="md-title">一、剩餘活動詳情</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 20%">時間</md-table-head>
+                    <md-table-head>活動名稱</md-table-head>
+                    <md-table-head>詳情</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021 / 10 / 13 - 21</md-table-cell>
+                    <md-table-cell>睿訊微帕拉林匹克運動會</md-table-cell>
+                    <md-table-cell>公司內部兩項帕運項目競賽</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021 / 10 / 29</md-table-cell>
+                    <md-table-cell>萬聖節 - 透抽遊戲</md-table-cell>
+                    <md-table-cell>公司內部共同挑戰遊戲，非競賽</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021 / 11 / 10 - 2021 / 12 / 03</md-table-cell>
+                    <md-table-cell>READY PLAYER ONE</md-table-cell>
+                    <md-table-cell>公司內部多項電玩競賽</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021 / 12 / 17</md-table-cell>
+                    <md-table-cell>健康舒活計劃結算</md-table-cell>
+                    <md-table-cell>公司內部競賽 & 年度賽制總決算</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2021 / 12 / 24</md-table-cell>
+                    <md-table-cell>聖誕節特別企劃</md-table-cell>
+                    <md-table-cell>歡慶聖誕節 & 公佈年度結果</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2022 / 01 / 08</md-table-cell>
+                    <md-table-cell>睿訊9453</md-table-cell>
+                    <md-table-cell>一起 Chill</md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-table>
+                  <md-table-toolbar>
+                    <h1 class="md-title">二、年度家族競賽倒數計時</h1>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 20%">有競賽的活動</md-table-head>
+                    <md-table-head>可獲取獎勵</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>睿訊微帕拉林匹克運動會</md-table-cell>
+                    <md-table-cell>
+                      <p>* 第一名積分60、第二名48分、第三名36分、第四名24分、第五名之後12分</p>
+                      <p>* 個人RV值依表現加成 1 ~ 4</p>
+                    </md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>READY PLAYER ONE</md-table-cell>
+                    <md-table-cell>
+                      <p>* 第一名積分60、第二名48分、第三名36分、第四名24分、第五名之後12分</p>
+                      <p>* 個人RV值依表現加成 1 ~ 4</p>
+                    </md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>健康舒活計劃結算</md-table-cell>
+                    <md-table-cell>
+                      <p>* 第一名積分60、第二名48分、第三名36分、第四名24分、第五名之後12分</p>
+                      <p>* 老闆破格加碼豪華獎</p>
+                      <p>* 家族免死金牌</p>
+                    </md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <p>* 最終獎牌條件的結算會以"健康舒活計劃結算"之後為最終數據</p>
+                  <p>* 若持有獎牌的家族族長在結算時，於地圖板塊上站立於"絕境長城"會視為將獎牌放到北境上，結算不會獲得獎牌積分增益</p>
+                </md-content>
+                <md-content>
+                  <h3>三、競技場積分全揭露</h3>
+                  <p>*** 此次更新後，於"競技場"頁面將家族團體積分、個人Rv值總和、獎牌積分小記同時都納入當前排序</p>
+                  <p>*** 注意！當前排序不等於最後結果，尤其獎牌每次活動都有可能因為條件符合情況而異動</p>
+                </md-content>
+              </md-list>
+            </md-list-item>
+
+
+
+            <md-list-item md-expand>
+              <span class="md-list-item-text">2021-12-01 【 十一月 】 READY PLAYER ONE</span>
+              <md-list slot="md-expand">
+                <md-table class="news-table smaller-table">
+                  <md-table-row>
+                    <md-table-head style="width: 25%">項目</md-table-head>
+                    <md-table-head>詳細</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>時間</md-table-cell>
+                    <md-table-cell>2021 / 11 / 17 ~ 2021 / 12 / 03</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>地點</md-table-cell>
+                    <md-table-cell>辦公室電視牆 / 大會議室 / 遊戲室</md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>遊戲項目</md-table-cell>
+                    <md-table-cell>
+                      <p>* 全明星大亂鬥</p>
+                      <p>* 1-2 switch</p>
+                      <p>* Overcooked</p>
+                      <p>* 激鬥峽谷</p>
+                    </md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <h2>活動辦法</h2>
+                  <ul>
+                    <li>各家族族長請於 10 / 21 下午 15:30 地圖板塊執行時抽籤分組，每兩家族一組，共四組</li>
+                    <li>
+                      <p>每款遊戲中，人員不可重複參加同款遊戲，若重複參加同款遊戲第一次扣2分勝場值，第二次之後每次扣3勝場值</p>
+                      <p style="color: #bd0000">*** 除了此兩情況不會扣分 ： 一、任何晉級賽的第五場 二、遊戲為激鬥峽谷  ***</p>
+                    </li>
+                    <li>
+                      <md-table class="news-table smaller-table">
+                        <md-table-toolbar>
+                          <h1 class="md-title">賽制 & 勝場值:</h1>
+                        </md-table-toolbar>
+                        <md-table-row>
+                          <md-table-head>項目</md-table-head>
+                          <md-table-head>賽制</md-table-head>
+                          <md-table-head>規則與玩法</md-table-head>
+                          <md-table-head>勝場值公式</md-table-head>
+                        </md-table-row>
+                        <md-table-row>
+                          <md-table-cell>全明星大亂鬥</md-table-cell>
+                          <md-table-cell>單場2v2v2v2</md-table-cell>
+                          <md-table-cell>
+                            <p>參考遊戲網站： <a href="https://www.smashbros.com/TC/" target="_blank">任天堂明星大亂鬥</a></p>
+                            <p style="color: #dd0000">共執行 4 場次，每一場次 4 組參賽，各組派2人</p>
+                            <p>遊戲模式：大亂鬥模式 (三條命、限時6分鐘、地圖ALL隨機、道具全開、角色全開)</p>
+                            <p>每場次進行兩回合遊戲，排名以團隊存活的順序排名</p>
+                            <p>整個賽季同組人員於大亂鬥角色不能選相同</p>
+                            <p>(建議每組至少練習16+角色池、彼此溝通不重複選角)</p>
+                          </md-table-cell>
+                          <md-table-cell>
+                            <p>* 每回合結算</p>
+                            <ul>
+                              <li>第一名+3</li>
+                              <li>第二名+2</li>
+                              <li>第三名+1</li>
+                            </ul>
+                            <p>* 單場次最高可能+6</p>
+                          </md-table-cell>
+                        </md-table-row>
+                        <md-table-row>
+                          <md-table-cell>1-2 switch</md-table-cell>
+                          <md-table-cell>4v4晉級賽</md-table-cell>
+                          <md-table-cell>
+                            <p>參考遊戲網站： <a href="https://www.nintendo.tw/switch/1-2-switch/" target="_blank">1-2 switch</a></p>
+                            <p style="color: #dd0000">共執行 5 場次，每一場次 2 組參賽，各組派 4 人 (依晉級賽路程決定哪兩組對戰)</p>
+                            <p>遊戲模式： 派對模式 (類似大富翁每一小遊戲獲勝可以擲一骰子，先到終點勝)</p>
+                            <p>每一小遊戲對戰時，第一棒雙方各自自選派一人對戰</p>
+                            <p>接著從第二棒開始由上一棒輸的一方決定自己出戰的人與指定對方應戰的人</p>
+                            <p>出戰限制: 同一組人中、最高出賽回數與最低出賽回數的人不能差距到3回</p>
+                            <p>(例.甲組中 A君已出賽2回、而BCD君都還未出賽時，A君不能再出賽)</p>
+                            <p>(必須BCD君各自都出賽1次，A君才能再度出賽)</p>
+                          </md-table-cell>
+                          <md-table-cell>
+                            <p>晉級賽總排名</p>
+                            <ul>
+                              <li>第一名+20</li>
+                              <li>第二名+14</li>
+                              <li>第三名+10</li>
+                              <li>第四名+6</li>
+                            </ul>
+                            <p style="color:#dd0000">總排名為五場次結束才會確定</p>
+                          </md-table-cell>
+                        </md-table-row>
+                        <md-table-row>
+                          <md-table-cell>Overcooked</md-table-cell>
+                          <md-table-cell>4v4晉級賽</md-table-cell>
+                          <md-table-cell>
+                            <p>參考遊戲網站： <a href="https://www.team17.com/games/overcooked/" target="_blank">Overcooked</a></p>
+                            <p style="color: #dd0000">共執行 5 場次，每一場次 2 組參賽，各組派 4 人 (依晉級賽路程決定哪兩組對戰)</p>
+                            <p>遊戲模式： 指定相同關卡，取遊戲內分數總和較高方勝</p>
+                            <p>每場次共進行兩回合遊戲</p>
+                            <p>每回合開賽前會有兩分鐘時間練習，並給予兩分鐘時間進行討論</p>
+                          </md-table-cell>
+                          <md-table-cell>
+                            <p>晉級賽總排名</p>
+                            <ul>
+                              <li>第一名+20</li>
+                              <li>第二名+14</li>
+                              <li>第三名+10</li>
+                              <li>第四名+6</li>
+                            </ul>
+                            <p style="color:#dd0000">總排名為五場次結束才會確定</p>
+                          </md-table-cell>
+                        </md-table-row>
+                        <md-table-row>
+                          <md-table-cell>激鬥峽谷</md-table-cell>
+                          <md-table-cell>5v5晉級賽</md-table-cell>
+                          <md-table-cell>
+                            <p>參考遊戲網站： <a href="https://wildrift.leagueoflegends.com/zh-tw/news/" target="_blank">英雄聯盟:激鬥峽谷</a></p>
+                            <p style="color: #dd0000">共執行 5 場次，每一場次 2 組參賽，各組派 5 人 (依晉級賽路程決定哪兩組對戰)</p>
+                            <p>遊戲模式： 標準(招喚峽谷)、自由選角(無BP)</p>
+                            <p>選手自備手機及帳號，一局決勝</p>
+                            <p>若比賽超過30分鐘，則使用破塔數量 > 人頭擊殺 > 吃兵數，進行勝負判定</p>
+                          </md-table-cell>
+                          <md-table-cell>
+                            <p>晉級賽總排名</p>
+                            <ul>
+                              <li>第一名+20</li>
+                              <li>第二名+14</li>
+                              <li>第三名+10</li>
+                              <li>第四名+6</li>
+                            </ul>
+                            <p style="color:#dd0000">總排名為五場次結束才會確定</p>
+                          </md-table-cell>
+                        </md-table-row>
+                      </md-table>
+                    </li>
+                    <li>詳細賽程與場次表會以雲端Excel呈現，會陸續與各家族族長一起安排競賽的班表</li>
+                  </ul>
+                </md-content>
+
+                <md-content>
+                  <h2>活動各遊戲門檻</h2>
+                  <md-table class="news-table smaller-table">
+                    <md-table-row>
+                      <md-table-head style="width: 25%">遊戲項目</md-table-head>
+                      <md-table-head>門檻條件</md-table-head>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>全明星大亂鬥</md-table-cell>
+                      <md-table-cell>
+                        <p>I. 有造成擊飛他人</p>
+                        <p>II. 擊飛數 > 死亡數</p>
+                        <p>III. 擊飛數高於第二名 5 以上(含) / <span style="color:purple">擊飛數 9 人以上(含)</span></p>
+                        <p style="color: #9c7f52">(以上條件都是計算單一回合內)</p>
+                      </md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>1-2 Switch</md-table-cell>
+                      <md-table-cell>
+                        <p>I. 任一小遊戲獲得勝利</p>
+                        <p>II. 連續勝利</p>
+                        <p>III. 全勝並且取得3勝以上(含)</p>
+                      </md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>Overcooked</md-table-cell>
+                      <md-table-cell>
+                        <p>I. 兩回合皆有過關</p>
+                        <p>II. 兩回合共得到五顆星以上(含)</p>
+                        <p>III. 有一回合分數 > 福委試玩分數</p>
+                        <p style="color: #9c7f52">(福委試玩分數於比賽當下公佈)</p>
+                      </md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>激鬥峽谷</md-table-cell>
+                      <md-table-cell>
+                        <p>I. 有成功擊殺 / 助攻 / 敵方倒下兩座防禦塔</p>
+                        <p>II. KDA >= 3.5</p>
+                        <p>III. 達成 Legendary(8殺不死) / 達成 Panta Kill(5連殺)</p>
+                      </md-table-cell>
+                    </md-table-row>
+                  </md-table>
+                </md-content>
+
+                <md-content>
+                  <h2>電競明星 *** Super Star ***</h2>
+                  <md-table class="news-table smaller-table">
+                    <md-table-row>
+                      <md-table-head style="width: 25%">遊戲項目</md-table-head>
+                      <md-table-head>條件&獎勵</md-table-head>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>全明星大亂鬥</md-table-cell>
+                      <md-table-cell>
+                        <p>1. 單一回合擊飛數最高者+1勝場值</p>
+                        <p style="color: purple;">2. 綜觀所有場次中，擊飛最多對手的玩家再+2勝場值</p>
+                        <p style="color: #9c7f52">(複數玩家擊飛數相同時則不加分)</p>
+                      </md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>1-2 Switch</md-table-cell>
+                      <md-table-cell>
+                        <p>1. 每一場次擊敗對手最多的玩家+2勝場值</p>
+                        <p>2. 綜觀所有場次中，某一單場擊敗最多對手的玩家再+2勝場值</p>
+                        <p style="color: #9c7f52">(擊敗數相等時以勝率為第二排序原則)</p>
+                      </md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>Overcooked</md-table-cell>
+                      <md-table-cell>
+                        <p>1.綜觀所有場次中，某一單回合的"突破百分率"最高的一組隊伍，每人+1勝場值</p>
+                        <p style="color: #9c7f52">(突破百分率 = 關卡獲得分數 / 關卡三顆星分數要求)</p>
+                        <p style="color: #9c7f52">(例: 某關卡三星分數要求為480，該組玩家過關分數為550分時，突破百分率 = 550 / 480 = 114.58%)</p>
+                        <p style="color: #9c7f52">(若突破百分率相同，則加賽比拚)</p>
+                      </md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>激鬥峽谷</md-table-cell>
+                      <md-table-cell>
+                        <p>1. 每一場次英雄擊殺數最多的玩家+2勝場值</p>
+                        <p>2. 綜觀所有場次中，某一單場英雄擊殺數最多的玩家再+2勝場值</p>
+                        <p style="color: #9c7f52">(若同擊殺數，則以助攻數當第二排序原則，死亡數當第三排序原則)</p>
+                      </md-table-cell>
+                    </md-table-row>
+                  </md-table>
+                  <p>***(以上比較條件若仍無法判定時,則 後者條件符合者 覆蓋 前者條件符合者)***</p>
+                </md-content>
+                
+              </md-list>
+            </md-list-item>
+
+
+             <md-list-item md-expand>
+              <!-- <span class="material-icons mr-6-px">local_fire_department</span> -->
+              <!-- <span class="material-icons mr-6-px">build</span> -->
+              <span class="md-list-item-text">2021-10-05 【 健康舒活特別計畫 】 個資條款&獎勵辦法</span>
+              <md-list slot="md-expand">
+                <!--  -->
+                <md-table class="news-table smaller-table">
+                  <md-table-toolbar>
+                    <h3>一、活動內容</h3>
+                  </md-table-toolbar>
+                  <md-table-row>
+                    <md-table-head style="width: 15%">項目</md-table-head>
+                    <md-table-head>詳細</md-table-head>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>1. 測量體重 & 報名</md-table-cell>
+                    <md-table-cell><p>找 Mavis 報名+測量 開放時間為 5/17 - 5/31 的每日平日下午3~4點</p><p style="color: red;">夜班人員請私敲 Mavis 預約報名時間</p></md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>2. 個資公開方式</md-table-cell>
+                    <md-table-cell>
+                      <p>只要報名都能挑戰額外獎勵</p>
+                      <p style="color: red;">統一由 Mavis 紀錄&計算個人成績，所有人的體重/體脂數值不對外公開</p>
+                      <p>最終只會列出各家族整體加總之成積，與個人達成之門檻&排序</p>
+                    </md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>3. 身高登入方式</md-table-cell>
+                    <md-table-cell>
+                      <p style="color: red;">統一由 Mavis 取公司歷年健康檢查之身高</p>
+                    </md-table-cell>
+                  </md-table-row>
+                  <md-table-row>
+                    <md-table-cell>4. 測量須知</md-table-cell>
+                    <md-table-cell>
+                      <p>測量時 請脫去多餘衣物，只著單件上衣與單件褲子，<span style="color: red;">如果身體有特殊情況需要加著衣物，請主動告知Mavis並記錄原因</span></p>
+                      <p>測量時 請卸下所有身上所有導電物、非必要飾品、刻意加重重量之物品</p>
+                    </md-table-cell>
+                  </md-table-row>
+                </md-table>
+                <md-content>
+                  <h3>二、競賽與獎勵說明</h3>
+                  <p>此計畫將分別有三項不同的競賽各自有不同的結算方式:</p>
+                  <md-table class="news-table smaller-table">
+                    <md-table-row>
+                      <md-table-head style="width: 15%">項目</md-table-head>
+                      <md-table-head>結算</md-table-head>
+                      <md-table-head>獎勵</md-table-head>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>1. 家族活動競賽</md-table-cell>
+                      <md-table-cell><p>每位報名參賽者個人皆由 期初 測量之 (體重/體脂) 以及 期末測量之 (體重/體脂) 轉換為"分數"</p><p>接著家族的總分依照所有該家族報名成員將此分數加總</p></md-table-cell>
+                      <md-table-cell>原年度賽制裡 八大家族排名競賽，所獲得之團體積分</md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>2. 型男美女獎</md-table-cell>
+                      <md-table-cell><p>由報名家族成員中，最多符合BMI標準值的人數為第一排序</p><p>若BMI標準人數相同，第二排序為 體重/體脂 轉換之分數</p></md-table-cell>
+                      <md-table-cell>
+                        <p>第一名: 家族免死金牌</p>
+                        <p>第二名: 家族全員 +3 能力點數</p>
+                        <p>第三名: 家族全員 +2 能力點數</p>
+                        <p>第四名: 家族全員 +1 能力點數</p>
+                      </md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                      <md-table-cell>3. 破格加碼獎</md-table-cell>
+                      <md-table-cell>
+                        <p>由 Mickey, Dada, Snow, Jack 四人所得之分數再乘3 (12人份) 來設立標準分數</p>
+                        <p>家族報名成員全部加總之分數大於等於此標準分數</p>
+                        <p style="color:purple">；若八大家族總分全數低於標準分數，則取全公司前五名(個人)</p>
+                      </md-table-cell>
+                      <md-table-cell>
+                        <p>國內豪華旅遊兩天一夜</p>
+                      </md-table-cell>
+                    </md-table-row>
+                  </md-table>
+                </md-content>
+              </md-list>
+            </md-list-item>
+
+
+            <md-list-item md-expand>
               <span class="md-list-item-text">2021-10-29 【 戰報 】睿訊微帕拉林匹克運動會</span>
               <md-list slot="md-expand">
                 <md-table class="news-table smaller-table">
@@ -312,8 +935,6 @@
 
 
             <md-list-item md-expand>
-              <span class="material-icons mr-6-px">local_fire_department</span>
-              <!-- <span class="material-icons mr-6-px">build</span> -->
               <span class="md-list-item-text">2021-10-08 【 萬聖節 】 透抽遊戲</span>
               <md-list slot="md-expand">
                 <md-table class="news-table">
@@ -443,8 +1064,6 @@
             </md-list-item>
             
             <md-list-item md-expand>
-              <span class="material-icons mr-6-px">local_fire_department</span>
-              <span class="material-icons mr-6-px">build</span>
               <span class="md-list-item-text">2021-10-06 【 十月 】睿訊微帕拉林匹克運動會</span>
               <md-list slot="md-expand">
                 <md-table class="news-table smaller-table">
@@ -569,8 +1188,6 @@
 
 
             <md-list-item md-expand>
-              <span class="material-icons mr-6-px">local_fire_department</span>
-              <span class="material-icons mr-6-px">build</span>
               <span class="md-list-item-text">2021-10-06 【 戰報 】桌游月-時光迴廊</span>
               <md-list slot="md-expand">
                 <md-table class="news-table smaller-table">

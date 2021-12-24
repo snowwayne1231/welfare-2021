@@ -252,15 +252,15 @@ function onMessage(socket) {
                 }).then(t => {
                     socket.emit('MESSAGE', {act: enums.ACT_GET_TROPHY, payload: t});
                 }).catch(err => console.log(err));
-            case enums.ACT_UPDATE_NICKNAME:
-                if (userinfo.rv < 3) { return; }
-                return models.User.findOne({where: {id: userinfo.id}}).then(user => {
-                    user.update({nickname: payload.nickname, rv: userinfo.rv - 3}).then(updated => {
-                        const next_userinfo = updated.toJSON();
-                        models.Order.create({before: userinfo.nickname, after: next_userinfo.nickname, userId: userinfo.id, spend: 3});
-                        socket.emit('MESSAGE', {act: 'successed', redirect: '/logout'});
-                    });
-                }).catch(err => console.log(err));
+            // case enums.ACT_UPDATE_NICKNAME:
+            //     if (userinfo.rv < 3) { return; }
+            //     return models.User.findOne({where: {id: userinfo.id}}).then(user => {
+            //         user.update({nickname: payload.nickname, rv: userinfo.rv - 3}).then(updated => {
+            //             const next_userinfo = updated.toJSON();
+            //             models.Order.create({before: userinfo.nickname, after: next_userinfo.nickname, userId: userinfo.id, spend: 3});
+            //             socket.emit('MESSAGE', {act: 'successed', redirect: '/logout'});
+            //         });
+            //     }).catch(err => console.log(err));
             case enums.ACT_ADMIN_CREATE_GAME: {
                 if (userinfo.code != 'R343') { return socket.emit('MESSAGE', {act: 'not promised', redirect: '/logout'}); }
                 let name = payload.name;

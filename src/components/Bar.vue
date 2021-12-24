@@ -40,7 +40,7 @@
               </md-table-row>
             </md-table>
           </div>
-          <div class="bar-content-open-table-btn bar-content-open" @click="onClickBarOpenBoard"><img src="/static/imgs/board.png" /></div>
+          <!-- <div class="bar-content-open-table-btn bar-content-open" @click="onClickBarOpenBoard"><img src="/static/imgs/board.png" /></div> -->
           <div class="bar-content-menu" :class="{active: openMenu}" ref="menuContent">
             <md-tabs>
               <!-- <md-tab id="bar-tab-notice" md-label="公告" md-icon="notifications">
@@ -51,7 +51,7 @@
                   <li>公告: 是吃的嗎 X</li>
                 </div>
               </md-tab> -->
-              <md-tab id="bar-tab-store" md-label="商品" md-icon="store" exact md-active-tab>
+              <!-- <md-tab id="bar-tab-store" md-label="商品" md-icon="store" exact md-active-tab>
                 <Hepler title="可以在此使用ＲＶ值購買商品" />
                 <div class="bar-store">
                   <div class="item" v-for="(it, idx) in items" :key="idx" :class="{inactive: !it.activate}" @click="onClickItem(it)">
@@ -87,7 +87,7 @@
                     </div>
                   </div>
                 </md-dialog>
-              </md-tab>
+              </md-tab> -->
               <!-- <md-tab id="bar-tab-join" md-label="國民入境" md-icon="directions_run">
                 <div class="family-join">
                   <div class="house" v-for="house in global.houses" :key="house.id" :class="'house-'+house.en">
@@ -103,7 +103,7 @@
               <md-tab id="bar-tab-posts" md-label="離開" md-icon="exit_to_app" @click="onClickCancelMenu"></md-tab>
             </md-tabs>
           </div>
-          <div class="bar-content-open-bartender bar-content-open" @click="onClickBarOpenMenu"><img src="/static/imgs/bartender.png" /></div>
+          <!-- <div class="bar-content-open-bartender bar-content-open" @click="onClickBarOpenMenu"><img src="/static/imgs/bartender.png" /></div> -->
         </div>
         <ChatBox></ChatBox>
       </md-card-content>
@@ -214,20 +214,20 @@ export default {
     onClickCloseBoard(evt) {
       this.openBoard = false;
     },
-    onClickBarOpenMenu(evt) {
-      this.openMenu = !this.openMenu;
-      if (this.openMenu && this.global.countryBorder.length == 0) {
-        this.$store.dispatch('wsEmitMessage', {act: ACT_GET_COUNTRYSIDE_DATA});
-      }
-      if (this.openMenu) {
-        const naviBtn = this.$refs.menuContent.querySelector('.md-tabs-navigation .md-button');
-        if (Array.isArray(naviBtn)) {
-          naviBtn[0] && naviBtn[0].click();
-        } else if(naviBtn) {
-          naviBtn.click();
-        }
-      }
-    },
+    // onClickBarOpenMenu(evt) {
+    //   this.openMenu = !this.openMenu;
+    //   if (this.openMenu && this.global.countryBorder.length == 0) {
+    //     this.$store.dispatch('wsEmitMessage', {act: ACT_GET_COUNTRYSIDE_DATA});
+    //   }
+    //   if (this.openMenu) {
+    //     const naviBtn = this.$refs.menuContent.querySelector('.md-tabs-navigation .md-button');
+    //     if (Array.isArray(naviBtn)) {
+    //       naviBtn[0] && naviBtn[0].click();
+    //     } else if(naviBtn) {
+    //       naviBtn.click();
+    //     }
+    //   }
+    // },
     onClickCancelMenu(evt) {
       this.openMenu = false;
       evt.preventDefault();
@@ -267,30 +267,6 @@ export default {
         this.$store.dispatch('wsEmitMessage', {act: ACT_UPDATE_COUNTRYSIDE, payload});
       }
     },
-    onClickItem(item) {
-      if (item.activate) {
-        if (item.price > this.user.rv) {
-          return window.alert('ＲＶ值不足');
-        }
-        
-        switch (item.name) {
-          case '更名卷軸':
-            this.activeBuy = true;
-            return ;
-            default:
-        }
-
-      }
-    },
-    onConfirmBuying(evt) {
-      const nextName = this.buyingInput;
-      if (window.confirm(`確定暱稱修改為 『 ${nextName} 』 嗎？`)) {
-        this.activeBuy = false;
-        this.$store.dispatch('wsEmitMessage', {act: ACT_UPDATE_NICKNAME, payload: {nickname: nextName}});
-      }
-      
-    },
-    
   }
 }
 </script>

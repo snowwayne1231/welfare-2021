@@ -972,7 +972,7 @@ function freshGameResult(req, res) {
                 return gap == 0 ? b.activity - a.activity : gap;
             })
             const nextJson = {...result._json, matchesdata};
-            const nextRanking = matchesdata.filter(e => e.add > 0).map(e => e.houseId);
+            const nextRanking = matchesdata.filter(e => e.add > 0 || e.activity > 0).map(e => e.houseId);
             
             result.update({
                 json: JSON.stringify(nextJson),
